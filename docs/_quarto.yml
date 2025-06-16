@@ -28,6 +28,8 @@ website:
       background: light
       collapse-level: 2
       contents:
+        - text: Home
+          file: index.md
         - text: Existing resources
           file: 1-existing-resources.md
         - text: Data repositories
