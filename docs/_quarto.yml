@@ -23,7 +23,7 @@ website:
       - text: Slides
         file: "./slides/index.qmd"
   sidebar:
-    - title: "Docs"
+    - search: true
       style: "docked"
       background: light
       collapse-level: 2
@@ -47,7 +47,4 @@ website:
         - text: Data visualisation
           file: 9-data-visualisation.md
 
-format:
-  html:
-    page-layout: full
 
