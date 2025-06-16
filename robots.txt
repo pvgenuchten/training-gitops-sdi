@@ -1,0 +1,1 @@
+Sitemap: https://pvgenuchten.github.io/training-gitops-sdi/sitemap.xml

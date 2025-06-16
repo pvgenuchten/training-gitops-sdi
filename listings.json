@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/1.1-overview.html",
+      "/slides/1.3-tools.html",
+      "/slides/2.1-collect-publish-metadata.html",
+      "/slides/3.1-ogc-data-services.html",
+      "/slides/3.2-service-quality.html",
+      "/slides/4.1-soil-profile-data-management.html"
+    ]
+  }
+]
