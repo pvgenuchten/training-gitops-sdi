@@ -22,13 +22,13 @@ Since every metadata initiative tends to have dedicated columns. A templating ap
 ```bash
 crawl-metadata --mode=import-csv --dir="./csv"
 ```
-# Dckr & Linux
+# Docker & Linux
 ```bash
-docker run -it --rm -v$(pwd):/tmp \
+docker run -it --rm -v $(pwd):/tmp \
   org/metatraining crawl-metadata \
   --mode=import-csv --dir="/tmp/csv"
 ```
-# Dckr & Powershell
+# Docker & Powershell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
   org/metatraining crawl-metadata `

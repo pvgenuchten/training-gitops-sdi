@@ -23,14 +23,14 @@ To assess the availability of a service, it requires to monitor the availability
 
 In this workshop we're introducting the a Python based monitoring solution, called [GeoHealthCheck](https://geohealthcheck.org/). Geohealthcheck is designed to monitor spatial data services specifically.
 
-The following exercise assumes docker desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page). 
+The following exercise assumes Docker Desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page). 
 
 
 :::{.callout-tip}
 - Start by setting up a local GeoHealthCheck container:
 
 ```bash
-docker run -p80:80 geopython/geohealthcheck
+docker run -p 80:80 geopython/geohealthcheck
 ```
 - Visit http://localhost
 - Login as user: admin, password: admin
@@ -89,13 +89,13 @@ To capture the usage of a service you can extract the usage logs and import them
 ::: {.panel-tabset}
 # Linux
 ```bash
-docker run -d --restart always --publish 3000:80 \
+docker run -d --restart always -p 3000:80 \
  --name awstats --volume $(pwd):/var/local/log:ro \
  pabra/awstats
 ```
 # Powershell
 ```bash
-docker run -d --restart always --publish 3000:80 `
+docker run -d --restart always -p 3000:80 `
  --name awstats -v "${PWD}:/var/local/log:ro" `
  pabra/awstats
 ```

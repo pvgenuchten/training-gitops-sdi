@@ -12,7 +12,7 @@ In this paragraph you will be introduced to various standardised APIs, after whi
 
 ## Standardised data APIs 
 
-Standardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of [Spatial data on the web best practices](https://www.w3.org/TR/sdw-bp/). OGC then initiated a new generation of standards based on these best practices.
+Standardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of [Spatial Data on the Web Best Practices](https://www.w3.org/TR/sdw-bp/). Combined with the [OGC Open Geospatial APIs - White Paper](https://docs.ogc.org/wp/16-019r4/16-019r4.html), OGC then initiated a new generation of standards based on these best practices.
 
 An overview of both generations:
 
@@ -21,9 +21,9 @@ An overview of both generations:
 | Web Map Service ([WMS](https://www.ogc.org/standard/wms/)) | [Maps](https://ogcapi.ogc.org/maps/) | Provides a visualisation of a subset of the data |
 | Web Feature Service ([WFS](https://www.ogc.org/standard/wfs/)) | [Features](https://ogcapi.ogc.org/features/) | API to request a subset of the vector features |
 | Web Coverage Service ([WCS](https://www.ogc.org/standard/wcs/)) | [Coverages](https://ogcapi.ogc.org/coverages/) | API to interact with grid sources |
-| Sensor Observation Service ([SOS](https://www.ogc.org/standard/sos)) | [Sensorthings](https://www.ogc.org/standard/sensorthings/) | Retrieve subsets of sensor observations |
-| [Web Processing Service](https://www.ogc.org/standard/wps) (WPS) | [OGCAPI:Processes](https://ogcapi.ogc.org/processes) | Run processes on data ]
-| [Catalogue Service for the web](https://www.ogc.org/standard/cat) (CSW) | [OGCAPI:Records](https://ogcapi.ogc.org/records) | Retrieve and filter catalogue records |
+| Sensor Observation Service ([SOS](https://www.ogc.org/standard/sos)) | [SensorThings](https://www.ogc.org/standard/sensorthings/) | Retrieve subsets of sensor observations |
+| Web Processing Service ([WPS](https://www.ogc.org/standard/wps)) | [Processes](https://ogcapi.ogc.org/processes) | Run processes on data ]
+| Catalogue Service for the Web ([CSW](https://www.ogc.org/standard/cat)) | [Records](https://ogcapi.ogc.org/records) | Retrieve and filter catalogue records |
 
 Notice that most of the mapping software supports the standards of both generations. However, due to their recent
 introduction, expect incidental challenges in the implementations of OGC APIs. 
@@ -32,21 +32,21 @@ introduction, expect incidental challenges in the implementations of OGC APIs.
 
 ## Setting up an API
 
-[Mapserver](https://mapserver.org) is server software which is able to expose datasets through various APIs. 
+[MapServer](https://mapserver.org) is server software which is able to expose datasets through various APIs. 
 Examples of similar software are [QGIS server](https://docs.qgis.org/3.28/en/docs/server_manual/introduction.html), 
-[ArcGIS Server](https://enterprise.arcgis.com/en/server/), [Geoserver](https://geoserver.org) and 
+[ArcGIS Server](https://enterprise.arcgis.com/en/server/), [GeoServer](https://geoserver.org) and 
 [pygeoapi](https://pygeoapi.io).
  
 We've selected mapserver for this training, because of its robustness and low resource consumption.
-Mapserver is configured using a configuration file: called the [mapfile](https://www.mapserver.org/mapfile/). 
+MapServer is configured using a configuration file: called the [mapfile](https://www.mapserver.org/mapfile/). 
 The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour 
 scheme (legend) to draw a map of the dataset.  
 
-Various tools exist to write these configuration files, such as [Mapserver studio](https://mapserverstudio.net/), 
+Various tools exist to write these configuration files, such as [MapServer studio](https://mapserverstudio.net/), 
 [GeoStyler](https://www.osgeo.org/projects/geostyler/), [QGIS Bridge](https://www.geocat.net/docs/bridge/qgis/latest), 
-up to a [visual studio plugin to edit mapfiles](https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile).
+up to a [Visual Studio plugin to edit mapfiles](https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile).
 
-The [GeoDataCrawler](https://pypi.org/project/geodatacrawler/), introduced in a 
+The [pyGeoDataCrawler](https://pypi.org/project/geodatacrawler/), introduced in a 
 [previous paragraph](./2-interact-with-data-repositories.md), also has an option to generate mapfiles. 
 A big advantage of this approach is the integration with existing metadata. 
 GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata 
@@ -69,7 +69,7 @@ But also vice versa; from a mapping application, access the metadata describing 
 mcf:
    version: 1.0
 identification:
-    title: My new mapservice
+    title: My new map service
     abstract: A map service for data about ...
 contact:
   pointOfContact:
@@ -104,7 +104,7 @@ crawl-maps --dir=.
 ```
 # Docker & Linux
 ```bash
-docker run -it --rm -v$(pwd):/tmp \
+docker run -it --rm -v $(pwd):/tmp \
   org/metatraining crawl-maps --dir=/tmp 
 ```
 # Docker & Powershell
@@ -129,7 +129,7 @@ You can test this mapfile locally if you have mapserver installed. On windows, c
 conda install -c conda-forge mapserver
 ```
 
-Mapserver includes a [map2img](https://mapserver.org/utilities/map2img.html) utility, which enables to render a map image from any mapfile.
+MapServer includes a [map2img](https://mapserver.org/utilities/map2img.html) utility, which enables to render a map image from any mapfile.
 
 ```bash
 map2img -m=./mymap.map -o=test.png
@@ -139,7 +139,7 @@ map2img -m=./mymap.map -o=test.png
 
 ## Setup mapserver via Docker 
 
-For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) available from Docker hub.
+For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) available from DockerHub.
 
 ```bash
 docker pull camptocamp/mapserver:master  
@@ -195,7 +195,7 @@ GeoDataCrawler uses default (gray) styling for vector and an average classificat
 
 ## Summary
 
-In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using Mapserver. In the [next section](./8-measure-quality.md) we'll look at measuring service quality.
+In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the [next section](./8-measure-quality.md) we'll look at measuring service quality.
 
 
 

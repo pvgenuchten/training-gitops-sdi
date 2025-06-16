@@ -6,7 +6,7 @@ date: 2023-05-09
 
 In this section a crawler tool is introduced which let's you interact with the metadata in a file based data repository. For this exercise we've prepared a minimal data repository containing a number of Excel-, Shape- and Tiff-files. Unzip the repository to a location on disk. 
 
-In the root folder of the repository already exists a minimal mcf file, `index.yml`. This file contains some generic metadata properties which are used if a file within the repository does not include them. The tool we use is able to inherit metadata properties from this index.yml file through the file hierarchy. 
+In the root folder of the repository already exists a minimal MCF file, `index.yml`. This file contains some generic metadata properties which are used if a file within the repository does not include them. The tool we use is able to inherit metadata properties from this index.yml file through the file hierarchy. 
 
 :::{.callout-tip}
 Open index.yml and customise the contact details. Later you will notice that these details will be applied to all datasets which themselves do not provide contact details. 
@@ -16,11 +16,11 @@ Consider to add additional index.yml files in other folders to override the valu
 
 ## Setup environment
 
-The tool we will use is based on python. It has some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates a virtual python environment, so any activity will not interfere with the base python environment of your machine. Notice that the [next paragraph](#pythongdal-via-docker) describes an alternative approach without installing python locally.
+The tool we will use is based on Python. It has some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates a virtual Python environment, so any activity will not interfere with the base Python environment of your machine. Notice that the [next paragraph](#pythongdal-via-docker) describes an alternative approach without installing Python locally.
 
-If you don't have Conda, we suggest to install [mamba](https://mamba.readthedocs.io/en/latest/), or alternatively run the scripts from a python docker container. Each of the exercises below indicates an option to run the python script directly, or from a container. 
+If you don't have Conda, we suggest to install [mamba](https://mamba.readthedocs.io/en/latest/), or alternatively run the scripts from a Python Docker container. Each of the exercises below indicates an option to run the Python script directly, or from a container. 
 
-Now start a commandline or powershell with mamba or docker enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu.
+Now start a commandline or powershell with mamba or Docker enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu.
 First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the `data` directory but one above.
 
 ```bash
@@ -48,7 +48,7 @@ mamba install -c conda-forge pysqlite3
 Now we will install the crawler tool, [GeoDataCrawler](https://pypi.org/project/geodatacrawler/). The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; [OWSLib](https://github.com/geopython/OWSLib), [pygeometa](https://github.com/geopython/pygeometa) and [GDAL](https://gdal.org).
 
 ```
-pip install geodatacrawler
+pip install pyGeoDataCrawler
 ```
 
 Verify the different crawling options by typing:
@@ -59,17 +59,17 @@ crawl-metadata --help
 
 ### Python/GDAL via Docker
 
-In case you have difficulties setting up python with gdal on your local machine (or just want to try out), an alternative approach is available, using python via Docker. [Docker](https://www.docker.com) is a virtualisation technology which runs isolated containers within your computer. 
+In case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available, using Python via Docker. [Docker](https://www.docker.com) is a virtualisation technology which runs isolated containers within your computer. 
 
 - First [install docker](https://docs.docker.com/desktop/install/windows-install/). 
-- Start the docker desktop tool.
-- Now navigate to the folder where you unzipped the data repository and use the docker image to run the crawler:
+- Start the Docker Desktop tool.
+- Now navigate to the folder where you unzipped the data repository and use the Docker image to run the crawler:
 
 ```bash
 docker run -it --rm pvgenuchten/geodatacrawler crawl-metadata --help
 ```
 
-For advanced docker statements there are some differences between Windows commandline, Windows powershell and Linux. Use the relevant syntax for your system. 
+For advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux. Use the relevant syntax for your system. 
 
 ## Initial MCF files 
 
@@ -80,13 +80,13 @@ The initial task for the tool is to create for every data file in our repository
 ```bash
 crawl-metadata --mode=init --dir=data
 ```
-# Dckr & Linux
+# Docker & Linux
 ```bash
-docker run -it --rm -v$(pwd):/tmp \
+docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=init --dir=tmp/data
 ```
-# Dckr & Powershell
+# Docker & Powershell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
   pvgenuchten/geodatacrawler crawl-metadata `
@@ -99,20 +99,20 @@ Notice that for each resource a {dataset}.yml file has been created. Open a .yml
 
 ## Update MCF
 
-The `update` mode is meant to be run at intervals, it will update the mcf files if changes have been made on a resource. 
+The `update` mode is meant to be run at intervals, it will update the MCF files if changes have been made on a resource. 
 
 ::: {.panel-tabset}
 # Local
 ```bash
 crawl-metadata --mode=update --dir=data
 ```
-# Dckr & Linux
+# Docker & Linux
 ```bash
-docker run -it --rm -v$(pwd):/tmp \
+docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=update --dir=tmp/data
 ```
-# Dckr & Powershell
+# Docker & Powershell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
   pvgenuchten/geodatacrawler crawl-metadata `
@@ -131,14 +131,14 @@ Finally we want to export the MCF's to actual iso19139 metadata to be loaded int
 ```bash
 crawl-metadata --mode=export --dir=data --dir-out=export --dir-out-mode=flat
 ```
-# Dckr & Linux
+# Docker & Linux
 ```bash
-docker run -it --rm -v$(pwd):/tmp \
+docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=export --dir=tmp/data \
  --dir-out=export --dir-out-mode=flat
 ```
-# Dckr & Powershell
+# Docker & Powershell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
   pvgenuchten/geodatacrawler crawl-metadata `
@@ -151,4 +151,4 @@ Open one of the xml files and evaluate if the contact information from step 1 is
 
 ## Summary
 
-In this paragraph you have been introduced to the geodatacrawler library. In the [next section](./3-catalog-publication.md) we are looking at catalogue publication.
+In this paragraph you have been introduced to the pyGeoDataCrawler library. In the [next section](./3-catalog-publication.md) we are looking at catalogue publication.
