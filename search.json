@@ -1,108 +1,94 @@
 [
   {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "Slides training on spatial data flows",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nJun 15, 2025\n\n\n1.1 Training Overview\n\n\nPaul van Genuchten\n\n\n\n\n\n\nJun 15, 2025\n\n\n1.3 Tools\n\n\nPaul van Genuchten\n\n\n\n\n\n\nJun 15, 2025\n\n\n2.1 Collect and Publish metadata\n\n\nPaul van Genuchten\n\n\n\n\n\n\nJun 15, 2025\n\n\n3.1 Data services\n\n\nPaul van Genuchten\n\n\n\n\n\n\nJun 15, 2025\n\n\n3.2 Service Quality\n\n\nPaul van Genuchten\n\n\n\n\n\n\nJun 15, 2025\n\n\n4.1 Soil Profile Datamanagement\n\n\nPaul van Genuchten\n\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/index.html#github",
+    "href": "slides/index.html#github",
+    "title": "1.3 Tools",
+    "section": "Github",
+    "text": "Github\nService to facilitate co-creation\n\nversion history of contributions\nauthentication\nissue management\nrelease management\nContinuous integration\n\nRelated software; Git, Gitlab, Bitbucket, Codeberg"
   },
   {
-    "objectID": "slides/3.2-service-quality.html#service-quality",
-    "href": "slides/3.2-service-quality.html#service-quality",
-    "title": "3.2 Service Quality",
-    "section": "Service quality",
-    "text": "Service quality\n\nMonitor the quality of data services is a driver for improvement\nCreate a monthly report with various statistics"
+    "objectID": "slides/index.html#quarto",
+    "href": "slides/index.html#quarto",
+    "title": "1.3 Tools",
+    "section": "Quarto",
+    "text": "Quarto\nA content management system to create websites, documentation, slides, etc.\nRelated software; Hugo, mkdocs, Jekyll, Wordpress, Drupal"
   },
   {
-    "objectID": "slides/3.2-service-quality.html#usage",
-    "href": "slides/3.2-service-quality.html#usage",
-    "title": "3.2 Service Quality",
-    "section": "Usage",
-    "text": "Usage\n\nAggregate and display access logs\nHow are people using the services\nWhich aspects are popular\nWhich components have a bad performance"
-  },
-  {
-    "objectID": "slides/3.2-service-quality.html#availability",
-    "href": "slides/3.2-service-quality.html#availability",
-    "title": "3.2 Service Quality",
-    "section": "Availability",
-    "text": "Availability\n\nHow often are our services available\nReceive a notification if a service is not available"
-  },
-  {
-    "objectID": "slides/3.2-service-quality.html#complience",
-    "href": "slides/3.2-service-quality.html#complience",
-    "title": "3.2 Service Quality",
-    "section": "Complience",
-    "text": "Complience\n\nDo services comply with the indicated standards (wms, wfs)"
-  },
-  {
-    "objectID": "slides/3.2-service-quality.html#security-incidents-log",
-    "href": "slides/3.2-service-quality.html#security-incidents-log",
-    "title": "3.2 Service Quality",
-    "section": "Security incidents log",
-    "text": "Security incidents log\n\nFraudulent email received\nMany requests from certain IP\nLow quality password detected\nBackup restored due to failing disk"
-  },
-  {
-    "objectID": "slides/3.2-service-quality.html#search-engine-optimisation-sso",
-    "href": "slides/3.2-service-quality.html#search-engine-optimisation-sso",
-    "title": "3.2 Service Quality",
-    "section": "Search engine optimisation (SSO)",
-    "text": "Search engine optimisation (SSO)\n\nCan users find our materials on Search Engines?\nGoogle/Bing offers a SSO Console where you can view crawling and usage statistics"
-  },
-  {
-    "objectID": "slides/3.2-service-quality.html#tools",
-    "href": "slides/3.2-service-quality.html#tools",
-    "title": "3.2 Service Quality",
-    "section": "Tools",
-    "text": "Tools\n\nCheck local IT to understand which tools are offered\nGeohealthcheck is a tool to check availability and complience\nAWStats is a basic tool to evaluate access logs\npingdom & uptimerobot are saas providers offering availability testing"
-  },
-  {
-    "objectID": "slides/2.1-collect-publish-metadata.html#organisations-organise-their-data-in-file-repositories-or-databases",
-    "href": "slides/2.1-collect-publish-metadata.html#organisations-organise-their-data-in-file-repositories-or-databases",
-    "title": "2.1 Collect and Publish metadata",
-    "section": "Organisations organise their data in file repositories or databases",
-    "text": "Organisations organise their data in file repositories or databases\n\nFile hierarchy"
-  },
-  {
-    "objectID": "slides/2.1-collect-publish-metadata.html#a-readme-in-each-folder",
-    "href": "slides/2.1-collect-publish-metadata.html#a-readme-in-each-folder",
-    "title": "2.1 Collect and Publish metadata",
+    "objectID": "slides/index.html#a-readme-in-each-folder",
+    "href": "slides/index.html#a-readme-in-each-folder",
+    "title": "1.3 Tools",
     "section": "A readme in each folder",
     "text": "A readme in each folder\n\nAdd a readme to describe the resources in a folder\nWhy not structure the content in the readme, so also machines can read it?"
   },
   {
-    "objectID": "slides/2.1-collect-publish-metadata.html#metadata-control-file",
-    "href": "slides/2.1-collect-publish-metadata.html#metadata-control-file",
-    "title": "2.1 Collect and Publish metadata",
+    "objectID": "slides/index.html#metadata-control-file",
+    "href": "slides/index.html#metadata-control-file",
+    "title": "1.3 Tools",
     "section": "Metadata Control File",
     "text": "Metadata Control File\n\nA convention of the pygeometa community (Meteo Canada)\nYAML, easy to read by humans and machines\nA subset of the ISO19115 standard for metadata\n\n\nMCF"
   },
   {
-    "objectID": "slides/2.1-collect-publish-metadata.html#pygeometa-library",
-    "href": "slides/2.1-collect-publish-metadata.html#pygeometa-library",
-    "title": "2.1 Collect and Publish metadata",
+    "objectID": "slides/index.html#pygeometa-library",
+    "href": "slides/index.html#pygeometa-library",
+    "title": "1.3 Tools",
     "section": "pygeometa library",
     "text": "pygeometa library\n\na library to work with MCF\nexports MCF to various metadata models (iso, dcat, stac)\nhttps://github.com/geopython/pygeometa"
   },
   {
-    "objectID": "slides/2.1-collect-publish-metadata.html#the-geodatacrawler-tool",
-    "href": "slides/2.1-collect-publish-metadata.html#the-geodatacrawler-tool",
-    "title": "2.1 Collect and Publish metadata",
+    "objectID": "slides/index.html#the-geodatacrawler-tool",
+    "href": "slides/index.html#the-geodatacrawler-tool",
+    "title": "1.3 Tools",
     "section": "The geodatacrawler tool",
     "text": "The geodatacrawler tool\n\nDeveloped at ISRIC in the last year\nOn the shoulders of giants; GDAL, pygeometa, pandas\nGenerates MCF files for a file repository\nImports metadata from external sources\nExtracts MCF files from a repository to load it into a catalogue\nCreates map services configuration for files in the repository"
   },
   {
-    "objectID": "slides/2.1-collect-publish-metadata.html#pycsw-catalogue",
-    "href": "slides/2.1-collect-publish-metadata.html#pycsw-catalogue",
-    "title": "2.1 Collect and Publish metadata",
+    "objectID": "slides/index.html#pycsw-catalogue",
+    "href": "slides/index.html#pycsw-catalogue",
+    "title": "1.3 Tools",
     "section": "pycsw catalogue",
-    "text": "pycsw catalogue\n\nA catalogue implementation in python\nLimited funtionality, easy maintenance\nWide range of supported catalogue standards, serves many communities\nDatabase backend\nSkin customisable with jinja templates"
+    "text": "pycsw catalogue\n\nA catalogue implementation in python\nLimited funtionality, easy maintenance\nWide range of supported catalogue standards, serves many communities\nDatabase backend\nSkin customisable with jinja templates\n\nhttps://pycsw.org"
   },
   {
-    "objectID": "slides/1.1-overview.html#agenda",
-    "href": "slides/1.1-overview.html#agenda",
-    "title": "1.1 Training Overview",
-    "section": "Agenda",
-    "text": "Agenda\n\nMetadata publication\nData publication"
+    "objectID": "slides/index.html#pygeometa-geodatacrawler",
+    "href": "slides/index.html#pygeometa-geodatacrawler",
+    "title": "1.3 Tools",
+    "section": "pygeometa / geodatacrawler",
+    "text": "pygeometa / geodatacrawler\nScripting libraries which support data management of a file repository\n\nGenerate metadata from existing data\nImport remote metadata\nIngest metadata from a file repository\nCreate mapservices (APIs) for existing data"
+  },
+  {
+    "objectID": "slides/index.html#mapserver",
+    "href": "slides/index.html#mapserver",
+    "title": "1.3 Tools",
+    "section": "Mapserver",
+    "text": "Mapserver\n\nRecent versions of Mapserver support the old and new standards\nFeatures and Maps\nNo tiles (mapproxy), No coverages yet\nNo records/stac, by design\n\nhttps://mapserver.org"
+  },
+  {
+    "objectID": "slides/index.html#mapfile",
+    "href": "slides/index.html#mapfile",
+    "title": "1.3 Tools",
+    "section": "Mapfile",
+    "text": "Mapfile\n\nConfiguration via a mapfile\nAll gdal formats supported\nCreate mapfiles using QGIS with geocat bridge\n\n\nmapfile"
+  },
+  {
+    "objectID": "slides/index.html#mapfiles-from-metadata",
+    "href": "slides/index.html#mapfiles-from-metadata",
+    "title": "1.3 Tools",
+    "section": "Mapfiles from metadata",
+    "text": "Mapfiles from metadata\n\nUse the metadata to generate/update mapfiles\nStore map configuration on github\nUse SLD file {dataset}.sld to style a layer\nMetadata is updated with WMS/WFS/WCS url"
+  },
+  {
+    "objectID": "slides/index.html#terriajs",
+    "href": "slides/index.html#terriajs",
+    "title": "1.3 Tools",
+    "section": "TerriaJS",
+    "text": "TerriaJS\nAn Open Source javascript WebGIS application\ndemo\nRelated products; GeoNode, GeoMoose, MapBender, Oskari, GisQuick"
+  },
+  {
+    "objectID": "slides/index.html#quarto-1",
+    "href": "slides/index.html#quarto-1",
+    "title": "1.3 Tools",
+    "section": "Quarto",
+    "text": "Quarto\n\nAdd diagrams or maps with python and R scripting\nOther interesting option is the W3C MapML"
   },
   {
     "objectID": "9-data-visualisation.html",
@@ -615,195 +601,9 @@
     "href": "index.html",
     "title": "Workshop on GitOps SDI",
     "section": "",
-    "text": "This tutorial presents a workshop on GitObs SDI. Spatial Data Infrastructres are typically build up around a catalogue, a data access layer (api’s) and a data visualisation tool. The SDI introduced in this tutorial is fully maintained from Git and is operated using a set of docker containers running locally, on a Virtual Machine or in a Cloud infrastructure.\nOn the tutorial some common open source tools are introduced:\n\nquarto\nmapserver\npycsw\npygeometa/owslib\nTerriaJS\n\nGit has a central role in the training, it is for example suggested to facilitate software development and deployment, content co-creation and management as well as community feedback. Experience with Git and Docker are required before starting this workshop.\nYou can also access the slides of the workshop.\nWe hope you enjoy the materials,\nPaul and Tom."
-  },
-  {
-    "objectID": "slides/1.3-tools.html#github",
-    "href": "slides/1.3-tools.html#github",
-    "title": "1.3 Tools",
-    "section": "Github",
-    "text": "Github\nService to facilitate co-creation\n\nversion history of contributions\nauthentication\nissue management\nrelease management\nContinuous integration\n\nRelated software; Git, Gitlab, Bitbucket, Codeberg"
-  },
-  {
-    "objectID": "slides/1.3-tools.html#quarto",
-    "href": "slides/1.3-tools.html#quarto",
-    "title": "1.3 Tools",
-    "section": "Quarto",
-    "text": "Quarto\nA content management system to create websites, documentation, slides, etc.\nRelated software; Hugo, mkdocs, Jekyll, Wordpress, Drupal"
-  },
-  {
-    "objectID": "slides/1.3-tools.html#pygeometa-geodatacrawler",
-    "href": "slides/1.3-tools.html#pygeometa-geodatacrawler",
-    "title": "1.3 Tools",
-    "section": "pygeometa / geodatacrawler",
-    "text": "pygeometa / geodatacrawler\nScripting libraries which support data management of a file repository\n\nGenerate metadata from existing data\nImport remote metadata\nIngest metadata from a file repository\nCreate mapservices (APIs) for existing data"
-  },
-  {
-    "objectID": "slides/1.3-tools.html#pycsw",
-    "href": "slides/1.3-tools.html#pycsw",
-    "title": "1.3 Tools",
-    "section": "pycsw",
-    "text": "pycsw\nA catalogue server application providing support for multiple metadata schemes and metadata exchange standards\nRelated products; GeoNetwork, CKAN, Dataverse"
-  },
-  {
-    "objectID": "slides/1.3-tools.html#mapserver",
-    "href": "slides/1.3-tools.html#mapserver",
-    "title": "1.3 Tools",
-    "section": "Mapserver",
-    "text": "Mapserver\nA server application providing OGC services (WMS, WFS, WCS) on various data formats\nRelated products; Geoserver, ArcGIS server, deegree, pygeoapi, QGIS server"
-  },
-  {
-    "objectID": "slides/1.3-tools.html#terriajs",
-    "href": "slides/1.3-tools.html#terriajs",
-    "title": "1.3 Tools",
-    "section": "TerriaJS",
-    "text": "TerriaJS\nA WebGIS application including Leaflet library\ndemo\nRelated products; GeoNode, GeoMoose, MapBender, Oskari, GisQuick"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#what-is-ogc",
-    "href": "slides/3.1-ogc-data-services.html#what-is-ogc",
-    "title": "3.1 Data services",
-    "section": "What is OGC?",
-    "text": "What is OGC?\n\nOpen Geospatial Consortium defines standards for the geospatial industry\nMembers are software companies, universities and government\nSuch as WMS, GML, OGCAPI, EPSG, GeoSPARQL\nRead more at https://opengeospatial.org"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#ows-vs-ogc-api",
-    "href": "slides/3.1-ogc-data-services.html#ows-vs-ogc-api",
-    "title": "3.1 Data services",
-    "section": "OWS vs OGC API",
-    "text": "OWS vs OGC API\n\nThe GML and OWS standards are defined on 20**\nSince then the internet moved away from xml\nin 2017 started spatial data on the web experiment with W3C, leading to OGC API\nCurrently under development\nBasic support in new and existing products\nThe browser as a tool to browse spatial data"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#ows-vs-ogc-api-1",
-    "href": "slides/3.1-ogc-data-services.html#ows-vs-ogc-api-1",
-    "title": "3.1 Data services",
-    "section": "OWS vs OGC API",
-    "text": "OWS vs OGC API\n\nGML - GeoJSON (json-fg) & HTML\nLong querystrings - Rest api (path parameters)\nGetCapabilities - Open API Specification\nFormat=xxx - Content negotiation (accept:text/html)\nFull featured - Minimal standard with extensions"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#wfs-and-ogc-api---features",
-    "href": "slides/3.1-ogc-data-services.html#wfs-and-ogc-api---features",
-    "title": "3.1 Data services",
-    "section": "WFS and OGC API - Features",
-    "text": "WFS and OGC API - Features\n\nProvides access to vector features.\nFilter, sorting and pagination options\n\n\nwms"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#wms-and-ogc-api---maps",
-    "href": "slides/3.1-ogc-data-services.html#wms-and-ogc-api---maps",
-    "title": "3.1 Data services",
-    "section": "WMS and OGC API - Maps",
-    "text": "WMS and OGC API - Maps\n\nImage rendering of subsets of the data using some styling rules\n\n\nwms"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#wmts-tms-and-ogc-api---tiles",
-    "href": "slides/3.1-ogc-data-services.html#wmts-tms-and-ogc-api---tiles",
-    "title": "3.1 Data services",
-    "section": "WMTS, TMS and OGC API - Tiles",
-    "text": "WMTS, TMS and OGC API - Tiles\n\nImage or vector representation in tiles on a grid\n\n\nwms"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#wcs-and-ogc-api---coverages",
-    "href": "slides/3.1-ogc-data-services.html#wcs-and-ogc-api---coverages",
-    "title": "3.1 Data services",
-    "section": "WCS and OGC API - Coverages",
-    "text": "WCS and OGC API - Coverages\n\nGrid extracts and calculations\n\n\nwms"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#csw-ogc-api---records-and-stac",
-    "href": "slides/3.1-ogc-data-services.html#csw-ogc-api---records-and-stac",
-    "title": "3.1 Data services",
-    "section": "CSW, OGC API - Records and STAC",
-    "text": "CSW, OGC API - Records and STAC\n\nCatalogue records\nSTAC and OGC API - Records both based on OGC API - Features"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#mapserver",
-    "href": "slides/3.1-ogc-data-services.html#mapserver",
-    "title": "3.1 Data services",
-    "section": "Mapserver",
-    "text": "Mapserver\n\nRecent versions of Mapserver support the old and new standards\nFeatures and Maps\nNo tiles (mapproxy), No coverages yet\nNo records/stac, by design"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#mapfile",
-    "href": "slides/3.1-ogc-data-services.html#mapfile",
-    "title": "3.1 Data services",
-    "section": "Mapfile",
-    "text": "Mapfile\n\nConfiguration via a mapfile\nAll gdal formats supported\nCreate mapfiles using QGIS with geocat bridge\n\n\nwms"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#sensorthings-api",
-    "href": "slides/3.1-ogc-data-services.html#sensorthings-api",
-    "title": "3.1 Data services",
-    "section": "Sensorthings API",
-    "text": "Sensorthings API\n\nSoil profile data is observation oriented (iso28258)\nSensorthings API (STA) is an OGC specification for sensor data exchange\nFrost server is an implementation of STA\nLimited availability of clients for STA, Qgis has a STA plugin"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#cloud-optimised",
-    "href": "slides/3.1-ogc-data-services.html#cloud-optimised",
-    "title": "3.1 Data services",
-    "section": "Cloud optimised",
-    "text": "Cloud optimised\n\nRecent interest in cloud optimised and cloud native formats\nLarge data files are places in a cloud bucket, users request subsets of the file using range requests\nFor grids, Cloud Optimised GeoTiff (COG) and GeoZarr (cloud native)\nFor vector, GeoParquet"
-  },
-  {
-    "objectID": "slides/3.1-ogc-data-services.html#sematic-web",
-    "href": "slides/3.1-ogc-data-services.html#sematic-web",
-    "title": "3.1 Data services",
-    "section": "Sematic web",
-    "text": "Sematic web\n\nTo integrate spatial data in the web of knowledge, semantic web standards are relevant\nDCAT for metadata\nGeoSPARQL to define geometries\nSOSA for sensor data\nGLOSIS Web Ontology is a soil ontology based on SOSA and GeoSPARQL"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#history",
-    "href": "slides/4.1-soil-profile-data-management.html#history",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "History",
-    "text": "History\nVarious efforts have been made to harmonise Soil Profile data\n\nGlobalSoilMap\ne-SOTER\nISO28258\nGLOSIS Web ontology"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#e-soter",
-    "href": "slides/4.1-soil-profile-data-management.html#e-soter",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "e-SOTER",
-    "text": "e-SOTER\n\nRelational database model, usually in Microsoft Access\nKenya\nSouthern Africa\nSenegal and Gambia"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#ken-soter",
-    "href": "slides/4.1-soil-profile-data-management.html#ken-soter",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "KEN-SOTER",
-    "text": "KEN-SOTER\n\n\n\n\n\nKEN SOTER map\n\n\n\n\n\n\nKEN SOTER model"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#iso28258",
-    "href": "slides/4.1-soil-profile-data-management.html#iso28258",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "ISO28258",
-    "text": "ISO28258\n\n\n\nISO28258 is based on Observations and measurements\nevery field observation and laboratory analysis as a sensor observation\n\n\n\n\n\nO&M model"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#iso28258-in-gml",
-    "href": "slides/4.1-soil-profile-data-management.html#iso28258-in-gml",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "ISO28258 in GML",
-    "text": "ISO28258 in GML\n\nSerialisation of ISO28258 in GML (app schema)\nQuite complex implementation and low support in tooling\nINSPIRE Soil (Europe)\n\nANZSoilML (Australia)\nAlternative is a serialisation in JSON using Sensorthings API."
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#iso28258-as-relational-database",
-    "href": "slides/4.1-soil-profile-data-management.html#iso28258-as-relational-database",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "ISO28258 as relational database",
-    "text": "ISO28258 as relational database\n\nA relational model is available according to ISO28258\nEither as PostGreSQL or GeoPackage (SQLite)\nRead more at https://iso28258.isric.org"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#glosis-web-ontology",
-    "href": "slides/4.1-soil-profile-data-management.html#glosis-web-ontology",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "GLOSIS Web Ontology",
-    "text": "GLOSIS Web Ontology\n\nGLOSIS Web Ontology has expressed ISO28258 using common web ontologys (SOSA, VCARD)\nIncludes codelists for soil properties and procedures"
-  },
-  {
-    "objectID": "slides/4.1-soil-profile-data-management.html#harmonisation-of-field-lab-and-legacy-data",
-    "href": "slides/4.1-soil-profile-data-management.html#harmonisation-of-field-lab-and-legacy-data",
-    "title": "4.1 Soil Profile Datamanagement",
-    "section": "Harmonisation of field, lab and legacy data",
-    "text": "Harmonisation of field, lab and legacy data\n\nUse common codelists to identify properties, methods, units\nHale Studio and FME are tools for data harmonisation\nAlso SQL scripts are often used to harmonise data\nSemantic web community offers harmonisation tools (rml, tarql, csv-ld)"
+    "text": "This tutorial presents a workshop on GitObs SDI. Spatial Data Infrastructres are typically build up around a catalogue, a data access layer (api’s) and a data visualisation tool. The SDI introduced in this tutorial is fully maintained from Git and is operated using a set of docker containers running locally, on a Virtual Machine or in a Cloud infrastructure.\nOn the tutorial some common open source tools are introduced:\n\nquarto\nmapserver\npycsw\npygeometa/owslib\nTerriaJS\n\nGit has a central role in the training, it is for example suggested to facilitate software development and deployment, content co-creation and management as well as community feedback. Experience with Git and Docker are required before starting this workshop.\nYou can also access the slides of the workshop.\nWe hope you enjoy the materials,\nPaul and Tom.",
+    "crumbs": [
+      "Home"
+    ]
   }
 ]
