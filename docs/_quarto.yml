@@ -1,0 +1,53 @@
+project:
+  type: website
+  render:
+    - "*.md"
+    - "*.qmd"
+
+website:
+  repo-url: https://github.com/pvgenuchten/training-gitops-sdi/
+  repo-actions:
+    - edit
+    - issue
+  page-footer:
+    left:
+    - text: "@pvgenuchten 2025"
+      file: https://pvgenuchten.github.io/training-gitops-sdi/
+  title: ""
+  search: false
+  navbar:
+    pinned: true
+    right:
+      - text: Home
+        file: "./index.md"
+      - text: Slides
+        file: "./slides/index.qmd"
+  sidebar:
+    - title: "Docs"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents:
+        - text: Existing resources
+          file: 1-existing-resources.md
+        - text: Data repositories
+          file: 2-interact-with-data-repositories.md
+        - text: Catalog publication
+          file: 3-catalog-publication.md
+        - text: Bulk import
+          file: 4-bulk-import.md
+        - text: Git actions
+          file: 5-git-cicd.md
+        - text: Data publication
+          file: 6-data-publication.md
+        - text: Mapservices
+          file: 7-providing-mapservices.md
+        - text: Measure quality
+          file: 8-measure-quality.md
+        - text: Data visualisation
+          file: 9-data-visualisation.md
+
+format:
+  html:
+    page-layout: full
+
