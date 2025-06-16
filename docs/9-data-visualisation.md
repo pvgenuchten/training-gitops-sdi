@@ -10,7 +10,7 @@ Various extensions are possible to tailor the system to your organisation needs.
 
 [TerriaJS](https://terria.io) is a modern web gis application, which includes a widget to query a catalogue. From the catalogue search results the data can be added to the TerriaJS map.
 
-The main [docker image definition](https://github.com/TerriaJS/TerriaMap/blob/main/deploy/docker/Dockerfile) can be used to build and run terriaJS locally.
+The main [Docker image definition](https://github.com/TerriaJS/TerriaMap/blob/main/deploy/docker/Dockerfile) can be used to build and run terriaJS locally.
 
 ```
 git clone https://github.com/TerriaJS/TerriaMap
@@ -20,9 +20,6 @@ docker run -p 3001:3001 local/terria
 ```
 
 Visit http://localhost:3001 to see TerriaJS in action. 
-
-
-
 
 --- 
 

@@ -26,9 +26,9 @@ Are your aware of tooling which can support you in creation of metadata in this 
 
 ---
 
-## The MCF format
+## The pygeometa MCF format
 
-Within the geopython community a metadata format is used called the [metadata control file](https://geopython.github.io/pygeometa/reference/mcf/) (MCF). Aim of the format is ease of use, while providing export options to various metadata models. Many metadate models are based on XML, which makes them quite hard to read by humans. MCF is based on [YAML](https://www.yaml.io/spec/), a text based format using indents to cluster elements. In this workshop we are using the MCF format due to its simplicity and natural fit with the use cases. A minimal sample of MCF is:
+Within the [geopython community](https://geopython.github.io), the [pygeometa](https://geopython.github.io/pygeometa) provides a metadata format called the [metadata control file](https://geopython.github.io/pygeometa/reference/mcf) (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on [YAML](https://www.yaml.io/spec/), a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:
 
 ```yaml
 mcf:
@@ -55,7 +55,7 @@ When tagging the dataset with keywords, preferably use keywords from controlled 
 
 ## MCF editing
 
-MCF documents can best be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
+MCF documents can be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
 
 Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the application to your organisational needs.
 

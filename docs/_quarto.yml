@@ -34,16 +34,16 @@ website:
           file: 1-existing-resources.md
         - text: Data repositories
           file: 2-interact-with-data-repositories.md
-        - text: Catalog publication
-          file: 3-catalog-publication.md
+        - text: Catalogue publication
+          file: 3-catalogue-publication.md
         - text: Bulk import
           file: 4-bulk-import.md
         - text: Git actions
           file: 5-git-cicd.md
         - text: Data publication
           file: 6-data-publication.md
-        - text: Mapservices
-          file: 7-providing-mapservices.md
+        - text: Map services
+          file: 7-providing-map-services.md
         - text: Measure quality
           file: 8-measure-quality.md
         - text: Data visualisation

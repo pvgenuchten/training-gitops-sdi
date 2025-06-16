@@ -14,7 +14,7 @@ format:
 
 - GitOps / Infrastructure as code
 - Metadata at the source
-- Mapservices from metadata
+- Map services from metadata
 - Data visualisation
 
 # GitOps / Infrastructure as code
@@ -22,7 +22,7 @@ format:
 - reproducability
 - containerisation
 
-## Github
+## GitHub
 
 Service to facilitate co-creation
 
@@ -32,7 +32,7 @@ Service to facilitate co-creation
 - release management
 - Continuous integration
 
-Related software; Git, Gitlab, Bitbucket, Codeberg
+Related software; Git, GitLab, Bitbucket, Codeberg
 
 ## Quarto
 
@@ -45,10 +45,10 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 
 ![File hierarchy](../img/file-hierarchy.jpg)
 
-## A readme in each folder
+## A README in each folder
 
-- Add a readme to describe the resources in a folder
-- Why not structure the content in the readme, so also machines can read it?
+- Add a README to describe the resources in a folder
+- Why not structure the content in the README, so also machines can read it?
 
 ## Metadata Control File
 
@@ -64,7 +64,7 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 - exports MCF to various metadata models (iso, dcat, stac)
 - <https://github.com/geopython/pygeometa>
 
-## The geodatacrawler tool
+## The pyGeoDataCrawler tool
 
 - Developed at ISRIC in the last year
 - On the shoulders of giants; GDAL, pygeometa, pandas
@@ -83,22 +83,22 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 
 https://pycsw.org
 
-## pygeometa / geodatacrawler
+## pygeometa / pyGeoDataCrawler
 
 Scripting libraries which support data management of a file repository
 
 - Generate metadata from existing data
 - Import remote metadata
 - Ingest metadata from a file repository
-- Create mapservices (APIs) for existing data
+- Create map services (APIs) for existing data
 
 
-# Mapservices from metadata
+# Map services from metadata
 
 
-## Mapserver
+## MapServer
 
-- Recent versions of Mapserver support the old and new standards
+- Recent versions of MapServer support the old and new standards
 - Features and Maps 
 - No tiles (mapproxy), No coverages yet 
 - No records/stac, by design
@@ -109,8 +109,8 @@ https://mapserver.org
 ## Mapfile
 
 - Configuration via a [mapfile](https://mapserver.org/mapfile/)
-- All [gdal formats](https://gdal.org/drivers/vector) supported
-- Create mapfiles using QGIS with [geocat bridge](https://plugins.qgis.org/plugins/geocatbridge/)
+- All [GDAL formats](https://gdal.org/drivers/vector) supported
+- Create mapfiles using QGIS with [GeoCat bridge](https://plugins.qgis.org/plugins/geocatbridge/)
 
 ![mapfile](../img/mapfile.jpg)
 
@@ -121,7 +121,7 @@ https://mapserver.org
 - Use SLD file {dataset}.sld to style a layer
 - Metadata is updated with WMS/WFS/WCS url
 
-# Data vizualisation
+# Data visualisation
 
 ## TerriaJS
 

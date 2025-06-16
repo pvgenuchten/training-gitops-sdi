@@ -1,5 +1,5 @@
 ---
-title: GIT and CI/CD
+title: Git and CI/CD
 author: Paul van Genuchten
 date: 2023-05-09
 ---
@@ -8,23 +8,23 @@ This page introduces a number of generic Git functionalities and vendor add ons.
 
 ---
 
-## GIT content versioning
+## Git content versioning
 
-In its core [GIT](https://git-scm.com/) is a version management system traditionally used for maintaining software codes. In case you never worked with GIT before, have a look at this [Git & Github explanation](https://www.w3schools.com/git/git_intro.asp). Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as [Github Desktop](https://desktop.github.com/), a [Git client within Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022), [TortoiseGit](https://tortoisegit.org/), [Smartgit](https://www.syntevo.com/smartgit/), and [many others](https://git-scm.com/downloads/guis).
+In its core [GIt](https://git-scm.com/) is a version management system traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this [Git & GitHub explanation](https://www.w3schools.com/git/git_intro.asp). Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as [GitHub Desktop](https://desktop.github.com/), a [Git client within Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022), [TortoiseGit](https://tortoisegit.org/), [Smartgit](https://www.syntevo.com/smartgit/), and [many others](https://git-scm.com/downloads/guis).
 
-These days GIT based coding communities like Github, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via GIT vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.
+These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.
 
 ---
 
 ## CI/CD
 
-[Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) & [Deployment](https://en.wikipedia.org/wiki/Continuous_deployment) describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by GIT environments. With every commit to the Git repository an action is triggered which runs some tasks. 
+[Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) & [Deployment](https://en.wikipedia.org/wiki/Continuous_deployment) describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks. 
 
 ---
 
-## Github Pages exercise
+## GitHub Pages exercise
 
-This exercise introduces the CI-CD topic by setting up a basic markdown website in [Github Pages](https://pages.github.com/), maintained through Git. [Markdown](https://en.wikipedia.org/wiki/Markdown) is a popular format to store text with annotations on Git.The site will be based on [Quarto](https://quarto.org). Quarto is one of many platforms to generate a website from a markdown repository.
+This exercise introduces the CI/CD topic by setting up a basic markdown website in [GitHub Pages](https://pages.github.com/), maintained through Git. [Markdown](https://en.wikipedia.org/wiki/Markdown) is a popular format to store text with annotations on Git.The site will be based on [Quarto](https://quarto.org). Quarto is one of many platforms to generate a website from a markdown repository.
 
 - Create a [new repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) in your github account, for example 'My first CMS'. 
 - Before we add any content [create a branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) 'gh-pages' on the repository, this branch will later contain the generated html sources of the website. 
@@ -50,7 +50,7 @@ Welcome to *my website*.
 - Visit also my [about](./about.md) page.
 ```
 
-- Now click on `Actions` in the github menu. Notice that Github has already set up a workflow to publish our content using [jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll), it should already be available at https://user.github.io/repo. 
+- Now click on `Actions` in the github menu. Notice that GitHub has already set up a workflow to publish our content using [jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll), it should already be available at https://user.github.io/repo. 
 
 
 ## Using Quarto
@@ -75,7 +75,7 @@ format:
     theme: cosmo
     toc: true
 ```
-- Remove the existing workflow, generated by Github in `Actions`, `Workflows`, `Remove`
+- Remove the existing workflow, generated by GitHub in `Actions`, `Workflows`, `Remove`
 - First you need to allow the workflow-runner to make changes on the repository. For this, open `Settings`, `Actions`, `General`. Scroll down to `Workflow permissions`. Tick the `Read and write permissions` and click `Save`. If the option is grayed out, you first need to allow this feature in your organization.
 - Then, from `Actions`, select `New workflow`, then `set up a workflow yourself`.
 - On the next page we will create a new workflow script, which is stored in the repository at /.github/workflows/main.yml.
@@ -112,7 +112,7 @@ jobs:
 - Save the file, via `actions` you can follow the progress of the workflow at every push to the repository.
 - On the logs notice how a container is initialised, the source code is checked out, the quarto dependency is installed, the build is made and pushed to the gh-pages branch.
 
-Notice that the syntax to define workflows is different for every CI-CD platform, however they generally follow a similar pattern. For Github identify in the file above: 
+Notice that the syntax to define workflows is different for every CI/CD platform, however they generally follow a similar pattern. For GitHub identify in the file above: 
 
 - It defines at what events the workflow should trigger (in this case at `push` events). 
 - a build job is triggered, which indicates a container image (runs-on) to run the job in, then triggers some steps. 
@@ -122,7 +122,7 @@ The above setup is optimal for co-creating a documentation repository for your c
 
 ---
 
-## Update catalogue from GIT CI-CD
+## Update catalogue from Git CI/CD
 
 For this scenario we need a database in the cloud to host our records (which is reachable by github workflows). For the training we suggest to use a trial account at [elephantsql.com](https://customer.elephantsql.com/login). 
 
@@ -132,9 +132,9 @@ For this scenario we need a database in the cloud to host our records (which is 
 - Connect your instance of pycsw to this database instance, by updating `pycsw.cfg` and following the instructions at [Catalogue publication](./3-catalog-publication.md)
 - Verify in elephantsql dashboard if the records are correctly loaded.
 
-We will now publish our records from Github to our database.
+We will now publish our records from GitHub to our database.
 
-- Create a new repository on Github for the records
+- Create a new repository on GitHub for the records
 - Make sure [git-scm](https://git-scm.com/) (or a GUI tool like [Git kraken](https://www.gitkraken.com/) or [Smartgit](https://www.syntevo.com/smartgit/)) is intalled on your system.
 - Clone (download) the repository to a local folder.
 
@@ -148,7 +148,7 @@ git clone https://github.com/username/records-repo.git
 git add -A && git commit -m "Your Message"
 ```
 
-Before you can push your changes to Github, you need to set up authentication, generally 2 options are possible:
+Before you can push your changes to GitHub, you need to set up authentication, generally 2 options are possible:
 - Using a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 - Or using [SSH public key](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh)
 
@@ -156,7 +156,7 @@ Before you can push your changes to Github, you need to set up authentication, g
 git push origin main
 ```
 
-We'll now set up CI-CD to publish the records
+We'll now set up CI/CD to publish the records
 
 - Place the pycsw.cfg file in the root of the repository (including the postgres database connection)
 - Create a new custom workflow file with this content:
@@ -203,13 +203,13 @@ jobs:
 ```
 
 - Verify that the records are loaded on pycsw (through postgres)
-- Change or add some records to GIT, and verify if the changes are published (may take some time)
+- Change or add some records to Git, and verify if the changes are published (may take some time)
 
-Normally, we would **not** add a connection string to a database in a config file posted on Github. Instead Github offers [secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to capture this type of information. 
+Normally, we would **not** add a connection string to a database in a config file posted on GitHub. Instead GitHub offers [secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to capture this type of information. 
 
 ---
 
-## Cross linking catalogue and GIT
+## Cross linking catalogue and Git
 
 While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorisations they can instantly improve the record, or suggest an improvement via an issue or [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
@@ -217,5 +217,5 @@ While users are browsing the catalogue (or this page), they may find irregularit
 
 ## Summary
 
-In this section you learned about using actions in Github (CI/CD). In the [next section](./6-data-publication.md) we are diving into data publication. Notice that you can also use GIT CI/CD mechanisms to deploy or evaluate metadata and data services.
+In this section you learned about using actions in GitHub (CI/CD). In the [next section](./6-data-publication.md) we are diving into data publication. Notice that you can also use Git CI/CD mechanisms to deploy or evaluate metadata and data services.
 

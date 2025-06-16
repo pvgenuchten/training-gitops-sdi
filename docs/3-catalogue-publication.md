@@ -18,13 +18,13 @@ An important aspect is proper setup of authorisations for general public, partne
 
 ## Catalogue frontend
 
-Various catalogue frontends exist to facilitate dataset search, such as [geonetwork](https://geonetwork-opensource.org), [dataverse](https://dataverse.org), [ckan](https://ckan.org). Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.
+Various catalogue frontends exist to facilitate dataset search, such as [Geonetwork OpenSource](https://geonetwork-opensource.org), [dataverse](https://dataverse.org), [CKAN](https://ckan.org). Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.
 
 For this workshop we are going to use [pycsw](https://pycsw.org). It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface. 
 
-For this exercise we assume you have [docker-desktop](https://www.docker.com/get-started/) installed on your system and running.
+For this exercise we assume you have [Docker Desktop](https://www.docker.com/get-started/) installed on your system and running.
 
-pycsw is available as docker image at docker hub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. 
+pycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. 
 
 - Navigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.
 
@@ -66,7 +66,7 @@ docker run -p 8000:8000 `
 :::
 
 :::{.callout-note}
-Notice `-d` starts the docker in the background, so we can interact with the running container. To see which instances are running (in the background) use `docker ps`. `docker logs pycsw` shows the logs of a container and `docker stop pycsw` stops the container. The `-rm` option removes the container at stop, so we can easily recreate it with additional options at next runs.
+Notice `-d` starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use `docker ps`. `docker logs pycsw` shows the logs of a container and `docker stop pycsw` stops the container. The `-rm` option removes the container at stop, so we can easily recreate it with additional options at next runs.
 :::
 
 - For administering the instance we use a utility called `pycsw-admin.py`. Notice on the calls below a reference to a relevant config file. 
@@ -124,7 +124,7 @@ Continue to the records in this catalogue
 {% endblock %}
 ```
 
-- We will now replace the default template in the docker image with our template.
+- We will now replace the default template in the Docker image with our template.
 
 ::: {.panel-tabset}
 # Linux
@@ -149,7 +149,7 @@ docker run -p 8000:8000 `
 
 - View the result at <http://localhost:8000> 
 - Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) in pycsw
-- We published a tailored set of templates as a [pycsw skin on github](https://github.com/pvgenuchten/pycsw-skin). This skin has been used as a starting point for the lsc-hubs catalogue skin.
+- We published a tailored set of templates as a [pycsw skin on GitHub](https://github.com/pvgenuchten/pycsw-skin). This skin has been used as a starting point for the lsc-hubs catalogue skin.
 
 
 ## Summary
