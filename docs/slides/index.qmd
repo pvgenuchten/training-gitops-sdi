@@ -1,0 +1,11 @@
+---
+title: "Slides training on spatial data flows"
+author: Paul van Genuchten
+date: 2025-06-15
+---
+
+---
+listing:
+  contents: "*.qmd"
+  type: table
+---

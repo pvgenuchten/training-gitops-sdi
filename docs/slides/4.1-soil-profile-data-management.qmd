@@ -1,0 +1,85 @@
+---
+title: "4.1 Soil Profile Datamanagement"
+subtitle: "Standards and approaches in data management on observations on land and soil"
+author: Paul van Genuchten
+date: 2025-06-15
+format:
+  revealjs:
+    incremental: true
+
+    footer: "Workshop on effective spatial data management"
+---
+
+## History
+
+Various efforts have been made to harmonise Soil Profile data
+
+- GlobalSoilMap
+- e-SOTER
+- ISO28258
+- GLOSIS Web ontology
+
+
+## e-SOTER
+
+- Relational database model, usually in Microsoft Access
+
+- [Kenya](https://data.isric.org/geonetwork/srv/eng/catalog.search#/metadata/73e27136-9efe-49e4-af35-fd98b841d467)
+- [Southern Africa](https://data.isric.org/geonetwork/srv/eng/catalog.search#/metadata/3571c1f3-159d-442c-b324-0af53d03f12e)
+- [Senegal and Gambia](https://data.isric.org/geonetwork/srv/eng/catalog.search#/metadata/a6320590-0899-4b60-bf4d-f80282bbb72c)
+
+## KEN-SOTER
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![KEN SOTER map](../img/soter-map.jpg)
+:::
+
+::: {.column width="60%"}
+![KEN SOTER model](../img/soter.jpg)
+:::
+::::
+
+## ISO28258
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- ISO28258 is based on Observations and measurements
+- every field observation and laboratory analysis as a sensor observation
+:::
+
+::: {.column width="40%"}
+![O&M model](../img/om2.png)
+:::
+
+::::
+
+## ISO28258 in GML
+
+- Serialisation of ISO28258 in GML (app schema)
+- Quite complex implementation and low support in tooling
+
+- [INSPIRE Soil](https://inspire.ec.europa.eu/Themes/127/2892) (Europe)  
+- [ANZSoilML](https://github.com/ANZSoilData/ANZSoilML) (Australia) 
+
+- Alternative is a serialisation in JSON using Sensorthings API.
+
+## ISO28258 as relational database
+
+- A relational model is available according to ISO28258
+- Either as PostGreSQL or GeoPackage (SQLite)
+- Read more at <https://iso28258.isric.org>
+
+## GLOSIS Web Ontology
+
+- [GLOSIS Web Ontology](https://github.com/glosis-ld/glosis) has expressed ISO28258 using common web ontologys ([SOSA](https://www.w3.org/TR/vocab-ssn/), VCARD)
+- Includes codelists for [soil properties and procedures](https://vocab.isric.org)
+
+## Harmonisation of field, lab and legacy data
+
+- Use common codelists to identify properties, methods, units
+- [Hale Studio](https://wetransform.to/halestudio/) and FME are tools for data harmonisation
+- Also SQL scripts are often used to harmonise data
+- Semantic web community offers harmonisation tools ([rml](https://rml.io/), [tarql](https://tarql.github.io/), [csv-ld](https://www.w3.org/2013/csvw/wiki/CSV-LD))

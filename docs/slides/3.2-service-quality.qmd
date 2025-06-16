@@ -1,0 +1,52 @@
+---
+title: "3.2 Service Quality"
+subtitle: Evaluate and improve service quality"
+author: Paul van Genuchten
+date: 2025-06-15
+format:
+  revealjs:
+    incremental: true
+
+    footer: "Workshop on effective spatial data management"
+---
+
+## Service quality
+
+- Monitor the quality of data services is a driver for improvement
+- Create a monthly report with various statistics 
+
+## Usage
+
+- Aggregate and display access logs
+- How are people using the services
+- Which aspects are popular
+- Which components have a bad performance
+
+## Availability
+
+- How often are our services available
+- Receive a notification if a service is not available
+
+## Complience
+
+- Do services comply with the indicated standards (wms, wfs)
+
+## Security incidents log
+
+- Fraudulent email received
+- Many requests from certain IP
+- Low quality password detected
+- Backup restored due to failing disk
+
+## Search engine optimisation (SSO)
+
+- Can users find our materials on Search Engines?
+- Google/Bing offers a SSO Console where you can view crawling and usage statistics
+
+## Tools
+
+- Check local IT to understand which tools are offered
+- [Geohealthcheck](https://geohealthcheck.org/) is a tool to check availability and complience
+- [AWStats](https://awstats.sourceforge.io/) is a basic tool to evaluate access logs
+- [pingdom](https://www.pingdom.com/) & [uptimerobot](https://uptimerobot.com/) are saas providers offering availability testing
+

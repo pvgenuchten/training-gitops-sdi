@@ -1,0 +1,104 @@
+---
+title: "3.1 Data services"
+subtitle: "Provide data via standardised convenience APIs"
+author: Paul van Genuchten
+date: 2025-06-15
+format:
+  revealjs:
+    incremental: true
+
+    footer: "Workshop on effective spatial data management"
+---
+
+
+## What is OGC?
+
+- Open Geospatial Consortium defines standards for the geospatial industry
+- Members are software companies, universities and government
+- Such as WMS, GML, OGCAPI, EPSG, GeoSPARQL
+- Read more at <https://opengeospatial.org>
+
+
+## OWS vs OGC API
+
+- The GML and OWS standards are defined on 20**
+- Since then the internet moved away from xml
+- in 2017 started `spatial data on the web` experiment with W3C, leading to **OGC API**
+- Currently under development 
+- Basic support in new and existing products
+- The browser as a tool to browse spatial data
+
+## OWS vs OGC API
+
+- GML - GeoJSON (json-fg) & HTML
+- Long querystrings - Rest api (path parameters)
+- GetCapabilities - Open API Specification
+- Format=xxx - Content negotiation (accept:text/html)
+- Full featured - Minimal standard with extensions
+
+## WFS and OGC API - Features
+
+- Provides access to vector features. 
+- Filter, sorting and pagination options
+
+![wms](../img/wfs.jpg)
+
+## WMS and OGC API - Maps
+
+- Image rendering of subsets of the data using some styling rules
+
+![wms](../img/wms.jpg)
+
+## WMTS, TMS and OGC API - Tiles
+
+- Image or vector representation in tiles on a grid
+
+![wms](../img/tiles.png)
+
+## WCS and OGC API - Coverages 
+
+- Grid extracts and calculations
+
+![wms](../img/wcs.jpg)
+
+## CSW, OGC API - Records and STAC
+
+- Catalogue records
+- STAC and OGC API - Records both based on OGC API - Features
+
+## Mapserver
+
+- Recent versions of Mapserver support the old and new standards
+- Features and Maps 
+- No tiles (mapproxy), No coverages yet 
+- No records/stac, by design
+
+## Mapfile
+
+- Configuration via a [mapfile](https://mapserver.org/mapfile/)
+- All [gdal formats](https://gdal.org/drivers/vector) supported
+- Create mapfiles using QGIS with [geocat bridge](https://plugins.qgis.org/plugins/geocatbridge/)
+
+![wms](../img/mapfile.jpg)
+
+## Sensorthings API
+
+- Soil profile data is observation oriented (iso28258)
+- [Sensorthings API](https://www.ogc.org/standard/sensorthings/) (STA) is an OGC specification for sensor data exchange
+- [Frost server](https://fraunhoferiosb.github.io/FROST-Server/) is an implementation of STA
+- Limited availability of clients for STA, Qgis has a [STA plugin](https://plugins.qgis.org/plugins/SensorThingsAPI/)
+
+## Cloud optimised
+
+- Recent interest in cloud optimised and cloud native formats
+- Large data files are places in a cloud bucket, users request subsets of the file using [range requests](https://en.wikipedia.org/wiki/Byte_serving)
+- For grids, [Cloud Optimised GeoTiff](https://www.cogeo.org/) (COG) and [GeoZarr](https://github.com/zarr-developers/geozarr-spec) (cloud native)
+- For vector, [GeoParquet](https://geoparquet.org/)
+
+## Sematic web
+
+- To integrate spatial data in the web of knowledge, semantic web standards are relevant
+- DCAT for metadata
+- GeoSPARQL to define geometries
+- SOSA for sensor data
+- [GLOSIS Web Ontology](https://github.com/glosis-ld/glosis) is a soil ontology based on SOSA and GeoSPARQL
