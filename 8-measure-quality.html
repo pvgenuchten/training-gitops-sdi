@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3-catalog-publication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog publication</span></a>
+  <a href="./3-catalogue-publication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catalogue publication</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,8 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7-providing-mapservices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapservices</span></a>
+  <a href="./7-providing-map-services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Map services</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="availability-monitoring">Availability Monitoring</h2>
 <p>To assess the availability of a service, it requires to monitor the availability of the service at intervals. A basic availability-test every 5 minutes is usually sufficient. Many software exists for availability monitoring, such as <a href="https://zabbix.com/">Zabbix</a>, <a href="https://nagios.org/">Nagios</a>, <a href="https://checkmk.com/">CheckMK</a>, <a href="https://www.pingdom.com/">pingdom</a>.</p>
 <p>In this workshop we’re introducting the a Python based monitoring solution, called <a href="https://geohealthcheck.org/">GeoHealthCheck</a>. Geohealthcheck is designed to monitor spatial data services specifically.</p>
-<p>The following exercise assumes docker desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page).</p>
+<p>The following exercise assumes Docker Desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -268,7 +268,7 @@ Tip
 <ul>
 <li>Start by setting up a local GeoHealthCheck container:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p80:80</span> geopython/geohealthcheck</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 80:80 geopython/geohealthcheck</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Visit http://localhost</li>
 <li>Login as user: admin, password: admin</li>
@@ -349,12 +349,12 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Powershell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">--publish</span> 3000:80 <span class="dt">\</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">-p</span> 3000:80 <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="at">--name</span> awstats <span class="at">--volume</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/var/local/log:ro <span class="dt">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> pabra/awstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">--publish</span> 3000:80 <span class="kw">`</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">-p</span> 3000:80 <span class="kw">`</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">--name</span> awstats <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/var/local/log:ro"</span> <span class="kw">`</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">pabra/awstats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

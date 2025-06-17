@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7-providing-mapservices.html">Mapservices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7-providing-map-services.html">Map services</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3-catalog-publication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog publication</span></a>
+  <a href="./3-catalogue-publication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catalogue publication</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,8 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7-providing-mapservices.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Mapservices</span></a>
+  <a href="./7-providing-map-services.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Map services</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -246,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="standardised-data-apis" class="level2">
 <h2 class="anchored" data-anchor-id="standardised-data-apis">Standardised data APIs</h2>
-<p>Standardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of <a href="https://www.w3.org/TR/sdw-bp/">Spatial data on the web best practices</a>. OGC then initiated a new generation of standards based on these best practices.</p>
+<p>Standardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of <a href="https://www.w3.org/TR/sdw-bp/">Spatial Data on the Web Best Practices</a>. Combined with the <a href="https://docs.ogc.org/wp/16-019r4/16-019r4.html">OGC Open Geospatial APIs - White Paper</a>, OGC then initiated a new generation of standards based on these best practices.</p>
 <p>An overview of both generations:</p>
 <table class="caption-top table">
 <thead>
@@ -274,17 +274,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Sensor Observation Service (<a href="https://www.ogc.org/standard/sos">SOS</a>)</td>
-<td><a href="https://www.ogc.org/standard/sensorthings/">Sensorthings</a></td>
+<td><a href="https://www.ogc.org/standard/sensorthings/">SensorThings</a></td>
 <td>Retrieve subsets of sensor observations</td>
 </tr>
 <tr class="odd">
-<td><a href="https://www.ogc.org/standard/wps">Web Processing Service</a> (WPS)</td>
-<td><a href="https://ogcapi.ogc.org/processes">OGCAPI:Processes</a></td>
+<td>Web Processing Service (<a href="https://www.ogc.org/standard/wps">WPS</a>)</td>
+<td><a href="https://ogcapi.ogc.org/processes">Processes</a></td>
 <td>Run processes on data ]</td>
 </tr>
 <tr class="even">
-<td><a href="https://www.ogc.org/standard/cat">Catalogue Service for the web</a> (CSW)</td>
-<td><a href="https://ogcapi.ogc.org/records">OGCAPI:Records</a></td>
+<td>Catalogue Service for the Web (<a href="https://www.ogc.org/standard/cat">CSW</a>)</td>
+<td><a href="https://ogcapi.ogc.org/records">Records</a></td>
 <td>Retrieve and filter catalogue records</td>
 </tr>
 </tbody>
@@ -294,10 +294,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setting-up-an-api" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-an-api">Setting up an API</h2>
-<p><a href="https://mapserver.org">Mapserver</a> is server software which is able to expose datasets through various APIs. Examples of similar software are <a href="https://docs.qgis.org/3.28/en/docs/server_manual/introduction.html">QGIS server</a>, <a href="https://enterprise.arcgis.com/en/server/">ArcGIS Server</a>, <a href="https://geoserver.org">Geoserver</a> and <a href="https://pygeoapi.io">pygeoapi</a>.</p>
-<p>We’ve selected mapserver for this training, because of its robustness and low resource consumption. Mapserver is configured using a configuration file: called the <a href="https://www.mapserver.org/mapfile/">mapfile</a>. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of the dataset.</p>
-<p>Various tools exist to write these configuration files, such as <a href="https://mapserverstudio.net/">Mapserver studio</a>, <a href="https://www.osgeo.org/projects/geostyler/">GeoStyler</a>, <a href="https://www.geocat.net/docs/bridge/qgis/latest">QGIS Bridge</a>, up to a <a href="https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile">visual studio plugin to edit mapfiles</a>.</p>
-<p>The <a href="https://pypi.org/project/geodatacrawler/">GeoDataCrawler</a>, introduced in a <a href="./2-interact-with-data-repositories.html">previous paragraph</a>, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the mapserver service endpoint. This step enables a typical workflow of:</p>
+<p><a href="https://mapserver.org">MapServer</a> is server software which is able to expose datasets through various APIs. Examples of similar software are <a href="https://docs.qgis.org/3.28/en/docs/server_manual/introduction.html">QGIS server</a>, <a href="https://enterprise.arcgis.com/en/server/">ArcGIS Server</a>, <a href="https://geoserver.org">GeoServer</a> and <a href="https://pygeoapi.io">pygeoapi</a>.</p>
+<p>We’ve selected mapserver for this training, because of its robustness and low resource consumption. MapServer is configured using a configuration file: called the <a href="https://www.mapserver.org/mapfile/">mapfile</a>. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of the dataset.</p>
+<p>Various tools exist to write these configuration files, such as <a href="https://mapserverstudio.net/">MapServer studio</a>, <a href="https://www.osgeo.org/projects/geostyler/">GeoStyler</a>, <a href="https://www.geocat.net/docs/bridge/qgis/latest">QGIS Bridge</a>, up to a <a href="https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile">Visual Studio plugin to edit mapfiles</a>.</p>
+<p>The <a href="https://pypi.org/project/geodatacrawler/">pyGeoDataCrawler</a>, introduced in a <a href="./2-interact-with-data-repositories.html">previous paragraph</a>, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the mapserver service endpoint. This step enables a typical workflow of:</p>
 <ul>
 <li>Users find a dataset in a catalogue</li>
 <li>Then open the dataset via the linked service</li>
@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcf</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identification</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> My new mapservice</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> My new map service</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">abstract</span><span class="kw">:</span><span class="at"> A map service for data about ...</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">contact</span><span class="kw">:</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pointOfContact</span><span class="kw">:</span></span>
@@ -350,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-maps</span> <span class="at">--dir</span><span class="op">=</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="at">:</span>/tmp <span class="dt">\</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  org/metatraining crawl-maps <span class="at">--dir</span><span class="op">=</span>/tmp </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
@@ -368,13 +368,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">skip-subfolders</span><span class="kw">:</span><span class="at"> </span><span class="ch">True</span><span class="co"> # indicates the crawler not to proceed in subfolders</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can test this mapfile locally if you have mapserver installed. On windows, consider using conda or <a href="https://www.ms4w.com/">ms4w</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge mapserver</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mapserver includes a <a href="https://mapserver.org/utilities/map2img.html">map2img</a> utility, which enables to render a map image from any mapfile.</p>
+<p>MapServer includes a <a href="https://mapserver.org/utilities/map2img.html">map2img</a> utility, which enables to render a map image from any mapfile.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">map2img</span> <span class="at">-m</span><span class="op">=</span>./mymap.map <span class="at">-o</span><span class="op">=</span>test.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="setup-mapserver-via-docker" class="level2">
 <h2 class="anchored" data-anchor-id="setup-mapserver-via-docker">Setup mapserver via Docker</h2>
-<p>For this exercise we’re using a <a href="https://hub.docker.com/r/camptocamp/mapserver">mapserver image</a> available from Docker hub.</p>
+<p>For this exercise we’re using a <a href="https://hub.docker.com/r/camptocamp/mapserver">mapserver image</a> available from DockerHub.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull camptocamp/mapserver:master  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>First create a config file, which we’ll <a href="https://docs.docker.com/storage/volumes/">mount as a volume</a> into the container. On this config file we list all the mapfiles we aim to publish on our container. Download <a href="https://github.com/camptocamp/docker-mapserver/blob/master/runtime/etc/mapserver.conf">the default config file</a>. Open the file and unescape and populate the maps section:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">MAPS</span></span>
@@ -421,7 +421,7 @@ Note
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using Mapserver. In the <a href="./8-measure-quality.html">next section</a> we’ll look at measuring service quality.</p>
+<p>In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the <a href="./8-measure-quality.html">next section</a> we’ll look at measuring service quality.</p>
 
 
 </section>
@@ -840,7 +840,7 @@ Note
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/7-providing-mapservices.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/7-providing-map-services.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

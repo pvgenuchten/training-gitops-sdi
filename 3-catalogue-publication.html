@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3-catalog-publication.html">Catalog publication</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3-catalogue-publication.html">Catalogue publication</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3-catalog-publication.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Catalog publication</span></a>
+  <a href="./3-catalogue-publication.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Catalogue publication</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,8 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7-providing-mapservices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapservices</span></a>
+  <a href="./7-providing-map-services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Map services</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -263,10 +263,10 @@ Note
 <hr>
 <section id="catalogue-frontend" class="level2">
 <h2 class="anchored" data-anchor-id="catalogue-frontend">Catalogue frontend</h2>
-<p>Various catalogue frontends exist to facilitate dataset search, such as <a href="https://geonetwork-opensource.org">geonetwork</a>, <a href="https://dataverse.org">dataverse</a>, <a href="https://ckan.org">ckan</a>. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.</p>
+<p>Various catalogue frontends exist to facilitate dataset search, such as <a href="https://geonetwork-opensource.org">Geonetwork OpenSource</a>, <a href="https://dataverse.org">dataverse</a>, <a href="https://ckan.org">CKAN</a>. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.</p>
 <p>For this workshop we are going to use <a href="https://pycsw.org">pycsw</a>. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.</p>
-<p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">docker-desktop</a> installed on your system and running.</p>
-<p>pycsw is available as docker image at docker hub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.</p>
+<p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running.</p>
+<p>pycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.</p>
 <ul>
 <li>Navigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.</li>
 </ul>
@@ -318,7 +318,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notice <code>-d</code> starts the docker in the background, so we can interact with the running container. To see which instances are running (in the background) use <code>docker ps</code>. <code>docker logs pycsw</code> shows the logs of a container and <code>docker stop pycsw</code> stops the container. The <code>-rm</code> option removes the container at stop, so we can easily recreate it with additional options at next runs.</p>
+<p>Notice <code>-d</code> starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use <code>docker ps</code>. <code>docker logs pycsw</code> shows the logs of a container and <code>docker stop pycsw</code> stops the container. The <code>-rm</code> option removes the container at stop, so we can easily recreate it with additional options at next runs.</p>
 </div>
 </div>
 <ul>
@@ -376,7 +376,7 @@ Note
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ot">      href</span><span class="op">=</span><span class="st">"{{ config['server']['url'] }}/openapi?f=html"</span><span class="dt">&gt;</span>Open API Document<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>{% endblock %}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>We will now replace the default template in the docker image with our template.</li>
+<li>We will now replace the default template in the Docker image with our template.</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Powershell</a></li></ul>
@@ -402,7 +402,7 @@ Note
 <ul>
 <li>View the result at <a href="http://localhost:8000" class="uri">http://localhost:8000</a></li>
 <li>Have a look at <a href="https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates">the other templates</a> in pycsw</li>
-<li>We published a tailored set of templates as a <a href="https://github.com/pvgenuchten/pycsw-skin">pycsw skin on github</a>. This skin has been used as a starting point for the lsc-hubs catalogue skin.</li>
+<li>We published a tailored set of templates as a <a href="https://github.com/pvgenuchten/pycsw-skin">pycsw skin on GitHub</a>. This skin has been used as a starting point for the lsc-hubs catalogue skin.</li>
 </ul>
 </section>
 <section id="summary" class="level2">
@@ -826,7 +826,7 @@ Note
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/3-catalog-publication.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/3-catalogue-publication.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

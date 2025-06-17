@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3-catalog-publication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog publication</span></a>
+  <a href="./3-catalogue-publication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catalogue publication</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,8 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7-providing-mapservices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapservices</span></a>
+  <a href="./7-providing-map-services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Map services</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -275,9 +275,9 @@ Tip
 </div>
 <hr>
 </section>
-<section id="the-mcf-format" class="level2">
-<h2 class="anchored" data-anchor-id="the-mcf-format">The MCF format</h2>
-<p>Within the geopython community a metadata format is used called the <a href="https://geopython.github.io/pygeometa/reference/mcf/">metadata control file</a> (MCF). Aim of the format is ease of use, while providing export options to various metadata models. Many metadate models are based on XML, which makes them quite hard to read by humans. MCF is based on <a href="https://www.yaml.io/spec/">YAML</a>, a text based format using indents to cluster elements. In this workshop we are using the MCF format due to its simplicity and natural fit with the use cases. A minimal sample of MCF is:</p>
+<section id="the-pygeometa-mcf-format" class="level2">
+<h2 class="anchored" data-anchor-id="the-pygeometa-mcf-format">The pygeometa MCF format</h2>
+<p>Within the <a href="https://geopython.github.io">geopython community</a>, the <a href="https://geopython.github.io/pygeometa">pygeometa</a> provides a metadata format called the <a href="https://geopython.github.io/pygeometa/reference/mcf">metadata control file</a> (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on <a href="https://www.yaml.io/spec/">YAML</a>, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcf</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -299,7 +299,7 @@ Tip
 </section>
 <section id="mcf-editing" class="level2">
 <h2 class="anchored" data-anchor-id="mcf-editing">MCF editing</h2>
-<p>MCF documents can best be written in a text editor like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Consider to install the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML plugin</a> for instant YAML validation.</p>
+<p>MCF documents can be written in a text editor like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Consider to install the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML plugin</a> for instant YAML validation.</p>
 <p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the application to your organisational needs.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">

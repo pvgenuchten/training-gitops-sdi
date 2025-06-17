@@ -9,7 +9,7 @@
 <meta name="author" content="Paul van Genuchten">
 <meta name="dcterms.date" content="2023-05-09">
 
-<title>GIT and CI/CD</title>
+<title>Git and CI/CD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,8 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3-catalog-publication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog publication</span></a>
+  <a href="./3-catalogue-publication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catalogue publication</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,8 +185,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7-providing-mapservices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapservices</span></a>
+  <a href="./7-providing-map-services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Map services</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GIT and CI/CD</h1>
+<h1 class="title">Git and CI/CD</h1>
 </div>
 
 
@@ -244,19 +244,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This page introduces a number of generic Git functionalities and vendor add ons. Which can support communities in efficient co-creation of content. The page mainly focusses on the Continuous Integration &amp; Deployment functionality, but contains many external links to introduce other aspects of Git. Considering the previous materials, a relevant ci-cd case is a set of tasks to run after a change to some of the mcf documents in a data repository, to validate the mcf’s and convert them to iso19139 and push them to a catalogue.</p>
 <hr>
 <section id="git-content-versioning" class="level2">
-<h2 class="anchored" data-anchor-id="git-content-versioning">GIT content versioning</h2>
-<p>In its core <a href="https://git-scm.com/">GIT</a> is a version management system traditionally used for maintaining software codes. In case you never worked with GIT before, have a look at this <a href="https://www.w3schools.com/git/git_intro.asp">Git &amp; Github explanation</a>. Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as <a href="https://desktop.github.com/">Github Desktop</a>, a <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022">Git client within Visual Studio</a>, <a href="https://tortoisegit.org/">TortoiseGit</a>, <a href="https://www.syntevo.com/smartgit/">Smartgit</a>, and <a href="https://git-scm.com/downloads/guis">many others</a>.</p>
-<p>These days GIT based coding communities like Github, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via GIT vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.</p>
+<h2 class="anchored" data-anchor-id="git-content-versioning">Git content versioning</h2>
+<p>In its core <a href="https://git-scm.com/">GIt</a> is a version management system traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this <a href="https://www.w3schools.com/git/git_intro.asp">Git &amp; GitHub explanation</a>. Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as <a href="https://desktop.github.com/">GitHub Desktop</a>, a <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022">Git client within Visual Studio</a>, <a href="https://tortoisegit.org/">TortoiseGit</a>, <a href="https://www.syntevo.com/smartgit/">Smartgit</a>, and <a href="https://git-scm.com/downloads/guis">many others</a>.</p>
+<p>These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.</p>
 <hr>
 </section>
 <section id="cicd" class="level2">
 <h2 class="anchored" data-anchor-id="cicd">CI/CD</h2>
-<p><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> &amp; <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Deployment</a> describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by GIT environments. With every commit to the Git repository an action is triggered which runs some tasks.</p>
+<p><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> &amp; <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Deployment</a> describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks.</p>
 <hr>
 </section>
 <section id="github-pages-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="github-pages-exercise">Github Pages exercise</h2>
-<p>This exercise introduces the CI-CD topic by setting up a basic markdown website in <a href="https://pages.github.com/">Github Pages</a>, maintained through Git. <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a popular format to store text with annotations on Git.The site will be based on <a href="https://quarto.org">Quarto</a>. Quarto is one of many platforms to generate a website from a markdown repository.</p>
+<h2 class="anchored" data-anchor-id="github-pages-exercise">GitHub Pages exercise</h2>
+<p>This exercise introduces the CI/CD topic by setting up a basic markdown website in <a href="https://pages.github.com/">GitHub Pages</a>, maintained through Git. <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a popular format to store text with annotations on Git.The site will be based on <a href="https://quarto.org">Quarto</a>. Quarto is one of many platforms to generate a website from a markdown repository.</p>
 <ul>
 <li><p>Create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">new repository</a> in your github account, for example ‘My first CMS’.</p></li>
 <li><p>Before we add any content <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">create a branch</a> ‘gh-pages’ on the repository, this branch will later contain the generated html sources of the website.</p></li>
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I hope you enjoy it.</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Visit also my <span class="co">[</span><span class="ot">about</span><span class="co">](./about.md)</span> page.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Now click on <code>Actions</code> in the github menu. Notice that Github has already set up a workflow to publish our content using <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">jekyll</a>, it should already be available at https://user.github.io/repo.</li>
+<li>Now click on <code>Actions</code> in the github menu. Notice that GitHub has already set up a workflow to publish our content using <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">jekyll</a>, it should already be available at https://user.github.io/repo.</li>
 </ul>
 </section>
 <section id="using-quarto" class="level2">
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Remove the existing workflow, generated by Github in <code>Actions</code>, <code>Workflows</code>, <code>Remove</code></li>
+<li>Remove the existing workflow, generated by GitHub in <code>Actions</code>, <code>Workflows</code>, <code>Remove</code></li>
 <li>First you need to allow the workflow-runner to make changes on the repository. For this, open <code>Settings</code>, <code>Actions</code>, <code>General</code>. Scroll down to <code>Workflow permissions</code>. Tick the <code>Read and write permissions</code> and click <code>Save</code>. If the option is grayed out, you first need to allow this feature in your organization.</li>
 <li>Then, from <code>Actions</code>, select <code>New workflow</code>, then <code>set up a workflow yourself</code>.</li>
 <li>On the next page we will create a new workflow script, which is stored in the repository at /.github/workflows/main.yml.</li>
@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Save the file, via <code>actions</code> you can follow the progress of the workflow at every push to the repository.</li>
 <li>On the logs notice how a container is initialised, the source code is checked out, the quarto dependency is installed, the build is made and pushed to the gh-pages branch.</li>
 </ul>
-<p>Notice that the syntax to define workflows is different for every CI-CD platform, however they generally follow a similar pattern. For Github identify in the file above:</p>
+<p>Notice that the syntax to define workflows is different for every CI/CD platform, however they generally follow a similar pattern. For GitHub identify in the file above:</p>
 <ul>
 <li>It defines at what events the workflow should trigger (in this case at <code>push</code> events).</li>
 <li>a build job is triggered, which indicates a container image (runs-on) to run the job in, then triggers some steps.</li>
@@ -342,31 +342,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The above setup is optimal for co-creating a documentation repository for your community. Users can visit the source code via the <code>edit on github</code> link and suggest improvements via issues of pull requests. Notice that this tutorial is also maintained as markdown in Git.</p>
 <hr>
 </section>
-<section id="update-catalogue-from-git-ci-cd" class="level2">
-<h2 class="anchored" data-anchor-id="update-catalogue-from-git-ci-cd">Update catalogue from GIT CI-CD</h2>
+<section id="update-catalogue-from-git-cicd" class="level2">
+<h2 class="anchored" data-anchor-id="update-catalogue-from-git-cicd">Update catalogue from Git CI/CD</h2>
 <p>For this scenario we need a database in the cloud to host our records (which is reachable by github workflows). For the training we suggest to use a trial account at <a href="https://customer.elephantsql.com/login">elephantsql.com</a>.</p>
 <ul>
 <li>At elephantsql, create a new account.</li>
 <li>Then create a new Instance of type <code>Tiny (free)</code>.</li>
 <li>Click on the instance and notice the relevant connection string (URL) and password</li>
-<li>Connect your instance of pycsw to this database instance, by updating <code>pycsw.cfg</code> and following the instructions at <a href="./3-catalog-publication.html">Catalogue publication</a></li>
+<li>Connect your instance of pycsw to this database instance, by updating <code>pycsw.cfg</code> and following the instructions at <a href="./3-catalog-publication.md">Catalogue publication</a></li>
 <li>Verify in elephantsql dashboard if the records are correctly loaded.</li>
 </ul>
-<p>We will now publish our records from Github to our database.</p>
+<p>We will now publish our records from GitHub to our database.</p>
 <ul>
-<li>Create a new repository on Github for the records</li>
+<li>Create a new repository on GitHub for the records</li>
 <li>Make sure <a href="https://git-scm.com/">git-scm</a> (or a GUI tool like <a href="https://www.gitkraken.com/">Git kraken</a> or <a href="https://www.syntevo.com/smartgit/">Smartgit</a>) is intalled on your system.</li>
 <li>Clone (download) the repository to a local folder.</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/records-repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Copy the mcf files, which have been generated in <a href="./3-catalog-publication.html">Catalogue publication</a>, to a <code>datasets</code> folder in the cloned repository.</li>
+<li>Copy the mcf files, which have been generated in <a href="./3-catalog-publication.md">Catalogue publication</a>, to a <code>datasets</code> folder in the cloned repository.</li>
 <li>Commit and the files</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your Message"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Before you can push your changes to Github, you need to set up authentication, generally 2 options are possible: - Using a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">personal access token</a> - Or using <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh">SSH public key</a></p>
+<p>Before you can push your changes to GitHub, you need to set up authentication, generally 2 options are possible: - Using a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">personal access token</a> - Or using <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh">SSH public key</a></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We’ll now set up CI-CD to publish the records</p>
+<p>We’ll now set up CI/CD to publish the records</p>
 <ul>
 <li>Place the pycsw.cfg file in the root of the repository (including the postgres database connection)</li>
 <li>Create a new custom workflow file with this content:</li>
@@ -411,19 +411,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>            pycsw-admin.py load-records --config=./pycsw.cfg  --path=/tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Verify that the records are loaded on pycsw (through postgres)</li>
-<li>Change or add some records to GIT, and verify if the changes are published (may take some time)</li>
+<li>Change or add some records to Git, and verify if the changes are published (may take some time)</li>
 </ul>
-<p>Normally, we would <strong>not</strong> add a connection string to a database in a config file posted on Github. Instead Github offers <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">secrets</a> to capture this type of information.</p>
+<p>Normally, we would <strong>not</strong> add a connection string to a database in a config file posted on GitHub. Instead GitHub offers <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">secrets</a> to capture this type of information.</p>
 <hr>
 </section>
 <section id="cross-linking-catalogue-and-git" class="level2">
-<h2 class="anchored" data-anchor-id="cross-linking-catalogue-and-git">Cross linking catalogue and GIT</h2>
+<h2 class="anchored" data-anchor-id="cross-linking-catalogue-and-git">Cross linking catalogue and Git</h2>
 <p>While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorisations they can instantly improve the record, or suggest an improvement via an issue or <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a>.</p>
 <hr>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In this section you learned about using actions in Github (CI/CD). In the <a href="./6-data-publication.html">next section</a> we are diving into data publication. Notice that you can also use GIT CI/CD mechanisms to deploy or evaluate metadata and data services.</p>
+<p>In this section you learned about using actions in GitHub (CI/CD). In the <a href="./6-data-publication.html">next section</a> we are diving into data publication. Notice that you can also use Git CI/CD mechanisms to deploy or evaluate metadata and data services.</p>
 
 
 </section>
