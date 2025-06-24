@@ -1,7 +1,9 @@
 ---
 title: Git and CI/CD
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 This page introduces a number of generic Git functionalities and vendor add ons. Which can support communities in efficient co-creation of content. The page mainly focusses on the Continuous Integration & Deployment functionality, but contains many external links to introduce other aspects of Git. Considering the previous materials, a relevant ci-cd case is a set of tasks to run after a change to some of the mcf documents in a data repository, to validate the mcf's and convert them to iso19139 and push them to a catalogue.

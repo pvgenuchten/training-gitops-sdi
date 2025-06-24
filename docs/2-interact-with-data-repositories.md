@@ -1,7 +1,9 @@
 ---
 title: Interact with data repositories
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 In this section a crawler tool is introduced which let's you interact with the metadata in a file based data repository. For this exercise we've prepared a minimal data repository containing a number of Excel-, Shape- and Tiff-files. Unzip the repository to a location on disk. 

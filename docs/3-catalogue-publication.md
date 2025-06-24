@@ -1,7 +1,9 @@
 ---
 title: Catalogue publication
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 Catalogues facilitate data discovery in 3 ways:
@@ -142,7 +144,7 @@ docker run -p 8000:8000 `
    -d --rm --name=pycsw `
    -v "${PWD}:/etc/data" `
    -v "${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg" `
-   -v "${PWD}/landing_page.html:/home/pycsw/pycsw/pycsw/ogc/api/templates/landing_page.html" `
+   -v "${PWD}/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html" `
    geopython/pycsw
 ```
 :::
@@ -167,7 +169,7 @@ On the cloned repository in the `docker` folder there are 2 alternatives:
 - [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including postgis and terria
 - [docker-compose-sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml) is a minimal orchestration without terria and based on a file based sqlite database
 
-On both orchestrations a library called [traefik](https://traefik.io) to facilitate 
+On both orchestrations a library is used called [traefik](https://traefik.io) to facilitate 
 [path-routing](https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp) to the relavant containers. 
 
 Also notice that some [layout templates are mounted](https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46) into the pycsw container.
@@ -180,7 +182,7 @@ Then open a shell and navigate to the docker folder in the cloned repository and
 docker compose -f docker-compose-sqlite.yml up
 ```
 
-A lot of logs are produced by the various containers. You can also run in the background using'
+A lot of logs are produced by the various containers. You can also run in the background using:
 
 ```bash
 docker compose -d -f docker-compose-sqlite.yml up

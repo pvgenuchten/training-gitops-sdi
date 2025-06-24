@@ -1,7 +1,9 @@
 ---
 title: Bulk import
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 This paragraph describes approaches to import metadata from existing repositories. Including an option to import metadata from records of a spreadsheet.

@@ -1,7 +1,10 @@
 ---
 title: Data publication
 author: Paul van Genuchten
-date: 2023-09-23
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 In order to share a dataset with colleagues, partners or the wider public. The file should be published in a shared environment. Various technologies are available to share a file on a network. To select a relevant location mainly depends on which type of users are going to access the dataset.

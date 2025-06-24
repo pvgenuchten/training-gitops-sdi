@@ -1,7 +1,9 @@
 ---
 title: Metadata at the source
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 

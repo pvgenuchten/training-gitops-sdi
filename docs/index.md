@@ -1,7 +1,9 @@
 ---
 title: Workshop on GitOps SDI
-author: Paul van Genuchten
-date: 2025-06-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 This tutorial presents a workshop on GitObs SDI. Spatial Data Infrastructres are typically build up around a
@@ -12,7 +14,7 @@ On the tutorial some common open source tools are introduced:
 - quarto 
 - mapserver
 - pycsw
-- pygeometa/owslib
+- pygeodatacrawlwer (pygeometa/owslib/gdal)
 - TerriaJS
 
 Git has a central role in the training, it is for example suggested to facilitate software development and deployment, content co-creation and management as well as community feedback. Experience with Git and Docker are required before starting this workshop. 

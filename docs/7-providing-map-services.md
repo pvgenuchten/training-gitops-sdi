@@ -1,7 +1,9 @@
 ---
 title: Providing convenience APIs
-author: Paul van Genuchten
-date: 2023-05-09
+author: 
+- Paul van Genuchten 
+- Tom Kralidis
+date: 2025-06-24
 ---
 
 For spatial datasets it is of interest to share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as [QGIS](https://qgis.org), [OpenLayers](https://openlayers.org) & [Leaflet](https://leaflet.org). The standards on data services of the [Open Geospatial Consortium](https://www.ogc.org/) are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset. 
