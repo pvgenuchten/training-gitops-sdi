@@ -283,7 +283,7 @@ Note
 </div>
 <ul>
 <li>Visit <a href="http://localhost:8000" class="uri">http://localhost:8000</a></li>
-<li>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.cfg">a config file</a>. Download the file to the current folder, adjust the title and restart docker with:</li>
+<li>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. Download the file to the current folder, adjust the title and restart docker with:</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Powershell</a></li></ul>
@@ -292,14 +292,14 @@ Note
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="dt">\</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/etc/data <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.cfg:/etc/pycsw/pycsw.cfg <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.cfg:/etc/pycsw/pycsw.yml <span class="dt">\</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="kw">`</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="kw">`</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.cfg:/etc/pycsw/pycsw.cfg"</span> <span class="kw">`</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.cfg:/etc/pycsw/pycsw.yml"</span> <span class="kw">`</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -325,10 +325,10 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Powershell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> delete-records <span class="at">-c</span> /etc/pycsw/pycsw.cfg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> delete-records <span class="at">-c</span> /etc/pycsw/pycsw.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> pycsw bash <span class="at">-c</span> <span class="st">"pycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> pycsw bash <span class="at">-c</span> <span class="st">"pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -340,11 +340,11 @@ Note
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Powershell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> load-records <span class="at">-p</span> /etc/data/export <span class="at">-c</span> /etc/pycsw/pycsw.cfg <span class="at">-y</span> <span class="at">-r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> load-records <span class="at">-p</span> /etc/data/export <span class="at">-c</span> /etc/pycsw/pycsw.yml <span class="at">-y</span> <span class="at">-r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> pycsw bash <span class="at">-c</span> <span class="kw">`</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -381,7 +381,7 @@ Note
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="dt">\</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/etc/data <span class="dt">\</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.cfg:/etc/pycsw/pycsw.cfg <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.yml:/etc/pycsw/pycsw.yml <span class="dt">\</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html <span class="dt">\</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>   geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -389,7 +389,7 @@ Note
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="kw">`</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="kw">`</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.cfg:/etc/pycsw/pycsw.cfg"</span> <span class="kw">`</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.yml:/etc/pycsw/pycsw.yml"</span> <span class="kw">`</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html"</span> <span class="kw">`</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

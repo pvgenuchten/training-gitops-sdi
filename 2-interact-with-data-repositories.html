@@ -255,12 +255,17 @@ Tip
 <p>Consider to add additional index.yml files in other folders to override the values of index.yml at top level.</p>
 <section id="setup-environment" class="level2">
 <h2 class="anchored" data-anchor-id="setup-environment">Setup environment</h2>
-<p>The tool we will use is based on Python. For this workshop we offer 2 approaches, if you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. Else, we recommend to run the python tools in docker containers. Each of the exercises indicates an option to run the Python script directly, or from a container.</p>
+<p>The tools we will use are based on Python. For this workshop we offer 2 approaches:</p>
+<ul>
+<li>If you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment.</li>
+<li>Else, we recommend to run the python tools in docker containers.</li>
+</ul>
+<p>Each of the exercises indicates an option to run the Python script directly, or from a container.</p>
 <section id="conda" class="level3">
 <h3 class="anchored" data-anchor-id="conda">Conda</h3>
-<p>It has some specific dependencies which are best installed via <a href="https://conda.io">Conda</a>. Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL.</p>
-<p>If you don’t use Conda yet, consider to install <a href="https://mamba.readthedocs.io/en/latest/">mamba</a>, a lighter alternative to conda. Or alternatively run the scripts in a python <a href="https://docs.python.org/3/library/venv.html">virtual environment</a>.</p>
-<p>Now start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the <code>Mamba prompt</code> in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the <code>data</code> directory but one above.</p>
+<p>The tools have some specific dependencies which are best installed via <a href="https://conda.io">Conda</a>. Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL.</p>
+<p>If you don’t use Conda yet, consider to install <a href="https://mamba.readthedocs.io/en/latest/">mamba</a>, a lighter alternative to Conda. Or alternatively run the scripts in a python <a href="https://docs.python.org/3/library/venv.html">virtual environment</a>.</p>
+<p>Start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the <code>Mamba prompt</code> in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the <code>data</code> directory but one above.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> {path-where-you-unzipped-zipfile}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We will create a virtual environment <code>pgdc</code> (using Python 3.10) for our project and activate it.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">manba</span> create <span class="at">--name</span> pgdc python=3.10 </span>
