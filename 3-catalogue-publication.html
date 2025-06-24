@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-existing-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="./1-metadata-at-the-source.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Existing resources</span></a>
   </div>
 </li>
@@ -191,13 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-measure-quality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Measure quality</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-data-visualisation.html" class="sidebar-item-text sidebar-link">
+  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data visualisation</span></a>
   </div>
 </li>
@@ -245,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Users can go to the catalogue website and search for data</li>
 <li>Applications such as QGIS and TerriaJS can let users query the catalogue, evaluate the metadata, and directly add the related data to their project</li>
-<li>Search engines crawl public catalogues and include the records in their search results</li>
+<li>Search engines and partner catalogues crawl the catalogue and include the records in their search results</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -261,8 +255,8 @@ Note
 </div>
 </div>
 <hr>
-<section id="catalogue-frontend" class="level2">
-<h2 class="anchored" data-anchor-id="catalogue-frontend">Catalogue frontend</h2>
+<section id="pycsw-catalogue" class="level2">
+<h2 class="anchored" data-anchor-id="pycsw-catalogue">pycsw catalogue</h2>
 <p>Various catalogue frontends exist to facilitate dataset search, such as <a href="https://geonetwork-opensource.org">Geonetwork OpenSource</a>, <a href="https://dataverse.org">dataverse</a>, <a href="https://ckan.org">CKAN</a>. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.</p>
 <p>For this workshop we are going to use <a href="https://pycsw.org">pycsw</a>. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.</p>
 <p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running.</p>
@@ -404,6 +398,26 @@ Note
 <li>Have a look at <a href="https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates">the other templates</a> in pycsw</li>
 <li>We published a tailored set of templates as a <a href="https://github.com/pvgenuchten/pycsw-skin">pycsw skin on GitHub</a>. This skin has been used as a starting point for the lsc-hubs catalogue skin.</li>
 </ul>
+</section>
+<section id="sdi-setup-using-docker-compose" class="level2">
+<h2 class="anchored" data-anchor-id="sdi-setup-using-docker-compose">SDI setup using docker compose</h2>
+<p><a href="https://docs.docker.com/compose/">Compose</a> is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.</p>
+<p>Clone the repository to a local folder (You don’t have git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
+<pre><code>git clone https://github.com/pvgenuchten/training-gitops-sdi.git</code></pre>
+<p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
+<ul>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including postgis and terria</li>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
+</ul>
+<p>On both orchestrations a library called <a href="https://traefik.io">traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
+<p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container.</p>
+<p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
+<p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A lot of logs are produced by the various containers. You can also run in the background using’</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-d</span> <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
+<p>You can now use <code>pycsw-admin.py</code> in a similar way as above to load records into the catalogue.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>

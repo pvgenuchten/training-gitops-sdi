@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-existing-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="./1-metadata-at-the-source.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Existing resources</span></a>
   </div>
 </li>
@@ -191,13 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-measure-quality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Measure quality</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-data-visualisation.html" class="sidebar-item-text sidebar-link">
+  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data visualisation</span></a>
   </div>
 </li>
@@ -259,34 +253,35 @@ Tip
 <p>Consider to add additional index.yml files in other folders to override the values of index.yml at top level.</p>
 <section id="setup-environment" class="level2">
 <h2 class="anchored" data-anchor-id="setup-environment">Setup environment</h2>
-<p>The tool we will use is based on Python. It has some specific dependencies which are best installed via <a href="https://conda.io">Conda</a>. Conda creates a virtual Python environment, so any activity will not interfere with the base Python environment of your machine. Notice that the <a href="#pythongdal-via-docker">next paragraph</a> describes an alternative approach without installing Python locally.</p>
-<p>If you don’t have Conda, we suggest to install <a href="https://mamba.readthedocs.io/en/latest/">mamba</a>, or alternatively run the scripts from a Python Docker container. Each of the exercises below indicates an option to run the Python script directly, or from a container.</p>
-<p>Now start a commandline or powershell with mamba or Docker enabled (or add mamba to your PATH). On windows look for the <code>Mamba prompt</code> in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the <code>data</code> directory but one above.</p>
+<p>The tool we will use is based on Python. For this workshop we offer 2 approaches, if you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. Else, we recommend to run the python tools in docker containers. Each of the exercises indicates an option to run the Python script directly, or from a container.</p>
+<section id="conda" class="level3">
+<h3 class="anchored" data-anchor-id="conda">Conda</h3>
+<p>It has some specific dependencies which are best installed via <a href="https://conda.io">Conda</a>. Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL.</p>
+<p>If you don’t use Conda yet, consider to install <a href="https://mamba.readthedocs.io/en/latest/">mamba</a>, a lighter alternative to conda. Or alternatively run the scripts in a python <a href="https://docs.python.org/3/library/venv.html">virtual environment</a>.</p>
+<p>Now start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the <code>Mamba prompt</code> in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the <code>data</code> directory but one above.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> {path-where-you-unzipped-zipfile}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="setup-in-mamba" class="level3">
-<h3 class="anchored" data-anchor-id="setup-in-mamba">Setup in mamba</h3>
-<p>For mamba, we will create a virtual environment <code>pgdc</code> (using Python 3.10) for our project and activate it.</p>
+<p>We will create a virtual environment <code>pgdc</code> (using Python 3.10) for our project and activate it.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">manba</span> create <span class="at">--name</span> pgdc python=3.10 </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate pgdc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that you can deactivate this environment with: <code>mamba deactivate</code> and you will return to the main Python environment. The tools we will install below, will not be available in the main environment.</p>
 <p>Install the dependencies for the tool:</p>
 <pre><code>mamba install -c conda-forge gdal
 mamba install -c conda-forge pysqlite3</code></pre>
-<p>Now we will install the crawler tool, <a href="https://pypi.org/project/geodatacrawler/">GeoDataCrawler</a>. The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; <a href="https://github.com/geopython/OWSLib">OWSLib</a>, <a href="https://github.com/geopython/pygeometa">pygeometa</a> and <a href="https://gdal.org">GDAL</a>.</p>
+<p>Install the crawler tool, <a href="https://pypi.org/project/geodatacrawler/">GeoDataCrawler</a>. The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; <a href="https://github.com/geopython/OWSLib">OWSLib</a>, <a href="https://github.com/geopython/pygeometa">pygeometa</a> and <a href="https://gdal.org">GDAL</a>. If you want to learn more about these libraries, consider to read the ‘tutorials’ of these libraries (<a href="https://owslib.readthedocs.io/en/latest/">OWSlib</a>, <a href="https://geopython.github.io/pygeometa/tutorial/">pygeometa</a>, <a href="https://gdal.org/en/stable/tutorials/index.html">gdal</a>), or enjoy the jupyter based <a href="https://github.com/geopython/geopython-workshop">geopyton workshop</a>.</p>
 <pre><code>pip install pyGeoDataCrawler</code></pre>
 <p>Verify the different crawling options by typing:</p>
 <pre><code>crawl-metadata --help</code></pre>
 </section>
 <section id="pythongdal-via-docker" class="level3">
 <h3 class="anchored" data-anchor-id="pythongdal-via-docker">Python/GDAL via Docker</h3>
-<p>In case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available, using Python via Docker. <a href="https://www.docker.com">Docker</a> is a virtualisation technology which runs isolated containers within your computer.</p>
+<p>In case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available using Python via Docker. <a href="https://www.docker.com">Docker</a> is a virtualisation technology which runs isolated containers within your computer.</p>
 <ul>
 <li>First <a href="https://docs.docker.com/desktop/install/windows-install/">install docker</a>.</li>
 <li>Start the Docker Desktop tool.</li>
 <li>Now navigate to the folder where you unzipped the data repository and use the Docker image to run the crawler:</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> pvgenuchten/geodatacrawler crawl-metadata <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux. Use the relevant syntax for your system.</p>
+<p>For advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux bash. Use the relevant syntax for your system.</p>
 </section>
 </section>
 <section id="initial-mcf-files" class="level2">
@@ -304,32 +299,43 @@ mamba install -c conda-forge pysqlite3</code></pre>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> <span class="at">--mode</span><span class="op">=</span>init <span class="at">--dir</span><span class="op">=</span>tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/tmp"</span> <span class="kw">`</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">${PWD}</span>:/tmp <span class="kw">`</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pvgenuchten/geodatacrawler</span> crawl-metadata <span class="kw">`</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--mode=init</span> <span class="at">--dir</span><span class="op">=</span>/tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p>Notice that for each resource a {dataset}.yml file has been created. Open a .yml file in a text editor and review the content.</p>
+<p>Notice that for each resource a {dataset}.yml file has been created. Open a .yml file in a text editor and review the content. Notice on the docker statements that we mount the local folder into the container, before we can run commands into it. To verify if the correct folder was mounted, run a <code>ls</code> command to see the folder contents.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Docker &amp; Powershell</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp pvgenuchten/geodatacrawler ls tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">${PWD}</span>:/tmp pvgenuchten/geodatacrawler ls /tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="update-mcf" class="level2">
 <h2 class="anchored" data-anchor-id="update-mcf">Update MCF</h2>
 <p>The <code>update</code> mode is meant to be run at intervals, it will update the MCF files if changes have been made on a resource.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Docker &amp; Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Docker &amp; Powershell</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-metadata</span> <span class="at">--mode</span><span class="op">=</span>update <span class="at">--dir</span><span class="op">=</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-metadata</span> <span class="at">--mode</span><span class="op">=</span>update <span class="at">--dir</span><span class="op">=</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp <span class="dt">\</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> pvgenuchten/geodatacrawler crawl-metadata <span class="dt">\</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a> <span class="at">--mode</span><span class="op">=</span>update <span class="at">--dir</span><span class="op">=</span>tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp <span class="dt">\</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> pvgenuchten/geodatacrawler crawl-metadata <span class="dt">\</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> <span class="at">--mode</span><span class="op">=</span>update <span class="at">--dir</span><span class="op">=</span>tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/tmp"</span> <span class="kw">`</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pvgenuchten/geodatacrawler</span> crawl-metadata <span class="kw">`</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--mode=update</span> <span class="at">--dir</span><span class="op">=</span>/tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">${PWD}</span>:/tmp <span class="kw">`</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pvgenuchten/geodatacrawler</span> crawl-metadata <span class="kw">`</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--mode=update</span> <span class="at">--dir</span><span class="op">=</span>/tmp/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -339,22 +345,22 @@ mamba install -c conda-forge pysqlite3</code></pre>
 <h2 class="anchored" data-anchor-id="export-mcf">Export MCF</h2>
 <p>Finally we want to export the MCF’s to actual iso19139 metadata to be loaded into a catalogue like pycsw, GeoNetwork, CKAN etc.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Docker &amp; Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Docker &amp; Powershell</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-metadata</span> <span class="at">--mode</span><span class="op">=</span>export <span class="at">--dir</span><span class="op">=</span>data <span class="at">--dir-out</span><span class="op">=</span>export <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-metadata</span> <span class="at">--mode</span><span class="op">=</span>export <span class="at">--dir</span><span class="op">=</span>data <span class="at">--dir-out</span><span class="op">=</span>export <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp <span class="dt">\</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a> pvgenuchten/geodatacrawler crawl-metadata <span class="dt">\</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a> <span class="at">--mode</span><span class="op">=</span>export <span class="at">--dir</span><span class="op">=</span>tmp/data <span class="dt">\</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> <span class="at">--dir-out</span><span class="op">=</span>export <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/tmp <span class="dt">\</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> pvgenuchten/geodatacrawler crawl-metadata <span class="dt">\</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a> <span class="at">--mode</span><span class="op">=</span>export <span class="at">--dir</span><span class="op">=</span>tmp/data <span class="dt">\</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a> <span class="at">--dir-out</span><span class="op">=</span>export <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/tmp"</span> <span class="kw">`</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pvgenuchten/geodatacrawler</span> crawl-metadata <span class="kw">`</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--mode=export</span> <span class="at">--dir</span><span class="op">=</span>/tmp/data <span class="kw">`</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--dir-out=/tmp/export</span> <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="va">${PWD}</span>:/tmp <span class="kw">`</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pvgenuchten/geodatacrawler</span> crawl-metadata <span class="kw">`</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--mode=export</span> <span class="at">--dir</span><span class="op">=</span>/tmp/data <span class="kw">`</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--dir-out=/tmp/export</span> <span class="at">--dir-out-mode</span><span class="op">=</span>flat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

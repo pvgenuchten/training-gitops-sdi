@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paul van Genuchten">
-<meta name="dcterms.date" content="2022-11-10">
+<meta name="dcterms.date" content="2023-05-09">
 
-<title>Quality of Service</title>
+<title>Metadata at the source</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8-measure-quality.html">Measure quality</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1-metadata-at-the-source.html">Existing resources</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-existing-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="./1-metadata-at-the-source.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Existing resources</span></a>
   </div>
 </li>
@@ -191,13 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-measure-quality.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Measure quality</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./9-data-visualisation.html" class="sidebar-item-text sidebar-link">
+  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data visualisation</span></a>
   </div>
 </li>
@@ -212,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quality of Service</h1>
+<h1 class="title">Metadata at the source</h1>
 </div>
 
 
@@ -229,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 10, 2022</p>
+      <p class="date">May 9, 2023</p>
     </div>
   </div>
   
@@ -241,20 +235,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Quality of service monitoring supports data providers to understand strengths and weaknesses of a system. Aspects which are monitored are:</p>
-<ul>
-<li><a href="#availability-monitoring">Availability</a> (% of the time that the service has been available)</li>
-<li><a href="#performance--capacity">Performance and capacity</a></li>
-<li><a href="#usage-monitoring">Usage</a> (how (much) are services used)</li>
-<li><a href="#search-engine-optimisation">Search engine optimisation</a> (SEO)</li>
-</ul>
-<p>Quality of service monitoring is a standard activity in IT. Therefore consult your IT department or hosting company if they have tools available to assess these aspects. Confirm with them on how to extend and/or share with you the registrations for the requested parameters. Combine these reports into monthly or quarterly reports to facilitate system maintenance and roadmap.</p>
-<hr>
-<section id="availability-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="availability-monitoring">Availability Monitoring</h2>
-<p>To assess the availability of a service, it requires to monitor the availability of the service at intervals. A basic availability-test every 5 minutes is usually sufficient. Many software exists for availability monitoring, such as <a href="https://zabbix.com/">Zabbix</a>, <a href="https://nagios.org/">Nagios</a>, <a href="https://checkmk.com/">CheckMK</a>, <a href="https://www.pingdom.com/">pingdom</a>.</p>
-<p>In this workshop we’re introducting the a Python based monitoring solution, called <a href="https://geohealthcheck.org/">GeoHealthCheck</a>. Geohealthcheck is designed to monitor spatial data services specifically.</p>
-<p>The following exercise assumes Docker Desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page).</p>
+<p>Many organisations organise their documents and datasets on a central network storage or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central storage contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.</p>
+<p>For those formats which do not have embedded metadata, or in order to capture additional metadata aspects. We endorse the creation of a <code>sidecar</code> metadata file for every resource, a dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a <code>.shp.xml</code> is created alongside any <code>.shp</code> file, which captures some metadata elements.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -265,24 +247,13 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>Start by setting up a local GeoHealthCheck container:</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 80:80 geopython/geohealthcheck</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Visit http://localhost</li>
-<li>Login as user: admin, password: admin</li>
-<li>Click <code>ADD +</code> on the top bar right, select <code>WMS</code></li>
-<li>Add a WMS url, for example https://maps.isric.org/mapserv?map=/map/wrb.map</li>
-<li>On the next screen add <code>WMS Drilldown</code> (so all layers are validated)</li>
-<li>Click <code>Save and test</code></li>
-<li>When finished, click Details to see the test result</li>
-</ul>
+<p>Locate on your local computer or network drive a random shapefile. Does the file have a .shp.xml sidecar file? Else find another shape or tiff file (look for <code>*.shp.xml</code>). The contents of the xml file may be very minimal, but in most cases at least some processing information and the data model of the shapefile are mentioned.</p>
 </div>
 </div>
-<p>This test is automatically repeated at intervals (as long the service is running). You can return to the test page to view a diagram of the availability over time. You can also configure a e-mail address to recieve notifications if a service is not available.</p>
-<p>Read more at the <a href="https://docs.geohealthcheck.org/en/latest/">GeoHealthCheck website</a>,</p>
-<p>An advanced aspect of availability is identifying broken links on your content. Many tools exist which can monitor wensites on broken links at intervals, for example <a href="https://validator.w3.org/checklink">W3C linkcheck</a>. Also <a href="https://search.google.com/search-console/about">google search console</a> can be used to identify broken links. Another option is to verify in your website access logs if there are any requests which returned a 404 status, if such a request has a <a href="https://en.wikipedia.org/wiki/HTTP_referer">referer url</a>, you are able to identify which website incorrectly linked to one of your resources.</p>
+<p><strong>Through the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since they know best how the data is produced and how it should be used.</strong></p>
+<section id="standardised-metadata-models" class="level2">
+<h2 class="anchored" data-anchor-id="standardised-metadata-models">Standardised metadata models</h2>
+<p>For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to <a href="https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm">select the output model</a> of the metadata. QGIS has various plugins, such as <a href="https://plugins.qgis.org/plugins/geocatbridge/">GeoCat Bridge</a>, to work with various metadata models.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -293,91 +264,55 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Visit <a href="https://validator.w3.org/checklink" class="uri">https://validator.w3.org/checklink</a> and fill in a website you maintain or frequently visit. The <code>check</code> button starts a process to evaluate broken links.</p>
+<p>Does your organisation endorse a metadata model to describe data sources? Are your aware of tooling which can support you in creation of metadata in this model?</p>
 </div>
 </div>
-<p>Sometimes a machine is not able to identify if a link is broken, for example if the target does not return a typical <code>404 Not found</code> message.</p>
 <hr>
 </section>
-<section id="performance-capacity" class="level2">
-<h2 class="anchored" data-anchor-id="performance-capacity">Performance &amp; Capacity</h2>
-<p>To know the capacity and performance of a service you can perform some load tests prior to moving to production. An alternative approach to evaluate performance is to extract the access logs of the service into an aggregation tool like <a href="https://awstats.sourceforge.io">AWStats</a> or <a href="https://www.elastic.co/kibana">Kibana</a> and evaluate the number of requests exceeding the limits.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="the-pygeometa-mcf-format" class="level2">
+<h2 class="anchored" data-anchor-id="the-pygeometa-mcf-format">The pygeometa MCF format</h2>
+<p>Within the <a href="https://geopython.github.io">geopython community</a>, the <a href="https://geopython.github.io/pygeometa">pygeometa</a> provides a metadata format called the <a href="https://geopython.github.io/pygeometa/reference/mcf">metadata control file</a> (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on <a href="https://www.yaml.io/spec/">YAML</a>, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcf</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">identifier</span><span class="kw">:</span><span class="at"> 9c36a048-4d28-453f-9373-94c90e101ebe</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">hierarchylevel</span><span class="kw">:</span><span class="at"> dataset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">date</span><span class="kw">:</span><span class="at"> 2023-05-10</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">identification</span><span class="kw">:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> My favourite dataset</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">abstract</span><span class="kw">:</span><span class="at"> A sample dataset record to highlight the options of MCF</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="describing-a-resource" class="level2">
+<h2 class="anchored" data-anchor-id="describing-a-resource">Describing a resource</h2>
+<p>When describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some <a href="https://www.gov.uk/government/publications/search-engine-optimisation-for-publishers-best-practice-guide">practical recommendations</a> on this topic.</p>
+<p>When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Wikipedia, etc. Benefit of controlled vocabularies is that the term is not ambigue and it can be made available in multiple languages.</p>
+</section>
+<section id="mcf-editing" class="level2">
+<h2 class="anchored" data-anchor-id="mcf-editing">MCF editing</h2>
+<p>MCF documents can be written in a text editor like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Consider to install the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML plugin</a> for instant YAML validation.</p>
+<p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the application to your organisational needs.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A common challenge to service performance in spatial data is the provision of a WMS service on a big dataset. When requesting that dataset on a continental or national level, the server runs into problems drawing all the data at once. In such case consider to set up some cache/aggregation mechanism for larger areas. Setting proper min/max scale denominators can be a solution also.</p>
+<p>Imagine a dataset you have recently worked with. Then open <a href="https://osgeo.github.io/mdme">mdme</a> and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository.</p>
+<p>Notice that MDME also offers capabilities to export directly as iso19139, it uses a webservice based on the tools used in this workshop.</p>
 </div>
 </div>
-<p><a href="https://jmeter.apache.org/">jmeter</a> is a utility which can run a series of performance and capacity tests on a webservice. Jmeter is a java program, which can run on most platforms.</p>
-<ul>
-<li>Download the latest version from the <a href="https://jmeter.apache.org/download_jmeter.cgi">apache website</a>.</li>
-<li>Unzip the archive and run <code>jmeter.bat</code> from bin directory.</li>
-<li>Follow the <a href="https://jmeter.apache.org/usermanual/build-web-test-plan.html">build web test plan</a> tutorial.</li>
-<li>Customise the web test plan for your mapserver service</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Do not perform a load test against a production url, it wil severely impact the performance of that service.</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="usage-monitoring" class="level2">
-<h2 class="anchored" data-anchor-id="usage-monitoring">Usage monitoring</h2>
-<p>To capture the usage of a service you can extract the usage logs and import them in a tool like <a href="https://www.elastic.co/kibana">Kibana</a>, <a href="https://www.splunk.com/">Splunk</a>, <a href="https://matomo.org/">Matomo</a> or <a href="https://awstats.sourceforge.io/">AW stats</a>. For spatial data, it is interesting to define rules to extract the requested layer name from a WMS request.</p>
-<p><a href="https://awstats.sourceforge.io/">AWStats</a> is a basic utility to report on service usage.</p>
-<ul>
-<li>Navigate to an empty folder, place a <a href="https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs">sample log file</a> in the folder, rename the file to <code>access.log</code>.</li>
-<li>Start a container</li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Powershell</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">-p</span> 3000:80 <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="at">--name</span> awstats <span class="at">--volume</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/var/local/log:ro <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> pabra/awstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">--restart</span> always <span class="at">-p</span> 3000:80 <span class="kw">`</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">--name</span> awstats <span class="at">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/var/local/log:ro"</span> <span class="kw">`</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">pabra/awstats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li>Parse the logs:</li>
-</ul>
-<pre><code>docker exec awstats awstats_updateall.pl now</code></pre>
-<ul>
-<li>View the dashboard at http://localhost:3000, navigate to <code>May 2015</code> to see the parsed logs from the sample.</li>
-</ul>
-<hr>
-<section id="search-engine-optimisation" class="level3">
-<h3 class="anchored" data-anchor-id="search-engine-optimisation">Search Engine Optimisation</h3>
-<p>As part of usage monitoring it is also of interest to understand how users find your data via search engines. The popular search engines offer <a href="https://search.google.com/search-console">tooling</a> to report on how the crawlers navigate through your data and how users find your services. You need to <a href="https://support.google.com/webmasters/answer/9008080?hl=en">verify ownership</a> of a domain either via a DNS property or by uploading an identification string to the website.</p>
-<p>You can also use <a href="https://search.google.com/test/rich-results">Google rich result test</a> to extract structured data from a website. Or go to the <a href="https://datasetsearch.research.google.com/">dataset search engine</a> to understand if and how the search engine finds your data.</p>
-<hr>
-</section>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In this section you learned about various mechanisms to evaluate, report about and improve service quality. This concludes the main part of the workshop. In the <a href="./9-data-visualisation.html">last section</a> we present a framework for data visualisation.</p>
+<p>In this section, you are introduced to a data management approach which maintains metadata at the location where the datasets are maintained, using a minimal, standards complient approach. You are introduced to the MCF metadata format. In the <a href="./2-interact-with-data-repositories.html">next section</a>, we will go into more detail on interacting with the MCF format.</p>
 
 
 </section>
@@ -796,7 +731,7 @@ Note
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/8-measure-quality.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/1-metadata-at-the-source.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

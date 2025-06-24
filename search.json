@@ -2,119 +2,119 @@
   {
     "objectID": "slides/index.html#github",
     "href": "slides/index.html#github",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "GitHub",
     "text": "GitHub\nService to facilitate co-creation\n\nversion history of contributions\nauthentication\nissue management\nrelease management\nContinuous integration\n\nRelated software; Git, GitLab, Bitbucket, Codeberg"
   },
   {
     "objectID": "slides/index.html#quarto",
     "href": "slides/index.html#quarto",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "Quarto",
     "text": "Quarto\nA content management system to create websites, documentation, slides, etc.\nRelated software; Hugo, mkdocs, Jekyll, Wordpress, Drupal"
   },
   {
     "objectID": "slides/index.html#a-readme-in-each-folder",
     "href": "slides/index.html#a-readme-in-each-folder",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "A README in each folder",
     "text": "A README in each folder\n\nAdd a README to describe the resources in a folder\nWhy not structure the content in the README, so also machines can read it?"
   },
   {
     "objectID": "slides/index.html#metadata-control-file",
     "href": "slides/index.html#metadata-control-file",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "Metadata Control File",
     "text": "Metadata Control File\n\nA convention of the pygeometa community (Meteo Canada)\nYAML, easy to read by humans and machines\nA subset of the ISO19115 standard for metadata\n\n\nMCF"
   },
   {
     "objectID": "slides/index.html#pygeometa-library",
     "href": "slides/index.html#pygeometa-library",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "pygeometa library",
     "text": "pygeometa library\n\na library to work with MCF\nexports MCF to various metadata models (iso, dcat, stac)\nhttps://github.com/geopython/pygeometa"
   },
   {
     "objectID": "slides/index.html#the-pygeodatacrawler-tool",
     "href": "slides/index.html#the-pygeodatacrawler-tool",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "The pyGeoDataCrawler tool",
     "text": "The pyGeoDataCrawler tool\n\nDeveloped at ISRIC in the last year\nOn the shoulders of giants; GDAL, pygeometa, pandas\nGenerates MCF files for a file repository\nImports metadata from external sources\nExtracts MCF files from a repository to load it into a catalogue\nCreates map services configuration for files in the repository"
   },
   {
     "objectID": "slides/index.html#pycsw-catalogue",
     "href": "slides/index.html#pycsw-catalogue",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "pycsw catalogue",
     "text": "pycsw catalogue\n\nA catalogue implementation in python\nLimited funtionality, easy maintenance\nWide range of supported catalogue standards, serves many communities\nDatabase backend\nSkin customisable with jinja templates\n\nhttps://pycsw.org"
   },
   {
     "objectID": "slides/index.html#pygeometa-pygeodatacrawler",
     "href": "slides/index.html#pygeometa-pygeodatacrawler",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "pygeometa / pyGeoDataCrawler",
     "text": "pygeometa / pyGeoDataCrawler\nScripting libraries which support data management of a file repository\n\nGenerate metadata from existing data\nImport remote metadata\nIngest metadata from a file repository\nCreate map services (APIs) for existing data"
   },
   {
     "objectID": "slides/index.html#mapserver",
     "href": "slides/index.html#mapserver",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "MapServer",
     "text": "MapServer\n\nRecent versions of MapServer support the old and new standards\nFeatures and Maps\nNo tiles (mapproxy), No coverages yet\nNo records/stac, by design\n\nhttps://mapserver.org"
   },
   {
     "objectID": "slides/index.html#mapfile",
     "href": "slides/index.html#mapfile",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "Mapfile",
     "text": "Mapfile\n\nConfiguration via a mapfile\nAll GDAL formats supported\nCreate mapfiles using QGIS with GeoCat bridge\n\n\nmapfile"
   },
   {
     "objectID": "slides/index.html#mapfiles-from-metadata",
     "href": "slides/index.html#mapfiles-from-metadata",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "Mapfiles from metadata",
     "text": "Mapfiles from metadata\n\nUse the metadata to generate/update mapfiles\nStore map configuration on github\nUse SLD file {dataset}.sld to style a layer\nMetadata is updated with WMS/WFS/WCS url"
   },
   {
     "objectID": "slides/index.html#terriajs",
     "href": "slides/index.html#terriajs",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "TerriaJS",
     "text": "TerriaJS\nAn Open Source javascript WebGIS application\ndemo\nRelated products; GeoNode, GeoMoose, MapBender, Oskari, GisQuick"
   },
   {
     "objectID": "slides/index.html#quarto-1",
     "href": "slides/index.html#quarto-1",
-    "title": "1.3 Tools",
+    "title": "GitOps SDI",
     "section": "Quarto",
     "text": "Quarto\n\nAdd diagrams or maps with python and R scripting\nOther interesting option is the W3C MapML"
   },
   {
-    "objectID": "9-data-visualisation.html",
-    "href": "9-data-visualisation.html",
+    "objectID": "8-data-visualisation.html",
+    "href": "8-data-visualisation.html",
     "title": "Advanced options",
     "section": "",
-    "text": "Various extensions are possible to tailor the system to your organisation needs.",
+    "text": "TerriaJS is a modern web gis application, which includes an option to query a CSW catalogue.\nThe terriamap docker image is available via Github ContainerRegistry (ghcr.io)\ndocker run -p 3001:3001 ghcr.io/terriajs/terriamap:0.4.2\nVisit http://localhost:3001 to see TerriaJS in action.\nIn our docker compose terriamap is routed via localhost/map.\nTwo files are mounted into the container:\n\nconfig.json contains the configuration of the interface, you should add a personalised google/bing/cesium key here.\nsimple.json is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.\n\nNotice that from terria layer details, you can access the catalogue again (link is shared via WMS-getcapabilities)",
     "crumbs": [
       "Home",
       "Data visualisation"
     ]
   },
   {
-    "objectID": "9-data-visualisation.html#terriajs",
-    "href": "9-data-visualisation.html#terriajs",
+    "objectID": "8-data-visualisation.html#terriajs",
+    "href": "8-data-visualisation.html#terriajs",
     "title": "Advanced options",
-    "section": "TerriaJS",
-    "text": "TerriaJS\nTerriaJS is a modern web gis application, which includes a widget to query a catalogue. From the catalogue search results the data can be added to the TerriaJS map.\nThe main Docker image definition can be used to build and run terriaJS locally.\ngit clone https://github.com/TerriaJS/TerriaMap\ncd TerriaMap\ndocker build -t local/terria .\ndocker run -p 3001:3001 local/terria\nVisit http://localhost:3001 to see TerriaJS in action.",
+    "section": "",
+    "text": "TerriaJS is a modern web gis application, which includes an option to query a CSW catalogue.\nThe terriamap docker image is available via Github ContainerRegistry (ghcr.io)\ndocker run -p 3001:3001 ghcr.io/terriajs/terriamap:0.4.2\nVisit http://localhost:3001 to see TerriaJS in action.\nIn our docker compose terriamap is routed via localhost/map.\nTwo files are mounted into the container:\n\nconfig.json contains the configuration of the interface, you should add a personalised google/bing/cesium key here.\nsimple.json is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.\n\nNotice that from terria layer details, you can access the catalogue again (link is shared via WMS-getcapabilities)",
     "crumbs": [
       "Home",
       "Data visualisation"
     ]
   },
   {
-    "objectID": "9-data-visualisation.html#summary",
-    "href": "9-data-visualisation.html#summary",
+    "objectID": "8-data-visualisation.html#summary",
+    "href": "8-data-visualisation.html#summary",
     "title": "Advanced options",
     "section": "Summary",
     "text": "Summary\nWith this topic we conclude our training on data management. We hope you enjoyed the materials. Notice that the training can act as a starting point to a number of other resources. Let us know via Git issues if you have improvement suggestions for the materials.",
@@ -124,69 +124,278 @@
     ]
   },
   {
-    "objectID": "7-providing-map-services.html",
-    "href": "7-providing-map-services.html",
-    "title": "Providing convenience APIs",
+    "objectID": "6-data-publication.html",
+    "href": "6-data-publication.html",
+    "title": "Data publication",
     "section": "",
-    "text": "For spatial datasets it is of interest to share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as QGIS, OpenLayers & Leaflet. The standards on data services of the Open Geospatial Consortium are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset.\nIn this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs.",
+    "text": "In order to share a dataset with colleagues, partners or the wider public. The file should be published in a shared environment. Various technologies are available to share a file on a network. To select a relevant location mainly depends on which type of users are going to access the dataset.\nThe following options exist:",
     "crumbs": [
       "Home",
-      "Map services"
+      "Data publication"
     ]
   },
   {
-    "objectID": "7-providing-map-services.html#standardised-data-apis",
-    "href": "7-providing-map-services.html#standardised-data-apis",
-    "title": "Providing convenience APIs",
-    "section": "Standardised data APIs",
-    "text": "Standardised data APIs\nStandardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of Spatial Data on the Web Best Practices. Combined with the OGC Open Geospatial APIs - White Paper, OGC then initiated a new generation of standards based on these best practices.\nAn overview of both generations:\n\n\n\nOWS\nOGC-API\nDescription\n\n\n\n\nWeb Map Service (WMS)\nMaps\nProvides a visualisation of a subset of the data\n\n\nWeb Feature Service (WFS)\nFeatures\nAPI to request a subset of the vector features\n\n\nWeb Coverage Service (WCS)\nCoverages\nAPI to interact with grid sources\n\n\nSensor Observation Service (SOS)\nSensorThings\nRetrieve subsets of sensor observations\n\n\nWeb Processing Service (WPS)\nProcesses\nRun processes on data ]\n\n\nCatalogue Service for the Web (CSW)\nRecords\nRetrieve and filter catalogue records\n\n\n\nNotice that most of the mapping software supports the standards of both generations. However, due to their recent introduction, expect incidental challenges in the implementations of OGC APIs.",
+    "objectID": "6-data-publication.html#persistent-identification",
+    "href": "6-data-publication.html#persistent-identification",
+    "title": "Data publication",
+    "section": "Persistent identification",
+    "text": "Persistent identification\nSelect the location carefully, prevent to regularly move a file to a new location. Because with every move, users need to be notified of the new location and documentation needs to be updated. When moving is relevant, consider to set up a forward-rule on the server which redirects users to the new location.\nAn interesting aspect of persistent identification is the choice of a domain and path name. A domain should represent enough credibility/authority (is this a trusted resource), and should be persistent for a longer period. A project name, for example, is not a good choice for a domain to publish a resource.\nA mechanism exists which facilitates file moves, without breaking their identification. Identifier providers such as DOI and ePIC enable creation of a identifier for any resource. In documentation use the provided identifier, in case the location of the resource changes, you can update the link behind the identifier. Some organisations install a identification service themselves, so they have full ownership on the domain and the contents of the service. An example of such a service is the identification service of the German Federal Government.",
     "crumbs": [
       "Home",
-      "Map services"
+      "Data publication"
     ]
   },
   {
-    "objectID": "7-providing-map-services.html#setting-up-an-api",
-    "href": "7-providing-map-services.html#setting-up-an-api",
-    "title": "Providing convenience APIs",
-    "section": "Setting up an API",
-    "text": "Setting up an API\nMapServer is server software which is able to expose datasets through various APIs. Examples of similar software are QGIS server, ArcGIS Server, GeoServer and pygeoapi.\nWe’ve selected mapserver for this training, because of its robustness and low resource consumption. MapServer is configured using a configuration file: called the mapfile. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of the dataset.\nVarious tools exist to write these configuration files, such as MapServer studio, GeoStyler, QGIS Bridge, up to a Visual Studio plugin to edit mapfiles.\nThe pyGeoDataCrawler, introduced in a previous paragraph, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the mapserver service endpoint. This step enables a typical workflow of:\n\nUsers find a dataset in a catalogue\nThen open the dataset via the linked service\n\nBut also vice versa; from a mapping application, access the metadata describing a dataset.",
+    "objectID": "6-data-publication.html#include-metadata",
+    "href": "6-data-publication.html#include-metadata",
+    "title": "Data publication",
+    "section": "Include metadata",
+    "text": "Include metadata\nFor optimal discoverability, it is important to combine data publication with metadata. Either via embedded metadata in the file, else with a separate metadata file. In case of a shared folder or cloud service, embed or place the metadata along the data files, so people browsing through the system can easily find it.\nThe embedded or sidecar metadata should be duplicated into catalogue software, to make it searchable by the targeted audience. This process is further described at catalogue publication.",
     "crumbs": [
       "Home",
-      "Map services"
+      "Data publication"
     ]
   },
   {
-    "objectID": "7-providing-map-services.html#mapfile-creation-exercise",
-    "href": "7-providing-map-services.html#mapfile-creation-exercise",
-    "title": "Providing convenience APIs",
-    "section": "Mapfile creation exercise",
-    "text": "Mapfile creation exercise\n\nNavigate with shell to a folder with data files.\nVerify if mcf’s are available for the files, if not, create initial metadata with crawl-metadata --mode=init --dir=.\nAdd a index.yml file to the folder. This metadata is introduced in the mapfile to identify the service.\n\nmcf:\n   version: 1.0\nidentification:\n    title: My new map service\n    abstract: A map service for data about ...\ncontact:\n  pointOfContact:\n    organization: ISRIC\n    email: info@isric.org\n    url: https://www.isric.org\n\nSet some environment variables\n\n\nLinuxPowershell\n\n\nexport pgdc_md_url=\"https://kenya.lsc-hubs.org/collections/metadata:main/items/{0}\"\nexport pgdc_ms_url=\"http://localhost\"\nexport pgdc_webdav_url=\"https://example.com/data\"\n\n\n$pgdc_md_url=\"https://kenya.lsc-hubs.org/collections/metadata:main/items/{0}\"\n$pgdc_ms_url=\"http://localhost\"\n$pgdc_webdav_url=\"https://example.com/data\"\n\n\n\n\nGenerate the mapfile\n\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-maps --dir=.\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n  org/metatraining crawl-maps --dir=/tmp \n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  org/metatraining crawl-maps --dir=/tmp \n\n\n\n\nIndex.yml may include a “robot” property, to guide the crawler in how to process the folder. This section can be used to add specific crawling behaviour.\n\nmcf:\n    version: 1.0\nrobot:\n    skip-subfolders: True # indicates the crawler not to proceed in subfolders\nYou can test this mapfile locally if you have mapserver installed. On windows, consider using conda or ms4w.\nconda install -c conda-forge mapserver\nMapServer includes a map2img utility, which enables to render a map image from any mapfile.\nmap2img -m=./mymap.map -o=test.png",
-    "crumbs": [
-      "Home",
-      "Map services"
-    ]
-  },
-  {
-    "objectID": "7-providing-map-services.html#setup-mapserver-via-docker",
-    "href": "7-providing-map-services.html#setup-mapserver-via-docker",
-    "title": "Providing convenience APIs",
-    "section": "Setup mapserver via Docker",
-    "text": "Setup mapserver via Docker\nFor this exercise we’re using a mapserver image available from DockerHub.\ndocker pull camptocamp/mapserver:master  \nFirst create a config file, which we’ll mount as a volume into the container. On this config file we list all the mapfiles we aim to publish on our container. Download the default config file. Open the file and unescape and populate the maps section:\nMAPS\n     \"data\" \"/srv/data/data.map\"\nEND\nAlso unescape the OGCAPI templates section\nOGCAPI_HTML_TEMPLATE_DIRECTORY \"/usr/local/share/mapserver/ogcapi/templates/html-bootstrap4/\"\nIn the next statement we mount the data folder, including the config file and indicate on which port and with which config file the container will run:\n\nLinuxPowershell\n\n\ndocker run -p 80:80 \\\n    -e MAPSERVER_CONFIG_FILE=/srv/data/mapserver.conf \\\n    -v $(pwd):/srv/data  \\\n    camptocamp/mapserver:master \n\n\ndocker run -p 80:80 `\n    -e MAPSERVER_CONFIG_FILE=/srv/data/mapserver.conf `\n    -v \"${PWD}:/srv/data\" `\n    camptocamp/mapserver:master \n\n\n\nCheck http://localhost/data/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors.\nYou can also try the url in QGIS. Add a WMS layer, of service http://localhost/data?request=GetCapabilities&service=WMS.\nNotice the links to metadata when you open GetCapabilities in a browser.\n\n\n\n\n\n\nNote\n\n\n\nIn recent years browsers have become more strict, to prevent abuse. For that reason it is important to carefully consider common connectivity aspects, when setting up a new service. Websites running at https can only embed content from other https services, so using https is relevant. CORS and CORB can limit access to embedded resources from remote servers. Using proper CORS headers and Content type identification, is relevant to prevent CORS and CORB errors.\n\n\nGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the robot section in index.yml.",
-    "crumbs": [
-      "Home",
-      "Map services"
-    ]
-  },
-  {
-    "objectID": "7-providing-map-services.html#summary",
-    "href": "7-providing-map-services.html#summary",
-    "title": "Providing convenience APIs",
+    "objectID": "6-data-publication.html#summary",
+    "href": "6-data-publication.html#summary",
+    "title": "Data publication",
     "section": "Summary",
-    "text": "Summary\nIn this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the next section we’ll look at measuring service quality.",
+    "text": "Summary\nVarious technologies exist to share data on a network. When selecting a mechanism, evaluate if you can facilitate identifier persistence and share metadata along with the files. In the next section we’ll setup convenience APIs on data to facilitate reuse of the data.",
     "crumbs": [
       "Home",
-      "Map services"
+      "Data publication"
+    ]
+  },
+  {
+    "objectID": "4-bulk-import.html",
+    "href": "4-bulk-import.html",
+    "title": "Bulk import",
+    "section": "",
+    "text": "This paragraph describes approaches to import metadata from existing repositories. Including an option to import metadata from records of a spreadsheet.",
+    "crumbs": [
+      "Home",
+      "Bulk import"
+    ]
+  },
+  {
+    "objectID": "4-bulk-import.html#bulk-import-from-spreadsheet",
+    "href": "4-bulk-import.html#bulk-import-from-spreadsheet",
+    "title": "Bulk import",
+    "section": "Bulk import from spreadsheet",
+    "text": "Bulk import from spreadsheet\nMany metadata initiatives tend to start from a spreadsheet. Each of the columns representa a metadata property and the rows are the individual records describing a resource. Spreadsheets have proven to be an effective medium to populate a catalogue with records initially. To facilitate this use case the GeoDataCrawler software provides an import spreadsheet method. The spreadsheet is parsed and a MCF document is generated for every row.\nSince every metadata initiative tends to have dedicated columns. A templating approach is used to convert from row to MCF. A default template is available, matching a default spreadsheet layout. If your spreadsheet layout is different, you need to adjust the template accordingly.\n\nFor this exercise we’ll use the LSC-hubs spreadsheet in combination with the LSC-hubs template. Notice that the template has the same filename, but with extension .j2. Download both files to a new folder, called csv, in your working directory.\nFrom your shell environment run this command:\n\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=import-csv --dir=\"./csv\"\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n  org/metatraining crawl-metadata \\\n  --mode=import-csv --dir=\"/tmp/csv\"\n\n\ndocker run -it --rm -v ${PWD}:/tmp `\n  org/metatraining crawl-metadata `\n  --mode=import-csv --dir=\"/tmp/csv\"\n\n\n\n\nIf there are errors, check the paths and consider to open the CSV in Google Sheets and export it again or open it in a text editor to look for special cases. A known issue with this approach is that the crawler tool can not manage newline characters in text fields.\nOpen one of the generated MCF files to evaluate its content.\nA common spreadsheet tool is Microsoft Excel. If you open and export a spreadsheet from Excel, the CSV will use the ‘;’ character as column separator. Use the –sep=‘;’ parameter to indicate GeoDataCrawler to use this separator.\n\ncrawl-metadata --mode=import-csv --dir=\"./csv\" --sep=';'",
+    "crumbs": [
+      "Home",
+      "Bulk import"
+    ]
+  },
+  {
+    "objectID": "4-bulk-import.html#bulk-import-from-an-online-location",
+    "href": "4-bulk-import.html#bulk-import-from-an-online-location",
+    "title": "Bulk import",
+    "section": "Bulk import from an online location",
+    "text": "Bulk import from an online location\nMany resources are already described elsewhere which may be of interest to add to our catalogue. For this use case some options exist to import remote metadata.\n\nBy ID\nIn many cases you want to import a selected subset of a remote catalogue. In this scenario we prepare a csv with the identifiers of the records to be imported. These identifiers are used to create a very minimal MCF file. GeoDataCrawler subsequently extends the local record with remote content. Currently supported are metadata from CSW, WMS and DOI.\n\nFor this exercise download a spreadsheet with a subset of the isric.org data repository and the relevant template to a folder isric.\nImport the CSV\n\ncrawl-metadata --mode=import-csv --dir=\"./isric\" --sep=';'\n\nThe synchronisation with remote content is implemented in GeoDataCrawler as part of the update metadata method. The update process will evaluate the dataseturi-property. If the uri refers to remote content in a supported format, the MCF will be updated against that content (remote takes preference).\n\ncrawl-metadata --mode=update --dir=\"./isric\" --resolve=true\n\nNotice the changes before and after running the script. If needed, you can remove all the MCF files and run import-csv again to restore the originals.\n\n\n\nHarvest full set\nIn case you want to harvest the full set of a remote catalogue, you can create a basic MCF in a new folder undrr and add a distribution of a CSW endpoint.\nmetadata:\n    hierarchylevel: service\n    identifier: riskprofilesundrr\ndistribution:\n  csw:\n    name: csw\n    url: http://riskprofilesundrr.org/catalogue/csw\n    type: OGC:CSW\nNow use the crawler to fetch the remote records of the catalogue.\ncrawl-metadata --mode=update --dir=\"./undrr\" --resolve=true\nYou can repeat this harvest at intervals to keep your catalogue up to date with the remote.",
+    "crumbs": [
+      "Home",
+      "Bulk import"
+    ]
+  },
+  {
+    "objectID": "4-bulk-import.html#summary",
+    "href": "4-bulk-import.html#summary",
+    "title": "Bulk import",
+    "section": "Summary",
+    "text": "Summary\nWe’ve seen a number of options to import metadata from external sources. In the next section we’ll have a look at Git, a versioning system.",
+    "crumbs": [
+      "Home",
+      "Bulk import"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html",
+    "href": "2-interact-with-data-repositories.html",
+    "title": "Interact with data repositories",
+    "section": "",
+    "text": "In this section a crawler tool is introduced which let’s you interact with the metadata in a file based data repository. For this exercise we’ve prepared a minimal data repository containing a number of Excel-, Shape- and Tiff-files. Unzip the repository to a location on disk.\nIn the root folder of the repository already exists a minimal MCF file, index.yml. This file contains some generic metadata properties which are used if a file within the repository does not include them. The tool we use is able to inherit metadata properties from this index.yml file through the file hierarchy.\nConsider to add additional index.yml files in other folders to override the values of index.yml at top level.",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html#setup-environment",
+    "href": "2-interact-with-data-repositories.html#setup-environment",
+    "title": "Interact with data repositories",
+    "section": "Setup environment",
+    "text": "Setup environment\nThe tool we will use is based on Python. For this workshop we offer 2 approaches, if you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. Else, we recommend to run the python tools in docker containers. Each of the exercises indicates an option to run the Python script directly, or from a container.\n\nConda\nIt has some specific dependencies which are best installed via Conda. Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL.\nIf you don’t use Conda yet, consider to install mamba, a lighter alternative to conda. Or alternatively run the scripts in a python virtual environment.\nNow start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the Mamba prompt in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the data directory but one above.\ncd {path-where-you-unzipped-zipfile}\nWe will create a virtual environment pgdc (using Python 3.10) for our project and activate it.\nmanba create --name pgdc python=3.10 \nmamba activate pgdc\nNotice that you can deactivate this environment with: mamba deactivate and you will return to the main Python environment. The tools we will install below, will not be available in the main environment.\nInstall the dependencies for the tool:\nmamba install -c conda-forge gdal\nmamba install -c conda-forge pysqlite3\nInstall the crawler tool, GeoDataCrawler. The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; OWSLib, pygeometa and GDAL. If you want to learn more about these libraries, consider to read the ‘tutorials’ of these libraries (OWSlib, pygeometa, gdal), or enjoy the jupyter based geopyton workshop.\npip install pyGeoDataCrawler\nVerify the different crawling options by typing:\ncrawl-metadata --help\n\n\nPython/GDAL via Docker\nIn case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available using Python via Docker. Docker is a virtualisation technology which runs isolated containers within your computer.\n\nFirst install docker.\nStart the Docker Desktop tool.\nNow navigate to the folder where you unzipped the data repository and use the Docker image to run the crawler:\n\ndocker run -it --rm pvgenuchten/geodatacrawler crawl-metadata --help\nFor advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux bash. Use the relevant syntax for your system.",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html#initial-mcf-files",
+    "href": "2-interact-with-data-repositories.html#initial-mcf-files",
+    "title": "Interact with data repositories",
+    "section": "Initial MCF files",
+    "text": "Initial MCF files\nThe initial task for the tool is to create for every data file in our repository a sidecar file based on embedded metadata from the resource.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=init --dir=data\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=init --dir=tmp/data\n\n\ndocker run -it --rm -v ${PWD}:/tmp `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=init --dir=/tmp/data\n\n\n\nNotice that for each resource a {dataset}.yml file has been created. Open a .yml file in a text editor and review the content. Notice on the docker statements that we mount the local folder into the container, before we can run commands into it. To verify if the correct folder was mounted, run a ls command to see the folder contents.\n\nDocker & LinuxDocker & Powershell\n\n\ndocker run -it --rm -v $(pwd):/tmp pvgenuchten/geodatacrawler ls tmp\n\n\ndocker run -it --rm -v ${PWD}:/tmp pvgenuchten/geodatacrawler ls /tmp",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html#update-mcf",
+    "href": "2-interact-with-data-repositories.html#update-mcf",
+    "title": "Interact with data repositories",
+    "section": "Update MCF",
+    "text": "Update MCF\nThe update mode is meant to be run at intervals, it will update the MCF files if changes have been made on a resource.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=update --dir=data\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=update --dir=tmp/data\n\n\ndocker run -it --rm -v ${PWD}:/tmp `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=update --dir=/tmp/data\n\n\n\nIn certain cases the update mode will also import metadata from remote url’s. This happens for example if the dataset-uri is a DOI. The update mode will ten fetch metadata of the DOI and push it into the MCF.",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html#export-mcf",
+    "href": "2-interact-with-data-repositories.html#export-mcf",
+    "title": "Interact with data repositories",
+    "section": "Export MCF",
+    "text": "Export MCF\nFinally we want to export the MCF’s to actual iso19139 metadata to be loaded into a catalogue like pycsw, GeoNetwork, CKAN etc.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=export --dir=data --dir-out=export --dir-out-mode=flat\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=export --dir=tmp/data \\\n --dir-out=export --dir-out-mode=flat\n\n\ndocker run -it --rm -v ${PWD}:/tmp `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=export --dir=/tmp/data `\n  --dir-out=/tmp/export --dir-out-mode=flat\n\n\n\nOpen one of the xml files and evaluate if the contact information from step 1 is available.",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "2-interact-with-data-repositories.html#summary",
+    "href": "2-interact-with-data-repositories.html#summary",
+    "title": "Interact with data repositories",
+    "section": "Summary",
+    "text": "Summary\nIn this paragraph you have been introduced to the pyGeoDataCrawler library. In the next section we are looking at catalogue publication.",
+    "crumbs": [
+      "Home",
+      "Data repositories"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html",
+    "href": "1-metadata-at-the-source.html",
+    "title": "Metadata at the source",
+    "section": "",
+    "text": "Many organisations organise their documents and datasets on a central network storage or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central storage contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.\nFor those formats which do not have embedded metadata, or in order to capture additional metadata aspects. We endorse the creation of a sidecar metadata file for every resource, a dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a .shp.xml is created alongside any .shp file, which captures some metadata elements.\nThrough the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since they know best how the data is produced and how it should be used.",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html#standardised-metadata-models",
+    "href": "1-metadata-at-the-source.html#standardised-metadata-models",
+    "title": "Metadata at the source",
+    "section": "Standardised metadata models",
+    "text": "Standardised metadata models\nFor optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to select the output model of the metadata. QGIS has various plugins, such as GeoCat Bridge, to work with various metadata models.\n\n\n\n\n\n\nTip\n\n\n\nDoes your organisation endorse a metadata model to describe data sources? Are your aware of tooling which can support you in creation of metadata in this model?",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html#the-pygeometa-mcf-format",
+    "href": "1-metadata-at-the-source.html#the-pygeometa-mcf-format",
+    "title": "Metadata at the source",
+    "section": "The pygeometa MCF format",
+    "text": "The pygeometa MCF format\nWithin the geopython community, the pygeometa provides a metadata format called the metadata control file (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on YAML, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:\nmcf:\n    version: 1.0\n\nmetadata:\n    identifier: 9c36a048-4d28-453f-9373-94c90e101ebe\n    hierarchylevel: dataset\n    date: 2023-05-10\n\nidentification:\n    title: My favourite dataset\n    abstract: A sample dataset record to highlight the options of MCF\n    ...",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html#describing-a-resource",
+    "href": "1-metadata-at-the-source.html#describing-a-resource",
+    "title": "Metadata at the source",
+    "section": "Describing a resource",
+    "text": "Describing a resource\nWhen describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some practical recommendations on this topic.\nWhen tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Wikipedia, etc. Benefit of controlled vocabularies is that the term is not ambigue and it can be made available in multiple languages.",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html#mcf-editing",
+    "href": "1-metadata-at-the-source.html#mcf-editing",
+    "title": "Metadata at the source",
+    "section": "MCF editing",
+    "text": "MCF editing\nMCF documents can be written in a text editor like Visual Studio Code. Consider to install the YAML plugin for instant YAML validation.\nAnother option to create and update mcf files is via MDME. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at osgeo.github.io. Notice that if you install the package locally, you can customize the application to your organisational needs.\n\n\n\n\n\n\nTip\n\n\n\nImagine a dataset you have recently worked with. Then open mdme and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository.\nNotice that MDME also offers capabilities to export directly as iso19139, it uses a webservice based on the tools used in this workshop.",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "1-metadata-at-the-source.html#summary",
+    "href": "1-metadata-at-the-source.html#summary",
+    "title": "Metadata at the source",
+    "section": "Summary",
+    "text": "Summary\nIn this section, you are introduced to a data management approach which maintains metadata at the location where the datasets are maintained, using a minimal, standards complient approach. You are introduced to the MCF metadata format. In the next section, we will go into more detail on interacting with the MCF format.",
+    "crumbs": [
+      "Home",
+      "Existing resources"
+    ]
+  },
+  {
+    "objectID": "3-catalogue-publication.html",
+    "href": "3-catalogue-publication.html",
+    "title": "Catalogue publication",
+    "section": "",
+    "text": "Catalogues facilitate data discovery in 3 ways:",
+    "crumbs": [
+      "Home",
+      "Catalogue publication"
+    ]
+  },
+  {
+    "objectID": "3-catalogue-publication.html#pycsw-catalogue",
+    "href": "3-catalogue-publication.html#pycsw-catalogue",
+    "title": "Catalogue publication",
+    "section": "pycsw catalogue",
+    "text": "pycsw catalogue\nVarious catalogue frontends exist to facilitate dataset search, such as Geonetwork OpenSource, dataverse, CKAN. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.\nFor this workshop we are going to use pycsw. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.\nFor this exercise we assume you have Docker Desktop installed on your system and running.\npycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.\n\nNavigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -v $(pwd):/etc/data \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -v \"${PWD}:/etc/data\" `\n   geopython/pycsw\n\n\n\n\nVisit http://localhost:8000\nMuch of the configuration of pycsw (title, contact details, database connection, url) is managed in a config file. Download the file to the current folder, adjust the title and restart docker with:\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -d --rm --name=pycsw \\\n   -v $(pwd):/etc/data \\\n   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -d --rm --name=pycsw `\n   -v \"${PWD}:/etc/data\" `\n   -v \"${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg\" `\n   geopython/pycsw\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNotice -d starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use docker ps. docker logs pycsw shows the logs of a container and docker stop pycsw stops the container. The -rm option removes the container at stop, so we can easily recreate it with additional options at next runs.\n\n\n\nFor administering the instance we use a utility called pycsw-admin.py. Notice on the calls below a reference to a relevant config file.\nFirst clear the existing database:\n\n\nContainer terminalPowershell\n\n\npycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg\n\n\ndocker exec -it pycsw bash -c \"pycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg\"\n\n\n\n\nNotice at http://localhost:8000/collections/metadata:main/items that all records are removed.\nLoad the records, which we exported as iso19139 in the previous section, to the database:\n\n\nContainer terminalPowershell\n\n\npycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r\n\n\ndocker exec -it pycsw bash -c `\n \"pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r\"\n\n\n\n\nValidate at http://localhost:8000/collections/metadata:main/items if our records are loaded, else check logs to identify a problem.",
+    "crumbs": [
+      "Home",
+      "Catalogue publication"
+    ]
+  },
+  {
+    "objectID": "3-catalogue-publication.html#customise-the-catalogue-skin",
+    "href": "3-catalogue-publication.html#customise-the-catalogue-skin",
+    "title": "Catalogue publication",
+    "section": "Customise the catalogue skin",
+    "text": "Customise the catalogue skin\npycsw uses jinja templates to build the web frontend. These are html documents including template language to substitute parts of the page.\n\nSave the template below as a file ‘landing_page.html’ in the current directory\n\n{% extends \"_base.html\" %}\n{% block title %}{{ super() }} Home {% endblock %}\n{% block body %}\n&lt;h1&gt;Welcome to my catalogue!&lt;/h1&gt;\n&lt;p&gt;{{ config['metadata:main']['identification_abstract'] }}&lt;/p&gt;\nContinue to the records in this catalogue\n&lt;a title=\"Items\" \n    href=\"{{ config['server']['url'] }}/collections/metadata:main/items\"&gt;\n    Collections&lt;/a&gt;, or have a look at the  \n&lt;a title=\"OpenAPI\" \n      href=\"{{ config['server']['url'] }}/openapi?f=html\"&gt;Open API Document&lt;/a&gt;\n{% endblock %}\n\nWe will now replace the default template in the Docker image with our template.\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -d --rm --name=pycsw \\\n   -v $(pwd):/etc/data \\\n   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \\\n   -v $(pwd)/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -d --rm --name=pycsw `\n   -v \"${PWD}:/etc/data\" `\n   -v \"${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg\" `\n   -v \"${PWD}/landing_page.html:/home/pycsw/pycsw/pycsw/ogc/api/templates/landing_page.html\" `\n   geopython/pycsw\n\n\n\n\nView the result at http://localhost:8000\nHave a look at the other templates in pycsw\nWe published a tailored set of templates as a pycsw skin on GitHub. This skin has been used as a starting point for the lsc-hubs catalogue skin.",
+    "crumbs": [
+      "Home",
+      "Catalogue publication"
+    ]
+  },
+  {
+    "objectID": "3-catalogue-publication.html#sdi-setup-using-docker-compose",
+    "href": "3-catalogue-publication.html#sdi-setup-using-docker-compose",
+    "title": "Catalogue publication",
+    "section": "SDI setup using docker compose",
+    "text": "SDI setup using docker compose\nCompose is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.\nClone the repository to a local folder (You don’t have git installed? You can also download the repository as a zip file).\ngit clone https://github.com/pvgenuchten/training-gitops-sdi.git\nOn the cloned repository in the docker folder there are 2 alternatives:\n\ndocker-compose.yml is the full orchestration including postgis and terria\ndocker-compose-sqlite.yml is a minimal orchestration without terria and based on a file based sqlite database\n\nOn both orchestrations a library called traefik to facilitate path-routing to the relavant containers.\nAlso notice that some layout templates are mounted into the pycsw container.\nSome environment variables should be set in a .env file. Rename the .env-template file to .env.\nThen open a shell and navigate to the docker folder in the cloned repository and run:\ndocker compose -f docker-compose-sqlite.yml up\nA lot of logs are produced by the various containers. You can also run in the background using’\ndocker compose -d -f docker-compose-sqlite.yml up\nWhen running in the background, use docker compose down, docker ps, docker logs pycsw to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.\nYou can now use pycsw-admin.py in a similar way as above to load records into the catalogue.",
+    "crumbs": [
+      "Home",
+      "Catalogue publication"
+    ]
+  },
+  {
+    "objectID": "3-catalogue-publication.html#summary",
+    "href": "3-catalogue-publication.html#summary",
+    "title": "Catalogue publication",
+    "section": "Summary",
+    "text": "Summary\nIn this paragraph you learned how datasets can be published into a catalogue. In the next paragraph, we’ll look at importing metadata from external sources.",
+    "crumbs": [
+      "Home",
+      "Catalogue publication"
     ]
   },
   {
@@ -278,322 +487,69 @@
     ]
   },
   {
-    "objectID": "3-catalogue-publication.html",
-    "href": "3-catalogue-publication.html",
-    "title": "Catalogue publication",
+    "objectID": "7-providing-map-services.html",
+    "href": "7-providing-map-services.html",
+    "title": "Providing convenience APIs",
     "section": "",
-    "text": "Catalogues facilitate data discovery in 3 ways:",
+    "text": "For spatial datasets it is of interest to share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as QGIS, OpenLayers & Leaflet. The standards on data services of the Open Geospatial Consortium are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset.\nIn this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs.",
     "crumbs": [
       "Home",
-      "Catalogue publication"
+      "Map services"
     ]
   },
   {
-    "objectID": "3-catalogue-publication.html#catalogue-frontend",
-    "href": "3-catalogue-publication.html#catalogue-frontend",
-    "title": "Catalogue publication",
-    "section": "Catalogue frontend",
-    "text": "Catalogue frontend\nVarious catalogue frontends exist to facilitate dataset search, such as Geonetwork OpenSource, dataverse, CKAN. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.\nFor this workshop we are going to use pycsw. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.\nFor this exercise we assume you have Docker Desktop installed on your system and running.\npycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.\n\nNavigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -v $(pwd):/etc/data \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -v \"${PWD}:/etc/data\" `\n   geopython/pycsw\n\n\n\n\nVisit http://localhost:8000\nMuch of the configuration of pycsw (title, contact details, database connection, url) is managed in a config file. Download the file to the current folder, adjust the title and restart docker with:\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -d --rm --name=pycsw \\\n   -v $(pwd):/etc/data \\\n   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -d --rm --name=pycsw `\n   -v \"${PWD}:/etc/data\" `\n   -v \"${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg\" `\n   geopython/pycsw\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNotice -d starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use docker ps. docker logs pycsw shows the logs of a container and docker stop pycsw stops the container. The -rm option removes the container at stop, so we can easily recreate it with additional options at next runs.\n\n\n\nFor administering the instance we use a utility called pycsw-admin.py. Notice on the calls below a reference to a relevant config file.\nFirst clear the existing database:\n\n\nContainer terminalPowershell\n\n\npycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg\n\n\ndocker exec -it pycsw bash -c \"pycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg\"\n\n\n\n\nNotice at http://localhost:8000/collections/metadata:main/items that all records are removed.\nLoad the records, which we exported as iso19139 in the previous section, to the database:\n\n\nContainer terminalPowershell\n\n\npycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r\n\n\ndocker exec -it pycsw bash -c `\n \"pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r\"\n\n\n\n\nValidate at http://localhost:8000/collections/metadata:main/items if our records are loaded, else check logs to identify a problem.",
+    "objectID": "7-providing-map-services.html#standardised-data-apis",
+    "href": "7-providing-map-services.html#standardised-data-apis",
+    "title": "Providing convenience APIs",
+    "section": "Standardised data APIs",
+    "text": "Standardised data APIs\nStandardised mapping APIs, such as Web Map Service (WMS), Web Feature service (WFS) and Web Coverage Service (WCS), originate from the beginning of this century. In recent years several challenges have been identified around these standards, which led to a series of Spatial Data on the Web Best Practices. Combined with the OGC Open Geospatial APIs - White Paper, OGC then initiated a new generation of standards based on these best practices.\nAn overview of both generations:\n\n\n\nOWS\nOGC-API\nDescription\n\n\n\n\nWeb Map Service (WMS)\nMaps\nProvides a visualisation of a subset of the data\n\n\nWeb Feature Service (WFS)\nFeatures\nAPI to request a subset of the vector features\n\n\nWeb Coverage Service (WCS)\nCoverages\nAPI to interact with grid sources\n\n\nSensor Observation Service (SOS)\nSensorThings\nRetrieve subsets of sensor observations\n\n\nWeb Processing Service (WPS)\nProcesses\nRun processes on data ]\n\n\nCatalogue Service for the Web (CSW)\nRecords\nRetrieve and filter catalogue records\n\n\n\nNotice that most of the mapping software supports the standards of both generations. However, due to their recent introduction, expect incidental challenges in the implementations of OGC APIs.",
     "crumbs": [
       "Home",
-      "Catalogue publication"
+      "Map services"
     ]
   },
   {
-    "objectID": "3-catalogue-publication.html#customise-the-catalogue-skin",
-    "href": "3-catalogue-publication.html#customise-the-catalogue-skin",
-    "title": "Catalogue publication",
-    "section": "Customise the catalogue skin",
-    "text": "Customise the catalogue skin\npycsw uses jinja templates to build the web frontend. These are html documents including template language to substitute parts of the page.\n\nSave the template below as a file ‘landing_page.html’ in the current directory\n\n{% extends \"_base.html\" %}\n{% block title %}{{ super() }} Home {% endblock %}\n{% block body %}\n&lt;h1&gt;Welcome to my catalogue!&lt;/h1&gt;\n&lt;p&gt;{{ config['metadata:main']['identification_abstract'] }}&lt;/p&gt;\nContinue to the records in this catalogue\n&lt;a title=\"Items\" \n    href=\"{{ config['server']['url'] }}/collections/metadata:main/items\"&gt;\n    Collections&lt;/a&gt;, or have a look at the  \n&lt;a title=\"OpenAPI\" \n      href=\"{{ config['server']['url'] }}/openapi?f=html\"&gt;Open API Document&lt;/a&gt;\n{% endblock %}\n\nWe will now replace the default template in the Docker image with our template.\n\n\nLinuxPowershell\n\n\ndocker run -p 8000:8000 \\\n   -d --rm --name=pycsw \\\n   -v $(pwd):/etc/data \\\n   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \\\n   -v $(pwd)/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html \\\n   geopython/pycsw\n\n\ndocker run -p 8000:8000 `\n   -d --rm --name=pycsw `\n   -v \"${PWD}:/etc/data\" `\n   -v \"${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg\" `\n   -v \"${PWD}/landing_page.html:/home/pycsw/pycsw/pycsw/ogc/api/templates/landing_page.html\" `\n   geopython/pycsw\n\n\n\n\nView the result at http://localhost:8000\nHave a look at the other templates in pycsw\nWe published a tailored set of templates as a pycsw skin on GitHub. This skin has been used as a starting point for the lsc-hubs catalogue skin.",
+    "objectID": "7-providing-map-services.html#setting-up-an-api",
+    "href": "7-providing-map-services.html#setting-up-an-api",
+    "title": "Providing convenience APIs",
+    "section": "Setting up an API",
+    "text": "Setting up an API\nMapServer is server software which is able to expose datasets through various APIs. Examples of similar software are QGIS server, ArcGIS Server, GeoServer and pygeoapi.\nWe’ve selected mapserver for this training, because of its robustness and low resource consumption. MapServer is configured using a configuration file: called the mapfile. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of the dataset.\nVarious tools exist to write these configuration files, such as MapServer studio, GeoStyler, QGIS Bridge, up to a Visual Studio plugin to edit mapfiles.\nThe pyGeoDataCrawler, introduced in a previous paragraph, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the mapserver service endpoint. This step enables a typical workflow of:\n\nUsers find a dataset in a catalogue\nThen open the dataset via the linked service\n\nBut also vice versa; from a mapping application, access the metadata describing a dataset.",
     "crumbs": [
       "Home",
-      "Catalogue publication"
+      "Map services"
     ]
   },
   {
-    "objectID": "3-catalogue-publication.html#summary",
-    "href": "3-catalogue-publication.html#summary",
-    "title": "Catalogue publication",
+    "objectID": "7-providing-map-services.html#mapfile-creation-exercise",
+    "href": "7-providing-map-services.html#mapfile-creation-exercise",
+    "title": "Providing convenience APIs",
+    "section": "Mapfile creation exercise",
+    "text": "Mapfile creation exercise\n\nNavigate with shell to a folder with data files.\nVerify if mcf’s are available for the files, if not, create initial metadata with crawl-metadata --mode=init --dir=.\nAdd a index.yml file to the folder. This metadata is introduced in the mapfile to identify the service.\n\nmcf:\n   version: 1.0\nidentification:\n    title: My new map service\n    abstract: A map service for data about ...\ncontact:\n  pointOfContact:\n    organization: ISRIC\n    email: info@isric.org\n    url: https://www.isric.org\n\nSet the environment variables in the .env file; pgdc_md_url,pgdc_ms_url,pgdc_webdav_url=“https://example.com/data”\nGenerate the mapfile\n\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-maps --dir=.\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp \n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp \n\n\n\n\nIndex.yml may include a “robot” property, to guide the crawler in how to process the folder. This section can be used to add specific crawling behaviour.\n\nmcf:\n    version: 1.0\nrobot:\n    skip-subfolders: True # indicates the crawler not to proceed in subfolders",
+    "crumbs": [
+      "Home",
+      "Map services"
+    ]
+  },
+  {
+    "objectID": "7-providing-map-services.html#mapserver-via-docker",
+    "href": "7-providing-map-services.html#mapserver-via-docker",
+    "title": "Providing convenience APIs",
+    "section": "Mapserver via Docker",
+    "text": "Mapserver via Docker\nFor this exercise we’re using a mapserver image provided by Camp to Camp available from DockerHub.\ndocker pull camptocamp/mapserver:8.4  \nFirst update the config file, which is mounted as a volume into the container. On this config file we will list all the mapfiles we aim to publish on our container. Open the file ./data/ms.conf and populate the maps section. You may have to move all content of the data repository to the docker folder.\nMAPS\n     \"data\" \"/srv/data/data.map\"\nEND\nNotice that our local ./docker/data folder is mounted into the mapserver container as /srv/data.\nRun or restart the docker compose.\nCheck http://localhost/ows/data/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors.\nYou can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/data?request=GetCapabilities&service=WMS.\nGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the robot section in index.yml or by providing an Styled Layer Descriptor (sld) file for a layer, as {name}.sld. Sld files can be created using QGIS (export style as SLD).",
+    "crumbs": [
+      "Home",
+      "Map services"
+    ]
+  },
+  {
+    "objectID": "7-providing-map-services.html#summary",
+    "href": "7-providing-map-services.html#summary",
+    "title": "Providing convenience APIs",
     "section": "Summary",
-    "text": "Summary\nIn this paragraph you learned how datasets can be published into a catalogue. In the next paragraph, we’ll look at importing metadata from external sources.",
+    "text": "Summary\nIn this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the next section we’ll look at measuring service quality.",
     "crumbs": [
       "Home",
-      "Catalogue publication"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html",
-    "href": "1-existing-resources.html",
-    "title": "Metadata at the source",
-    "section": "",
-    "text": "Many organisations organise their documents and datasets on a central network storage or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central storage contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.\nFor those formats which do not have embedded metadata, or in order to capture additional metadata aspects. We endorse the creation of a sidecar metadata file for every resource, a dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a .shp.xml is created alongside any .shp file, which captures some metadata elements.\nThrough the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since they know best how the data is produced and how it should be used.",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html#standardised-metadata-models",
-    "href": "1-existing-resources.html#standardised-metadata-models",
-    "title": "Metadata at the source",
-    "section": "Standardised metadata models",
-    "text": "Standardised metadata models\nFor optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to select the output model of the metadata. QGIS has various plugins, such as GeoCat Bridge, to work with various metadata models.\n\n\n\n\n\n\nTip\n\n\n\nDoes your organisation endorse a metadata model to describe data sources? Are your aware of tooling which can support you in creation of metadata in this model?",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html#the-pygeometa-mcf-format",
-    "href": "1-existing-resources.html#the-pygeometa-mcf-format",
-    "title": "Metadata at the source",
-    "section": "The pygeometa MCF format",
-    "text": "The pygeometa MCF format\nWithin the geopython community, the pygeometa provides a metadata format called the metadata control file (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on YAML, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:\nmcf:\n    version: 1.0\n\nmetadata:\n    identifier: 9c36a048-4d28-453f-9373-94c90e101ebe\n    hierarchylevel: dataset\n    date: 2023-05-10\n\nidentification:\n    title: My favourite dataset\n    abstract: A sample dataset record to highlight the options of MCF\n    ...",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html#describing-a-resource",
-    "href": "1-existing-resources.html#describing-a-resource",
-    "title": "Metadata at the source",
-    "section": "Describing a resource",
-    "text": "Describing a resource\nWhen describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some practical recommendations on this topic.\nWhen tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Wikipedia, etc. Benefit of controlled vocabularies is that the term is not ambigue and it can be made available in multiple languages.",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html#mcf-editing",
-    "href": "1-existing-resources.html#mcf-editing",
-    "title": "Metadata at the source",
-    "section": "MCF editing",
-    "text": "MCF editing\nMCF documents can be written in a text editor like Visual Studio Code. Consider to install the YAML plugin for instant YAML validation.\nAnother option to create and update mcf files is via MDME. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at osgeo.github.io. Notice that if you install the package locally, you can customize the application to your organisational needs.\n\n\n\n\n\n\nTip\n\n\n\nImagine a dataset you have recently worked with. Then open mdme and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository.\nNotice that MDME also offers capabilities to export directly as iso19139, it uses a webservice based on the tools used in this workshop.",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "1-existing-resources.html#summary",
-    "href": "1-existing-resources.html#summary",
-    "title": "Metadata at the source",
-    "section": "Summary",
-    "text": "Summary\nIn this section, you are introduced to a data management approach which maintains metadata at the location where the datasets are maintained, using a minimal, standards complient approach. You are introduced to the MCF metadata format. In the next section, we will go into more detail on interacting with the MCF format.",
-    "crumbs": [
-      "Home",
-      "Existing resources"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html",
-    "href": "2-interact-with-data-repositories.html",
-    "title": "Interact with data repositories",
-    "section": "",
-    "text": "In this section a crawler tool is introduced which let’s you interact with the metadata in a file based data repository. For this exercise we’ve prepared a minimal data repository containing a number of Excel-, Shape- and Tiff-files. Unzip the repository to a location on disk.\nIn the root folder of the repository already exists a minimal MCF file, index.yml. This file contains some generic metadata properties which are used if a file within the repository does not include them. The tool we use is able to inherit metadata properties from this index.yml file through the file hierarchy.\nConsider to add additional index.yml files in other folders to override the values of index.yml at top level.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html#setup-environment",
-    "href": "2-interact-with-data-repositories.html#setup-environment",
-    "title": "Interact with data repositories",
-    "section": "Setup environment",
-    "text": "Setup environment\nThe tool we will use is based on Python. It has some specific dependencies which are best installed via Conda. Conda creates a virtual Python environment, so any activity will not interfere with the base Python environment of your machine. Notice that the next paragraph describes an alternative approach without installing Python locally.\nIf you don’t have Conda, we suggest to install mamba, or alternatively run the scripts from a Python Docker container. Each of the exercises below indicates an option to run the Python script directly, or from a container.\nNow start a commandline or powershell with mamba or Docker enabled (or add mamba to your PATH). On windows look for the Mamba prompt in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the data directory but one above.\ncd {path-where-you-unzipped-zipfile}\n\nSetup in mamba\nFor mamba, we will create a virtual environment pgdc (using Python 3.10) for our project and activate it.\nmanba create --name pgdc python=3.10 \nmamba activate pgdc\nNotice that you can deactivate this environment with: mamba deactivate and you will return to the main Python environment. The tools we will install below, will not be available in the main environment.\nInstall the dependencies for the tool:\nmamba install -c conda-forge gdal\nmamba install -c conda-forge pysqlite3\nNow we will install the crawler tool, GeoDataCrawler. The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; OWSLib, pygeometa and GDAL.\npip install pyGeoDataCrawler\nVerify the different crawling options by typing:\ncrawl-metadata --help\n\n\nPython/GDAL via Docker\nIn case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available, using Python via Docker. Docker is a virtualisation technology which runs isolated containers within your computer.\n\nFirst install docker.\nStart the Docker Desktop tool.\nNow navigate to the folder where you unzipped the data repository and use the Docker image to run the crawler:\n\ndocker run -it --rm pvgenuchten/geodatacrawler crawl-metadata --help\nFor advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux. Use the relevant syntax for your system.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html#initial-mcf-files",
-    "href": "2-interact-with-data-repositories.html#initial-mcf-files",
-    "title": "Interact with data repositories",
-    "section": "Initial MCF files",
-    "text": "Initial MCF files\nThe initial task for the tool is to create for every data file in our repository a sidecar file based on embedded metadata from the resource.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=init --dir=data\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=init --dir=tmp/data\n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=init --dir=/tmp/data\n\n\n\nNotice that for each resource a {dataset}.yml file has been created. Open a .yml file in a text editor and review the content.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html#update-mcf",
-    "href": "2-interact-with-data-repositories.html#update-mcf",
-    "title": "Interact with data repositories",
-    "section": "Update MCF",
-    "text": "Update MCF\nThe update mode is meant to be run at intervals, it will update the MCF files if changes have been made on a resource.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=update --dir=data\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=update --dir=tmp/data\n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=update --dir=/tmp/data\n\n\n\nIn certain cases the update mode will also import metadata from remote url’s. This happens for example if the dataset-uri is a DOI. The update mode will ten fetch metadata of the DOI and push it into the MCF.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html#export-mcf",
-    "href": "2-interact-with-data-repositories.html#export-mcf",
-    "title": "Interact with data repositories",
-    "section": "Export MCF",
-    "text": "Export MCF\nFinally we want to export the MCF’s to actual iso19139 metadata to be loaded into a catalogue like pycsw, GeoNetwork, CKAN etc.\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=export --dir=data --dir-out=export --dir-out-mode=flat\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n pvgenuchten/geodatacrawler crawl-metadata \\\n --mode=export --dir=tmp/data \\\n --dir-out=export --dir-out-mode=flat\n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  pvgenuchten/geodatacrawler crawl-metadata `\n  --mode=export --dir=/tmp/data `\n  --dir-out=/tmp/export --dir-out-mode=flat\n\n\n\nOpen one of the xml files and evaluate if the contact information from step 1 is available.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "2-interact-with-data-repositories.html#summary",
-    "href": "2-interact-with-data-repositories.html#summary",
-    "title": "Interact with data repositories",
-    "section": "Summary",
-    "text": "Summary\nIn this paragraph you have been introduced to the pyGeoDataCrawler library. In the next section we are looking at catalogue publication.",
-    "crumbs": [
-      "Home",
-      "Data repositories"
-    ]
-  },
-  {
-    "objectID": "4-bulk-import.html",
-    "href": "4-bulk-import.html",
-    "title": "Bulk import",
-    "section": "",
-    "text": "This paragraph describes approaches to import metadata from existing repositories. Including an option to import metadata from records of a spreadsheet.",
-    "crumbs": [
-      "Home",
-      "Bulk import"
-    ]
-  },
-  {
-    "objectID": "4-bulk-import.html#bulk-import-from-spreadsheet",
-    "href": "4-bulk-import.html#bulk-import-from-spreadsheet",
-    "title": "Bulk import",
-    "section": "Bulk import from spreadsheet",
-    "text": "Bulk import from spreadsheet\nMany metadata initiatives tend to start from a spreadsheet. Each of the columns representa a metadata property and the rows are the individual records describing a resource. Spreadsheets have proven to be an effective medium to populate a catalogue with records initially. To facilitate this use case the GeoDataCrawler software provides an import spreadsheet method. The spreadsheet is parsed and a MCF document is generated for every row.\nSince every metadata initiative tends to have dedicated columns. A templating approach is used to convert from row to MCF. A default template is available, matching a default spreadsheet layout. If your spreadsheet layout is different, you need to adjust the template accordingly.\n\nFor this exercise we’ll use the LSC-hubs spreadsheet in combination with the LSC-hubs template. Notice that the template has the same filename, but with extension .j2. Download both files to a new folder, called csv, in your working directory.\nFrom your shell environment run this command:\n\n\nLocalDocker & LinuxDocker & Powershell\n\n\ncrawl-metadata --mode=import-csv --dir=\"./csv\"\n\n\ndocker run -it --rm -v $(pwd):/tmp \\\n  org/metatraining crawl-metadata \\\n  --mode=import-csv --dir=\"/tmp/csv\"\n\n\ndocker run -it --rm -v \"${PWD}:/tmp\" `\n  org/metatraining crawl-metadata `\n  --mode=import-csv --dir=\"/tmp/csv\"\n\n\n\n\nIf there are errors, check the paths and consider to open the CSV in Google Sheets and export it again or open it in a text editor to look for special cases. A known issue with this approach is that the crawler tool can not manage newline characters in text fields.\nOpen one of the generated MCF files to evaluate its content.\nA common spreadsheet tool is Microsoft Excel. If you open and export a spreadsheet from Excel, the CSV will use the ‘;’ character as column separator. Use the –sep=‘;’ parameter to indicate GeoDataCrawler to use this separator.\n\ncrawl-metadata --mode=import-csv --dir=\"./csv\" --sep=';'",
-    "crumbs": [
-      "Home",
-      "Bulk import"
-    ]
-  },
-  {
-    "objectID": "4-bulk-import.html#bulk-import-from-an-online-location",
-    "href": "4-bulk-import.html#bulk-import-from-an-online-location",
-    "title": "Bulk import",
-    "section": "Bulk import from an online location",
-    "text": "Bulk import from an online location\nMany resources are already described elsewhere which may be of interest to add to our catalogue. For this use case some options exist to import remote metadata.\n\nBy ID\nIn many cases you want to import a selected subset of a remote catalogue. In this scenario we prepare a csv with the identifiers of the records to be imported. These identifiers are used to create a very minimal MCF file. GeoDataCrawler subsequently extends the local record with remote content. Currently supported are metadata from CSW, WMS and DOI.\n\nFor this exercise download a spreadsheet with a subset of the isric.org data repository and the relevant template to a folder isric.\nImport the CSV\n\ncrawl-metadata --mode=import-csv --dir=\"./isric\" --sep=';'\n\nThe synchronisation with remote content is implemented in GeoDataCrawler as part of the update metadata method. The update process will evaluate the dataseturi-property. If the uri refers to remote content in a supported format, the MCF will be updated against that content (remote takes preference).\n\ncrawl-metadata --mode=update --dir=\"./isric\" --resolve=true\n\nNotice the changes before and after running the script. If needed, you can remove all the MCF files and run import-csv again to restore the originals.\n\n\n\nHarvest full set\nIn case you want to harvest the full set of a remote catalogue, you can create a basic MCF in a new folder undrr and add a distribution of a CSW endpoint.\nmetadata:\n    hierarchylevel: service\n    identifier: riskprofilesundrr\ndistribution:\n  csw:\n    name: csw\n    url: http://riskprofilesundrr.org/catalogue/csw\n    type: OGC:CSW\nNow use the crawler to fetch the remote records of the catalogue.\ncrawl-metadata --mode=update --dir=\"./undrr\" --resolve=true\nYou can repeat this harvest at intervals to keep your catalogue up to date with the remote.",
-    "crumbs": [
-      "Home",
-      "Bulk import"
-    ]
-  },
-  {
-    "objectID": "4-bulk-import.html#summary",
-    "href": "4-bulk-import.html#summary",
-    "title": "Bulk import",
-    "section": "Summary",
-    "text": "Summary\nWe’ve seen a number of options to import metadata from external sources. In the next section we’ll have a look at Git, a versioning system.",
-    "crumbs": [
-      "Home",
-      "Bulk import"
-    ]
-  },
-  {
-    "objectID": "6-data-publication.html",
-    "href": "6-data-publication.html",
-    "title": "Data publication",
-    "section": "",
-    "text": "In order to share a dataset with colleagues, partners or the wider public. The file should be published in a shared environment. Various technologies are available to share a file on a network. To select a relevant location mainly depends on which type of users are going to access the dataset.\nThe following options exist:",
-    "crumbs": [
-      "Home",
-      "Data publication"
-    ]
-  },
-  {
-    "objectID": "6-data-publication.html#persistent-identification",
-    "href": "6-data-publication.html#persistent-identification",
-    "title": "Data publication",
-    "section": "Persistent identification",
-    "text": "Persistent identification\nSelect the location carefully, prevent to regularly move a file to a new location. Because with every move, users need to be notified of the new location and documentation needs to be updated. When moving is relevant, consider to set up a forward-rule on the server which redirects users to the new location.\nAn interesting aspect of persistent identification is the choice of a domain and path name. A domain should represent enough credibility/authority (is this a trusted resource), and should be persistent for a longer period. A project name, for example, is not a good choice for a domain to publish a resource.\nA mechanism exists which facilitates file moves, without breaking their identification. Identifier providers such as DOI and ePIC enable creation of a identifier for any resource. In documentation use the provided identifier, in case the location of the resource changes, you can update the link behind the identifier. Some organisations install a identification service themselves, so they have full ownership on the domain and the contents of the service. An example of such a service is the identification service of the German Federal Government.",
-    "crumbs": [
-      "Home",
-      "Data publication"
-    ]
-  },
-  {
-    "objectID": "6-data-publication.html#include-metadata",
-    "href": "6-data-publication.html#include-metadata",
-    "title": "Data publication",
-    "section": "Include metadata",
-    "text": "Include metadata\nFor optimal discoverability, it is important to combine data publication with metadata. Either via embedded metadata in the file, else with a separate metadata file. In case of a shared folder or cloud service, embed or place the metadata along the data files, so people browsing through the system can easily find it.\nThe embedded or sidecar metadata should be duplicated into catalogue software, to make it searchable by the targeted audience. This process is further described at catalogue publication.",
-    "crumbs": [
-      "Home",
-      "Data publication"
-    ]
-  },
-  {
-    "objectID": "6-data-publication.html#summary",
-    "href": "6-data-publication.html#summary",
-    "title": "Data publication",
-    "section": "Summary",
-    "text": "Summary\nVarious technologies exist to share data on a network. When selecting a mechanism, evaluate if you can facilitate identifier persistence and share metadata along with the files. In the next section we’ll setup convenience APIs on data to facilitate reuse of the data.",
-    "crumbs": [
-      "Home",
-      "Data publication"
-    ]
-  },
-  {
-    "objectID": "8-measure-quality.html",
-    "href": "8-measure-quality.html",
-    "title": "Quality of Service",
-    "section": "",
-    "text": "Quality of service monitoring supports data providers to understand strengths and weaknesses of a system. Aspects which are monitored are:\nQuality of service monitoring is a standard activity in IT. Therefore consult your IT department or hosting company if they have tools available to assess these aspects. Confirm with them on how to extend and/or share with you the registrations for the requested parameters. Combine these reports into monthly or quarterly reports to facilitate system maintenance and roadmap.",
-    "crumbs": [
-      "Home",
-      "Measure quality"
-    ]
-  },
-  {
-    "objectID": "8-measure-quality.html#availability-monitoring",
-    "href": "8-measure-quality.html#availability-monitoring",
-    "title": "Quality of Service",
-    "section": "Availability Monitoring",
-    "text": "Availability Monitoring\nTo assess the availability of a service, it requires to monitor the availability of the service at intervals. A basic availability-test every 5 minutes is usually sufficient. Many software exists for availability monitoring, such as Zabbix, Nagios, CheckMK, pingdom.\nIn this workshop we’re introducting the a Python based monitoring solution, called GeoHealthCheck. Geohealthcheck is designed to monitor spatial data services specifically.\nThe following exercise assumes Docker Desktop to be installed. Alternatively you can create a personal account at https://demo.geohealthcheck.org (click register in the login page).\n\n\n\n\n\n\nTip\n\n\n\n\nStart by setting up a local GeoHealthCheck container:\n\ndocker run -p 80:80 geopython/geohealthcheck\n\nVisit http://localhost\nLogin as user: admin, password: admin\nClick ADD + on the top bar right, select WMS\nAdd a WMS url, for example https://maps.isric.org/mapserv?map=/map/wrb.map\nOn the next screen add WMS Drilldown (so all layers are validated)\nClick Save and test\nWhen finished, click Details to see the test result\n\n\n\nThis test is automatically repeated at intervals (as long the service is running). You can return to the test page to view a diagram of the availability over time. You can also configure a e-mail address to recieve notifications if a service is not available.\nRead more at the GeoHealthCheck website,\nAn advanced aspect of availability is identifying broken links on your content. Many tools exist which can monitor wensites on broken links at intervals, for example W3C linkcheck. Also google search console can be used to identify broken links. Another option is to verify in your website access logs if there are any requests which returned a 404 status, if such a request has a referer url, you are able to identify which website incorrectly linked to one of your resources.\n\n\n\n\n\n\nTip\n\n\n\nVisit https://validator.w3.org/checklink and fill in a website you maintain or frequently visit. The check button starts a process to evaluate broken links.\n\n\nSometimes a machine is not able to identify if a link is broken, for example if the target does not return a typical 404 Not found message.",
-    "crumbs": [
-      "Home",
-      "Measure quality"
-    ]
-  },
-  {
-    "objectID": "8-measure-quality.html#performance-capacity",
-    "href": "8-measure-quality.html#performance-capacity",
-    "title": "Quality of Service",
-    "section": "Performance & Capacity",
-    "text": "Performance & Capacity\nTo know the capacity and performance of a service you can perform some load tests prior to moving to production. An alternative approach to evaluate performance is to extract the access logs of the service into an aggregation tool like AWStats or Kibana and evaluate the number of requests exceeding the limits.\n\n\n\n\n\n\nNote\n\n\n\nA common challenge to service performance in spatial data is the provision of a WMS service on a big dataset. When requesting that dataset on a continental or national level, the server runs into problems drawing all the data at once. In such case consider to set up some cache/aggregation mechanism for larger areas. Setting proper min/max scale denominators can be a solution also.\n\n\njmeter is a utility which can run a series of performance and capacity tests on a webservice. Jmeter is a java program, which can run on most platforms.\n\nDownload the latest version from the apache website.\nUnzip the archive and run jmeter.bat from bin directory.\nFollow the build web test plan tutorial.\nCustomise the web test plan for your mapserver service\n\n\n\n\n\n\n\nNote\n\n\n\nDo not perform a load test against a production url, it wil severely impact the performance of that service.",
-    "crumbs": [
-      "Home",
-      "Measure quality"
-    ]
-  },
-  {
-    "objectID": "8-measure-quality.html#usage-monitoring",
-    "href": "8-measure-quality.html#usage-monitoring",
-    "title": "Quality of Service",
-    "section": "Usage monitoring",
-    "text": "Usage monitoring\nTo capture the usage of a service you can extract the usage logs and import them in a tool like Kibana, Splunk, Matomo or AW stats. For spatial data, it is interesting to define rules to extract the requested layer name from a WMS request.\nAWStats is a basic utility to report on service usage.\n\nNavigate to an empty folder, place a sample log file in the folder, rename the file to access.log.\nStart a container\n\n\nLinuxPowershell\n\n\ndocker run -d --restart always -p 3000:80 \\\n --name awstats --volume $(pwd):/var/local/log:ro \\\n pabra/awstats\n\n\ndocker run -d --restart always -p 3000:80 `\n --name awstats -v \"${PWD}:/var/local/log:ro\" `\n pabra/awstats\n\n\n\n\nParse the logs:\n\ndocker exec awstats awstats_updateall.pl now\n\nView the dashboard at http://localhost:3000, navigate to May 2015 to see the parsed logs from the sample.\n\n\n\nSearch Engine Optimisation\nAs part of usage monitoring it is also of interest to understand how users find your data via search engines. The popular search engines offer tooling to report on how the crawlers navigate through your data and how users find your services. You need to verify ownership of a domain either via a DNS property or by uploading an identification string to the website.\nYou can also use Google rich result test to extract structured data from a website. Or go to the dataset search engine to understand if and how the search engine finds your data.",
-    "crumbs": [
-      "Home",
-      "Measure quality"
-    ]
-  },
-  {
-    "objectID": "8-measure-quality.html#summary",
-    "href": "8-measure-quality.html#summary",
-    "title": "Quality of Service",
-    "section": "Summary",
-    "text": "Summary\nIn this section you learned about various mechanisms to evaluate, report about and improve service quality. This concludes the main part of the workshop. In the last section we present a framework for data visualisation.",
-    "crumbs": [
-      "Home",
-      "Measure quality"
+      "Map services"
     ]
   },
   {
