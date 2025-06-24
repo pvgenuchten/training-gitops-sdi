@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paul van Genuchten">
-<meta name="dcterms.date" content="2023-05-09">
+<meta name="author" content="Tom Kralidis">
+<meta name="dcterms.date" content="2025-06-24">
 
 <title>Catalogue publication</title>
 <style>
@@ -214,16 +215,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
              <p>Paul van Genuchten </p>
+             <p>Tom Kralidis </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 9, 2023</p>
+      <p class="date">June 24, 2025</p>
     </div>
   </div>
   
@@ -388,7 +390,7 @@ Note
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="kw">`</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.cfg:/etc/pycsw/pycsw.cfg"</span> <span class="kw">`</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/landing_page.html:/home/pycsw/pycsw/pycsw/ogc/api/templates/landing_page.html"</span> <span class="kw">`</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html"</span> <span class="kw">`</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -409,12 +411,12 @@ Note
 <li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including postgis and terria</li>
 <li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
 </ul>
-<p>On both orchestrations a library called <a href="https://traefik.io">traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
+<p>On both orchestrations a library is used called <a href="https://traefik.io">traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
 <p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container.</p>
 <p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
 <p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A lot of logs are produced by the various containers. You can also run in the background using’</p>
+<p>A lot of logs are produced by the various containers. You can also run in the background using:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-d</span> <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
 <p>You can now use <code>pycsw-admin.py</code> in a similar way as above to load records into the catalogue.</p>
