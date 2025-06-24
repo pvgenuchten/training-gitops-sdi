@@ -1,8 +1,8 @@
 ---
 title: Bulk import
 author: 
-- Paul van Genuchten 
-- Tom Kralidis
+- name: Paul van Genuchten 
+- name: Tom Kralidis
 date: 2025-06-24
 ---
 

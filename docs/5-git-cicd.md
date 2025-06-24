@@ -1,8 +1,8 @@
 ---
 title: Git and CI/CD
 author: 
-- Paul van Genuchten 
-- Tom Kralidis
+- name: Paul van Genuchten 
+- name: Tom Kralidis
 date: 2025-06-24
 ---
 
@@ -131,7 +131,7 @@ For this scenario we need a database in the cloud to host our records (which is 
 - At elephantsql, create a new account. 
 - Then create a new Instance of type `Tiny (free)`.
 - Click on the instance and notice the relevant connection string (URL) and password 
-- Connect your instance of pycsw to this database instance, by updating `pycsw.cfg` and following the instructions at [Catalogue publication](./3-catalog-publication.md)
+- Connect your instance of pycsw to this database instance, by updating `pycsw.cfg` and following the instructions at [Catalogue publication](./3-catalogue-publication.md)
 - Verify in elephantsql dashboard if the records are correctly loaded.
 
 We will now publish our records from GitHub to our database.
@@ -143,7 +143,7 @@ We will now publish our records from GitHub to our database.
 ```bash
 git clone https://github.com/username/records-repo.git
 ```
-- Copy the mcf files, which have been generated in [Catalogue publication](./3-catalog-publication.md), to a `datasets` folder in the cloned repository.
+- Copy the mcf files, which have been generated in [Catalogue publication](./3-catalogue-publication.md), to a `datasets` folder in the cloned repository.
 - Commit and the files
 
 ```bash

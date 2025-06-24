@@ -1,9 +1,8 @@
 ---
 title: Data publication
-author: Paul van Genuchten
 author: 
-- Paul van Genuchten 
-- Tom Kralidis
+- name: Paul van Genuchten 
+- name: Tom Kralidis
 date: 2025-06-24
 ---
 
@@ -31,10 +30,10 @@ A mechanism exists which facilitates file moves, without breaking their identifi
 
 For optimal discoverability, it is important to combine data publication with metadata. Either via embedded metadata in the file, else with a separate metadata file. In case of a shared folder or cloud service, embed or place the metadata along the data files, so people browsing through the system can easily find it.
 
-The embedded or sidecar metadata should be duplicated into catalogue software, to make it searchable by the targeted audience. This process is further described at [catalogue publication](./3-catalog-publication.md).
+The embedded or sidecar metadata should be duplicated into catalogue software, to make it searchable by the targeted audience. This process is further described at [catalogue publication](./3-catalogue-publication.md).
 
 ---
 
 ## Summary
 
-Various technologies exist to share data on a network. When selecting a mechanism, evaluate if you can facilitate identifier persistence and share metadata along with the files. In the next section we'll setup [convenience APIs](./7-providing-mapservices.md) on data to facilitate reuse of the data.
+Various technologies exist to share data on a network. When selecting a mechanism, evaluate if you can facilitate identifier persistence and share metadata along with the files. In the next section we'll setup [convenience APIs](./7-providing-map-services.md) on data to facilitate reuse of the data.

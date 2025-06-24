@@ -1,8 +1,8 @@
 ---
 title: Interact with data repositories
 author: 
-- Paul van Genuchten 
-- Tom Kralidis
+- name: Paul van Genuchten 
+- name: Tom Kralidis
 date: 2025-06-24
 ---
 
@@ -166,4 +166,4 @@ Open one of the xml files and evaluate if the contact information from step 1 is
 
 ## Summary
 
-In this paragraph you have been introduced to the pyGeoDataCrawler library. In the [next section](./3-catalog-publication.md) we are looking at catalogue publication.
+In this paragraph you have been introduced to the pyGeoDataCrawler library. In the [next section](./3-catalogue-publication.md) we are looking at catalogue publication.
