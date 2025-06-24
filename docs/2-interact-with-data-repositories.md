@@ -18,15 +18,20 @@ Consider to add additional index.yml files in other folders to override the valu
 
 ## Setup environment
 
-The tool we will use is based on Python. For this workshop we offer 2 approaches, if you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. Else, we recommend to run the python tools in docker containers. Each of the exercises indicates an option to run the Python script directly, or from a container. 
+The tools we will use are based on Python. For this workshop we offer 2 approaches: 
+
+- If you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. 
+- Else, we recommend to run the python tools in docker containers. 
+
+Each of the exercises indicates an option to run the Python script directly, or from a container. 
 
 ### Conda
  
-It has some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL. 
+The tools have some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL. 
 
-If you don't use Conda yet, consider to install [mamba](https://mamba.readthedocs.io/en/latest/), a lighter alternative to conda. Or alternatively run the scripts in a python [virtual environment](https://docs.python.org/3/library/venv.html). 
+If you don't use Conda yet, consider to install [mamba](https://mamba.readthedocs.io/en/latest/), a lighter alternative to Conda. Or alternatively run the scripts in a python [virtual environment](https://docs.python.org/3/library/venv.html). 
 
-Now start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the `data` directory but one above.
+Start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the `data` directory but one above.
 
 ```bash
 cd {path-where-you-unzipped-zipfile}

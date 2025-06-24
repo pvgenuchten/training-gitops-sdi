@@ -46,7 +46,7 @@ docker run -p 8000:8000 `
 :::
 
 - Visit <http://localhost:8000> 
-- Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.cfg). Download the file to the current folder, adjust the title and restart docker with:
+- Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml). Download the file to the current folder, adjust the title and restart docker with:
 
 ::: {.panel-tabset}
 # Linux
@@ -54,7 +54,7 @@ docker run -p 8000:8000 `
 docker run -p 8000:8000 \
    -d --rm --name=pycsw \
    -v $(pwd):/etc/data \
-   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \
+   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.yml \
    geopython/pycsw
 ```
 # Powershell
@@ -62,7 +62,7 @@ docker run -p 8000:8000 \
 docker run -p 8000:8000 `
    -d --rm --name=pycsw `
    -v "${PWD}:/etc/data" `
-   -v "${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg" `
+   -v "${PWD}/pycsw.cfg:/etc/pycsw/pycsw.yml" `
    geopython/pycsw
 ```
 :::
@@ -77,11 +77,11 @@ Notice `-d` starts the Docker in the background, so we can interact with the run
 ::: {.panel-tabset}
 # Container terminal
 ```bash
-pycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg
+pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
 ```
 # Powershell
 ```bash
-docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.cfg"
+docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
 ```
 :::
 
@@ -91,12 +91,12 @@ docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw
 ::: {.panel-tabset}
 # Container terminal
 ```bash
-pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r
+pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
 ```
 # Powershell
 ```bash
 docker exec -it pycsw bash -c `
- "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.cfg -y -r"
+ "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
 ```
 :::
 
@@ -134,7 +134,7 @@ Continue to the records in this catalogue
 docker run -p 8000:8000 \
    -d --rm --name=pycsw \
    -v $(pwd):/etc/data \
-   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.cfg \
+   -v $(pwd)/pycsw.yml:/etc/pycsw/pycsw.yml \
    -v $(pwd)/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html \
    geopython/pycsw
 ```
@@ -143,7 +143,7 @@ docker run -p 8000:8000 \
 docker run -p 8000:8000 `
    -d --rm --name=pycsw `
    -v "${PWD}:/etc/data" `
-   -v "${PWD}/pycsw.cfg:/etc/pycsw/pycsw.cfg" `
+   -v "${PWD}/pycsw.yml:/etc/pycsw/pycsw.yml" `
    -v "${PWD}/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html" `
    geopython/pycsw
 ```
