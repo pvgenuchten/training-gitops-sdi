@@ -1,0 +1,132 @@
+services:
+
+  traefik:
+    restart: always 
+    image: "traefik:v3.1"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tSDIhallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=${PG_EMAIL}"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "letsencrypt-vol:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+
+  mapserver:
+    restart: always 
+    image: "camptocamp/mapserver:8.4"
+    container_name: "mapserver"
+    expose:
+      - "80"
+    environment:
+      - MS_ERRORFILE=stderr
+      - MAPSERVER_CONFIG_FILE=/srv/data/ms.conf # config file is mounted into container
+      - PROJ_DATA=/usr/local/share/proj
+      - PROJ_LIB=/usr/local/share/proj
+    volumes:
+      - ./webdav:/srv/data
+    labels:
+      - "traefik.enable=true"
+      # this places this services in a /ows folder
+      - "traefik.http.routers.mapserver.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/ows`)"
+      # then removes the path again, when accessing the container
+      - "traefik.http.middlewares.mapserver-strip-prefix.stripprefix.prefixes=/ows,/ows/"
+      - "traefik.http.routers.mapserver.middlewares=mapserver-strip-prefix@docker"
+      - "traefik.http.routers.mapserver.entrypoints=websecure"
+      - "traefik.http.routers.mapserver.tls.certresolver=myresolver"
+    
+  pycsw:
+    restart: always 
+    image: "geopython/pycsw"
+    container_name: "pycsw"
+    volumes:
+      - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
+      - ./pycsw/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/_base.html # to override layout
+
+    environment:
+      # Configuration for the catalogue, see the pycsw.yml file how these values are used
+      CAT_URL: https://${SDI_DOMAIN}/cat
+      CAT_TITLE: Catalogue
+      CAT_DESC: The catalogue provides access to various SDI resources
+      CAT_DB: 'postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_USER}'
+      PYCSW_CONFIG: /etc/pycsw/pycsw.yml
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+    links: 
+      - postgres
+    labels:
+      - "traefik.enable=true"
+      # this places this services in a /cat folder
+      - "traefik.http.routers.pycsw.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/cat`)"
+      # then removes the path again, when accessing the container
+      - "traefik.http.middlewares.pycsw-strip-prefix.stripprefix.prefixes=/cat,/cat/"
+      - "traefik.http.routers.pycsw.middlewares=pycsw-strip-prefix@docker"
+      - "traefik.http.routers.pycsw.entrypoints=websecure"
+      - "traefik.http.routers.pycsw.tls.certresolver=myresolver"
+
+  webdav:
+    restart: always 
+    image: derkades/webdav
+    volumes: 
+      - ./webdav:/data
+    environment:
+      USERNAME: ${WEBDAV_USER}
+      PASSWORD: ${WEBDAV_PASSWORD}
+    container_name: "webdav" 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.files.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/files`)"
+      - "traefik.http.middlewares.files-strip-prefix.stripprefix.prefixes=/files,/files/"
+      - "traefik.http.routers.files.middlewares=files-strip-prefix@docker"
+      - "traefik.http.routers.files.entrypoints=websecure"
+      - "traefik.http.routers.files.tls.certresolver=myresolver"
+
+  terria:
+    restart: always 
+    image: "ghcr.io/terriajs/terriamap:0.4.2"
+    container_name: "terria"
+    volumes:
+      - ./terria/config.json:/app/wwwroot/config.json
+      - ./terria/simple.json:/app/wwwroot/init/simple.json
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.terria.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/map`)"
+      - "traefik.http.middlewares.terria-strip-prefix.stripprefix.prefixes=/map,/map/"
+      - "traefik.http.routers.terria.middlewares=terria-strip-prefix@docker"
+      - "traefik.http.routers.terria.entrypoints=websecure"
+      - "traefik.http.routers.terria.tls.certresolver=myresolver"
+
+  postgres:
+    restart: always 
+    image: postgis/postgis:15-3.4-alpine
+    container_name: "postgres"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_USER}
+      PGUSER: ${POSTGRES_USER}
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data
+
+    # add a health-check, others can start when the service is healthy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s 
+
+volumes:
+  postgres-vol:
+  letsencrypt-vol:

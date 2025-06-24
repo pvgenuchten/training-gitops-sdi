@@ -1,7 +1,7 @@
 ---
 title: Workshop on GitOps SDI
 author: Paul van Genuchten
-date: 2023-05-09
+date: 2025-06-09
 ---
 
 This tutorial presents a workshop on GitObs SDI. Spatial Data Infrastructres are typically build up around a

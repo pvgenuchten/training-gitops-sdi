@@ -1,0 +1,28 @@
+{
+    "homeCamera": {
+      "west": 1,
+      "south": 50,
+      "east": 5,
+      "north": 52
+    },
+    "catalog": [
+      {
+        "id": "Catalogue",
+        "type": "csw-group",
+        "name": "SDI Catalogue Kenya",
+        "url": "https://localhost/cat/csw"
+      },
+      {
+        "id": "Example",
+        "type": "wms-group",
+        "name": "Example",
+        "url": "https://localhost/ows/example"
+      }
+    ],
+    "viewerMode": "2d",
+    "baseMaps": {
+      "defaultBaseMapId": "basemap-positron",
+      "previewBaseMapId": "basemap-positron"
+    }
+  }
+  

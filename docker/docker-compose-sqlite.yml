@@ -1,0 +1,88 @@
+services:
+
+  traefik:
+    restart: always 
+    image: "traefik:v3.1"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  webdav:
+    restart: always 
+    image: derkades/webdav
+    volumes: ['./webdav:/data']
+    environment:
+      USERNAME: ${WEBDAV_USER}
+      PASSWORD: ${WEBDAV_PASSWORD}
+    container_name: "webdav" 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.files.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/files`)"
+      - "traefik.http.middlewares.files-strip-prefix.stripprefix.prefixes=/files,/files/"
+      - "traefik.http.routers.files.middlewares=terria-strip-prefix@docker"
+      - "traefik.http.routers.files.entrypoints=websecure"
+      - "traefik.http.routers.files.tls.certresolver=myresolver"
+
+  mapserver:
+    restart: always 
+    image: "camptocamp/mapserver"
+    container_name: "mapserver"
+    expose:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      # this places this services in a /ows folder
+      - "traefik.http.routers.mapserver.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/ows`)"
+      # then removes the path again, when accessing the container
+      - "traefik.http.middlewares.mapserver-strip-prefix.stripprefix.prefixes=/ows,/ows/"
+      - "traefik.http.routers.mapserver.middlewares=mapserver-strip-prefix@docker"
+      - "traefik.http.routers.mapserver.entrypoints=web"
+    
+  pycsw:
+    restart: always 
+    image: "geopython/pycsw"
+    container_name: "pycsw"
+    volumes:
+      - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
+#      - ./pycsw/_base.html:/home/pycsw/pycsw/pycsw/ogc/api/templates/_base.html
+
+    environment:
+      # Configuration for the catalogue, see the pycsw.yml file how these values are used
+      CAT_URL: http://${SDI_DOMAIN}/cat
+      CAT_TITLE: Catalogue
+      CAT_DESC: The catalogue provides access to various SDI resources
+      CAT_DB: 'sqlite:////home/pycsw/pycsw/tests/functionaltests/suites/cite/data/cite.db'
+    expose:
+      - "8000"
+    labels:
+      - "traefik.enable=true"
+      # this places this services in a /cat folder
+      - "traefik.http.routers.pycsw.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/cat`)"
+      # then removes the path again, when accessing the container
+      - "traefik.http.middlewares.pycsw-strip-prefix.stripprefix.prefixes=/cat,/cat/"
+      - "traefik.http.routers.pycsw.middlewares=pycsw-strip-prefix@docker"
+      - "traefik.http.routers.pycsw.entrypoints=web"
+
+  # terria: # disabled for performance
+  #   image: "ghcr.io/terriajs/terriamap"
+  #   container_name: "terria"
+  #   volumes:
+  #     - ./terria/index.html:/app/wwwroot/index.html 
+  #     - ./terria/config.json:/app/wwwroot/config.json
+  #     - ./terria/simple.json:/app/wwwroot/init/simple.json
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.terria.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/map`)"
+  #     - "traefik.http.middlewares.terria-strip-prefix.stripprefix.prefixes=/map,/map/"
+  #     - "traefik.http.routers.terria.middlewares=terria-strip-prefix@docker"
+  #     - "traefik.http.routers.terria.entrypoints=web"
+
