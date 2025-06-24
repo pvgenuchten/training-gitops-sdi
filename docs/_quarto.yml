@@ -31,7 +31,7 @@ website:
         - text: Home
           file: index.md
         - text: Existing resources
-          file: 1-existing-resources.md
+          file: 1-metadata-at-the-source.md
         - text: Data repositories
           file: 2-interact-with-data-repositories.md
         - text: Catalogue publication
@@ -44,9 +44,7 @@ website:
           file: 6-data-publication.md
         - text: Map services
           file: 7-providing-map-services.md
-        - text: Measure quality
-          file: 8-measure-quality.md
         - text: Data visualisation
-          file: 9-data-visualisation.md
+          file: 8-data-visualisation.md
 
 

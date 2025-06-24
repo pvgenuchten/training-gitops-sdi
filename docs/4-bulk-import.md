@@ -30,7 +30,7 @@ docker run -it --rm -v $(pwd):/tmp \
 ```
 # Docker & Powershell
 ```bash
-docker run -it --rm -v "${PWD}:/tmp" `
+docker run -it --rm -v ${PWD}:/tmp `
   org/metatraining crawl-metadata `
   --mode=import-csv --dir="/tmp/csv"
 ```
@@ -44,8 +44,6 @@ docker run -it --rm -v "${PWD}:/tmp" `
 ```
 crawl-metadata --mode=import-csv --dir="./csv" --sep=';'
 ```
-
-
 
 ---
 
@@ -100,4 +98,4 @@ You can repeat this harvest at intervals to keep your catalogue up to date with 
 
 ## Summary
 
-We've seen a number of options to import metadata from external sources. In the [next section](./5-git-cicd.md) we'll have a look at Git, a versioning system.
+We've seen a number of options to import metadata from external sources. In the [next section](5-git-cicd.md) we'll have a look at Git, a versioning system.

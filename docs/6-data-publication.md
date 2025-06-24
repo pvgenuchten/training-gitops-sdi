@@ -10,7 +10,7 @@ The following options exist:
 
 - A shared folder on a central server on the local intranet. Notice that this location is usually not available by remote partners. Make sure a backup is made of the network folder, in case of incidents. 
 - A cloud service such as Google Drive, Microsoft Sharepoint, Dropbox, Amazon Webservices, GitHub. Such a service can also be setup locally. A minimal solution would be to set up a Webdav service.
-- A data repository such as [Zenodo](https://zenodo.org/), [Dataverse](https://dataverse.org), [Open Science Foundation](https://osf.io). With this option metadata of the resource is automatically collected and made searchable. Some catalogue software, such as CKAN, GeoNode, GeoNetwork offer the capability to publish data files as part of the metadata registration.
+- A data repository such as [Zenodo](https://zenodo.org/), [Dataverse](https://dataverse.org). With this option metadata of the resource is automatically collected and made searchable. Some catalogue software, such as CKAN, GeoNode, GeoNetwork offer the capability to publish data files as part of the metadata registration.
 
 ---
 

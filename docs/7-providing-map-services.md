@@ -78,22 +78,7 @@ contact:
     url: https://www.isric.org
 ```
 
-- Set some environment variables
-
-::: {.panel-tabset}
-# Linux
-```bash
-export pgdc_md_url="https://kenya.lsc-hubs.org/collections/metadata:main/items/{0}"
-export pgdc_ms_url="http://localhost"
-export pgdc_webdav_url="https://example.com/data"
-```
-# Powershell
-```bash
-$pgdc_md_url="https://kenya.lsc-hubs.org/collections/metadata:main/items/{0}"
-$pgdc_ms_url="http://localhost"
-$pgdc_webdav_url="https://example.com/data"
-```
-:::
+- Set the environment variables in the .env file; pgdc_md_url,pgdc_ms_url,pgdc_webdav_url="https://example.com/data"
 
 - Generate the mapfile
 
@@ -105,12 +90,12 @@ crawl-maps --dir=.
 # Docker & Linux
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
-  org/metatraining crawl-maps --dir=/tmp 
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
 ```
 # Docker & Powershell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
-  org/metatraining crawl-maps --dir=/tmp 
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
 ```
 :::
 
@@ -123,29 +108,17 @@ robot:
     skip-subfolders: True # indicates the crawler not to proceed in subfolders
 ```
 
-You can test this mapfile locally if you have mapserver installed. On windows, consider using conda or [ms4w](https://www.ms4w.com/).
-
-```bash
-conda install -c conda-forge mapserver
-```
-
-MapServer includes a [map2img](https://mapserver.org/utilities/map2img.html) utility, which enables to render a map image from any mapfile.
-
-```bash
-map2img -m=./mymap.map -o=test.png
-```
-
 ---
 
-## Setup mapserver via Docker 
+## Mapserver via Docker 
 
-For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) available from DockerHub.
+For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) provided by Camp to Camp available from DockerHub.
 
 ```bash
-docker pull camptocamp/mapserver:master  
+docker pull camptocamp/mapserver:8.4  
 ```
 
-First create a config file, which we'll [mount as a volume](https://docs.docker.com/storage/volumes/) into the container. On this config file we list all the mapfiles we aim to publish on our container. Download [the default config file](https://github.com/camptocamp/docker-mapserver/blob/master/runtime/etc/mapserver.conf). Open the file and unescape and populate the maps section:
+First update the config file, which is [mounted as a volume](https://docs.docker.com/storage/volumes/) into the container. On this config file we will list all the mapfiles we aim to publish on our container. Open the file `./data/ms.conf` and populate the maps section. You may have to move all content of the data repository to the docker folder.
 
 ```yaml
 MAPS
@@ -153,49 +126,21 @@ MAPS
 END
 ```
 
-Also unescape the OGCAPI templates section
+Notice that our local `./docker/data` folder is mounted into the mapserver container as `/srv/data`. 
 
-```yaml
-OGCAPI_HTML_TEMPLATE_DIRECTORY "/usr/local/share/mapserver/ogcapi/templates/html-bootstrap4/"
-```
+Run or restart the docker compose.
 
-In the next statement we mount the data folder, including the config file and indicate on which port and with which config file the container will run:
+Check http://localhost/ows/data/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors. 
 
-::: {.panel-tabset}
-# Linux
-```bash
-docker run -p 80:80 \
-    -e MAPSERVER_CONFIG_FILE=/srv/data/mapserver.conf \
-    -v $(pwd):/srv/data  \
-    camptocamp/mapserver:master 
-```
-# Powershell
-```bash
-docker run -p 80:80 `
-    -e MAPSERVER_CONFIG_FILE=/srv/data/mapserver.conf `
-    -v "${PWD}:/srv/data" `
-    camptocamp/mapserver:master 
-```
-:::
+You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/data?request=GetCapabilities&service=WMS.
 
-Check http://localhost/data/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. 
-If not, check the container logs to evaluate any errors. 
-
-You can also try the url in QGIS. Add a WMS layer, of service http://localhost/data?request=GetCapabilities&service=WMS.
-
-Notice the links to metadata when you open GetCapabilities in a browser.
-
-:::{.callout-note}
-In recent years browsers have become more strict, to prevent abuse. For that reason it is important to carefully consider common connectivity aspects, when setting up a new service. Websites running at https can only embed content from other https services, so using https is relevant. [CORS](https://en.wikipedia.org/cors) and [CORB](https://en.wikipedia.org/corb) can limit access to embedded resources from remote servers. Using proper CORS headers and Content type identification, is relevant to prevent CORS and CORB errors. 
-:::
-
-GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling).
+GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (sld) file for a layer, as {name}.sld. Sld files can be created using QGIS (export style as SLD).
 
 ---
 
 ## Summary
 
-In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the [next section](./8-measure-quality.md) we'll look at measuring service quality.
+In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the [next section](./8-data-visualisation.md) we'll look at measuring service quality.
 
 
 

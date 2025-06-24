@@ -8,7 +8,7 @@ Catalogues facilitate data discovery in 3 ways:
 
 - Users can go to the catalogue website and search for data
 - Applications such as QGIS and TerriaJS can let users query the catalogue, evaluate the metadata, and directly add the related data to their project
-- Search engines crawl public catalogues and include the records in their search results
+- Search engines and partner catalogues crawl the catalogue and include the records in their search results
 
 :::{.callout-note}
 An important aspect is proper setup of authorisations for general public, partners and co-workers to access metadata as well as the actual data files behind the metadata. A general rule-of-thumb is that metadata can usually be widely shared, but data services with sensitive content should be properly protected. In some cases organisations even remove the data url from the public metadata, to prevent abuse of those urls. If a resource is not available to all, this can be indicated in metadata as 'access-constraints'.
@@ -16,7 +16,7 @@ An important aspect is proper setup of authorisations for general public, partne
 
 ---
 
-## Catalogue frontend
+## pycsw catalogue 
 
 Various catalogue frontends exist to facilitate dataset search, such as [Geonetwork OpenSource](https://geonetwork-opensource.org), [dataverse](https://dataverse.org), [CKAN](https://ckan.org). Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.
 
@@ -151,6 +151,44 @@ docker run -p 8000:8000 `
 - Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) in pycsw
 - We published a tailored set of templates as a [pycsw skin on GitHub](https://github.com/pvgenuchten/pycsw-skin). This skin has been used as a starting point for the lsc-hubs catalogue skin.
 
+## SDI setup using docker compose
+
+[Compose](https://docs.docker.com/compose/) is a utility of docker, enabling setup of a set of containers using a composition script.
+A composition script can automate the manual operations of the previous paragraph. We've prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.
+
+Clone the repository to a local folder (You don't have git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
+
+```
+git clone https://github.com/pvgenuchten/training-gitops-sdi.git
+```
+
+On the cloned repository in the `docker` folder there are 2 alternatives:
+
+- [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including postgis and terria
+- [docker-compose-sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml) is a minimal orchestration without terria and based on a file based sqlite database
+
+On both orchestrations a library called [traefik](https://traefik.io) to facilitate 
+[path-routing](https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp) to the relavant containers. 
+
+Also notice that some [layout templates are mounted](https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46) into the pycsw container.
+
+Some environment variables should be set in a .env file. Rename the `.env-template` file to `.env`.
+
+Then open a shell and navigate to the docker folder in the cloned repository and run:
+
+```bash
+docker compose -f docker-compose-sqlite.yml up
+```
+
+A lot of logs are produced by the various containers. You can also run in the background using'
+
+```bash
+docker compose -d -f docker-compose-sqlite.yml up
+```
+
+When running in the background, use `docker compose down`, `docker ps`, `docker logs pycsw` to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.
+
+You can now use `pycsw-admin.py` in a similar way as above to load records into the catalogue.
 
 ## Summary
 
