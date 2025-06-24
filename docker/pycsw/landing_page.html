@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% block title %}{{ super() }} Home {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1>
+                {{ config['metadata']['identification']['title'] }}
+            </h1>
+            <p>{{ config['metadata']['identification']['description'] }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>Search in the catalogue</h2>
+
+            <form method="get" action="{{ config['server']['url'] }}/collections/metadata:main/items">
+                <div class="input-group my-3">
+                    <label class="visually-hidden" for="searchCatalogue">Search</label>
+                    <input id="searchCatalogue" type="text" name="q" class="form-control border-end-0 rounded-start"
+                        placeholder="Search">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
