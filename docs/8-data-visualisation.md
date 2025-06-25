@@ -27,8 +27,6 @@ Two files are mounted into the container:
 
 Notice that from terria layer details, you can access the catalogue again (link is shared via WMS Capabilities)
 
---- 
-
 ## Summary
 
 With this topic we conclude our training on data management. We hope you enjoyed the materials. Notice that the training can act as a starting point to a number of other resources. Let us know via [GitHub issues](https://github.com/lsc-hubs/hub-core/issues) if you have improvement suggestions for the materials.

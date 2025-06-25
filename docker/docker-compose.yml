@@ -38,7 +38,7 @@ services:
     
   pycsw:
     restart: always 
-    image: "geopython/pycsw"
+    image: "ghcr.io/geopython/pycsw"
     container_name: "pycsw"
     volumes:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
@@ -48,7 +48,7 @@ services:
     environment:
       # Configuration for the catalogue, see the pycsw.yml file how these values are used
       CAT_URL: http://${SDI_DOMAIN}
-      CAT_TITLE: Catalogue
+      CAT_TITLE: My Favourite Catalogue
       CAT_DESC: The catalogue provides access to various SDI resources
       CAT_DB: 'postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_USER}'
       PYCSW_CONFIG: /etc/pycsw/pycsw.yml
@@ -87,6 +87,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_DB: ${POSTGRES_USER}
       PGUSER: ${POSTGRES_USER}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DOMAIN: ${POSTGRES_DOMAIN}
     volumes:
       - postgres-vol:/var/lib/postgresql/data
 

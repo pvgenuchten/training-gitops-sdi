@@ -8,9 +8,7 @@ date: 2025-06-24
 
 This paragraph describes approaches to import metadata from existing repositories. Including an option to import metadata from records of a spreadsheet.
 
----
-
-## Bulk import from spreadsheet
+## Bulk import from a spreadsheet
 
 Many metadata initiatives tend to start from a spreadsheet. Each of the columns representa a metadata property and the rows are the individual records describing a resource. Spreadsheets have proven to be an effective medium to populate a catalogue with records initially. To facilitate this use case the GeoDataCrawler software provides an `import spreadsheet` method. The spreadsheet is parsed and a MCF document is generated for every row.
 
@@ -46,8 +44,6 @@ docker run -it --rm -v ${PWD}:/tmp `
 ```
 crawl-metadata --mode=import-csv --dir="./csv" --sep=';'
 ```
-
----
 
 ## Bulk import from an online location
 
@@ -94,9 +90,6 @@ crawl-metadata --mode=update --dir="./undrr" --resolve=true
 ```
 
 You can repeat this harvest at intervals to keep your catalogue up to date with the remote.
-
-
----
 
 ## Summary
 

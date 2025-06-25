@@ -26,11 +26,9 @@ Does your organisation endorse a metadata model to describe data sources?
 Are your aware of tooling which can support you in creation of metadata in this model?
 :::
 
----
-
 ## The pygeometa MCF format
 
-Within the [geopython community](https://geopython.github.io), the [pygeometa](https://geopython.github.io/pygeometa) provides a metadata format called the [metadata control file](https://geopython.github.io/pygeometa/reference/mcf) (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on [YAML](https://www.yaml.io/spec/), a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:
+Within the [geopython community](https://geopython.github.io), the [pygeometa](https://geopython.github.io/pygeometa) library provides a metadata format called the [metadata control file](https://geopython.github.io/pygeometa/reference/mcf) (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on [YAML](https://www.yaml.io/spec/), a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:
 
 ```yaml
 mcf:
@@ -47,19 +45,31 @@ identification:
     ...
 ```
 
----
+If you are comfortable with python, consider to try the following experiment.
+
+:::{.callout-tip}
+Save the above file as `md.yml`. Then open a shell and set up a virtual python (or conda) environment, then:
+
+```bash
+pip install pygeometa
+pygeometa metadata info path/to/md.yml
+pygeometa metadata generate path/to/md.yml --schema=iso19139 --output=md.xml
+```
+:::
+
+Read more about pygeometa at <https://geopython.github.io/pygeometa/tutorial/>.
 
 ## Describing a resource
 
 When describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some [practical recommendations](https://www.gov.uk/government/publications/search-engine-optimisation-for-publishers-best-practice-guide) on this topic.
 
-When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Wikipedia, etc. Benefit of controlled vocabularies is that the term is not ambigue and it can be made available in multiple languages. 
+When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Eurovoc, etc. A benefit of controlled vocabularies is that the term is not ambigue and it can be processed in multiple languages. 
 
-## MCF editing
+### MCF editing
 
 MCF documents can be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
 
-Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the application to your organisational needs.
+Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the metadata model to your organisational needs.
 
 :::{.callout-tip}
 Imagine a dataset you have recently worked with. Then open [mdme](https://osgeo.github.io/mdme) and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository. 

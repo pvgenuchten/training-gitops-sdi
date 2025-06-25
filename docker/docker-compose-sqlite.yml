@@ -39,7 +39,7 @@ services:
     
   pycsw:
     restart: always 
-    image: "geopython/pycsw"
+    image: "ghcr.io/geopython/pycsw"
     container_name: "pycsw"
     volumes:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml

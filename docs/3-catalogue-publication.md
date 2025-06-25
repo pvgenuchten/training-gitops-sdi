@@ -25,140 +25,26 @@ Various catalogue frontends exist to facilitate dataset search, such as [Geonetw
 For this workshop we are going to use [pycsw](https://pycsw.org). It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface. 
 
 For this exercise we assume you have [Docker Desktop](https://www.docker.com/get-started/) installed on your system and running.
+Visit the [docker get started tutorials](https://docs.docker.com/get-started/) in case you're new to docker.
 
-pycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. 
+pycsw is available as Docker image at the github container registry, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. 
 
-- Navigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.
+Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):
 
-::: {.panel-tabset}
-# Linux
 ```bash
-docker run -p 8000:8000 \
-   -v $(pwd):/etc/data \
-   geopython/pycsw
-```
-# PowerShell
-```bash
-docker run -p 8000:8000 `
-   -v "${PWD}:/etc/data" `
-   geopython/pycsw
-```
-:::
-
-- Visit <http://localhost:8000> 
-- Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml). Download the file to the current folder, adjust the title and restart docker with:
-
-::: {.panel-tabset}
-# Linux
-```bash
-docker run -p 8000:8000 \
-   -d --rm --name=pycsw \
-   -v $(pwd):/etc/data \
-   -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.yml \
-   geopython/pycsw
-```
-# PowerShell
-```bash
-docker run -p 8000:8000 `
-   -d --rm --name=pycsw `
-   -v "${PWD}:/etc/data" `
-   -v "${PWD}/pycsw.cfg:/etc/pycsw/pycsw.yml" `
-   geopython/pycsw
-```
-:::
-
-:::{.callout-note}
-Notice `-d` starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use `docker ps`. `docker logs pycsw` shows the logs of a container and `docker stop pycsw` stops the container. The `-rm` option removes the container at stop, so we can easily recreate it with additional options at next runs.
-:::
-
-- For administering the instance we use a utility called `pycsw-admin.py`. Notice on the calls below a reference to a relevant config file. 
-- First clear the existing database:
-
-::: {.panel-tabset}
-# Container terminal
-```bash
-pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
-```
-# PowerShell
-```bash
-docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
-```
-:::
-
-- Notice at <http://localhost:8000/collections/metadata:main/items> that all records are removed.
-- Load the records, which we exported as iso19139 in the [previous section](./2-interact-with-data-repositories.md), to the database:
-
-::: {.panel-tabset}
-# Container terminal
-```bash
-pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
-```
-# PowerShell
-```bash
-docker exec -it pycsw bash -c `
- "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
-```
-:::
-
-- Validate at http://localhost:8000/collections/metadata:main/items if our records are loaded, else check logs to identify a problem.
-
----
-
-
-## Customise the catalogue skin
-
-pycsw uses [jinja templates](https://jinja.palletsprojects.com/en/3.1.x/) to build the web frontend. These are html documents including template language to substitute parts of the page.
-
-- Save the template below as a file 'landing_page.html' in the current directory
-
-```html
-{% extends "_base.html" %}
-{% block title %}{{ super() }} Home {% endblock %}
-{% block body %}
-<h1>Welcome to my catalogue!</h1>
-<p>{{ config['metadata:main']['identification_abstract'] }}</p>
-Continue to the records in this catalogue
-<a title="Items" 
-    href="{{ config['server']['url'] }}/collections/metadata:main/items">
-    Collections</a>, or have a look at the  
-<a title="OpenAPI" 
-      href="{{ config['server']['url'] }}/openapi?f=html">Open API Document</a>
-{% endblock %}
+docker pull ghcr.io/geopython/pycsw
+docker run -p8000:8000 ghcr.io/geoptyhon/pycsw
 ```
 
-- We will now replace the default template in the Docker image with our template.
+Open your browser and browse to <http://localhost:8000> to see pycsw in action.
 
-::: {.panel-tabset}
-# Linux
-```bash
-docker run -p 8000:8000 \
-   -d --rm --name=pycsw \
-   -v $(pwd):/etc/data \
-   -v $(pwd)/pycsw.yml:/etc/pycsw/pycsw.yml \
-   -v $(pwd)/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html \
-   geopython/pycsw
-```
-# PowerShell
-```bash
-docker run -p 8000:8000 `
-   -d --rm --name=pycsw `
-   -v "${PWD}:/etc/data" `
-   -v "${PWD}/pycsw.yml:/etc/pycsw/pycsw.yml" `
-   -v "${PWD}/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html" `
-   geopython/pycsw
-```
-:::
+Return to the command line, press ctrl-C to stop the docker container process.
 
-- View the result at <http://localhost:8000> 
-- Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) in pycsw
-- We published a tailored set of templates as a [pycsw skin on GitHub](https://github.com/pvgenuchten/pycsw-skin). This skin has been used as a starting point for the lsc-hubs catalogue skin.
+## Docker Compose
 
-## SDI setup using Docker Compose
+[Compose](https://docs.docker.com/compose/) is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual startup operations of the previous paragraph. We've prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.
 
-[Compose](https://docs.docker.com/compose/) is a utility of docker, enabling setup of a set of containers using a composition script.
-A composition script can automate the manual operations of the previous paragraph. We've prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.
-
-Clone the repository to a local folder (You don't have git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
+Clone the workshop repository to a local folder (You don't have git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
 
 ```bash
 git clone https://github.com/pvgenuchten/training-gitops-sdi.git
@@ -166,13 +52,13 @@ git clone https://github.com/pvgenuchten/training-gitops-sdi.git
 
 On the cloned repository in the `docker` folder there are 2 alternatives:
 
-- [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including PostGIS and TerriaJS/
+- [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including PostGIS and TerriaJS
 - [docker-compose-sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml) is a minimal orchestration without terria and based on a file based sqlite database
 
 On both orchestrations a library is used called [Traefik](https://traefik.io) to facilitate 
 [path-routing](https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp) to the relavant containers. 
 
-Also notice that some [layout templates are mounted](https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46) into the pycsw container.
+Also notice that some [layout templates are mounted](https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46) into the pycsw container. These templates override the default layout of pycsw.
 
 Some environment variables should be set in a .env file. Rename the `.env-template` file to `.env`.
 
@@ -191,6 +77,65 @@ docker compose -d -f docker-compose-sqlite.yml up
 When running in the background, use `docker compose down`, `docker ps`, `docker logs pycsw` to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.
 
 You can now use `pycsw-admin.py` in a similar way as above to load records into the catalogue.
+
+## Load some records
+
+Make sure the docker setup is running in the background (`-d`), or open a second shell window.
+
+Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml). You will find a copy of this file in /docker/pycsw. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.
+
+For administering the contents of the catalogue a utility called `pycsw-admin.py` is available in the pycsw container.
+You can either open a shell in the container (via docker desktop) and type the commands directly, or use `docker exec` to run the commands from the host.
+
+First clear the existing database:
+
+::: {.panel-tabset}
+# Container terminal
+```bash
+pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
+```
+# PowerShell
+```bash
+docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
+```
+:::
+
+Notice at <http://localhost:8000/collections/metadata:main/items> that all records are removed.
+
+We exported mcf records as iso19139 in the [previous section](./2-interact-with-data-repositories.md). 
+Copy iso-xml documents to the `./docker/data/export` folder in the docker project. This folder will be mounted into the container, so the records can be loaded into the pycsw database.
+
+Use pycsw-admin.py to load the records into the catalogue database:
+
+::: {.panel-tabset}
+# Container terminal
+```bash
+pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
+```
+# PowerShell
+```bash
+docker exec -it pycsw bash -c `
+ "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
+```
+:::
+
+Validate at http://localhost:8000/collections/metadata:main/items if the records are loaded, else check logs to identify a problem.
+
+
+## Customise the catalogue skin
+
+pycsw uses [jinja templates](https://jinja.palletsprojects.com/en/3.1.x/) to build the web frontend. These are html documents including template language to substitute parts of the page.
+
+You find 2 template files in ./docker/pycsw/. Notice in the orchestration file how the files are mounted into the container:
+
+- landing_page.html represents the home page of pycsw
+- _base.html is a main layout template which contains page header, footer and menu and wraps around all other templates
+
+Open a template file and make some changes (colors, text, logo's).
+
+Restart the orchestration and view the result at <http://localhost:8000> 
+
+Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) available in pycsw, which can be tailored in a similar way.
 
 ## Summary
 
