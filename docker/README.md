@@ -40,13 +40,13 @@ Initialize metadata for files in webdav (once)
 
 ```bash
 docker run -it --rm -v$(pwd):/geodata pvgenuchten/geodatacrawler crawl-metadata -
--dir=/geodata --mode=init
+-dir=/srv/data --mode=init
 ```
 Update metadata in case new verions are uploaded
 
 ```bash
 docker run -it --rm -v$(pwd):/geodata pvgenuchten/geodatacrawler crawl-metadata -
--dir=/geodata --mode=init
+-dir=/srv/data --mode=update
 ```
 
 ## MapServer

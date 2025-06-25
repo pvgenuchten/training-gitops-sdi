@@ -44,6 +44,7 @@ services:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
       - ./pycsw/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/_base.html # to override layout
       - ./pycsw/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html # to override layout
+      - ./data:/srv/data
     environment:
       # Configuration for the catalogue, see the pycsw.yml file how these values are used
       CAT_URL: http://${SDI_DOMAIN}
