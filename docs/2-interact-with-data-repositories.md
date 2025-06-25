@@ -20,18 +20,18 @@ Consider to add additional index.yml files in other folders to override the valu
 
 The tools we will use are based on Python. For this workshop we offer 2 approaches: 
 
-- If you are familiar with python or are interested to learn more about it, you can setup a conda or python virtual environment and run the scripts in that environment. 
-- Else, we recommend to run the python tools in docker containers. 
+- If you are familiar with Python or are interested to learn more about it, you can setup a conda or Python virtual environment and run the scripts in that environment. 
+- Else, we recommend to run the Python tools in Docker containers. 
 
 Each of the exercises indicates an option to run the Python script directly, or from a container. 
 
 ### Conda
  
-The tools have some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the python libraries as well as any other dependencies, such as GDAL. 
+The tools have some specific dependencies which are best installed via [Conda](https://conda.io). Conda creates for each project a virtual environment, so any activity will not interfere with the base environment of your machine. Conda manages both the Python libraries as well as any other dependencies, such as GDAL. 
 
-If you don't use Conda yet, consider to install [mamba](https://mamba.readthedocs.io/en/latest/), a lighter alternative to Conda. Or alternatively run the scripts in a python [virtual environment](https://docs.python.org/3/library/venv.html). 
+If you don't use Conda yet, consider to install [mamba](https://mamba.readthedocs.io/en/latest/), a lighter alternative to Conda. Or alternatively run the scripts in a Python [virtual environment](https://docs.python.org/3/library/venv.html). 
 
-Start a commandline or powershell with mamba enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the `data` directory but one above.
+Start a commandline or PowerShell with mamba enabled (or add mamba to your PATH). On windows look for the `Mamba prompt` in start menu. First we will navigate to the folder in which we unzipped the sample data repository. Make sure you are not in the `data` directory but one above.
 
 ```bash
 cd {path-where-you-unzipped-zipfile}
@@ -67,7 +67,7 @@ crawl-metadata --help
 
 ### Python/GDAL via Docker
 
-In case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available using Python via Docker. [Docker](https://www.docker.com) is a virtualisation technology which runs isolated containers within your computer. 
+In case you have difficulties setting up Python with GDAL on your local machine (or just want to try out), an alternative approach is available using Python via Docker. [Docker](https://www.docker.com) is a virtualization technology which runs isolated containers within your computer. 
 
 - First [install docker](https://docs.docker.com/desktop/install/windows-install/). 
 - Start the Docker Desktop tool.
@@ -77,7 +77,7 @@ In case you have difficulties setting up Python with GDAL on your local machine 
 docker run -it --rm pvgenuchten/geodatacrawler crawl-metadata --help
 ```
 
-For advanced Docker statements there are some differences between Windows commandline, Windows powershell and Linux bash. Use the relevant syntax for your system. 
+For advanced Docker statements there are some differences between Windows commandline, Windows PowerShell and Linux bash. Use the relevant syntax for your system. 
 
 ## Initial MCF files 
 
@@ -94,7 +94,7 @@ docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=init --dir=tmp/data
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v ${PWD}:/tmp `
   pvgenuchten/geodatacrawler crawl-metadata `
@@ -103,15 +103,15 @@ docker run -it --rm -v ${PWD}:/tmp `
 :::
 
 
-Notice that for each resource a {dataset}.yml file has been created. Open a .yml file in a text editor and review the content.
-Notice on the docker statements that we mount the local folder into the container, before we can run commands into it. To verify if the correct folder was mounted, run a `ls` command to see the folder contents.
+Notice that for each resource a `{dataset}.yml` file has been created. Open a .yml file in a text editor and review the content.
+Notice on the Docker statements that we mount the local folder into the container, before we can run commands into it. To verify if the correct folder was mounted, run a `ls` command to see the folder contents.
 
 ::: {.panel-tabset}
 # Docker & Linux
 ```bash
 docker run -it --rm -v $(pwd):/tmp pvgenuchten/geodatacrawler ls tmp
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v ${PWD}:/tmp pvgenuchten/geodatacrawler ls /tmp
 ```
@@ -132,7 +132,7 @@ docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=update --dir=tmp/data
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v ${PWD}:/tmp `
   pvgenuchten/geodatacrawler crawl-metadata `
@@ -158,7 +158,7 @@ docker run -it --rm -v $(pwd):/tmp \
  --mode=export --dir=tmp/data \
  --dir-out=export --dir-out-mode=flat
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v ${PWD}:/tmp `
   pvgenuchten/geodatacrawler crawl-metadata `

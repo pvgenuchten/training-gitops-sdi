@@ -30,7 +30,7 @@ docker run -it --rm -v $(pwd):/tmp \
   org/metatraining crawl-metadata \
   --mode=import-csv --dir="/tmp/csv"
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v ${PWD}:/tmp `
   org/metatraining crawl-metadata `
