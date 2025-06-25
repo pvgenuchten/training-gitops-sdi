@@ -37,7 +37,7 @@ docker run -p 8000:8000 \
    -v $(pwd):/etc/data \
    geopython/pycsw
 ```
-# Powershell
+# PowerShell
 ```bash
 docker run -p 8000:8000 `
    -v "${PWD}:/etc/data" `
@@ -57,7 +57,7 @@ docker run -p 8000:8000 \
    -v $(pwd)/pycsw.cfg:/etc/pycsw/pycsw.yml \
    geopython/pycsw
 ```
-# Powershell
+# PowerShell
 ```bash
 docker run -p 8000:8000 `
    -d --rm --name=pycsw `
@@ -79,7 +79,7 @@ Notice `-d` starts the Docker in the background, so we can interact with the run
 ```bash
 pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
 ```
-# Powershell
+# PowerShell
 ```bash
 docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
 ```
@@ -93,7 +93,7 @@ docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw
 ```bash
 pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
 ```
-# Powershell
+# PowerShell
 ```bash
 docker exec -it pycsw bash -c `
  "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
@@ -138,7 +138,7 @@ docker run -p 8000:8000 \
    -v $(pwd)/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html \
    geopython/pycsw
 ```
-# Powershell
+# PowerShell
 ```bash
 docker run -p 8000:8000 `
    -d --rm --name=pycsw `
@@ -153,23 +153,23 @@ docker run -p 8000:8000 `
 - Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) in pycsw
 - We published a tailored set of templates as a [pycsw skin on GitHub](https://github.com/pvgenuchten/pycsw-skin). This skin has been used as a starting point for the lsc-hubs catalogue skin.
 
-## SDI setup using docker compose
+## SDI setup using Docker Compose
 
 [Compose](https://docs.docker.com/compose/) is a utility of docker, enabling setup of a set of containers using a composition script.
 A composition script can automate the manual operations of the previous paragraph. We've prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.
 
 Clone the repository to a local folder (You don't have git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
 
-```
+```bash
 git clone https://github.com/pvgenuchten/training-gitops-sdi.git
 ```
 
 On the cloned repository in the `docker` folder there are 2 alternatives:
 
-- [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including postgis and terria
+- [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including PostGIS and TerriaJS/
 - [docker-compose-sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml) is a minimal orchestration without terria and based on a file based sqlite database
 
-On both orchestrations a library is used called [traefik](https://traefik.io) to facilitate 
+On both orchestrations a library is used called [Traefik](https://traefik.io) to facilitate 
 [path-routing](https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp) to the relavant containers. 
 
 Also notice that some [layout templates are mounted](https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46) into the pycsw container.

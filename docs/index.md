@@ -12,9 +12,9 @@ catalogue, a data access layer (api's) and a data visualisation tool. The SDI in
 On the tutorial some common open source tools are introduced:
 
 - quarto 
-- mapserver
+- MapServer
 - pycsw
-- pygeodatacrawlwer (pygeometa/owslib/gdal)
+- PyGeoDataCrawler (pygeometa/OWSLib/GDAL)
 - TerriaJS
 
 Git has a central role in the training, it is for example suggested to facilitate software development and deployment, content co-creation and management as well as community feedback. Experience with Git and Docker are required before starting this workshop. 
@@ -24,6 +24,3 @@ You can also access the [slides](./slides/) of the workshop.
 We hope you enjoy the materials, 
 
 Paul and Tom.
-
-
-

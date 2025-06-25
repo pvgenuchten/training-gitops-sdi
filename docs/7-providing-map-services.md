@@ -80,7 +80,7 @@ contact:
     url: https://www.isric.org
 ```
 
-- Set the environment variables in the .env file; pgdc_md_url,pgdc_ms_url,pgdc_webdav_url="https://example.com/data"
+- Set the environment variables in the `.env file`; `pgdc_md_url`,`pgdc_ms_url`,`pgdc_webdav_url="https://example.com/data"`
 
 - Generate the mapfile
 
@@ -94,7 +94,7 @@ crawl-maps --dir=.
 docker run -it --rm -v $(pwd):/tmp \
   pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
 ```
-# Docker & Powershell
+# Docker & PowerShell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
   pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
@@ -112,7 +112,7 @@ robot:
 
 ---
 
-## Mapserver via Docker 
+## MapServer via Docker 
 
 For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) provided by Camp to Camp available from DockerHub.
 
@@ -136,7 +136,7 @@ Check http://localhost/ows/data/ogcapi in your browser. If all has been set up f
 
 You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/data?request=GetCapabilities&service=WMS.
 
-GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (sld) file for a layer, as {name}.sld. Sld files can be created using QGIS (export style as SLD).
+GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (SLD) file for a layer, as `{name}.sld`. Sld files can be created using QGIS (export style as SLD).
 
 ---
 
