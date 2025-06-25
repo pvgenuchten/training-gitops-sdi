@@ -261,165 +261,79 @@ Note
 <h2 class="anchored" data-anchor-id="pycsw-catalogue">pycsw catalogue</h2>
 <p>Various catalogue frontends exist to facilitate dataset search, such as <a href="https://geonetwork-opensource.org">Geonetwork OpenSource</a>, <a href="https://dataverse.org">dataverse</a>, <a href="https://ckan.org">CKAN</a>. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.</p>
 <p>For this workshop we are going to use <a href="https://pycsw.org">pycsw</a>. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.</p>
-<p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running.</p>
-<p>pycsw is available as Docker image at DockerHub, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.</p>
+<p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running. Visit the <a href="https://docs.docker.com/get-started/">docker get started tutorials</a> in case you’re new to docker.</p>
+<p>pycsw is available as Docker image at the github container registry, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.</p>
+<p>Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ghcr.io/geopython/pycsw</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p8000:8000</span> ghcr.io/geoptyhon/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open your browser and browse to <a href="http://localhost:8000" class="uri">http://localhost:8000</a> to see pycsw in action.</p>
+<p>Return to the command line, press ctrl-C to stop the docker container process.</p>
+</section>
+<section id="docker-compose" class="level2">
+<h2 class="anchored" data-anchor-id="docker-compose">Docker Compose</h2>
+<p><a href="https://docs.docker.com/compose/">Compose</a> is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual startup operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.</p>
+<p>Clone the workshop repository to a local folder (You don’t have git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pvgenuchten/training-gitops-sdi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
 <ul>
-<li>Navigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.</li>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including PostGIS and TerriaJS</li>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
 </ul>
+<p>On both orchestrations a library is used called <a href="https://traefik.io">Traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
+<p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container. These templates override the default layout of pycsw.</p>
+<p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
+<p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A lot of logs are produced by the various containers. You can also run in the background using:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-d</span> <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
+<p>You can now use <code>pycsw-admin.py</code> in a similar way as above to load records into the catalogue.</p>
+</section>
+<section id="load-some-records" class="level2">
+<h2 class="anchored" data-anchor-id="load-some-records">Load some records</h2>
+<p>Make sure the docker setup is running in the background (<code>-d</code>), or open a second shell window.</p>
+<p>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. You will find a copy of this file in /docker/pycsw. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.</p>
+<p>For administering the contents of the catalogue a utility called <code>pycsw-admin.py</code> is available in the pycsw container. You can either open a shell in the container (via docker desktop) and type the commands directly, or use <code>docker exec</code> to run the commands from the host.</p>
+<p>First clear the existing database:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">PowerShell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/etc/data <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="kw">`</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li>Visit <a href="http://localhost:8000" class="uri">http://localhost:8000</a></li>
-<li>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. Download the file to the current folder, adjust the title and restart docker with:</li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">PowerShell</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="dt">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/etc/data <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.cfg:/etc/pycsw/pycsw.yml <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="kw">`</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="kw">`</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.cfg:/etc/pycsw/pycsw.yml"</span> <span class="kw">`</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notice <code>-d</code> starts the Docker in the background, so we can interact with the running container. To see which instances are running (in the background) use <code>docker ps</code>. <code>docker logs pycsw</code> shows the logs of a container and <code>docker stop pycsw</code> stops the container. The <code>-rm</code> option removes the container at stop, so we can easily recreate it with additional options at next runs.</p>
-</div>
-</div>
-<ul>
-<li>For administering the instance we use a utility called <code>pycsw-admin.py</code>. Notice on the calls below a reference to a relevant config file.</li>
-<li>First clear the existing database:</li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">PowerShell</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> delete-records <span class="at">-c</span> /etc/pycsw/pycsw.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> pycsw bash <span class="at">-c</span> <span class="st">"pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<ul>
-<li>Notice at <a href="http://localhost:8000/collections/metadata:main/items" class="uri">http://localhost:8000/collections/metadata:main/items</a> that all records are removed.</li>
-<li>Load the records, which we exported as iso19139 in the <a href="./2-interact-with-data-repositories.html">previous section</a>, to the database:</li>
-</ul>
+<p>Notice at <a href="http://localhost:8000/collections/metadata:main/items" class="uri">http://localhost:8000/collections/metadata:main/items</a> that all records are removed.</p>
+<p>We exported mcf records as iso19139 in the <a href="./2-interact-with-data-repositories.html">previous section</a>. Copy iso-xml documents to the <code>./docker/data/export</code> folder in the docker project. This folder will be mounted into the container, so the records can be loaded into the pycsw database.</p>
+<p>Use pycsw-admin.py to load the records into the catalogue database:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">PowerShell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> load-records <span class="at">-p</span> /etc/data/export <span class="at">-c</span> /etc/pycsw/pycsw.yml <span class="at">-y</span> <span class="at">-r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> pycsw bash <span class="at">-c</span> <span class="kw">`</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> <span class="st">"pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<ul>
-<li>Validate at http://localhost:8000/collections/metadata:main/items if our records are loaded, else check logs to identify a problem.</li>
-</ul>
-<hr>
+<p>Validate at http://localhost:8000/collections/metadata:main/items if the records are loaded, else check logs to identify a problem.</p>
 </section>
 <section id="customise-the-catalogue-skin" class="level2">
 <h2 class="anchored" data-anchor-id="customise-the-catalogue-skin">Customise the catalogue skin</h2>
 <p>pycsw uses <a href="https://jinja.palletsprojects.com/en/3.1.x/">jinja templates</a> to build the web frontend. These are html documents including template language to substitute parts of the page.</p>
+<p>You find 2 template files in ./docker/pycsw/. Notice in the orchestration file how the files are mounted into the container:</p>
 <ul>
-<li>Save the template below as a file ‘landing_page.html’ in the current directory</li>
+<li>landing_page.html represents the home page of pycsw</li>
+<li>_base.html is a main layout template which contains page header, footer and menu and wraps around all other templates</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>{% extends "_base.html" %}</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>{% block title %}{{ super() }} Home {% endblock %}</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>{% block body %}</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Welcome to my catalogue!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>{{ config['metadata:main']['identification_abstract'] }}<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Continue to the records in this catalogue</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Items"</span><span class="ot"> </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ot">    href</span><span class="op">=</span><span class="st">"{{ config['server']['url'] }}/collections/metadata:main/items"</span><span class="dt">&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    Collections<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>, or have a look at the  </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"OpenAPI"</span><span class="ot"> </span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ot">      href</span><span class="op">=</span><span class="st">"{{ config['server']['url'] }}/openapi?f=html"</span><span class="dt">&gt;</span>Open API Document<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>{% endblock %}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>We will now replace the default template in the Docker image with our template.</li>
-</ul>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">PowerShell</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="dt">\</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/etc/data <span class="dt">\</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/pycsw.yml:/etc/pycsw/pycsw.yml <span class="dt">\</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>/landing_page.html:/etc/pycsw/ogc/api/templates/landing_page.html <span class="dt">\</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>   geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="kw">`</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-d</span> <span class="at">--rm</span> <span class="at">--name</span><span class="op">=</span>pycsw <span class="kw">`</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">:/etc/data"</span> <span class="kw">`</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/pycsw.yml:/etc/pycsw/pycsw.yml"</span> <span class="kw">`</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-v</span> <span class="st">"</span><span class="va">${PWD}</span><span class="st">/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html"</span> <span class="kw">`</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">geopython/pycsw</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li>View the result at <a href="http://localhost:8000" class="uri">http://localhost:8000</a></li>
-<li>Have a look at <a href="https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates">the other templates</a> in pycsw</li>
-<li>We published a tailored set of templates as a <a href="https://github.com/pvgenuchten/pycsw-skin">pycsw skin on GitHub</a>. This skin has been used as a starting point for the lsc-hubs catalogue skin.</li>
-</ul>
-</section>
-<section id="sdi-setup-using-docker-compose" class="level2">
-<h2 class="anchored" data-anchor-id="sdi-setup-using-docker-compose">SDI setup using Docker Compose</h2>
-<p><a href="https://docs.docker.com/compose/">Compose</a> is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.</p>
-<p>Clone the repository to a local folder (You don’t have git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pvgenuchten/training-gitops-sdi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
-<ul>
-<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including PostGIS and TerriaJS/</li>
-<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
-</ul>
-<p>On both orchestrations a library is used called <a href="https://traefik.io">Traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
-<p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container.</p>
-<p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
-<p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A lot of logs are produced by the various containers. You can also run in the background using:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-d</span> <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
-<p>You can now use <code>pycsw-admin.py</code> in a similar way as above to load records into the catalogue.</p>
+<p>Open a template file and make some changes (colors, text, logo’s).</p>
+<p>Restart the orchestration and view the result at <a href="http://localhost:8000" class="uri">http://localhost:8000</a></p>
+<p>Have a look at <a href="https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates">the other templates</a> available in pycsw, which can be tailored in a similar way.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>

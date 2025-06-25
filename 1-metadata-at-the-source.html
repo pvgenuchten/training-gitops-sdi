@@ -269,11 +269,10 @@ Tip
 <p>Does your organisation endorse a metadata model to describe data sources? Are your aware of tooling which can support you in creation of metadata in this model?</p>
 </div>
 </div>
-<hr>
 </section>
 <section id="the-pygeometa-mcf-format" class="level2">
 <h2 class="anchored" data-anchor-id="the-pygeometa-mcf-format">The pygeometa MCF format</h2>
-<p>Within the <a href="https://geopython.github.io">geopython community</a>, the <a href="https://geopython.github.io/pygeometa">pygeometa</a> provides a metadata format called the <a href="https://geopython.github.io/pygeometa/reference/mcf">metadata control file</a> (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on <a href="https://www.yaml.io/spec/">YAML</a>, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:</p>
+<p>Within the <a href="https://geopython.github.io">geopython community</a>, the <a href="https://geopython.github.io/pygeometa">pygeometa</a> library provides a metadata format called the <a href="https://geopython.github.io/pygeometa/reference/mcf">metadata control file</a> (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on <a href="https://www.yaml.io/spec/">YAML</a>, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcf</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -286,17 +285,33 @@ Tip
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> My favourite dataset</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">abstract</span><span class="kw">:</span><span class="at"> A sample dataset record to highlight the options of MCF</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<p>If you are comfortable with python, consider to try the following experiment.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Save the above file as <code>md.yml</code>. Then open a shell and set up a virtual python (or conda) environment, then:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pygeometa</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pygeometa</span> metadata info path/to/md.yml</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pygeometa</span> metadata generate path/to/md.yml <span class="at">--schema</span><span class="op">=</span>iso19139 <span class="at">--output</span><span class="op">=</span>md.xml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Read more about pygeometa at <a href="https://geopython.github.io/pygeometa/tutorial/" class="uri">https://geopython.github.io/pygeometa/tutorial/</a>.</p>
 </section>
 <section id="describing-a-resource" class="level2">
 <h2 class="anchored" data-anchor-id="describing-a-resource">Describing a resource</h2>
 <p>When describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some <a href="https://www.gov.uk/government/publications/search-engine-optimisation-for-publishers-best-practice-guide">practical recommendations</a> on this topic.</p>
-<p>When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Wikipedia, etc. Benefit of controlled vocabularies is that the term is not ambigue and it can be made available in multiple languages.</p>
-</section>
-<section id="mcf-editing" class="level2">
-<h2 class="anchored" data-anchor-id="mcf-editing">MCF editing</h2>
+<p>When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Eurovoc, etc. A benefit of controlled vocabularies is that the term is not ambigue and it can be processed in multiple languages.</p>
+<section id="mcf-editing" class="level3">
+<h3 class="anchored" data-anchor-id="mcf-editing">MCF editing</h3>
 <p>MCF documents can be written in a text editor like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Consider to install the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML plugin</a> for instant YAML validation.</p>
-<p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the application to your organisational needs.</p>
+<p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the metadata model to your organisational needs.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -311,6 +326,7 @@ Tip
 <p>Notice that MDME also offers capabilities to export directly as iso19139, it uses a webservice based on the tools used in this workshop.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
