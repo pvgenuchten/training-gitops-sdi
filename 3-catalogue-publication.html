@@ -267,7 +267,7 @@ Note
 <li>Navigate your shell to the temporary folder containing iso-xml documents. This folder will be mounted into the container, in order to load the records to the pycsw database.</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
@@ -286,7 +286,7 @@ Note
 <li>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. Download the file to the current folder, adjust the title and restart docker with:</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
@@ -322,7 +322,7 @@ Note
 <li>First clear the existing database:</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> delete-records <span class="at">-c</span> /etc/pycsw/pycsw.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -337,7 +337,7 @@ Note
 <li>Load the records, which we exported as iso19139 in the <a href="./2-interact-with-data-repositories.html">previous section</a>, to the database:</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pycsw-admin.py</span> load-records <span class="at">-p</span> /etc/data/export <span class="at">-c</span> /etc/pycsw/pycsw.yml <span class="at">-y</span> <span class="at">-r</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -375,7 +375,7 @@ Note
 <li>We will now replace the default template in the Docker image with our template.</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Powershell</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 8000:8000 <span class="dt">\</span></span>
@@ -402,16 +402,16 @@ Note
 </ul>
 </section>
 <section id="sdi-setup-using-docker-compose" class="level2">
-<h2 class="anchored" data-anchor-id="sdi-setup-using-docker-compose">SDI setup using docker compose</h2>
+<h2 class="anchored" data-anchor-id="sdi-setup-using-docker-compose">SDI setup using Docker Compose</h2>
 <p><a href="https://docs.docker.com/compose/">Compose</a> is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.</p>
 <p>Clone the repository to a local folder (You don’t have git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
-<pre><code>git clone https://github.com/pvgenuchten/training-gitops-sdi.git</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pvgenuchten/training-gitops-sdi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
 <ul>
-<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including postgis and terria</li>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including PostGIS and TerriaJS/</li>
 <li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
 </ul>
-<p>On both orchestrations a library is used called <a href="https://traefik.io">traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
+<p>On both orchestrations a library is used called <a href="https://traefik.io">Traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
 <p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container.</p>
 <p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
 <p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>

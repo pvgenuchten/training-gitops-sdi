@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -204,22 +239,22 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="terriajs" class="level2">
 <h2 class="anchored" data-anchor-id="terriajs">TerriaJS</h2>
-<p><a href="https://terria.io">TerriaJS</a> is a modern web gis application, which includes an option to query a CSW catalogue.</p>
+<p><a href="https://terria.io">TerriaJS</a> is a modern Web GIS application, which includes an option to query a CSW catalogue.</p>
 <p>The terriamap docker image is available via Github ContainerRegistry (ghcr.io)</p>
-<pre><code>docker run -p 3001:3001 ghcr.io/terriajs/terriamap:0.4.2</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 3001:3001 ghcr.io/terriajs/terriamap:0.4.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Visit http://localhost:3001 to see TerriaJS in action.</p>
-<p>In our docker compose terriamap is routed via <a href="http://localhost/map">localhost/map</a>.</p>
+<p>In our Docker Compose terriamap is routed via <a href="http://localhost/map">localhost/map</a>.</p>
 <p>Two files are mounted into the container:</p>
 <ul>
-<li>config.json contains the configuration of the interface, you should add a personalised google/bing/cesium key here.</li>
-<li>simple.json is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.</li>
+<li><code>config.json</code> contains the configuration of the interface, you should add a personalised Google/Bing/Cesium key here.</li>
+<li><code>simple.json</code> is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.</li>
 </ul>
-<p>Notice that from terria layer details, you can access the catalogue again (link is shared via WMS-getcapabilities)</p>
+<p>Notice that from terria layer details, you can access the catalogue again (link is shared via WMS Capabilities)</p>
 <hr>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>With this topic we conclude our training on data management. We hope you enjoyed the materials. Notice that the training can act as a starting point to a number of other resources. Let us know via <a href="https://github.com/lsc-hubs/hub-core/issues">Git issues</a> if you have improvement suggestions for the materials.</p>
+<p>With this topic we conclude our training on data management. We hope you enjoyed the materials. Notice that the training can act as a starting point to a number of other resources. Let us know via <a href="https://github.com/lsc-hubs/hub-core/issues">GitHub issues</a> if you have improvement suggestions for the materials.</p>
 
 
 </section>
