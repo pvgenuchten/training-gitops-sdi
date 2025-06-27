@@ -6,6 +6,8 @@ author:
 date: 2025-06-24
 ---
 
+## Introduction
+
 In this section a crawler tool is introduced which let's you interact with the metadata in a file based data repository. For this exercise we've prepared a minimal data repository containing a number of Excel-, Shape- and Tiff-files. Unzip the repository to a location on disk. 
 
 In the root folder of the repository already exists a minimal MCF file, `index.yml`. This file contains some generic metadata properties which are used if a file within the repository does not include them. The tool we use is able to inherit metadata properties from this index.yml file through the file hierarchy. 
@@ -92,7 +94,7 @@ crawl-metadata --mode=init --dir=data
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
- --mode=init --dir=tmp/data
+ --mode=init --dir=/tmp/data
 ```
 # Docker & PowerShell
 ```bash
@@ -109,7 +111,7 @@ Notice on the Docker statements that we mount the local folder into the containe
 ::: {.panel-tabset}
 # Docker & Linux
 ```bash
-docker run -it --rm -v $(pwd):/tmp pvgenuchten/geodatacrawler ls tmp
+docker run -it --rm -v $(pwd):/tmp pvgenuchten/geodatacrawler ls /tmp
 ```
 # Docker & PowerShell
 ```bash
@@ -130,7 +132,7 @@ crawl-metadata --mode=update --dir=data
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
- --mode=update --dir=tmp/data
+ --mode=update --dir=/tmp/data
 ```
 # Docker & PowerShell
 ```bash
@@ -155,8 +157,8 @@ crawl-metadata --mode=export --dir=data --dir-out=export --dir-out-mode=flat
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
- --mode=export --dir=tmp/data \
- --dir-out=export --dir-out-mode=flat
+ --mode=export --dir=/tmp/data \
+ --dir-out=/tmp/export --dir-out-mode=flat
 ```
 # Docker & PowerShell
 ```bash

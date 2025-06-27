@@ -27,13 +27,13 @@ For this workshop we are going to use [pycsw](https://pycsw.org). It is a catalo
 For this exercise we assume you have [Docker Desktop](https://www.docker.com/get-started/) installed on your system and running.
 Visit the [docker get started tutorials](https://docs.docker.com/get-started/) in case you're new to docker.
 
-pycsw is available as Docker image at the github container registry, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. 
+pycsw is available as Docker image at the [github container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. Notice that when you destroy the container, the SQLite database will be set to its default content. 
 
 Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):
 
 ```bash
 docker pull ghcr.io/geopython/pycsw
-docker run -p8000:8000 ghcr.io/geoptyhon/pycsw
+docker run -p8000:8000 ghcr.io/geopython/pycsw
 ```
 
 Open your browser and browse to <http://localhost:8000> to see pycsw in action.
@@ -68,21 +68,19 @@ Then open a shell and navigate to the docker folder in the cloned repository and
 docker compose -f docker-compose-sqlite.yml up
 ```
 
-A lot of logs are produced by the various containers. You can also run in the background using:
+A lot of logs are produced by the various containers. You can also run in the background (-d or --detach) using:
 
 ```bash
-docker compose -d -f docker-compose-sqlite.yml up
+docker compose -f docker-compose-sqlite.yml up -d
 ```
 
 When running in the background, use `docker compose down`, `docker ps`, `docker logs pycsw` to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.
-
-You can now use `pycsw-admin.py` in a similar way as above to load records into the catalogue.
 
 ## Load some records
 
 Make sure the docker setup is running in the background (`-d`), or open a second shell window.
 
-Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml). You will find a copy of this file in /docker/pycsw. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.
+Much of the configuration of pycsw (title, contact details, database connection, url) is managed in [a config file](https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml). You will find a copy of this file in `./docker/pycsw`. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.
 
 For administering the contents of the catalogue a utility called `pycsw-admin.py` is available in the pycsw container.
 You can either open a shell in the container (via docker desktop) and type the commands directly, or use `docker exec` to run the commands from the host.

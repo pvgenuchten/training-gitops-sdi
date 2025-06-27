@@ -6,27 +6,30 @@ author:
 date: 2025-06-24
 ---
 
+## Introduction
 
-Many organisations organise their documents and datasets on a central network storage or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central storage contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.
+Many organisations organise their documents and datasets at a central network location or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.
 
-For those formats which do not have embedded metadata, or in order to capture additional metadata aspects. We endorse the creation of a `sidecar` metadata file for every resource, a dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a `.shp.xml` is created alongside any `.shp` file, which captures some metadata elements.
+## Sidecar metadata
+
+For those formats which lack embedded metadata, or in order to capture additional metadata aspects, you may consider creating a `sidecar` metadata file for every resource. A dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a `.shp.xml` is created alongside any `.shp` file, which captures relevant metadata elements.
 
 :::{.callout-tip}
 Locate on your local computer or network drive a random shapefile. Does the file have a .shp.xml sidecar file? Else find another shape or tiff file (look for `*.shp.xml`). The contents of the xml file may be very minimal, but in most cases at least some processing information and the data model of the shapefile are mentioned. 
 :::
 
-**Through the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since they know best how the data is produced and how it should be used.** 
+**Through the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since the data producers are often best informed how the data is produced and how it should be used.** 
 
-## Standardised metadata models
+## Standards and interoperability
 
-For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to [select the output model](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm) of the metadata. QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
+For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to select the model of the metadata as documented in the [arcgis pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
 
 :::{.callout-tip}
-Does your organisation endorse a metadata model to describe data sources?
-Are your aware of tooling which can support you in creation of metadata in this model?
+Does your organisation or community endorse a metadata model to describe data sources?
+Are you aware of tooling which can support you in creation of metadata in this model?
 :::
 
-## The pygeometa MCF format
+## Getting started
 
 Within the [geopython community](https://geopython.github.io), the [pygeometa](https://geopython.github.io/pygeometa) library provides a metadata format called the [metadata control file](https://geopython.github.io/pygeometa/reference/mcf) (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on [YAML](https://www.yaml.io/spec/), a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:
 
@@ -59,13 +62,11 @@ pygeometa metadata generate path/to/md.yml --schema=iso19139 --output=md.xml
 
 Read more about pygeometa at <https://geopython.github.io/pygeometa/tutorial/>.
 
-## Describing a resource
-
 When describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some [practical recommendations](https://www.gov.uk/government/publications/search-engine-optimisation-for-publishers-best-practice-guide) on this topic.
 
 When tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Eurovoc, etc. A benefit of controlled vocabularies is that the term is not ambigue and it can be processed in multiple languages. 
 
-### MCF editing
+## MCF editing
 
 MCF documents can be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
 

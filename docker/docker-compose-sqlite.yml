@@ -43,8 +43,9 @@ services:
     container_name: "pycsw"
     volumes:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
-      - ./pycsw/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html # to override layout
-      - ./pycsw/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html
+      - ./pycsw/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/_base.html 
+      - ./pycsw/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html
+      - ./data:/srv/data
     environment:
       # Configuration for the catalogue, see the pycsw.yml file how these values are used
       CAT_URL: http://${SDI_DOMAIN}
