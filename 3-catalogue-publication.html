@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0658e81451ac311629117dae82def66b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-122bbcde0e6143d5ef6bccbf81ebc23e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -262,10 +262,10 @@ Note
 <p>Various catalogue frontends exist to facilitate dataset search, such as <a href="https://geonetwork-opensource.org">Geonetwork OpenSource</a>, <a href="https://dataverse.org">dataverse</a>, <a href="https://ckan.org">CKAN</a>. Selecting a frontend depends on metadata format, target audience, types of data, maintenance aspects, and personal preference.</p>
 <p>For this workshop we are going to use <a href="https://pycsw.org">pycsw</a>. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.</p>
 <p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running. Visit the <a href="https://docs.docker.com/get-started/">docker get started tutorials</a> in case you’re new to docker.</p>
-<p>pycsw is available as Docker image at the github container registry, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage.</p>
+<p>pycsw is available as Docker image at the <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">github container registry</a>, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. Notice that when you destroy the container, the SQLite database will be set to its default content.</p>
 <p>Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ghcr.io/geopython/pycsw</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p8000:8000</span> ghcr.io/geoptyhon/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p8000:8000</span> ghcr.io/geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open your browser and browse to <a href="http://localhost:8000" class="uri">http://localhost:8000</a> to see pycsw in action.</p>
 <p>Return to the command line, press ctrl-C to stop the docker container process.</p>
 </section>
@@ -284,15 +284,14 @@ Note
 <p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
 <p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A lot of logs are produced by the various containers. You can also run in the background using:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-d</span> <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A lot of logs are produced by the various containers. You can also run in the background (-d or –detach) using:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up <span class="at">-d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
-<p>You can now use <code>pycsw-admin.py</code> in a similar way as above to load records into the catalogue.</p>
 </section>
 <section id="load-some-records" class="level2">
 <h2 class="anchored" data-anchor-id="load-some-records">Load some records</h2>
 <p>Make sure the docker setup is running in the background (<code>-d</code>), or open a second shell window.</p>
-<p>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. You will find a copy of this file in /docker/pycsw. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.</p>
+<p>Much of the configuration of pycsw (title, contact details, database connection, url) is managed in <a href="https://github.com/geopython/pycsw/blob/master/docker/pycsw.yml">a config file</a>. You will find a copy of this file in <code>./docker/pycsw</code>. In this file, adjust the catalogue title and restart the orchestration. Notice the updated title in your browser.</p>
 <p>For administering the contents of the catalogue a utility called <code>pycsw-admin.py</code> is available in the pycsw container. You can either open a shell in the container (via docker desktop) and type the commands directly, or use <code>docker exec</code> to run the commands from the host.</p>
 <p>First clear the existing database:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
