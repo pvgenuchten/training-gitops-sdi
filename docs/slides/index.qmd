@@ -78,7 +78,7 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 - Limited funtionality, easy maintenance
 - Wide range of supported catalogue standards, serves many communities
 - Database backend
-- Skin customisable with jinja templates
+- Skin customisable with Jinja templates
 
 https://pycsw.org
 
@@ -116,7 +116,7 @@ https://mapserver.org
 ## Mapfiles from metadata
 
 - Use the metadata to generate/update mapfiles
-- Store map configuration on github
+- Store map configuration on GitHub
 - Use SLD file {dataset}.sld to style a layer
 - Metadata is updated with WMS/WFS/WCS url
 

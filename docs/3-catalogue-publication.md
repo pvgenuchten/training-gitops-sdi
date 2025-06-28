@@ -29,7 +29,7 @@ Visit the [docker get started tutorials](https://docs.docker.com/get-started/) i
 
 pycsw is available as Docker image at the [github container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. Notice that when you destroy the container, the SQLite database will be set to its default content. 
 
-Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):
+Pull and run the pycsw container locally using this command in a command line client (cmd, PowerShell, bash):
 
 ```bash
 docker pull ghcr.io/geopython/pycsw
@@ -53,7 +53,7 @@ git clone https://github.com/pvgenuchten/training-gitops-sdi.git
 On the cloned repository in the `docker` folder there are 2 alternatives:
 
 - [docker-compose.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml) is the full orchestration including PostGIS and TerriaJS
-- [docker-compose-sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml) is a minimal orchestration without terria and based on a file based sqlite database
+- [docker-compose.sqlite.yml](https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.sqlite.yml) is a minimal orchestration without terria and based on a file based SQLite database
 
 On both orchestrations a library is used called [Traefik](https://traefik.io) to facilitate 
 [path-routing](https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp) to the relavant containers. 
@@ -65,13 +65,13 @@ Some environment variables should be set in a .env file. Rename the `.env-templa
 Then open a shell and navigate to the docker folder in the cloned repository and run:
 
 ```bash
-docker compose -f docker-compose-sqlite.yml up
+docker compose -f docker-compose.sqlite.yml up
 ```
 
-A lot of logs are produced by the various containers. You can also run in the background (-d or --detach) using:
+A lot of logs are produced by the various containers. You can also run in the background (`-d` or `--detach`) using:
 
 ```bash
-docker compose -f docker-compose-sqlite.yml up -d
+docker compose -f docker-compose.sqlite.yml up -d
 ```
 
 When running in the background, use `docker compose down`, `docker ps`, `docker logs pycsw` to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.
@@ -122,14 +122,14 @@ Validate at <http://localhost/collections/metadata:main/items> if the records ar
 
 ## Customise the catalogue skin
 
-pycsw uses [jinja templates](https://jinja.palletsprojects.com/en/3.1.x/) to build the web frontend. These are html documents including template language to substitute parts of the page.
+pycsw uses [Jinja templates](https://jinja.palletsprojects.com/en/3.1.x/) to build the web frontend. These are HTML documents including template language to substitute parts of the page.
 
-You find 2 template files in ./docker/pycsw/. Notice in the orchestration file how the files are mounted into the container:
+You find 2 template files in `./docker/pycsw/`. Notice in the orchestration file how the files are mounted into the container:
 
-- landing_page.html represents the home page of pycsw
-- _base.html is a main layout template which contains page header, footer and menu and wraps around all other templates
+- `templates/landing_page.html` represents the home page of pycsw
+- `templates/_base.html` is a main layout template which contains page header, footer and menu and wraps around all other templates
 
-Open a template file and make some changes (colors, text, logo's).
+Open a template file and make some changes (colors, text, logos).
 
 Restart the orchestration and view the result at <http://localhost>. 
 

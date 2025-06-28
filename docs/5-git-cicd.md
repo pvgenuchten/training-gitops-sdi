@@ -24,7 +24,7 @@ These days Git based coding communities like GitHub, Gitlab, Bitbucket offer var
 
 This exercise introduces the CI/CD topic by setting up a basic markdown website in [GitHub Pages](https://pages.github.com/), maintained through Git, similar as to how this workshop website is maintained. [Markdown](https://en.wikipedia.org/wiki/Markdown) is a popular format to store text with annotations on Git. The site will be rendered by the [Quarto](https://quarto.org) library. Quarto is one of many platforms to generate a website from a set of markdown files. Quarto facilitates integrations with R and Python scripts for advanced content creation.
 
-- Create a [new repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) in your github account, for example 'My-first-CMS'. 
+- Create a [new repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) in your GitHub account, for example 'My-first-CMS'. 
 - Before we add any content [create a branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) 'gh-pages' on the repository, this branch will later contain the generated html sources of the website, which will be shared via <https://{you}.github.io/{my-first-cms}>. 
 
 - Create a file docs/index.md and docs/about.md. Start each file with a header:
@@ -48,7 +48,7 @@ Welcome to *my website*.
 - Visit also my [about](./about.md) page.
 ```
 
-- Now click on `Actions` in the github menu. Notice that GitHub has already set up a workflow to publish our content using [jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll), it should already be available at https://user.github.io/repo. 
+- Now click on `Actions` in the GitHub menu. Notice that GitHub has already set up a workflow to publish our content using [jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll), it should already be available at https://user.github.io/repo. 
 
 
 ## Using Quarto
@@ -116,15 +116,15 @@ Notice that the syntax to define workflows is different for every CI/CD platform
 
 - It defines at what events the workflow should trigger (in this case at `push` events). 
 - a build job is triggered, which indicates a container image (runs-on) to run the job in, then triggers some steps. 
-- The final step triggers a facility of quarto to [publish](https://github.com/quarto-dev/quarto-actions/tree/main/publish) its output to a github repository
+- The final step triggers a facility of quarto to [publish](https://github.com/quarto-dev/quarto-actions/tree/main/publish) its output to a GitHub repository
 
-The above setup is optimal for co-creating a documentation repository for your community. Users can visit the source code via the `edit on github` link and suggest improvements via issues of pull requests. Notice that this tutorial is also maintained as markdown in Git.
+The above setup is optimal for co-creating a documentation repository for your community. Users can visit the source code via the `edit on GitHub` link and suggest improvements via issues of pull requests. Notice that this tutorial is also maintained as markdown in Git.
 
 ---
 
 ## Update catalogue from Git CI/CD
 
-For this scenario we need a database in the cloud to host our records (which is reachable by github actions). For the training consider to set up a FREE account at [supabase.com](https://supabase.com/dashboard). 
+For this scenario we need a database in the cloud to host our records (which is reachable by GitHub actions). For the training consider to set up a FREE account at [supabase.com](https://supabase.com/dashboard). 
 
 - At supabase, create a new account. 
 - Then create a new Instance of type `Tiny (free)`.
