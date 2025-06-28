@@ -6,11 +6,14 @@ author:
 date: 2025-06-24
 ---
 
-For spatial datasets it is of interest to share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as [QGIS](https://qgis.org), [OpenLayers](https://openlayers.org) & [Leaflet](https://leaflet.org). The standards on data services of the [Open Geospatial Consortium](https://www.ogc.org/) are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset. 
- 
-In this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs.  
+## Introduction
 
----
+For spatial datasets it is of interest to also share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as [QGIS](https://qgis.org), [OpenLayers](https://openlayers.org) or [Leaflet](https://leaflet.org). The standards on data services of the [Open Geospatial Consortium](https://www.ogc.org/) are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset. 
+ 
+In this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs. 
+
+These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service, the Cloud Optimized GeoTiff ([COG](https://cogeo.org/)) and [GeoZarr](https://github.com/zarr-developers/geozarr-spec) formats for grid data and for vector data there is [GeoParquet](https://geoparquet.org/).
+
 
 ## Standardised data APIs 
 
@@ -30,29 +33,27 @@ An overview of both generations:
 Notice that most of the mapping software supports the standards of both generations. However, due to their recent
 introduction, expect incidental challenges in the implementations of OGC APIs. 
 
----
 
 ## Setting up an API
 
 [MapServer](https://mapserver.org) is server software which is able to expose datasets through various APIs. 
-Examples of similar software are [QGIS server](https://docs.qgis.org/3.28/en/docs/server_manual/introduction.html), 
+Examples of similar software are [QGIS server](https://docs.qgis.org/latest/en/docs/server_manual/index.html), 
 [ArcGIS Server](https://enterprise.arcgis.com/en/server/), [GeoServer](https://geoserver.org) and 
 [pygeoapi](https://pygeoapi.io).
  
-We've selected mapserver for this training, because of its robustness and low resource consumption.
+We've selected mapserver for this training, because of its robustness, ease of configuration and low resource consumption.
 MapServer is configured using a configuration file: called the [mapfile](https://www.mapserver.org/mapfile/). 
 The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour 
-scheme (legend) to draw a map of the dataset.  
+scheme (legend) to draw a map of a dataset.  
 
-Various tools exist to write these configuration files, such as [MapServer studio](https://mapserverstudio.net/), 
-[GeoStyler](https://www.osgeo.org/projects/geostyler/), [QGIS Bridge](https://www.geocat.net/docs/bridge/qgis/latest), 
+Various tools exist to write these configuration files, such as [MapServer studio](https://mapserverstudio.net/), [QGIS Bridge](https://geocat.github.io/qgis-bridge-plugin/latest/server_configuration.html#mapserver), 
 up to a [Visual Studio plugin to edit mapfiles](https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile).
 
 The [pyGeoDataCrawler](https://pypi.org/project/geodatacrawler/), introduced in a 
 [previous paragraph](./2-interact-with-data-repositories.md), also has an option to generate mapfiles. 
 A big advantage of this approach is the integration with existing metadata. 
 GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata 
-so it includes a link to the mapserver service endpoint. This step enables a typical workflow of: 
+so it includes a link to the mapserver service endpoint. This toolset enables a typical workflow of: 
 
 - Users find a dataset in a catalogue 
 - Then open the dataset via the linked service
@@ -75,12 +76,12 @@ identification:
     abstract: A map service for data about ...
 contact:
   pointOfContact:
-    organization: ISRIC
-    email: info@isric.org
-    url: https://www.isric.org
+    organization: example
+    email: info@example.com
+    url: https://www.example.com
 ```
 
-- Set the environment variables in the `.env file`; `pgdc_md_url`,`pgdc_ms_url`,`pgdc_webdav_url="https://example.com/data"`
+- Set some environment variables in the `.env` file; `pgdc_md_url`,`pgdc_ms_url`,`pgdc_webdav_url`
 
 - Generate the mapfile
 
@@ -91,44 +92,59 @@ crawl-maps --dir=.
 ```
 # Docker & Linux
 ```bash
+cd ./docker/
 docker run -it --rm -v $(pwd):/tmp \
-  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data 
 ```
 # Docker & PowerShell
 ```bash
 docker run -it --rm -v "${PWD}:/tmp" `
-  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp 
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data 
 ```
 :::
 
-- Index.yml may include a "robot" property, to guide the crawler in how to process the folder. This section can be used to add specific crawling behaviour.
+Test your mapserver configuration. The mapserver container includes a test tool for this purpose.
+With the docker composition running, try:
 
-```yaml
-mcf:
-    version: 1.0
-robot:
-    skip-subfolders: True # indicates the crawler not to proceed in subfolders
+::: {.panel-tabset}
+# Local
+```bash
+map2img 
+```
+# Docker & Linux
+```bash
+docker exec mapserver map2img -m /srv/data/data/data.map \
+  -l cities -o /srv/data/data/test.png
 ```
 
----
+# Docker & PowerShell
+```bash
+docker exec mapserver map2img -m /srv/data/data/data.map `
+  -l cities -o /srv/data/data/test.png
+```
+:::
+
+Replace -l (layer) for a layer in your mapfile. Notice a file `test.png` being written to the data folder.
+
 
 ## MapServer via Docker 
 
-For this exercise we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) provided by Camp to Camp available from DockerHub.
+For this workshop we're using a [mapserver image](https://hub.docker.com/r/camptocamp/mapserver) provided by Camp to Camp available from [Docker Hub](https://hub.docker.com/).
 
 ```bash
 docker pull camptocamp/mapserver:8.4  
 ```
 
-First update the config file, which is [mounted as a volume](https://docs.docker.com/storage/volumes/) into the container. On this config file we will list all the mapfiles we aim to publish on our container. Open the file `./data/ms.conf` and populate the maps section. You may have to move all content of the data repository to the docker folder.
+First update the config file `./data/ms.conf`. On this config file list all the mapfiles wihich are published on the container. Open the file `./data/ms.conf` and populate the maps section. The maps section are key-value pairs of alias and path to the mapfile, the alias is used as http://localhost/ows/{alias}/ogcapi (for longtime mapserver users, the alias replaces the `?map=example.map` syntax).
+
+Notice that our local `./docker/data` folder is mounted into the mapserver container as `/srv/data`. 
+You may have to move all content of the data repository to the ./docker/data folder. 
 
 ```yaml
 MAPS
      "data" "/srv/data/data.map"
 END
 ```
-
-Notice that our local `./docker/data` folder is mounted into the mapserver container as `/srv/data`. 
 
 Run or restart the docker compose.
 
@@ -138,7 +154,6 @@ You can also try the url in QGIS. Add a WMS layer, of service http://localhost/o
 
 GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (SLD) file for a layer, as `{name}.sld`. Sld files can be created using QGIS (export style as SLD).
 
----
 
 ## Summary
 

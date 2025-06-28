@@ -6,32 +6,28 @@ author:
 date: 2025-06-24
 ---
 
-This page introduces a number of generic Git functionalities and vendor add ons. Which can support communities in efficient co-creation of content. The page mainly focusses on the Continuous Integration & Deployment functionality, but contains many external links to introduce other aspects of Git. Considering the previous materials, a relevant ci-cd case is a set of tasks to run after a change to some of the mcf documents in a data repository, to validate the mcf's and convert them to iso19139 and push them to a catalogue.
+## Introduction
 
----
+This page introduces a number of generic IT functionalities. Which can support communities in efficient co-creation of content. Considering the previous material, a relevant scenario is: whenever a user adds or updates a dataset (metadata) in the file repository, an automated pipeline is triggered which validates the changes, converts and uploads the updated records to a catalogue.
 
 ## Git content versioning
 
-In its core [GIt](https://git-scm.com/) is a version management system traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this [Git & GitHub explanation](https://www.w3schools.com/git/git_intro.asp). Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as [GitHub Desktop](https://desktop.github.com/), a [Git client within Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022), [TortoiseGit](https://tortoisegit.org/), [Smartgit](https://www.syntevo.com/smartgit/), and [many others](https://git-scm.com/downloads/guis).
+In its core [Git](https://git-scm.com/) is a code version management system, traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this [Git & GitHub explanation](https://www.w3schools.com/git/git_intro.asp). Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as [GitHub Desktop](https://desktop.github.com/), a [Git client within Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022), [TortoiseGit](https://tortoisegit.org/), [Smartgit](https://www.syntevo.com/smartgit/), and [many others](https://git-scm.com/downloads/guis).
 
-These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.
-
----
+These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.
 
 ## CI/CD
 
-[Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) & [Deployment](https://en.wikipedia.org/wiki/Continuous_deployment) describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks. 
-
----
+[Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) & [Continuous delivery](https://en.wikipedia.org/wiki/Continuous_deployment) describe a process in which changes in software or configuration are automatically tested and delivered to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks. 
 
 ## GitHub Pages exercise
 
-This exercise introduces the CI/CD topic by setting up a basic markdown website in [GitHub Pages](https://pages.github.com/), maintained through Git. [Markdown](https://en.wikipedia.org/wiki/Markdown) is a popular format to store text with annotations on Git.The site will be based on [Quarto](https://quarto.org). Quarto is one of many platforms to generate a website from a markdown repository.
+This exercise introduces the CI/CD topic by setting up a basic markdown website in [GitHub Pages](https://pages.github.com/), maintained through Git, similar as to how this workshop website is maintained. [Markdown](https://en.wikipedia.org/wiki/Markdown) is a popular format to store text with annotations on Git. The site will be rendered by the [Quarto](https://quarto.org) library. Quarto is one of many platforms to generate a website from a set of markdown files. Quarto facilitates integrations with R and Python scripts for advanced content creation.
 
-- Create a [new repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) in your github account, for example 'My first CMS'. 
-- Before we add any content [create a branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) 'gh-pages' on the repository, this branch will later contain the generated html sources of the website. 
+- Create a [new repository](https://docs.github.com/en/get-started/quickstart/create-a-repo) in your github account, for example 'My-first-CMS'. 
+- Before we add any content [create a branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) 'gh-pages' on the repository, this branch will later contain the generated html sources of the website, which will be shared via <https://{you}.github.io/{my-first-cms}>. 
 
-- Create file docs/index.md and docs/about.md. Start each file with a header:
+- Create a file docs/index.md and docs/about.md. Start each file with a header:
 
 ```yaml
 ---
@@ -65,8 +61,10 @@ In order to activate Quarto you need to set a number of items yourself.
 ```yaml
 project:
   type: website
+  render:
+    - "*.md"
 website:
-  title: "hello world"
+  title: "My first CMS"
   navbar:
     left:
       - href: index.md
@@ -77,7 +75,7 @@ format:
     theme: cosmo
     toc: true
 ```
-- Remove the existing workflow, generated by GitHub in `Actions`, `Workflows`, `Remove`
+
 - First you need to allow the workflow-runner to make changes on the repository. For this, open `Settings`, `Actions`, `General`. Scroll down to `Workflow permissions`. Tick the `Read and write permissions` and click `Save`. If the option is grayed out, you first need to allow this feature in your organization.
 - Then, from `Actions`, select `New workflow`, then `set up a workflow yourself`.
 - On the next page we will create a new workflow script, which is stored in the repository at /.github/workflows/main.yml.
@@ -126,13 +124,13 @@ The above setup is optimal for co-creating a documentation repository for your c
 
 ## Update catalogue from Git CI/CD
 
-For this scenario we need a database in the cloud to host our records (which is reachable by github workflows). For the training we suggest to use a trial account at [elephantsql.com](https://customer.elephantsql.com/login). 
+For this scenario we need a database in the cloud to host our records (which is reachable by github actions). For the training consider to set up a FREE account at [supabase.com](https://supabase.com/dashboard). 
 
-- At elephantsql, create a new account. 
+- At supabase, create a new account. 
 - Then create a new Instance of type `Tiny (free)`.
 - Click on the instance and notice the relevant connection string (URL) and password 
 - Connect your instance of pycsw to this database instance, by updating `pycsw.cfg` and following the instructions at [Catalogue publication](./3-catalogue-publication.md)
-- Verify in elephantsql dashboard if the records are correctly loaded.
+- Verify in supabase dashboard if the records are correctly loaded.
 
 We will now publish our records from GitHub to our database.
 
@@ -143,8 +141,8 @@ We will now publish our records from GitHub to our database.
 ```bash
 git clone https://github.com/username/records-repo.git
 ```
-- Copy the mcf files, which have been generated in [Catalogue publication](./3-catalogue-publication.md), to a `datasets` folder in the cloned repository.
-- Commit and the files
+- Copy the mcf files, which have been generated in [Catalogue publication](./3-catalogue-publication.md), to a `data` folder in the cloned docker repository.
+- Commit & push the files
 
 ```bash
 git add -A && git commit -m "Your Message"
@@ -200,8 +198,8 @@ jobs:
             crawl-metadata --dir=./datasets --mode=export --dir-out=/tmp
         - name: Publish records
           run: |   
-            pycsw-admin.py delete-records --config=./pycsw.cfg -y
-            pycsw-admin.py load-records --config=./pycsw.cfg  --path=/tmp
+            pycsw-admin.py delete-records --config=./pycsw.yml -y
+            pycsw-admin.py load-records --config=./pycsw.yml  --path=/tmp
 ```
 
 - Verify that the records are loaded on pycsw (through postgres)

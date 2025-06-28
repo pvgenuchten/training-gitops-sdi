@@ -117,7 +117,7 @@ docker exec -it pycsw bash -c `
 ```
 :::
 
-Validate at http://localhost:8000/collections/metadata:main/items if the records are loaded, else check logs to identify a problem.
+Validate at <http://localhost/collections/metadata:main/items> if the records are loaded, else check logs to identify a problem.
 
 
 ## Customise the catalogue skin
@@ -131,7 +131,7 @@ You find 2 template files in ./docker/pycsw/. Notice in the orchestration file h
 
 Open a template file and make some changes (colors, text, logo's).
 
-Restart the orchestration and view the result at <http://localhost:8000> 
+Restart the orchestration and view the result at <http://localhost>. 
 
 Have a look at [the other templates](https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates) available in pycsw, which can be tailored in a similar way.
 
