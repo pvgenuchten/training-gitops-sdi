@@ -12,7 +12,7 @@ Many organisations organise their documents and datasets at a central network lo
 
 ## Sidecar metadata
 
-For those formats which lack embedded metadata, or in order to capture additional metadata aspects, you may consider creating a `sidecar` metadata file for every resource. A dedicated metadata file sharing the name of the datasource. This approach is for example common in the ESRI community, where a `.shp.xml` is created alongside any `.shp` file, which captures relevant metadata elements.
+For those formats which lack embedded metadata, or in order to capture additional metadata aspects, you may consider creating a `sidecar` metadata file for every resource. A dedicated metadata file sharing the name of the datasource. This approach is for example common in the Esri community, where a `.shp.xml` is created alongside any `.shp` file, which captures relevant metadata elements.
 
 :::{.callout-tip}
 Locate on your local computer or network drive a random shapefile. Does the file have a .shp.xml sidecar file? Else find another shape or tiff file (look for `*.shp.xml`). The contents of the xml file may be very minimal, but in most cases at least some processing information and the data model of the shapefile are mentioned. 
@@ -22,7 +22,7 @@ Locate on your local computer or network drive a random shapefile. Does the file
 
 ## Standards and interoperability
 
-For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. ESRI software for example provides an option to select the model of the metadata as documented in the [arcgis pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
+For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the [ArcGIS Pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
 
 :::{.callout-tip}
 Does your organisation or community endorse a metadata model to describe data sources?

@@ -94,8 +94,8 @@ Database (PostGreSQL), initial startup is slow, configured via environment varia
 
 ## For development
 
-In case you want to run a minimal setup for development, you can run 'docker-compose-sqlite.yml' which uses a local SQLite database with some dummy data. By default TerriaJS is also disabled. 
+In case you want to run a minimal setup for development, you can run 'docker-compose.sqlite.yml' which uses a local SQLite database with some dummy data. By default TerriaJS is also disabled. 
 
 ```cmd
-docker compose -f docker-compose-sqlite.yml up
+docker compose -f docker-compose.sqlite.yml up
 ```
