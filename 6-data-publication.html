@@ -202,26 +202,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>In order to share a dataset with colleagues, partners or the wider public. The file should be published in a shared environment. Various technologies are available to share a file on a network. To select a relevant location mainly depends on which type of users are going to access the dataset.</p>
 <p>The following options exist:</p>
 <ul>
-<li>A shared folder on a central server on the local intranet. Notice that this location is usually not available by remote partners. Make sure a backup is made of the network folder, in case of incidents.</li>
+<li>A data repository such as <a href="https://zenodo.org/">Zenodo</a> or <a href="https://dataverse.org">Dataverse</a>. With this option metadata of the resource is automatically collected and searchable.</li>
 <li>A cloud service such as Google Drive, Microsoft Sharepoint, Dropbox, Amazon Webservices, GitHub. Such a service can also be setup locally. A minimal solution would be to set up a Webdav service.</li>
-<li>A data repository such as <a href="https://zenodo.org/">Zenodo</a>, <a href="https://dataverse.org">Dataverse</a>. With this option metadata of the resource is automatically collected and made searchable. Some catalogue software, such as CKAN, GeoNode, GeoNetwork offer the capability to publish data files as part of the metadata registration.</li>
+<li>A shared folder on a central server on the local intranet. Notice that this location is usually not available by remote partners.</li>
 </ul>
-<hr>
+</section>
 <section id="persistent-identification" class="level2">
 <h2 class="anchored" data-anchor-id="persistent-identification">Persistent identification</h2>
-<p>Select the location carefully, prevent to regularly move a file to a new location. Because with every move, users need to be notified of the new location and documentation needs to be updated. When moving is relevant, consider to set up a <a href="https://en.wikipedia.org/forward-rule">forward-rule</a> on the server which redirects users to the new location.</p>
-<p>An interesting aspect of persistent identification is the choice of a domain and path name. A domain should represent enough credibility/authority (is this a trusted resource), and should be persistent for a longer period. A project name, for example, is not a good choice for a domain to publish a resource.</p>
-<p>A mechanism exists which facilitates file moves, without breaking their identification. Identifier providers such as <a href="https://doi.org">DOI</a> and <a href="http://www.pidconsortium.net">ePIC</a> enable creation of a identifier for any resource. In documentation use the provided identifier, in case the location of the resource changes, you can update the link behind the identifier. Some organisations install a identification service themselves, so they have full ownership on the domain and the contents of the service. An example of such a service is the <a href="https://www.gdi-de.org/en/SDI/components/GDI-DE%20Registry">identification service of the German Federal Government</a>.</p>
-<hr>
+<p>It is important that datasets made available for reuse remain available at a persistent location. So any documentation, which reference the dataset as a source, doesn’t break. Repositories typically provide a persistent identification layer between the deposited dataset and the users (such as <a href="https://doi.org">DOI</a> or <a href="http://www.pidconsortium.net">ePIC</a>). In case a file is moved, providers can update the DOI reference to the new location.</p>
 </section>
 <section id="include-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="include-metadata">Include metadata</h2>
-<p>For optimal discoverability, it is important to combine data publication with metadata. Either via embedded metadata in the file, else with a separate metadata file. In case of a shared folder or cloud service, embed or place the metadata along the data files, so people browsing through the system can easily find it.</p>
-<p>The embedded or sidecar metadata should be duplicated into catalogue software, to make it searchable by the targeted audience. This process is further described at <a href="./3-catalogue-publication.html">catalogue publication</a>.</p>
-<hr>
+<p>For optimal discoverability, it is important to combine data publication with metadata. Either via embedded metadata in the file, else with a separate metadata file. In case of a shared folder or cloud service, embed or place the metadata side by side with the data files, so people browsing through the system can easily find it.</p>
+<p>The embedded or sidecar metadata can be ingested by catalogue software, to make it searchable for the targeted audience. This process is further described at <a href="./3-catalogue-publication.html">catalogue publication</a>.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>

@@ -237,26 +237,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page introduces a number of generic Git functionalities and vendor add ons. Which can support communities in efficient co-creation of content. The page mainly focusses on the Continuous Integration &amp; Deployment functionality, but contains many external links to introduce other aspects of Git. Considering the previous materials, a relevant ci-cd case is a set of tasks to run after a change to some of the mcf documents in a data repository, to validate the mcf’s and convert them to iso19139 and push them to a catalogue.</p>
-<hr>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This page introduces a number of generic IT functionalities. Which can support communities in efficient co-creation of content. Considering the previous material, a relevant scenario is: whenever a user adds or updates a dataset (metadata) in the file repository, an automated pipeline is triggered which validates the changes, converts and uploads the updated records to a catalogue.</p>
+</section>
 <section id="git-content-versioning" class="level2">
 <h2 class="anchored" data-anchor-id="git-content-versioning">Git content versioning</h2>
-<p>In its core <a href="https://git-scm.com/">GIt</a> is a version management system traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this <a href="https://www.w3schools.com/git/git_intro.asp">Git &amp; GitHub explanation</a>. Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as <a href="https://desktop.github.com/">GitHub Desktop</a>, a <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022">Git client within Visual Studio</a>, <a href="https://tortoisegit.org/">TortoiseGit</a>, <a href="https://www.syntevo.com/smartgit/">Smartgit</a>, and <a href="https://git-scm.com/downloads/guis">many others</a>.</p>
-<p>These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, Markdown.</p>
-<hr>
+<p>In its core <a href="https://git-scm.com/">Git</a> is a code version management system, traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this <a href="https://www.w3schools.com/git/git_intro.asp">Git &amp; GitHub explanation</a>. Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as <a href="https://desktop.github.com/">GitHub Desktop</a>, a <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022">Git client within Visual Studio</a>, <a href="https://tortoisegit.org/">TortoiseGit</a>, <a href="https://www.syntevo.com/smartgit/">Smartgit</a>, and <a href="https://git-scm.com/downloads/guis">many others</a>.</p>
+<p>These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.</p>
 </section>
 <section id="cicd" class="level2">
 <h2 class="anchored" data-anchor-id="cicd">CI/CD</h2>
-<p><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> &amp; <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Deployment</a> describes a process in which changes in software or configuration are automatically tested and deployed to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks.</p>
-<hr>
+<p><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> &amp; <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous delivery</a> describe a process in which changes in software or configuration are automatically tested and delivered to a relevant environment. These processes are commonly facilitated by Git environments. With every commit to the Git repository an action is triggered which runs some tasks.</p>
 </section>
 <section id="github-pages-exercise" class="level2">
 <h2 class="anchored" data-anchor-id="github-pages-exercise">GitHub Pages exercise</h2>
-<p>This exercise introduces the CI/CD topic by setting up a basic markdown website in <a href="https://pages.github.com/">GitHub Pages</a>, maintained through Git. <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a popular format to store text with annotations on Git.The site will be based on <a href="https://quarto.org">Quarto</a>. Quarto is one of many platforms to generate a website from a markdown repository.</p>
+<p>This exercise introduces the CI/CD topic by setting up a basic markdown website in <a href="https://pages.github.com/">GitHub Pages</a>, maintained through Git, similar as to how this workshop website is maintained. <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a popular format to store text with annotations on Git. The site will be rendered by the <a href="https://quarto.org">Quarto</a> library. Quarto is one of many platforms to generate a website from a set of markdown files. Quarto facilitates integrations with R and Python scripts for advanced content creation.</p>
 <ul>
-<li><p>Create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">new repository</a> in your github account, for example ‘My first CMS’.</p></li>
-<li><p>Before we add any content <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">create a branch</a> ‘gh-pages’ on the repository, this branch will later contain the generated html sources of the website.</p></li>
-<li><p>Create file docs/index.md and docs/about.md. Start each file with a header:</p></li>
+<li><p>Create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">new repository</a> in your github account, for example ‘My-first-CMS’.</p></li>
+<li><p>Before we add any content <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">create a branch</a> ‘gh-pages’ on the repository, this branch will later contain the generated html sources of the website, which will be shared via <a href="https://%7Byou%7D.github.io/%7Bmy-first-cms%7D" class="uri">https://{you}.github.io/{my-first-cms}</a>.</p></li>
+<li><p>Create a file docs/index.md and docs/about.md. Start each file with a header:</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Hello World</span></span>
@@ -282,19 +282,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"hello world"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.md</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> about.md</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.md"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My first CMS"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.md</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> about.md</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Remove the existing workflow, generated by GitHub in <code>Actions</code>, <code>Workflows</code>, <code>Remove</code></li>
 <li>First you need to allow the workflow-runner to make changes on the repository. For this, open <code>Settings</code>, <code>Actions</code>, <code>General</code>. Scroll down to <code>Workflow permissions</code>. Tick the <code>Read and write permissions</code> and click <code>Save</code>. If the option is grayed out, you first need to allow this feature in your organization.</li>
 <li>Then, from <code>Actions</code>, select <code>New workflow</code>, then <code>set up a workflow yourself</code>.</li>
 <li>On the next page we will create a new workflow script, which is stored in the repository at /.github/workflows/main.yml.</li>
@@ -340,13 +341,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="update-catalogue-from-git-cicd" class="level2">
 <h2 class="anchored" data-anchor-id="update-catalogue-from-git-cicd">Update catalogue from Git CI/CD</h2>
-<p>For this scenario we need a database in the cloud to host our records (which is reachable by github workflows). For the training we suggest to use a trial account at <a href="https://customer.elephantsql.com/login">elephantsql.com</a>.</p>
+<p>For this scenario we need a database in the cloud to host our records (which is reachable by github actions). For the training consider to set up a FREE account at <a href="https://supabase.com/dashboard">supabase.com</a>.</p>
 <ul>
-<li>At elephantsql, create a new account.</li>
+<li>At supabase, create a new account.</li>
 <li>Then create a new Instance of type <code>Tiny (free)</code>.</li>
 <li>Click on the instance and notice the relevant connection string (URL) and password</li>
 <li>Connect your instance of pycsw to this database instance, by updating <code>pycsw.cfg</code> and following the instructions at <a href="./3-catalogue-publication.html">Catalogue publication</a></li>
-<li>Verify in elephantsql dashboard if the records are correctly loaded.</li>
+<li>Verify in supabase dashboard if the records are correctly loaded.</li>
 </ul>
 <p>We will now publish our records from GitHub to our database.</p>
 <ul>
@@ -356,8 +357,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/records-repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Copy the mcf files, which have been generated in <a href="./3-catalogue-publication.html">Catalogue publication</a>, to a <code>datasets</code> folder in the cloned repository.</li>
-<li>Commit and the files</li>
+<li>Copy the mcf files, which have been generated in <a href="./3-catalogue-publication.html">Catalogue publication</a>, to a <code>data</code> folder in the cloned docker repository.</li>
+<li>Commit &amp; push the files</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your Message"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Before you can push your changes to GitHub, you need to set up authentication, generally 2 options are possible: - Using a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">personal access token</a> - Or using <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh">SSH public key</a></p>
@@ -403,8 +404,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>            crawl-metadata --dir=./datasets --mode=export --dir-out=/tmp</span>
 <span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Publish records</span></span>
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span><span class="at">   </span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>            pycsw-admin.py delete-records --config=./pycsw.cfg -y</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>            pycsw-admin.py load-records --config=./pycsw.cfg  --path=/tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>            pycsw-admin.py delete-records --config=./pycsw.yml -y</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>            pycsw-admin.py load-records --config=./pycsw.yml  --path=/tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Verify that the records are loaded on pycsw (through postgres)</li>
 <li>Change or add some records to Git, and verify if the changes are published (may take some time)</li>
