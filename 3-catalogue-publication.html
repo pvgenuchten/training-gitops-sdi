@@ -263,7 +263,7 @@ Note
 <p>For this workshop we are going to use <a href="https://pycsw.org">pycsw</a>. It is a catalogue software supporting various standardised query APIs, as well as providing a basic easy-to-adjust html web interface.</p>
 <p>For this exercise we assume you have <a href="https://www.docker.com/get-started/">Docker Desktop</a> installed on your system and running. Visit the <a href="https://docs.docker.com/get-started/">docker get started tutorials</a> in case you’re new to docker.</p>
 <p>pycsw is available as Docker image at the <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">github container registry</a>, including an embedded SQLite database. In a production situation you will instead use a dedicated Postgres or MariaDB database for record storage. Notice that when you destroy the container, the SQLite database will be set to its default content.</p>
-<p>Pull and run the pycsw container locally using this command in a command line client (cmd, powershell, bash):</p>
+<p>Pull and run the pycsw container locally using this command in a command line client (cmd, PowerShell, bash):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull ghcr.io/geopython/pycsw</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p8000:8000</span> ghcr.io/geopython/pycsw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Open your browser and browse to <a href="http://localhost:8000" class="uri">http://localhost:8000</a> to see pycsw in action.</p>
@@ -277,15 +277,15 @@ Note
 <p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
 <ul>
 <li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.yml">docker-compose.yml</a> is the full orchestration including PostGIS and TerriaJS</li>
-<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose-sqlite.yml">docker-compose-sqlite.yml</a> is a minimal orchestration without terria and based on a file based sqlite database</li>
+<li><a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/main/docker/docker-compose.sqlite.yml">docker-compose.sqlite.yml</a> is a minimal orchestration without terria and based on a file based SQLite database</li>
 </ul>
 <p>On both orchestrations a library is used called <a href="https://traefik.io">Traefik</a> to facilitate <a href="https://doc.traefik.io/traefik/routing/routers/#path-pathprefix-and-pathregexp">path-routing</a> to the relavant containers.</p>
 <p>Also notice that some <a href="https://github.com/pvgenuchten/training-gitops-sdi/blob/0621ba5b8ede4b84a4bd41b5922126e3a02f7b49/docker/docker-compose.yml#L45-L46">layout templates are mounted</a> into the pycsw container. These templates override the default layout of pycsw.</p>
 <p>Some environment variables should be set in a .env file. Rename the <code>.env-template</code> file to <code>.env</code>.</p>
 <p>Then open a shell and navigate to the docker folder in the cloned repository and run:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A lot of logs are produced by the various containers. You can also run in the background (-d or –detach) using:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose-sqlite.yml up <span class="at">-d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose.sqlite.yml up</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A lot of logs are produced by the various containers. You can also run in the background (<code>-d</code> or <code>--detach</code>) using:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> compose <span class="at">-f</span> docker-compose.sqlite.yml up <span class="at">-d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When running in the background, use <code>docker compose down</code>, <code>docker ps</code>, <code>docker logs pycsw</code> to stop, see active containers and see the logs of a container. Or interact with the containers from docker desktop.</p>
 </section>
 <section id="load-some-records" class="level2">
@@ -324,13 +324,13 @@ Note
 </section>
 <section id="customise-the-catalogue-skin" class="level2">
 <h2 class="anchored" data-anchor-id="customise-the-catalogue-skin">Customise the catalogue skin</h2>
-<p>pycsw uses <a href="https://jinja.palletsprojects.com/en/3.1.x/">jinja templates</a> to build the web frontend. These are html documents including template language to substitute parts of the page.</p>
-<p>You find 2 template files in ./docker/pycsw/. Notice in the orchestration file how the files are mounted into the container:</p>
+<p>pycsw uses <a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja templates</a> to build the web frontend. These are HTML documents including template language to substitute parts of the page.</p>
+<p>You find 2 template files in <code>./docker/pycsw/</code>. Notice in the orchestration file how the files are mounted into the container:</p>
 <ul>
-<li>landing_page.html represents the home page of pycsw</li>
-<li>_base.html is a main layout template which contains page header, footer and menu and wraps around all other templates</li>
+<li><code>templates/landing_page.html</code> represents the home page of pycsw</li>
+<li><code>templates/_base.html</code> is a main layout template which contains page header, footer and menu and wraps around all other templates</li>
 </ul>
-<p>Open a template file and make some changes (colors, text, logo’s).</p>
+<p>Open a template file and make some changes (colors, text, logos).</p>
 <p>Restart the orchestration and view the result at <a href="http://localhost" class="uri">http://localhost</a>.</p>
 <p>Have a look at <a href="https://github.com/geopython/pycsw/tree/master/pycsw/ogc/api/templates">the other templates</a> available in pycsw, which can be tailored in a similar way.</p>
 </section>

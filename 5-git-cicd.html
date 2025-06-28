@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="github-pages-exercise">GitHub Pages exercise</h2>
 <p>This exercise introduces the CI/CD topic by setting up a basic markdown website in <a href="https://pages.github.com/">GitHub Pages</a>, maintained through Git, similar as to how this workshop website is maintained. <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a popular format to store text with annotations on Git. The site will be rendered by the <a href="https://quarto.org">Quarto</a> library. Quarto is one of many platforms to generate a website from a set of markdown files. Quarto facilitates integrations with R and Python scripts for advanced content creation.</p>
 <ul>
-<li><p>Create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">new repository</a> in your github account, for example ‘My-first-CMS’.</p></li>
+<li><p>Create a <a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">new repository</a> in your GitHub account, for example ‘My-first-CMS’.</p></li>
 <li><p>Before we add any content <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">create a branch</a> ‘gh-pages’ on the repository, this branch will later contain the generated html sources of the website, which will be shared via <a href="https://%7Byou%7D.github.io/%7Bmy-first-cms%7D" class="uri">https://{you}.github.io/{my-first-cms}</a>.</p></li>
 <li><p>Create a file docs/index.md and docs/about.md. Start each file with a header:</p></li>
 </ul>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I hope you enjoy it.</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Visit also my <span class="co">[</span><span class="ot">about</span><span class="co">](./about.md)</span> page.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Now click on <code>Actions</code> in the github menu. Notice that GitHub has already set up a workflow to publish our content using <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">jekyll</a>, it should already be available at https://user.github.io/repo.</li>
+<li>Now click on <code>Actions</code> in the GitHub menu. Notice that GitHub has already set up a workflow to publish our content using <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">jekyll</a>, it should already be available at https://user.github.io/repo.</li>
 </ul>
 </section>
 <section id="using-quarto" class="level2">
@@ -334,14 +334,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>It defines at what events the workflow should trigger (in this case at <code>push</code> events).</li>
 <li>a build job is triggered, which indicates a container image (runs-on) to run the job in, then triggers some steps.</li>
-<li>The final step triggers a facility of quarto to <a href="https://github.com/quarto-dev/quarto-actions/tree/main/publish">publish</a> its output to a github repository</li>
+<li>The final step triggers a facility of quarto to <a href="https://github.com/quarto-dev/quarto-actions/tree/main/publish">publish</a> its output to a GitHub repository</li>
 </ul>
-<p>The above setup is optimal for co-creating a documentation repository for your community. Users can visit the source code via the <code>edit on github</code> link and suggest improvements via issues of pull requests. Notice that this tutorial is also maintained as markdown in Git.</p>
+<p>The above setup is optimal for co-creating a documentation repository for your community. Users can visit the source code via the <code>edit on GitHub</code> link and suggest improvements via issues of pull requests. Notice that this tutorial is also maintained as markdown in Git.</p>
 <hr>
 </section>
 <section id="update-catalogue-from-git-cicd" class="level2">
 <h2 class="anchored" data-anchor-id="update-catalogue-from-git-cicd">Update catalogue from Git CI/CD</h2>
-<p>For this scenario we need a database in the cloud to host our records (which is reachable by github actions). For the training consider to set up a FREE account at <a href="https://supabase.com/dashboard">supabase.com</a>.</p>
+<p>For this scenario we need a database in the cloud to host our records (which is reachable by GitHub actions). For the training consider to set up a FREE account at <a href="https://supabase.com/dashboard">supabase.com</a>.</p>
 <ul>
 <li>At supabase, create a new account.</li>
 <li>Then create a new Instance of type <code>Tiny (free)</code>.</li>
