@@ -10,7 +10,7 @@
 <meta name="author" content="Tom Kralidis">
 <meta name="dcterms.date" content="2025-06-24">
 
-<title>Workshop on GitOps SDI</title>
+<title>Workshop on SDI through Infrastructure as Code concepts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop on GitOps SDI</h1>
+<h1 class="title">Workshop on SDI through Infrastructure as Code concepts</h1>
 </div>
 
 
@@ -202,17 +202,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This tutorial presents a workshop on GitObs SDI. Spatial Data Infrastructres are typically build up around a catalogue, a data access layer (api’s) and a data visualisation tool. The SDI introduced in this tutorial is fully maintained from Git and is operated using a set of docker containers running locally, on a Virtual Machine or in a Cloud infrastructure.</p>
-<p>On the tutorial some common open source tools are introduced:</p>
+<p>This tutorial presents a workshop on setting up a Spatial Data Infrastructure (<a href="https://en.wikipedia.org/wiki/Spatial_data_infrastructure">SDI</a>) using <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as Code (IaC)</a> concepts. IaC aims to replace manual steps for setting up and maintaining hardware and software by introducing automated delivery pipelines from reproducable configurations. During the workshop we introduce you to both the infrastucture as code concepts, as well as introduce you to a number of OSGeo tools.</p>
+<p>SDIs are typically build up around a data repository, a catalogue, a data access layer (api’s) and data visualisation components. The SDI introduced in this tutorial is configured from scripts stored in Git and is delivered using a set of docker containers running locally, on a Virtual Machine or in a Cloud infrastructure.</p>
+<p>Via the tutorial some OSGEO tools are introduced:</p>
 <ul>
-<li>quarto</li>
 <li>MapServer</li>
 <li>pycsw</li>
-<li>PyGeoDataCrawler (pygeometa/OWSLib/GDAL)</li>
+<li>PyGeoDataCrawler (pygeometa/OWSLib/Mappyfile/GDAL)</li>
 <li>TerriaJS</li>
 </ul>
-<p>Git has a central role in the training, it is for example suggested to facilitate software development and deployment, content co-creation and management as well as community feedback. Experience with Git and Docker are required before starting this workshop.</p>
-<p>You can also access the <a href="./slides/">slides</a> of the workshop.</p>
+<p>Git and additional services provided by the common Git service providers (Github, Gitlab, Bitbucket, …) have a central role in the training. They are for example suggested to facilitate software development and delivery, content co-creation and management, as well as community feedback. Experience with Git and Docker are required before starting this workshop.</p>
+<p>In the <a href="./1-metadata-at-the-source.html">first paragraph</a> we will introduce you to our approach to integrated metadata management, the core of any SDI. You can also access the <a href="./slides/">slides</a> of the workshop.</p>
 <p>We hope you enjoy the materials,</p>
 <p>Paul and Tom.</p>
 

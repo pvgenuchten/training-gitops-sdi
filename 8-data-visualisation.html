@@ -243,6 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The terriamap docker image is available via Github ContainerRegistry (ghcr.io)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 3001:3001 ghcr.io/terriajs/terriamap:0.4.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Visit http://localhost:3001 to see TerriaJS in action.</p>
+</section>
+<section id="terriajs-within-compose" class="level2">
+<h2 class="anchored" data-anchor-id="terriajs-within-compose">TerriaJS within compose</h2>
 <p>In our Docker Compose terriamap is routed via <a href="http://localhost/map">localhost/map</a>.</p>
 <p>Two files are mounted into the container:</p>
 <ul>
