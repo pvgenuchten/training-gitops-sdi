@@ -62,7 +62,6 @@ Create a `.env` file at ./webdav with content:
 ```
 pgdc_md_url=https://example.com/cat/collections/metadata:main/items/{0}
 pgdc_ms_url=http://example.com/ows/
-pgdc_webdav_url=http://example.com/files/
 ```
 
 A mapfile is typically generated per folder. Navigate into the folder and then generate the mapfile.

@@ -81,7 +81,7 @@ contact:
     url: https://www.example.com
 ```
 
-- Set some environment variables in the `.env` file; `pgdc_md_url`,`pgdc_ms_url`,`pgdc_webdav_url`
+- Set some environment variables in the `.env` file; `pgdc_md_url`, `pgdc_ms_url`, `pgdc_webdav_url`
 
 - Generate the mapfile
 
@@ -93,13 +93,13 @@ crawl-maps --dir=.
 # Docker & Linux
 ```bash
 cd ./docker/
-docker run -it --rm -v $(pwd):/tmp \
-  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data 
+docker run -it --rm --env-file=.env -v $(pwd):/tmp \
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data/foss4g 
 ```
 # Docker & PowerShell
 ```bash
-docker run -it --rm -v "${PWD}:/tmp" `
-  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data 
+docker run -it --rm --env-file=.env -v "${PWD}:/tmp" `
+  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data/foss4g 
 ```
 :::
 
@@ -126,6 +126,14 @@ docker exec mapserver map2img -m /srv/data/data/data.map `
 
 Replace -l (layer) for a layer in your mapfile. Notice a file `test.png` being written to the data folder.
 
+The geodatacrawler tool internally uses the [mappyfile](https://mappyfile.readthedocs.io/en/latest/) library. 
+Mappyfile is a library to work with mapfiles from python or comandline. 
+It offers mapfile creation, formatting and validation options. As an example, use below code to `validate` a map file.
+
+```bash
+pip install mappyfile
+mappyfile validate ./data/text.map --no-expand
+```
 
 ## MapServer via Docker 
 
@@ -142,15 +150,15 @@ You may have to move all content of the data repository to the ./docker/data fol
 
 ```yaml
 MAPS
-     "data" "/srv/data/data.map"
+     "foss4g" "/srv/data/foss4g.map"
 END
 ```
 
 Run or restart the docker compose.
 
-Check http://localhost/ows/data/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors. 
+Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors. 
 
-You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/data?request=GetCapabilities&service=WMS.
+You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&service=WMS.
 
 GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (SLD) file for a layer, as `{name}.sld`. Sld files can be created using QGIS (export style as SLD).
 

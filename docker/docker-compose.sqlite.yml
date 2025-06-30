@@ -24,10 +24,12 @@ services:
       - "80"
     environment:
       - MS_ERRORFILE=stderr
-      - MAPSERVER_CONFIG_FILE=/srv/data/ms.conf # config file is mounted into container
+      - MAPSERVER_CONFIG_FILE=/srv/conf/ms.conf # config file is mounted into container
       - PROJ_DATA=/usr/local/share/proj
     volumes:
       - ./data:/srv/data
+      - ./mapserver/ms.conf:/srv/conf/ms.conf 
+      - ./mapserver/templates/header.html:/usr/local/share/mapserver/ogcapi/templates/html-bootstrap4/header.html
     labels:
       - "traefik.enable=true"
       # this places this services in a /ows folder

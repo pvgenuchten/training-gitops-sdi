@@ -18,6 +18,8 @@ docker run -p 3001:3001 ghcr.io/terriajs/terriamap:0.4.2
 
 Visit http://localhost:3001 to see TerriaJS in action. 
 
+## TerriaJS within compose
+
 In our Docker Compose terriamap is routed via [localhost/map](http://localhost/map).
 
 Two files are mounted into the container:

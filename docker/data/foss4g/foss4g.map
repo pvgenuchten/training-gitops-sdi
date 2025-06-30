@@ -1,0 +1,527 @@
+MAP
+    DEBUG 1
+    NAME 'foss4g'
+    SIZE 800 800
+    UNITS METERS
+    MAXSIZE 16384
+    EXTENT -175.22056447761656 -53.7814746058316 179.21664709402887 78.246717
+    PROJECTION
+        'epsg:4326'
+    END
+    IMAGECOLOR 255 255 255
+    IMAGETYPE 'AGGA'
+    OUTPUTFORMAT
+        NAME 'TIFF_BYTE'
+        DRIVER 'GDAL/GTiff'
+        MIMETYPE 'image/tiff'
+        FORMATOPTION 'COMPRESS=DEFLATE'
+        FORMATOPTION 'ZLEVEL=2'
+        FORMATOPTION 'TILED=YES'
+        FORMATOPTION 'PREDICTOR=2'
+        IMAGEMODE BYTE
+        EXTENSION 'tif'
+    END
+    OUTPUTFORMAT
+        NAME 'GEOTIFF_BYTE'
+        DRIVER 'GDAL/GTiff'
+        MIMETYPE 'image/geotiff'
+        FORMATOPTION 'COMPRESS=DEFLATE'
+        FORMATOPTION 'ZLEVEL=2'
+        FORMATOPTION 'TILED=YES'
+        FORMATOPTION 'PREDICTOR=2'
+        IMAGEMODE BYTE
+        EXTENSION 'tif'
+    END
+    OUTPUTFORMAT
+        NAME 'SVG'
+        DRIVER 'CAIRO/SVG'
+        MIMETYPE 'image/svg+xml'
+        IMAGEMODE RGB
+        EXTENSION 'svg'
+    END
+    OUTPUTFORMAT
+        NAME 'AGGA'
+        DRIVER 'AGG/PNG'
+        MIMETYPE 'image/png'
+        IMAGEMODE RGB
+        EXTENSION 'png'
+        TRANSPARENT OFF
+    END
+    WEB
+        IMAGEPATH '/tmp/'
+        TEMPPATH '/tmp/'
+        METADATA
+            'ows_title' 'foss4gnl'
+            'ows_srs' 'EPSG:4326 EPSG:3857 EPSG:54009 EPSG:54012'
+            'ows_abstract' ''
+            'ows_keywordlist' ''
+            'ows_enable_request' '*'
+            'ows_getlegendgraphic_formatlist' 'image/png,image/svg+xml'
+            'ows_description' ''
+            'ows_addresstype' 'postal'
+            'ows_address' ''
+            'ows_city' ''
+            'ows_stateorprovince' ''
+            'ows_postcode' ''
+            'ows_country' ''
+            'ows_contactelectronicmailaddress' ''
+            'ows_contactperson' ''
+            'ows_contactorganization' ''
+            'ows_contactposition' ''
+            'ows_hoursofservice' ''
+            'ows_contactinstructions' ''
+            'ows_role' ''
+            'ows_fees' ''
+            'ows_accessconstraints' ''
+            'ows_onlineresource' 'foss4g'
+            'oga_onlineresource' 'foss4g/ogcapi'
+            'oga_enable_request' '*'
+            'wms_allow_getmap_without_styles' 'true'
+            'wms_rootlayer_name' ''
+            'wms_feature_info_mime_type' 'text/html'
+            'wcs_label' 'WCS'
+        END
+    END
+    LAYER
+        NAME '00003'
+        TYPE RASTER
+        CONNECTIONTYPE OGR
+        CONNECTION ''
+        DATA '00003.tif'
+        PROJECTION
+            'EPSG:32736'
+        END
+        EXTENT 79564.25262901 9685425.70616694 99564.25262901 9705425.70616694
+        STATUS ON
+        PROCESSING 'CLOSE_CONNECTION=DEFER'
+        PROCESSING 'NODATA=-32768'
+        TEMPLATE 'grid.html'
+        METADATA
+            'ows_title' 'data/foss4g/00003.tif'
+            'ows_abstract' ''
+            'ows_extent' '79564.25262901 9685425.70616694 99564.25262901 9705425.70616694'
+            'ows_srs' 'EPSG:32736 epsg:4326 epsg:3857'
+            'ows_metadataurl_type' 'TC211'
+            'ows_metadataurl_format' 'application/xml'
+            'ows_metadataurl_href' ''
+            'wms_include_items' 'all'
+            'gml_include_items' 'all'
+            'gml_featureid' 'fid'
+            'wcs_label' 'WCS'
+            'wcs_rangeset_name' '00003'
+            'wcs_rangeset_label' 'data/foss4g/00003.tif'
+        END
+        CLASS
+            NAME '1658 - 1972'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 1658 ) AND ( [pixel] <= 1972 ) )
+            STYLE
+                COLOR '#56a1b3'
+            END
+        END
+        CLASS
+            NAME '1972 - 2286'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 1972 ) AND ( [pixel] <= 2286 ) )
+            STYLE
+                COLOR '#80bfab'
+            END
+        END
+        CLASS
+            NAME '2286 - 2600'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2286 ) AND ( [pixel] <= 2600 ) )
+            STYLE
+                COLOR '#abdda4'
+            END
+        END
+        CLASS
+            NAME '2600 - 2914'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2600 ) AND ( [pixel] <= 2914 ) )
+            STYLE
+                COLOR '#c7e8ad'
+            END
+        END
+        CLASS
+            NAME '2914 - 3228'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2914 ) AND ( [pixel] <= 3228 ) )
+            STYLE
+                COLOR '#e3f4b6'
+            END
+        END
+        CLASS
+            NAME '3228 - 3542'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 3228 ) AND ( [pixel] <= 3542 ) )
+            STYLE
+                COLOR '#ffffbf'
+            END
+        END
+        CLASS
+            NAME '3542 - 3856'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 3542 ) AND ( [pixel] <= 3856 ) )
+            STYLE
+                COLOR '#fee4a0'
+            END
+        END
+        CLASS
+            NAME '3856 - 4170'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 3856 ) AND ( [pixel] <= 4170 ) )
+            STYLE
+                COLOR '#fec980'
+            END
+        END
+        CLASS
+            NAME '4170 - 4484'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 4170 ) AND ( [pixel] <= 4484 ) )
+            STYLE
+                COLOR '#fdae61'
+            END
+        END
+        CLASS
+            NAME '4484 - 4798'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 4484 ) AND ( [pixel] <= 4798 ) )
+            STYLE
+                COLOR '#f07c4a'
+            END
+        END
+        CLASS
+            NAME '4798 - 5112'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 4798 ) AND ( [pixel] <= 5112 ) )
+            STYLE
+                COLOR '#e44b33'
+            END
+        END
+        CLASS
+            NAME '5112 - 5426'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 5112 ) AND ( [pixel] <= 5426 ) )
+            STYLE
+                COLOR '#d7191c'
+            END
+        END
+    END
+    LAYER
+        NAME 'airport'
+        TYPE POINT
+        CONNECTIONTYPE OGR
+        CONNECTION 'airport.gpkg'
+        DATA 'airport'
+        PROJECTION
+            'epsg:4326'
+        END
+        EXTENT -175.135635 -53.7814746058316 179.19544202302 78.246717
+        STATUS ON
+        PROCESSING 'CLOSE_CONNECTION=DEFER'
+        TEMPLATE 'airport.html'
+        METADATA
+            'ows_title' 'airport'
+            'ows_abstract' ''
+            'ows_extent' '-175.135635 -53.7814746058316 179.19544202302 78.246717'
+            'ows_srs' 'epsg:4326 epsg:3857'
+            'ows_metadataurl_type' 'TC211'
+            'ows_metadataurl_format' 'application/xml'
+            'ows_metadataurl_href' ''
+            'wms_include_items' 'all'
+            'gml_include_items' 'all'
+            'gml_featureid' 'fid'
+            'wcs_label' 'WCS'
+            'wcs_rangeset_name' 'airport'
+            'wcs_rangeset_label' 'airport'
+        END
+        STYLEITEM 'sld://airport.sld'
+    END
+    LAYER
+        NAME 'cities'
+        TYPE POINT
+        CONNECTIONTYPE OGR
+        CONNECTION 'cities.shp'
+        DATA 'cities'
+        PROJECTION
+            'epsg:4326'
+        END
+        EXTENT -0.12495256261739295 48.190379709787905 16.38053494885252 52.51320348753884
+        STATUS ON
+        PROCESSING 'CLOSE_CONNECTION=DEFER'
+        TEMPLATE 'cities.html'
+        METADATA
+            'ows_title' 'cities'
+            'ows_abstract' ''
+            'ows_extent' '-0.12495256261739295 48.190379709787905 16.38053494885252 52.51320348753884'
+            'ows_srs' 'epsg:4326 epsg:3857'
+            'ows_metadataurl_type' 'TC211'
+            'ows_metadataurl_format' 'application/xml'
+            'ows_metadataurl_href' ''
+            'wms_include_items' 'all'
+            'gml_include_items' 'all'
+            'gml_featureid' 'fid'
+            'wcs_label' 'WCS'
+            'wcs_rangeset_name' 'cities'
+            'wcs_rangeset_label' 'cities'
+        END
+        CLASS
+            NAME 'default'
+            STYLE
+                SYMBOL 'circle'
+                COLOR '#56a1b3'
+                SIZE 5.0
+                OUTLINECOLOR '#232323'
+                OUTLINEWIDTH 0.1
+            END
+        END
+    END
+    LAYER
+        NAME 'era5-temperature_2m'
+        TYPE RASTER
+        CONNECTIONTYPE OGR
+        CONNECTION ''
+        DATA 'era5-temperature_2m.tif'
+        PROJECTION
+            'EPSG:32736'
+        END
+        EXTENT 39400.0 9685300.0 266500.0 9884300.0
+        STATUS ON
+        PROCESSING 'CLOSE_CONNECTION=DEFER'
+        PROCESSING 'NODATA=-32768'
+        TEMPLATE 'grid.html'
+        METADATA
+            'ows_title' 'ERA5 derived values - temperature_2m'
+            'ows_abstract' 'ERA5 Land derived median values from year 2000 to 2020 - 2m air temperature. Multiplied by factor'
+            'ows_extent' '39400.0 9685300.0 266500.0 9884300.0'
+            'ows_srs' 'EPSG:32736 epsg:4326 epsg:3857'
+            'ows_metadataurl_type' 'TC211'
+            'ows_metadataurl_format' 'application/xml'
+            'ows_metadataurl_href' ''
+            'wms_include_items' 'all'
+            'gml_include_items' 'all'
+            'gml_featureid' 'fid'
+            'wcs_label' 'WCS'
+            'wcs_rangeset_name' 'era5-temperature_2m'
+            'wcs_rangeset_label' 'ERA5 derived values - temperature_2m'
+        END
+        CLASS
+            NAME '2853 - 2862'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2853 ) AND ( [pixel] <= 2862 ) )
+            STYLE
+                COLOR '#56a1b3'
+            END
+        END
+        CLASS
+            NAME '2862 - 2871'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2862 ) AND ( [pixel] <= 2871 ) )
+            STYLE
+                COLOR '#80bfab'
+            END
+        END
+        CLASS
+            NAME '2871 - 2880'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2871 ) AND ( [pixel] <= 2880 ) )
+            STYLE
+                COLOR '#abdda4'
+            END
+        END
+        CLASS
+            NAME '2880 - 2889'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2880 ) AND ( [pixel] <= 2889 ) )
+            STYLE
+                COLOR '#c7e8ad'
+            END
+        END
+        CLASS
+            NAME '2889 - 2898'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2889 ) AND ( [pixel] <= 2898 ) )
+            STYLE
+                COLOR '#e3f4b6'
+            END
+        END
+        CLASS
+            NAME '2898 - 2907'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2898 ) AND ( [pixel] <= 2907 ) )
+            STYLE
+                COLOR '#ffffbf'
+            END
+        END
+        CLASS
+            NAME '2907 - 2916'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2907 ) AND ( [pixel] <= 2916 ) )
+            STYLE
+                COLOR '#fee4a0'
+            END
+        END
+        CLASS
+            NAME '2916 - 2925'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2916 ) AND ( [pixel] <= 2925 ) )
+            STYLE
+                COLOR '#fec980'
+            END
+        END
+        CLASS
+            NAME '2925 - 2934'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2925 ) AND ( [pixel] <= 2934 ) )
+            STYLE
+                COLOR '#fdae61'
+            END
+        END
+        CLASS
+            NAME '2934 - 2943'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2934 ) AND ( [pixel] <= 2943 ) )
+            STYLE
+                COLOR '#f07c4a'
+            END
+        END
+        CLASS
+            NAME '2943 - 2952'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2943 ) AND ( [pixel] <= 2952 ) )
+            STYLE
+                COLOR '#e44b33'
+            END
+        END
+        CLASS
+            NAME '2952 - 2961'
+            GROUP 'Default'
+            EXPRESSION ( ( [pixel] >= 2952 ) AND ( [pixel] <= 2961 ) )
+            STYLE
+                COLOR '#d7191c'
+            END
+        END
+    END
+    LAYER
+        NAME 'ne_110m_populated_places_simple'
+        TYPE POINT
+        CONNECTIONTYPE OGR
+        CONNECTION 'ne_110m_populated_places_simple.geojson'
+        DATA 'ne_110m_populated_places_simple'
+        PROJECTION
+            'epsg:4326'
+        END
+        EXTENT -175.22056447761656 -41.29998785369173 179.21664709402887 64.15002361973922
+        STATUS ON
+        PROCESSING 'CLOSE_CONNECTION=DEFER'
+        TEMPLATE 'ne_110m_populated_places_simple.html'
+        METADATA
+            'ows_title' 'ne_110m_populated_places_simple'
+            'ows_abstract' ''
+            'ows_extent' '-175.22056447761656 -41.29998785369173 179.21664709402887 64.15002361973922'
+            'ows_srs' 'epsg:4326 epsg:3857'
+            'ows_metadataurl_type' 'TC211'
+            'ows_metadataurl_format' 'application/xml'
+            'ows_metadataurl_href' ''
+            'wms_include_items' 'all'
+            'gml_include_items' 'all'
+            'gml_featureid' 'fid'
+            'wcs_label' 'WCS'
+            'wcs_rangeset_name' 'ne_110m_populated_places_simple'
+            'wcs_rangeset_label' 'ne_110m_populated_places_simple'
+        END
+        CLASS
+            NAME 'default'
+            STYLE
+                SYMBOL 'circle'
+                COLOR '#56a1b3'
+                SIZE 5.0
+                OUTLINECOLOR '#232323'
+                OUTLINEWIDTH 0.1
+            END
+        END
+    END
+    SYMBOL
+        NAME 'triangle'
+        TYPE VECTOR
+        FILLED TRUE
+        POINTS
+            0 4
+            2 0
+            4 4
+            0 4
+        END
+    END
+    SYMBOL
+        NAME 'cross'
+        TYPE VECTOR
+        POINTS
+            2.0 0.0
+            2.0 4.0
+            -99 -99
+            0.0 2.0
+            4.0 2.0
+        END
+    END
+    SYMBOL
+        NAME 'circle'
+        TYPE ELLIPSE
+        FILLED TRUE
+        POINTS
+            1 1
+        END
+    END
+    SYMBOL
+        NAME 'square'
+        TYPE VECTOR
+        POINTS
+            0 0
+            1 0
+            1 1
+            0 1
+            0 0
+        END
+        FILLED TRUE
+    END
+    SYMBOL
+        NAME 'plus'
+        TYPE VECTOR
+        POINTS
+            0.5 0
+            0.5 1
+            -99 -99
+            0 0.5
+            1 0.5
+        END
+    END
+    SYMBOL
+        NAME 'diamond'
+        TYPE VECTOR
+        FILLED TRUE
+        POINTS
+            0 0.5
+            0.5 0
+            1 0.5
+            0.5 1
+            0 0.5
+        END
+    END
+    SYMBOL
+        NAME 'star'
+        TYPE VECTOR
+        FILLED TRUE
+        POINTS
+            0 0.375
+            0.35 0.375
+            0.5 0
+            0.65 0.375
+            1 0.375
+            0.75 0.625
+            0.875 1
+            0.5 0.75
+            0.125 1
+            0.25 0.625
+        END
+    END
+END
