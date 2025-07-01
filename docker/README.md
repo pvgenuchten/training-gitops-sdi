@@ -55,7 +55,7 @@ MapServer runs OGC WMS/WFS/WCS services on data and is configured using [mapfile
 
 ### Generate mapfiles
 
-A number of environment variables is required as part of mapserver generation.
+A number of environment variables is required as part of MapServer generation.
 The variables can best be passed in using a `.env` file.
 
 Create a `.env` file at ./webdav with content:
