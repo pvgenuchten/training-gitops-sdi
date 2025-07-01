@@ -22,7 +22,7 @@ Consider to add additional index.yml files in other folders to override the valu
 
 The tools we will use are based on Python. For this workshop we offer 2 approaches: 
 
-- If you are familiar with Python or are interested to learn more about it, you can setup a conda or Python virtual environment and run the scripts in that environment. 
+- If you are familiar with Python or are interested to learn more about it, you can setup a Conda or Python virtual environment and run the scripts in that environment. 
 - Else, we recommend to run the Python tools in Docker containers. 
 
 Each of the exercises indicates an option to run the Python script directly, or from a container. 
@@ -58,7 +58,7 @@ mamba install -c conda-forge pysqlite3
 Install the crawler tool, [GeoDataCrawler](https://pypi.org/project/geodatacrawler/). The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; [OWSLib](https://github.com/geopython/OWSLib), [pygeometa](https://github.com/geopython/pygeometa) and [GDAL](https://gdal.org). If you want to learn more about these libraries, consider to read the 'tutorials' of these libraries ([OWSlib](https://owslib.readthedocs.io/en/latest/), [pygeometa](https://geopython.github.io/pygeometa/tutorial/), [gdal](https://gdal.org/en/stable/tutorials/index.html)), or enjoy the jupyter based [geopyton workshop](https://github.com/geopython/geopython-workshop).
 
 ```
-pip install pyGeoDataCrawler
+pip3 install pyGeoDataCrawler
 ```
 
 Verify the different crawling options by typing:

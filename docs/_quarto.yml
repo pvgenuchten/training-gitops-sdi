@@ -44,7 +44,7 @@ website:
           file: 6-data-publication.md
         - text: Map services
           file: 7-providing-map-services.md
-        - text: Data visualisation
-          file: 8-data-visualisation.md
+        - text: Data visualization
+          file: 8-data-visualization.md
 
 

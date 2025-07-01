@@ -8,7 +8,7 @@ date: 2025-06-24
 
 ## Introduction
 
-Many organisations organise their documents and datasets at a central network location or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.
+Many organizations organise their documents and datasets at a central network location or database. These resources are usually clustered in organizational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.
 
 ## Sidecar metadata
 
@@ -25,7 +25,7 @@ Locate on your local computer or network drive a random shapefile. Does the file
 For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the [ArcGIS Pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
 
 :::{.callout-tip}
-Does your organisation or community endorse a metadata model to describe data sources?
+Does your organization or community endorse a metadata model to describe data sources?
 Are you aware of tooling which can support you in creation of metadata in this model?
 :::
 
@@ -48,13 +48,13 @@ identification:
     ...
 ```
 
-If you are comfortable with python, consider to try the following experiment.
+If you are comfortable with Python, consider to try the following experiment.
 
 :::{.callout-tip}
-Save the above file as `md.yml`. Then open a shell and set up a virtual python (or conda) environment, then:
+Save the above file as `md.yml`. Then open a shell and set up a virtual Python (or COnda) environment, then:
 
 ```bash
-pip install pygeometa
+pip3 install pygeometa
 pygeometa metadata info path/to/md.yml
 pygeometa metadata generate path/to/md.yml --schema=iso19139 --output=md.xml
 ```
@@ -70,7 +70,7 @@ When tagging the dataset with keywords, preferably use keywords from controlled 
 
 MCF documents can be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
 
-Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the metadata model to your organisational needs.
+Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the metadata model to your organizational needs.
 
 :::{.callout-tip}
 Imagine a dataset you have recently worked with. Then open [mdme](https://osgeo.github.io/mdme) and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository. 
