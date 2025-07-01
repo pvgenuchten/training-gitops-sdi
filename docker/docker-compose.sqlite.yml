@@ -51,7 +51,7 @@ services:
     environment:
       # Configuration for the catalogue, see the pycsw.yml file how these values are used
       CAT_URL: http://${SDI_DOMAIN}
-      CAT_TITLE: Catalogue
+      CAT_TITLE: My Favourite Catalogue
       CAT_DESC: The catalogue provides access to various SDI resources
       CAT_DB: 'sqlite:////home/pycsw/pycsw/tests/functionaltests/suites/cite/data/cite.db'
     expose:

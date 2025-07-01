@@ -24,10 +24,11 @@ In our Docker Compose terriamap is routed via [localhost/map](http://localhost/m
 
 Two files are mounted into the container:
 
-- `config.json` contains the configuration of the interface, you should add a personalised Google/Bing/Cesium key here.
+- `config.json` contains the configuration of the interface, you can add a personalised Google/Bing/Cesium key here.
 - `simple.json` is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.
+- In `index.html` the title/abstract of the page can be customized, or set some css to override default terria css. Because terria is hosted at `/map`, the base url is set to `/map`. 
 
-Notice that from terria layer details, you can access the catalogue again (link is shared via WMS Capabilities)
+Notice that from terria layer details, you can access the record in the catalogue (link is shared via WMS Capabilities)
 
 ## Summary
 

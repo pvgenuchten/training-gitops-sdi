@@ -12,7 +12,7 @@ For spatial datasets it is of interest to also share them via convenience APIs, 
  
 In this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs. 
 
-These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service, the Cloud Optimized GeoTiff ([COG](https://cogeo.org/)) and [GeoZarr](https://github.com/zarr-developers/geozarr-spec) formats for grid data and for vector data there is [GeoParquet](https://geoparquet.org/).
+These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service. Typical examples are Cloud Optimized GeoTiff ([COG](https://cogeo.org/)) and [GeoZarr](https://github.com/zarr-developers/geozarr-spec) for grid data and for vector data there is [GeoParquet](https://geoparquet.org/).
 
 
 ## Standardised data APIs 
@@ -81,13 +81,13 @@ contact:
     url: https://www.example.com
 ```
 
-- Set some environment variables in the `.env` file; `pgdc_md_url`, `pgdc_ms_url`, `pgdc_webdav_url`
-
+- Set some environment variables in the `.env` file; `pgdc_md_url`, `pgdc_ms_url`. Notice in the commands below that we include the .env file in the container.
 - Generate the mapfile
 
 ::: {.panel-tabset}
 # Local
 ```bash
+cd /srv/data/foss4g
 crawl-maps --dir=.
 ```
 # Docker & Linux
@@ -103,7 +103,7 @@ docker run -it --rm --env-file=.env -v "${PWD}:/tmp" `
 ```
 :::
 
-Test your mapserver configuration. The mapserver container includes a test tool for this purpose.
+- Test your mapserver configuration. The mapserver container includes a test tool for this purpose.
 With the docker composition running, try:
 
 ::: {.panel-tabset}
@@ -146,7 +146,8 @@ docker pull camptocamp/mapserver:8.4
 First update the config file `./data/ms.conf`. On this config file list all the mapfiles wihich are published on the container. Open the file `./data/ms.conf` and populate the maps section. The maps section are key-value pairs of alias and path to the mapfile, the alias is used as http://localhost/ows/{alias}/ogcapi (for longtime mapserver users, the alias replaces the `?map=example.map` syntax).
 
 Notice that our local `./docker/data` folder is mounted into the mapserver container as `/srv/data`. 
-You may have to move all content of the data repository to the ./docker/data folder. 
+You may have to move some content from previous paragraphs into ./docker/data folder. An alias for the 
+foss4 map has already been added.
 
 ```yaml
 MAPS
@@ -154,11 +155,10 @@ MAPS
 END
 ```
 
-Run or restart the docker compose.
-
-Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors. 
-
-You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&service=WMS.
+- Run or restart the docker compose.
+- Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors. 
+- You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&service=WMS.
+- Notice that the mcf.yml files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the `pgdc_ms_url` environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.
 
 GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (SLD) file for a layer, as `{name}.sld`. Sld files can be created using QGIS (export style as SLD).
 

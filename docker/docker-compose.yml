@@ -30,7 +30,6 @@ services:
       - ./data:/srv/data
       - ./mapserver/ms.conf:/srv/conf/ms.conf 
       - ./mapserver/templates/header.html:/usr/local/share/mapserver/ogcapi/templates/html-bootstrap4/header.html
-
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mapserver.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/ows`)"
@@ -40,7 +39,7 @@ services:
     
   pycsw:
     restart: always 
-    image: "geopython/pycsw:3.0.0-beta1"
+    image: "ghcr.io/geopython/pycsw"
     container_name: "pycsw"
     volumes:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
@@ -72,6 +71,7 @@ services:
     volumes:
       - ./terria/config.json:/app/wwwroot/config.json
       - ./terria/simple.json:/app/wwwroot/init/simple.json
+      - ./terria/index.html:/app/wwwroot/index.html
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.terria.rule=Host(`${SDI_DOMAIN}`) && PathPrefix(`/map`)"
@@ -104,4 +104,4 @@ services:
 
 volumes:
   postgres-vol:
-  letsencrypt-vol:
+

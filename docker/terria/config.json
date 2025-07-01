@@ -7,8 +7,8 @@
     "googleUrlShortenerKey": null,
     "googleAnalyticsKey": null,
     "googleAnalyticsOptions": null,
-    "bingMapsKey": "add-your-bing-key",
-    "cesiumIonAccessToken": "add-your-cesium-key",
+    //"bingMapsKey": "add-your-bing-key",
+    //"cesiumIonAccessToken": "add-your-cesium-key",
     // Log ConsoleAnalytics events to console
     // logToConsole: true,
     /* Text that appears at the bottom of the map */
@@ -22,7 +22,6 @@
     },
     // This is used in various text messages. You should also set <title> in index.html
     "appName": "SDI",
-
     // Shown when things go wrong.
     "supportEmail": "info@example.com",
     // You probably shouldn't change this.
@@ -44,16 +43,6 @@
     },
     "searchBarConfig": {},
     "searchProviders": [
-      {
-        "id": "search-provider/bing-maps",
-        "type": "bing-maps-search-provider",
-        "name": "translate#viewModels.searchLocations",
-        "url": "https://dev.virtualearth.net/",
-        "flightDurationSeconds": 1.5,
-        "minCharacters": 3,
-        "isOpen": true,
-        "primaryCountry": "Ethiopia"
-      }
     ],
     "helpContent": [
       {
