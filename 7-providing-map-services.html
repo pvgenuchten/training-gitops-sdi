@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>For spatial datasets it is of interest to also share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualized in common tools such as <a href="https://qgis.org">QGIS</a>, <a href="https://openlayers.org">OpenLayers</a> or <a href="https://leaflet.org">Leaflet</a>. The standards on data services of the <a href="https://www.ogc.org/">Open Geospatial Consortium</a> are designed with this purpose. These APIs give direct access to subsets or map visualizations of a dataset.</p>
 <p>In this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs.</p>
-<p>These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service, the Cloud Optimized GeoTiff (<a href="https://cogeo.org/">COG</a>) and <a href="https://github.com/zarr-developers/geozarr-spec">GeoZarr</a> formats for grid data and for vector data there is <a href="https://geoparquet.org/">GeoParquet</a>.</p>
+<p>These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service. Typical examples are Cloud Optimized GeoTiff (<a href="https://cogeo.org/">COG</a>) and <a href="https://github.com/zarr-developers/geozarr-spec">GeoZarr</a> for grid data and for vector data there is <a href="https://geoparquet.org/">GeoParquet</a>.</p>
 </section>
 <section id="standardised-data-apis" class="level2">
 <h2 class="anchored" data-anchor-id="standardised-data-apis">Standardised data APIs</h2>
@@ -321,14 +321,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">email</span><span class="kw">:</span><span class="at"> info@example.com</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://www.example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li><p>Set some environment variables in the <code>.env</code> file; <code>pgdc_md_url</code>, <code>pgdc_ms_url</code>, <code>pgdc_webdav_url</code></p></li>
-<li><p>Generate the mapfile</p></li>
+<li>Set some environment variables in the <code>.env</code> file; <code>pgdc_md_url</code>, <code>pgdc_ms_url</code>. Notice in the commands below that we include the .env file in the container.</li>
+<li>Generate the mapfile</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Docker &amp; PowerShell</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-maps</span> <span class="at">--dir</span><span class="op">=</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /srv/data/foss4g</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">crawl-maps</span> <span class="at">--dir</span><span class="op">=</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ./docker/</span>
@@ -368,13 +369,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For this workshop we’re using a <a href="https://hub.docker.com/r/camptocamp/mapserver">MapServer image</a> provided by Camp to Camp available from <a href="https://hub.docker.com/">Docker Hub</a>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull camptocamp/mapserver:8.4  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>First update the config file <code>./data/ms.conf</code>. On this config file list all the mapfiles wihich are published on the container. Open the file <code>./data/ms.conf</code> and populate the maps section. The maps section are key-value pairs of alias and path to the mapfile, the alias is used as http://localhost/ows/{alias}/ogcapi (for longtime MapServer users, the alias replaces the <code>?map=example.map</code> syntax).</p>
-<p>Notice that our local <code>./docker/data</code> folder is mounted into the MapServer container as <code>/srv/data</code>. You may have to move all content of the data repository to the ./docker/data folder.</p>
+<p>Notice that our local <code>./docker/data</code> folder is mounted into the MapServer container as <code>/srv/data</code>. You may have to move some content from previous paragraphs into ./docker/data folder. An alias for the foss4 map has already been added.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">MAPS</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">     </span><span class="st">"foss4g"</span><span class="at"> "/srv/data/foss4g.map"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">END</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Run or restart Docker Compose.</p>
 <p>Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors.</p>
 <p>You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&amp;service=WMS.</p>
+<p>Notice that the mcf.yml files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the <code>pgdc_ms_url</code> environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.</p>
 <p>pyGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the <a href="https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling">robot section in index.yml</a> or by providing an <a href="https://www.ogc.org/standards/sld/">Styled Layer Descriptor</a> (SLD) file for a layer, as <code>{name}.sld</code>. Sld files can be created using QGIS (export style as SLD).</p>
 </section>
 <section id="summary" class="level2">
