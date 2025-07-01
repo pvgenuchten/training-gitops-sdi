@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -240,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This paragraph describes approaches to import metadata from existing repositories. Including an option to import metadata from records of a spreadsheet.</p>
 <section id="bulk-import-from-a-spreadsheet" class="level2">
 <h2 class="anchored" data-anchor-id="bulk-import-from-a-spreadsheet">Bulk import from a spreadsheet</h2>
-<p>Many metadata initiatives tend to start from a spreadsheet. Each of the columns representa a metadata property and the rows are the individual records describing a resource. Spreadsheets have proven to be an effective medium to populate a catalogue with records initially. To facilitate this use case the GeoDataCrawler software provides an <code>import spreadsheet</code> method. The spreadsheet is parsed and a MCF document is generated for every row.</p>
+<p>Many metadata initiatives tend to start from a spreadsheet. Each of the columns representa a metadata property and the rows are the individual records describing a resource. Spreadsheets have proven to be an effective medium to populate a catalogue with records initially. To facilitate this use case the pyGeoDataCrawler software provides an <code>import spreadsheet</code> method. The spreadsheet is parsed and a MCF document is generated for every row.</p>
 <p>Since every metadata initiative tends to have dedicated columns. A templating approach is used to convert from row to MCF. A default template is available, matching a default spreadsheet layout. If your spreadsheet layout is different, you need to adjust the template accordingly.</p>
 <ul>
 <li>For this exercise we’ll use the <a href="https://github.com/lsc-hubs/kenya-catalogue/blob/main/portals/KE/LSC/index.csv">LSC-hubs spreadsheet</a> in combination with the <a href="https://github.com/lsc-hubs/kenya-catalogue/blob/main/portals/KE/LSC/index.j2">LSC-hubs template</a>. Notice that the template has the same filename, but with extension <code>.j2</code>. Download both files to a new folder, called <code>csv</code>, in your working directory.</li>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>If there are errors, check the paths and consider to open the CSV in Google Sheets and export it again or open it in a text editor to look for special cases. A known issue with this approach is that the crawler tool can not manage <code>newline</code> characters in text fields.</li>
 <li>Open one of the generated MCF files to evaluate its content.</li>
-<li>A common spreadsheet tool is <a href="https://www.microsoft.com/en-gb/microsoft-365/excel">Microsoft Excel</a>. If you open and export a spreadsheet from Excel, the CSV will use the ‘;’ character as column separator. Use the –sep=‘;’ parameter to indicate GeoDataCrawler to use this separator.</li>
+<li>A common spreadsheet tool is <a href="https://www.microsoft.com/en-gb/microsoft-365/excel">Microsoft Excel</a>. If you open and export a spreadsheet from Excel, the CSV will use the ‘;’ character as column separator. Use the –sep=‘;’ parameter to indicate pyGeoDataCrawler to use this separator.</li>
 </ul>
 <pre><code>crawl-metadata --mode=import-csv --dir="./csv" --sep=';'</code></pre>
 </section>
@@ -276,14 +276,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Many resources are already described elsewhere which may be of interest to add to our catalogue. For this use case some options exist to import remote metadata.</p>
 <section id="by-id" class="level3">
 <h3 class="anchored" data-anchor-id="by-id">By ID</h3>
-<p>In many cases you want to import a selected subset of a remote catalogue. In this scenario we prepare a csv with the identifiers of the records to be imported. These identifiers are used to create a very minimal MCF file. GeoDataCrawler subsequently extends the local record with remote content. Currently supported are metadata from CSW, WMS and DOI.</p>
+<p>In many cases you want to import a selected subset of a remote catalogue. In this scenario we prepare a csv with the identifiers of the records to be imported. These identifiers are used to create a very minimal MCF file. pyGeoDataCrawler subsequently extends the local record with remote content. Currently supported are metadata from CSW, WMS and DOI.</p>
 <ul>
 <li>For this exercise download a <a href="https://git.wur.nl/isric/lsc-hubs/kenya-hub/-/raw/kenya/portals/Global/data.isric.org/datasets.csv?inline=false">spreadsheet with a subset of the isric.org data repository</a> and the <a href="https://git.wur.nl/isric/lsc-hubs/kenya-hub/-/raw/kenya/portals/Global/data.isric.org/datasets.j2?inline=false">relevant template</a> to a folder <code>isric</code>.</li>
 <li>Import the CSV</li>
 </ul>
 <pre><code>crawl-metadata --mode=import-csv --dir="./isric" --sep=';'</code></pre>
 <ul>
-<li>The synchronisation with remote content is implemented in GeoDataCrawler as part of the update metadata method. The update process will evaluate the dataseturi-property. If the uri refers to remote content in a supported format, the MCF will be updated against that content (remote takes preference).</li>
+<li>The synchronization with remote content is implemented in pyGeoDataCrawler as part of the update metadata method. The update process will evaluate the dataseturi-property. If the uri refers to remote content in a supported format, the MCF will be updated against that content (remote takes preference).</li>
 </ul>
 <pre><code>crawl-metadata --mode=update --dir="./isric" --resolve=true</code></pre>
 <ul>

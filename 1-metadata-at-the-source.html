@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Many organisations organise their documents and datasets at a central network location or database. These resources are usually clustered in organisational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.</p>
+<p>Many organizations organise their documents and datasets at a central network location or database. These resources are usually clustered in organizational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.</p>
 </section>
 <section id="sidecar-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="sidecar-metadata">Sidecar metadata</h2>
@@ -272,7 +272,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Does your organisation or community endorse a metadata model to describe data sources? Are you aware of tooling which can support you in creation of metadata in this model?</p>
+<p>Does your organization or community endorse a metadata model to describe data sources? Are you aware of tooling which can support you in creation of metadata in this model?</p>
 </div>
 </div>
 </section>
@@ -291,7 +291,7 @@ Tip
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> My favourite dataset</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">abstract</span><span class="kw">:</span><span class="at"> A sample dataset record to highlight the options of MCF</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you are comfortable with python, consider to try the following experiment.</p>
+<p>If you are comfortable with Python, consider to try the following experiment.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -302,8 +302,8 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Save the above file as <code>md.yml</code>. Then open a shell and set up a virtual python (or conda) environment, then:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pygeometa</span>
+<p>Save the above file as <code>md.yml</code>. Then open a shell and set up a virtual Python (or COnda) environment, then:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pygeometa</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pygeometa</span> metadata info path/to/md.yml</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pygeometa</span> metadata generate path/to/md.yml <span class="at">--schema</span><span class="op">=</span>iso19139 <span class="at">--output</span><span class="op">=</span>md.xml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -315,7 +315,7 @@ Tip
 <section id="mcf-editing" class="level2">
 <h2 class="anchored" data-anchor-id="mcf-editing">MCF editing</h2>
 <p>MCF documents can be written in a text editor like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Consider to install the <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML plugin</a> for instant YAML validation.</p>
-<p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the metadata model to your organisational needs.</p>
+<p>Another option to create and update mcf files is via <a href="https://github.com/osgeo/mdme">MDME</a>. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at <a href="https://osgeo.github.io/mdme">osgeo.github.io</a>. Notice that if you install the package locally, you can customize the metadata model to your organizational needs.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

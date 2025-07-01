@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -260,7 +260,7 @@ Tip
 <h2 class="anchored" data-anchor-id="setup-environment">Setup environment</h2>
 <p>The tools we will use are based on Python. For this workshop we offer 2 approaches:</p>
 <ul>
-<li>If you are familiar with Python or are interested to learn more about it, you can setup a conda or Python virtual environment and run the scripts in that environment.</li>
+<li>If you are familiar with Python or are interested to learn more about it, you can setup a Conda or Python virtual environment and run the scripts in that environment.</li>
 <li>Else, we recommend to run the Python tools in Docker containers.</li>
 </ul>
 <p>Each of the exercises indicates an option to run the Python script directly, or from a container.</p>
@@ -278,7 +278,7 @@ Tip
 <pre><code>mamba install -c conda-forge gdal
 mamba install -c conda-forge pysqlite3</code></pre>
 <p>Install the crawler tool, <a href="https://pypi.org/project/geodatacrawler/">GeoDataCrawler</a>. The tool is under active development at ISRIC and facilitates many of our data workflows. It is powered by some popular metadata and transformation libraries; <a href="https://github.com/geopython/OWSLib">OWSLib</a>, <a href="https://github.com/geopython/pygeometa">pygeometa</a> and <a href="https://gdal.org">GDAL</a>. If you want to learn more about these libraries, consider to read the ‘tutorials’ of these libraries (<a href="https://owslib.readthedocs.io/en/latest/">OWSlib</a>, <a href="https://geopython.github.io/pygeometa/tutorial/">pygeometa</a>, <a href="https://gdal.org/en/stable/tutorials/index.html">gdal</a>), or enjoy the jupyter based <a href="https://github.com/geopython/geopython-workshop">geopyton workshop</a>.</p>
-<pre><code>pip install pyGeoDataCrawler</code></pre>
+<pre><code>pip3 install pyGeoDataCrawler</code></pre>
 <p>Verify the different crawling options by typing:</p>
 <pre><code>crawl-metadata --help</code></pre>
 </section>

@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>For spatial datasets it is of interest to also share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualised in common tools such as <a href="https://qgis.org">QGIS</a>, <a href="https://openlayers.org">OpenLayers</a> or <a href="https://leaflet.org">Leaflet</a>. The standards on data services of the <a href="https://www.ogc.org/">Open Geospatial Consortium</a> are designed with this purpose. These APIs give direct access to subsets or map visualisations of a dataset.</p>
+<p>For spatial datasets it is of interest to also share them via convenience APIs, so the datasets can be downloaded in parts or easily be visualized in common tools such as <a href="https://qgis.org">QGIS</a>, <a href="https://openlayers.org">OpenLayers</a> or <a href="https://leaflet.org">Leaflet</a>. The standards on data services of the <a href="https://www.ogc.org/">Open Geospatial Consortium</a> are designed with this purpose. These APIs give direct access to subsets or map visualizations of a dataset.</p>
 <p>In this paragraph you will be introduced to various standardised APIs, after which we introduce an approach to publish datasets, which builds on the data management approach introduced in the previous paragraphs.</p>
 <p>These days novel ways to share data over the web arrive, where the data formats itself allow requesting subsets of the data, enabling efficient consumption of the data straight from a repository or cloud storage service, the Cloud Optimized GeoTiff (<a href="https://cogeo.org/">COG</a>) and <a href="https://github.com/zarr-developers/geozarr-spec">GeoZarr</a> formats for grid data and for vector data there is <a href="https://geoparquet.org/">GeoParquet</a>.</p>
 </section>
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>Web Map Service (<a href="https://www.ogc.org/standard/wms/">WMS</a>)</td>
 <td><a href="https://ogcapi.ogc.org/maps/">Maps</a></td>
-<td>Provides a visualisation of a subset of the data</td>
+<td>Provides a visualization of a subset of the data</td>
 </tr>
 <tr class="even">
 <td>Web Feature Service (<a href="https://www.ogc.org/standard/wfs/">WFS</a>)</td>
@@ -293,9 +293,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setting-up-an-api" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-an-api">Setting up an API</h2>
 <p><a href="https://mapserver.org">MapServer</a> is server software which is able to expose datasets through various APIs. Examples of similar software are <a href="https://docs.qgis.org/latest/en/docs/server_manual/index.html">QGIS server</a>, <a href="https://enterprise.arcgis.com/en/server/">ArcGIS Server</a>, <a href="https://geoserver.org">GeoServer</a> and <a href="https://pygeoapi.io">pygeoapi</a>.</p>
-<p>We’ve selected mapserver for this training, because of its robustness, ease of configuration and low resource consumption. MapServer is configured using a configuration file: called the <a href="https://www.mapserver.org/mapfile/">mapfile</a>. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of a dataset.</p>
+<p>We’ve selected MapServer for this training, because of its robustness, ease of configuration and low resource consumption. MapServer is configured using a configuration file: called the <a href="https://www.mapserver.org/mapfile/">mapfile</a>. The mapfile defines metadata for the dataset and how users interact with the dataset, mainly the colour scheme (legend) to draw a map of a dataset.</p>
 <p>Various tools exist to write these configuration files, such as <a href="https://mapserverstudio.net/">MapServer studio</a>, <a href="https://geocat.github.io/qgis-bridge-plugin/latest/server_configuration.html#mapserver">QGIS Bridge</a>, up to a <a href="https://marketplace.visualstudio.com/items?itemName=chicoff.mapfile">Visual Studio plugin to edit mapfiles</a>.</p>
-<p>The <a href="https://pypi.org/project/geodatacrawler/">pyGeoDataCrawler</a>, introduced in a <a href="./2-interact-with-data-repositories.html">previous paragraph</a>, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. GeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the mapserver service endpoint. This toolset enables a typical workflow of:</p>
+<p>The <a href="https://pypi.org/project/geodatacrawler/">pyGeoDataCrawler</a>, introduced in a <a href="./2-interact-with-data-repositories.html">previous paragraph</a>, also has an option to generate mapfiles. A big advantage of this approach is the integration with existing metadata. pyGeoDataCrawler will, during mapfile generation, use the existing metadata, but also update the metadata so it includes a link to the MapServer service endpoint. This toolset enables a typical workflow of:</p>
 <ul>
 <li>Users find a dataset in a catalogue</li>
 <li>Then open the dataset via the linked service</li>
@@ -341,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Test your mapserver configuration. The mapserver container includes a test tool for this purpose. With the docker composition running, try:</p>
+<p>Test your MapServer configuration. The MapServer container includes a test tool for this purpose. With the Docker composition running, try:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Local</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Docker &amp; Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Docker &amp; PowerShell</a></li></ul>
 <div class="tab-content">
@@ -359,27 +359,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Replace -l (layer) for a layer in your mapfile. Notice a file <code>test.png</code> being written to the data folder.</p>
-<p>The geodatacrawler tool internally uses the <a href="https://mappyfile.readthedocs.io/en/latest/">mappyfile</a> library. Mappyfile is a library to work with mapfiles from python or comandline. It offers mapfile creation, formatting and validation options. As an example, use below code to <code>validate</code> a map file.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mappyfile</span>
+<p>The pyGeoDataCrawler tool internally uses the <a href="https://mappyfile.readthedocs.io/en/latest/">mappyfile</a> library. Mappyfile is a library to work with mapfiles from Python or the comandline. It offers mapfile creation, formatting and validation options. As an example, use below code to ‘validate’ a map file.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install mappyfile</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mappyfile</span> validate ./data/text.map <span class="at">--no-expand</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mapserver-via-docker" class="level2">
 <h2 class="anchored" data-anchor-id="mapserver-via-docker">MapServer via Docker</h2>
-<p>For this workshop we’re using a <a href="https://hub.docker.com/r/camptocamp/mapserver">mapserver image</a> provided by Camp to Camp available from <a href="https://hub.docker.com/">Docker Hub</a>.</p>
+<p>For this workshop we’re using a <a href="https://hub.docker.com/r/camptocamp/mapserver">MapServer image</a> provided by Camp to Camp available from <a href="https://hub.docker.com/">Docker Hub</a>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull camptocamp/mapserver:8.4  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>First update the config file <code>./data/ms.conf</code>. On this config file list all the mapfiles wihich are published on the container. Open the file <code>./data/ms.conf</code> and populate the maps section. The maps section are key-value pairs of alias and path to the mapfile, the alias is used as http://localhost/ows/{alias}/ogcapi (for longtime mapserver users, the alias replaces the <code>?map=example.map</code> syntax).</p>
-<p>Notice that our local <code>./docker/data</code> folder is mounted into the mapserver container as <code>/srv/data</code>. You may have to move all content of the data repository to the ./docker/data folder.</p>
+<p>First update the config file <code>./data/ms.conf</code>. On this config file list all the mapfiles wihich are published on the container. Open the file <code>./data/ms.conf</code> and populate the maps section. The maps section are key-value pairs of alias and path to the mapfile, the alias is used as http://localhost/ows/{alias}/ogcapi (for longtime MapServer users, the alias replaces the <code>?map=example.map</code> syntax).</p>
+<p>Notice that our local <code>./docker/data</code> folder is mounted into the MapServer container as <code>/srv/data</code>. You may have to move all content of the data repository to the ./docker/data folder.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">MAPS</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">     </span><span class="st">"foss4g"</span><span class="at"> "/srv/data/foss4g.map"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">END</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run or restart the docker compose.</p>
+<p>Run or restart Docker Compose.</p>
 <p>Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors.</p>
 <p>You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&amp;service=WMS.</p>
-<p>GeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the <a href="https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling">robot section in index.yml</a> or by providing an <a href="https://www.ogc.org/standards/sld/">Styled Layer Descriptor</a> (SLD) file for a layer, as <code>{name}.sld</code>. Sld files can be created using QGIS (export style as SLD).</p>
+<p>pyGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the <a href="https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling">robot section in index.yml</a> or by providing an <a href="https://www.ogc.org/standards/sld/">Styled Layer Descriptor</a> (SLD) file for a layer, as <code>{name}.sld</code>. Sld files can be created using QGIS (export style as SLD).</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the <a href="./8-data-visualisation.html">next section</a> we’ll look at measuring service quality.</p>
+<p>In this paragraph the standards of Open Geospatial Consortium have been introduced and how you can publish your data according to these standards using MapServer. In the <a href="./8-data-visualization.html">next section</a> we’ll look at measuring service quality.</p>
 
 
 </section>

@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8-data-visualisation.html">Data visualisation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8-data-visualization.html">Data visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -240,17 +240,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="terriajs" class="level2">
 <h2 class="anchored" data-anchor-id="terriajs">TerriaJS</h2>
 <p><a href="https://terria.io">TerriaJS</a> is a modern Web GIS application, which includes an option to query a CSW catalogue.</p>
-<p>The terriamap docker image is available via Github ContainerRegistry (ghcr.io)</p>
+<p>The terriamap Docker image is available via the GitHub Container Registry (ghcr.io)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-p</span> 3001:3001 ghcr.io/terriajs/terriamap:0.4.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Visit http://localhost:3001 to see TerriaJS in action.</p>
 </section>
-<section id="terriajs-within-compose" class="level2">
-<h2 class="anchored" data-anchor-id="terriajs-within-compose">TerriaJS within compose</h2>
-<p>In our Docker Compose terriamap is routed via <a href="http://localhost/map">localhost/map</a>.</p>
+<section id="terriajs-within-docker-compose" class="level2">
+<h2 class="anchored" data-anchor-id="terriajs-within-docker-compose">TerriaJS within Docker Compose</h2>
+<p>In our Docker Compose setup, terriamap is routed via <a href="http://localhost/map">localhost/map</a>.</p>
 <p>Two files are mounted into the container:</p>
 <ul>
 <li><code>config.json</code> contains the configuration of the interface, you should add a personalised Google/Bing/Cesium key here.</li>
-<li><code>simple.json</code> is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to mapserver and pycsw are included.</li>
+<li><code>simple.json</code> is the configuration of the inital map (you can add more map configurations in a smilar way). A reference to MapServer and pycsw are included.</li>
 </ul>
 <p>Notice that from terria layer details, you can access the catalogue again (link is shared via WMS Capabilities)</p>
 </section>
@@ -675,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/8-data-visualisation.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/edit/main/8-data-visualization.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pvgenuchten/training-gitops-sdi/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

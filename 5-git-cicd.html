@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8-data-visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data visualisation</span></a>
+  <a href="./8-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
   </div>
 </li>
     </ul>
@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="git-content-versioning" class="level2">
 <h2 class="anchored" data-anchor-id="git-content-versioning">Git content versioning</h2>
 <p>In its core <a href="https://git-scm.com/">Git</a> is a code version management system, traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this <a href="https://www.w3schools.com/git/git_intro.asp">Git &amp; GitHub explanation</a>. Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as <a href="https://desktop.github.com/">GitHub Desktop</a>, a <a href="https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022">Git client within Visual Studio</a>, <a href="https://tortoisegit.org/">TortoiseGit</a>, <a href="https://www.syntevo.com/smartgit/">Smartgit</a>, and <a href="https://git-scm.com/downloads/guis">many others</a>.</p>
-<p>These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.</p>
+<p>These days Git based coding communities like GitHub, GitLab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.</p>
 </section>
 <section id="cicd" class="level2">
 <h2 class="anchored" data-anchor-id="cicd">CI/CD</h2>
@@ -395,8 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            sudo apt-get install gdal-bin</span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            sudo apt-get install libgdal-dev</span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            ogrinfo --version</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            pip install GDAL==3.4.3</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            pip install geodatacrawler pycsw sqlalchemy</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            pip3 install GDAL==3.4.3</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            pip3 install geodatacrawler pycsw sqlalchemy</span>
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Crawl metadata</span></span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">          run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            export pgdc_webdav_url=http://localhost/collections/metadata:main/items</span>
@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cross-linking-catalogue-and-git" class="level2">
 <h2 class="anchored" data-anchor-id="cross-linking-catalogue-and-git">Cross linking catalogue and Git</h2>
-<p>While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorisations they can instantly improve the record, or suggest an improvement via an issue or <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a>.</p>
+<p>While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorizations they can instantly improve the record, or suggest an improvement via an issue or <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a>.</p>
 <hr>
 </section>
 <section id="summary" class="level2">
