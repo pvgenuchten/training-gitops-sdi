@@ -14,12 +14,12 @@ format:
 - GitOps / Infrastructure as code
 - Metadata at the source
 - Map services from metadata
-- Data visualisation
+- Data visualization
 
 # GitOps / Infrastructure as code
 
 - reproducability
-- containerisation
+- containerization
 
 ## GitHub
 
@@ -74,7 +74,7 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 
 ## pycsw catalogue
 
-- A catalogue implementation in python
+- A catalogue implementation in Python
 - Limited funtionality, easy maintenance
 - Wide range of supported catalogue standards, serves many communities
 - Database backend
@@ -120,7 +120,7 @@ https://mapserver.org
 - Use SLD file {dataset}.sld to style a layer
 - Metadata is updated with WMS/WFS/WCS url
 
-# Data visualisation
+# Data visualization
 
 ## TerriaJS
 
@@ -132,7 +132,7 @@ Related products; GeoNode, GeoMoose, MapBender, Oskari, [GisQuick](https://gisqu
 
 ## Quarto
 
-- Add diagrams or maps with python and R scripting
+- Add diagrams or maps with Python and R scripting
 - Other interesting option is the [W3C MapML](https://www.npmjs.com/package/@maps4html/mapml) 
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/@maps4html/mapml@latest/dist/mapml.js"></script>

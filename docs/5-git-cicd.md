@@ -14,7 +14,7 @@ This page introduces a number of generic IT functionalities. Which can support c
 
 In its core [Git](https://git-scm.com/) is a code version management system, traditionally used for maintaining software codes. In case you never worked with Git before, have a look at this [Git & GitHub explanation](https://www.w3schools.com/git/git_intro.asp). Some users interact with Git via the command line (shell). However excellent Graphical User Interfaces exist to work with Git repositories, such as [GitHub Desktop](https://desktop.github.com/), a [Git client within Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-with-visual-studio?view=vs-2022), [TortoiseGit](https://tortoisegit.org/), [Smartgit](https://www.syntevo.com/smartgit/), and [many others](https://git-scm.com/downloads/guis).
 
-These days Git based coding communities like GitHub, Gitlab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.
+These days Git based coding communities like GitHub, GitLab, Bitbucket offer various services on top of Git to facilitate in co-creation of digital assets. Those services include authentication, issue management, release management, forks, pull requests and CI/CD. The types of digital assets maintained via Git vary from software, deployment scripts, configuration files, documents, website content, metadata records, up to actual datasets. Git is most effective with text based formats, which explains the popularity of formats like CSV, YAML, and Markdown.
 
 ## CI/CD
 
@@ -189,8 +189,8 @@ jobs:
             sudo apt-get install gdal-bin
             sudo apt-get install libgdal-dev
             ogrinfo --version
-            pip install GDAL==3.4.3
-            pip install geodatacrawler pycsw sqlalchemy
+            pip3 install GDAL==3.4.3
+            pip3 install geodatacrawler pycsw sqlalchemy
         - name: Crawl metadata
           run: |
             export pgdc_webdav_url=http://localhost/collections/metadata:main/items
@@ -211,7 +211,7 @@ Normally, we would **not** add a connection string to a database in a config fil
 
 ## Cross linking catalogue and Git
 
-While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorisations they can instantly improve the record, or suggest an improvement via an issue or [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorizations they can instantly improve the record, or suggest an improvement via an issue or [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ---
 
