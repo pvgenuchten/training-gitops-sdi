@@ -10,7 +10,7 @@
 <meta name="author" content="Tom Kralidis">
 <meta name="dcterms.date" content="2025-06-24">
 
-<title>Workshop on SDI through Infrastructure as Code concepts</title>
+<title>GitOps SDI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1-metadata-at-the-source.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Existing resources</span></a>
+ <span class="menu-text">Metadata at the source</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop on SDI through Infrastructure as Code concepts</h1>
+<h1 class="title">GitOps SDI</h1>
 </div>
 
 
@@ -202,19 +202,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This tutorial presents a workshop on setting up a Spatial Data Infrastructure (<a href="https://en.wikipedia.org/wiki/Spatial_data_infrastructure">SDI</a>) using <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as Code (IaC)</a> concepts. IaC aims to replace manual steps for setting up and maintaining hardware and software by introducing automated delivery pipelines from reproducable configurations. During the workshop we introduce you to the concepts of IaC as well as a number of OSGeo tools.</p>
-<p>SDIs are typically built as nodes, focused on a spatial data repository, a catalogue, a data access layer (APIs) and data visualization components. IaC concepts greatly help SDI development and implementation in the following ways:</p>
+<p>This tutorial presents a workshop on setting up a Spatial Data Infrastructure (<a href="https://en.wikipedia.org/wiki/Spatial_data_infrastructure">SDI</a>) using <a href="https://www.opsmx.com/what-is-gitops">GitOps</a> concepts. GitOps principles aim to replace manual steps for setting up and maintaining hardware and software by introducing automated delivery pipelines from versioned Git configurations. During the workshop we introduce you to the concepts of GitOps as well as a number of OSGeo tools.</p>
+<p>SDIs are typically built as nodes, focused on a (spatial) data repository, a catalogue, a data access layer (APIs) and data visualization components. GitOps concepts greatly help SDI development and implementation in the following ways:</p>
 <ul>
-<li>containerization</li>
-<li>reproducible and portable setup and deployment</li>
-<li>low barrier access to modern tools for GIS, Earth observation, climate, Earth system prediction, and other data sciences</li>
+<li>Containerization</li>
+<li>Reproducible and portable setup and deployment</li>
+<li>Low barrier access to modern tools for GIS, Earth observation, climate, Earth system prediction, and other data sciences</li>
 </ul>
 <p>The SDI introduced in this tutorial is configured from scripts stored in Git and is delivered using a set of Docker containers running locally, on a virtual machine (VM) or in a cloud infrastructure.</p>
 <p>This tutorial introduces the following OSGeo tools:</p>
 <ul>
-<li>MapServer</li>
-<li>pycsw</li>
 <li>PyGeoDataCrawler (pygeometa/OWSLib/Mappyfile/GDAL)</li>
+<li>pycsw</li>
+<li>MapServer</li>
 <li>TerriaJS</li>
 </ul>
 <p>Git and additional services provided by the common Git service providers (GitHub, GitLab, Bitbucket, …) have a central role in the training. They are, for example, suggested to facilitate software development and delivery, content co-creation and management, as well as community feedback.</p>

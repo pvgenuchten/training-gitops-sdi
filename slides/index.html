@@ -129,7 +129,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">GitOps SDI</h1>
-  <p class="subtitle">Infrastructure as Code inspired SDI</p>
+  <p class="subtitle">Infrastructure as Code inspired Spatial Data Infrastructures</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -141,51 +141,71 @@ Paul van Genuchten, Tom Kralidis
 
   <p class="date">2025-06-15</p>
 </section>
+<section>
 <section id="contents" class="title-slide slide level1 center">
 <h1>Contents</h1>
 <ul>
-<li class="fragment">GitOps / Infrastructure as code</li>
+<li class="fragment">What is GitOps?</li>
+<li class="fragment">Why efforts in GitOps?</li>
 <li class="fragment">Metadata at the source</li>
-<li class="fragment">Map services from metadata</li>
-<li class="fragment">Data visualization</li>
+<li class="fragment">About the workshop</li>
+<li class="fragment">Technologies</li>
 </ul>
 </section>
-
-<section>
-<section id="gitops-infrastructure-as-code" class="title-slide slide level1 center">
-<h1>GitOps / Infrastructure as code</h1>
+<section id="what-is-gitops" class="slide level2">
+<h2>What is <a href="https://www.opsmx.com/what-is-gitops">GitOps</a></h2>
 <ul>
-<li class="fragment">reproducability</li>
-<li class="fragment">containerization</li>
+<li class="fragment"><p>“Git” &amp; “Operations” (like DevOps)</p></li>
+<li class="fragment"><p>Git is a source of truth (apps, containers, configuration)</p></li>
+<li class="fragment"><p>A GitOps process automatically delivers changes in an online cluster.</p></li>
+<li class="fragment"><p>A monitoring process detects difference between desired state and the target cluster</p></li>
 </ul>
 </section>
-<section id="github" class="slide level2">
-<h2>GitHub</h2>
-<p>Service to facilitate co-creation</p>
+<section id="principles" class="slide level2">
+<h2><a href="https://www.opsmx.com/what-is-gitops">5 principles</a></h2>
 <ul>
-<li class="fragment">version history of contributions</li>
-<li class="fragment">authentication</li>
-<li class="fragment">issue management</li>
-<li class="fragment">release management</li>
-<li class="fragment">Continuous integration</li>
+<li class="fragment">Express the desired state declaratively</li>
+<li class="fragment">Version control the desired state</li>
+<li class="fragment">Automatically apply the desired state</li>
+<li class="fragment">Reconcile the desired state</li>
+<li class="fragment">Visibility and control</li>
 </ul>
-<p>Related software; Git, GitLab, Bitbucket, Codeberg</p>
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>A content management system to create websites, documentation, slides, etc.</p>
-<p>Related software; <a href="gohugo.io">Hugo</a>, <a href="https://mkdocs.org">mkdocs</a>, Jekyll, <a href="https://wordpress.org">Wordpress</a>, <a href="https://drupal.org">Drupal</a></p>
-</section></section>
-<section>
-<section id="metadata-at-the-source" class="title-slide slide level1 center">
-<h1>Metadata at the source</h1>
-
-<img data-src="../img/file-hierarchy.jpg" class="r-stretch quarto-figure-center"><p class="caption">File hierarchy</p></section>
-<section id="a-readme-in-each-folder" class="slide level2">
-<h2>A README in each folder</h2>
+<section id="why-efforts-in-gitops" class="slide level2">
+<h2>Why efforts in GitOps?</h2>
+<p>At ISRIC - World Soil Informtion</p>
 <ul>
-<li class="fragment">Add a README to describe the resources in a folder</li>
-<li class="fragment">Why not structure the content in the README, so also machines can read it?</li>
+<li class="fragment">We run various SDI’s to facilitate projects</li>
+<li class="fragment">SDI’s should be robust, requiring little maintenance</li>
+</ul>
+</section>
+<section id="metadata-at-the-source" class="slide level2">
+<h2>Metadata at the source</h2>
+<ul>
+<li class="fragment"><p>Researchers use many field and earth observation data to predict distribution of Soil properties</p></li>
+<li class="fragment"><p>They use tools like Excel, R &amp; Python, generally not aware of metadata standards</p></li>
+<li class="fragment"><p>Add a README.txt to describe the resources in a folder</p></li>
+<li class="fragment"><p>Why not structure the content in the README, so also machines can read it?</p></li>
+</ul>
+</section>
+<section id="about-the-workshop" class="slide level2">
+<h2>About the workshop</h2>
+<ul>
+<li class="fragment">A self guided tutorial at <a href="https://pvgenuchten.github.io/training-gitops-sdi/" class="uri">https://pvgenuchten.github.io/training-gitops-sdi/</a></li>
+<li class="fragment">Two moments to summarise</li>
+<li class="fragment">Welcoming your feedback at <a href="https://forms.gle/J59DjGbTBx1s1Tus7" class="uri">https://forms.gle/J59DjGbTBx1s1Tus7</a></li>
+<li class="fragment">Ask questions via <a href="https://github.com/pvgenuchten/training-gitops-sdi/discussions/5" class="uri">https://github.com/pvgenuchten/training-gitops-sdi/discussions/5</a></li>
+</ul>
+</section>
+<section id="technologies" class="slide level2">
+<h2>Technologies</h2>
+<ul>
+<li class="fragment">MCF</li>
+<li class="fragment">pygeometa</li>
+<li class="fragment">pyGeoDataCrawler</li>
+<li class="fragment">pycsw</li>
+<li class="fragment">mapserver</li>
+<li class="fragment">terriajs</li>
 </ul>
 </section>
 <section id="metadata-control-file" class="slide level2">
@@ -197,16 +217,16 @@ Paul van Genuchten, Tom Kralidis
 </ul>
 
 <img data-src="../img/mcf.jpg" class="r-stretch quarto-figure-center"><p class="caption">MCF</p></section>
-<section id="pygeometa-library" class="slide level2">
-<h2>pygeometa library</h2>
+<section id="pygeometa" class="slide level2">
+<h2><a href="https://geopython.github.io/pygeometa/">pygeometa</a></h2>
 <ul>
 <li class="fragment">a library to work with MCF</li>
 <li class="fragment">exports MCF to various metadata models (iso, dcat, stac)</li>
 <li class="fragment"><a href="https://github.com/geopython/pygeometa" class="uri">https://github.com/geopython/pygeometa</a></li>
 </ul>
 </section>
-<section id="the-pygeodatacrawler-tool" class="slide level2">
-<h2>The pyGeoDataCrawler tool</h2>
+<section id="pygeodatacrawler" class="slide level2">
+<h2><a href="https://pypi.org/project/geodatacrawler/1.3.5/">pyGeoDataCrawler</a></h2>
 <ul>
 <li class="fragment">Developed at ISRIC in the last year</li>
 <li class="fragment">On the shoulders of giants; GDAL, pygeometa, pandas</li>
@@ -217,7 +237,7 @@ Paul van Genuchten, Tom Kralidis
 </ul>
 </section>
 <section id="pycsw-catalogue" class="slide level2">
-<h2>pycsw catalogue</h2>
+<h2><a href="https://pycsw.org">pycsw catalogue</a></h2>
 <ul>
 <li class="fragment">A catalogue implementation in Python</li>
 <li class="fragment">Limited funtionality, easy maintenance</li>
@@ -225,65 +245,27 @@ Paul van Genuchten, Tom Kralidis
 <li class="fragment">Database backend</li>
 <li class="fragment">Skin customisable with Jinja templates</li>
 </ul>
-<p>https://pycsw.org</p>
-</section>
-<section id="pygeometa-pygeodatacrawler" class="slide level2">
-<h2>pygeometa / pyGeoDataCrawler</h2>
-<p>Scripting libraries which support data management of a file repository</p>
-<ul>
-<li class="fragment">Generate metadata from existing data</li>
-<li class="fragment">Import remote metadata</li>
-<li class="fragment">Ingest metadata from a file repository</li>
-<li class="fragment">Create map services (APIs) for existing data</li>
-</ul>
-</section></section>
-<section>
-<section id="map-services-from-metadata" class="title-slide slide level1 center">
-<h1>Map services from metadata</h1>
-
+<p>Related products; <a href="https://geonetwork-opensource.org">GeoNetwork</a>, <a href="https://ckan.org">CKAN</a>, <a href="https://dataverse.org">dataverse</a></p>
 </section>
 <section id="mapserver" class="slide level2">
-<h2>MapServer</h2>
+<h2><a href="https://mapserver.org">MapServer</a></h2>
 <ul>
 <li class="fragment">Recent versions of MapServer support the old and new standards</li>
 <li class="fragment">Features and Maps</li>
 <li class="fragment">No tiles (mapproxy), No coverages yet</li>
 <li class="fragment">No records/stac, by design</li>
 </ul>
-<p>https://mapserver.org</p>
-</section>
-<section id="mapfile" class="slide level2">
-<h2>Mapfile</h2>
-<ul>
-<li class="fragment">Configuration via a <a href="https://mapserver.org/mapfile/">mapfile</a></li>
-<li class="fragment">All <a href="https://gdal.org/drivers/vector">GDAL formats</a> supported</li>
-<li class="fragment">Create mapfiles using QGIS with <a href="https://plugins.qgis.org/plugins/geocatbridge/">GeoCat bridge</a></li>
-</ul>
-
-<img data-src="../img/mapfile.jpg" class="r-stretch quarto-figure-center"><p class="caption">mapfile</p></section>
-<section id="mapfiles-from-metadata" class="slide level2">
-<h2>Mapfiles from metadata</h2>
-<ul>
-<li class="fragment">Use the metadata to generate/update mapfiles</li>
-<li class="fragment">Store map configuration on GitHub</li>
-<li class="fragment">Use SLD file {dataset}.sld to style a layer</li>
-<li class="fragment">Metadata is updated with WMS/WFS/WCS url</li>
-</ul>
-</section></section>
-<section>
-<section id="data-visualization" class="title-slide slide level1 center">
-<h1>Data visualization</h1>
-
+<p>Related products; <a href="https://geoserver.org">GeoServer</a>, <a href="https://docs.qgis.org/latest/en/docs/server_manual">QGIS server</a>, <a href="https://pygeoapi.io">pygeopai</a></p>
 </section>
 <section id="terriajs" class="slide level2">
-<h2>TerriaJS</h2>
+<h2><a href="https://terria.io">TerriaJS</a></h2>
 <p>An Open Source javascript WebGIS application</p>
-<p><a href="https://rwanda.lsc-hubs.org/map/">demo</a></p>
-<p>Related products; GeoNode, GeoMoose, MapBender, Oskari, <a href="https://gisquick.org/">GisQuick</a></p>
+<p>Related products; <a href="https://geonode.org/">GeoNode</a>, <a href="https://geomoose.org/">GeoMoose</a>, <a href="https://mapbender.org/">MapBender</a>, <a href="https://www.oskari.org/">Oskari</a>, <a href="https://gisquick.org/">GisQuick</a></p>
 </section>
-<section id="quarto-1" class="slide level2">
+<section id="quarto" class="slide level2">
 <h2>Quarto</h2>
 <ul>
+<li class="fragment">Static site generator from markdown</li>
 <li class="fragment">Add diagrams or maps with Python and R scripting</li>
 <li class="fragment">Other interesting option is the <a href="https://www.npmjs.com/package/@maps4html/mapml">W3C MapML</a></li>
 </ul>
@@ -296,7 +278,7 @@ Paul van Genuchten, Tom Kralidis
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Workshop on GitOps SDI</p>
+<p>Infrastructure as Code inspired Spatial Data Infrastructures</p>
 </div>
 </div></div>
 

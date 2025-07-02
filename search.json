@@ -1,24 +1,45 @@
 [
   {
-    "objectID": "slides/index.html#github",
-    "href": "slides/index.html#github",
+    "objectID": "slides/index.html#what-is-gitops",
+    "href": "slides/index.html#what-is-gitops",
     "title": "GitOps SDI",
-    "section": "GitHub",
-    "text": "GitHub\nService to facilitate co-creation\n\nversion history of contributions\nauthentication\nissue management\nrelease management\nContinuous integration\n\nRelated software; Git, GitLab, Bitbucket, Codeberg"
+    "section": "What is GitOps",
+    "text": "What is GitOps\n\n“Git” & “Operations” (like DevOps)\nGit is a source of truth (apps, containers, configuration)\nA GitOps process automatically delivers changes in an online cluster.\nA monitoring process detects difference between desired state and the target cluster"
   },
   {
-    "objectID": "slides/index.html#quarto",
-    "href": "slides/index.html#quarto",
+    "objectID": "slides/index.html#principles",
+    "href": "slides/index.html#principles",
     "title": "GitOps SDI",
-    "section": "Quarto",
-    "text": "Quarto\nA content management system to create websites, documentation, slides, etc.\nRelated software; Hugo, mkdocs, Jekyll, Wordpress, Drupal"
+    "section": "5 principles",
+    "text": "5 principles\n\nExpress the desired state declaratively\nVersion control the desired state\nAutomatically apply the desired state\nReconcile the desired state\nVisibility and control"
   },
   {
-    "objectID": "slides/index.html#a-readme-in-each-folder",
-    "href": "slides/index.html#a-readme-in-each-folder",
+    "objectID": "slides/index.html#why-efforts-in-gitops",
+    "href": "slides/index.html#why-efforts-in-gitops",
     "title": "GitOps SDI",
-    "section": "A README in each folder",
-    "text": "A README in each folder\n\nAdd a README to describe the resources in a folder\nWhy not structure the content in the README, so also machines can read it?"
+    "section": "Why efforts in GitOps?",
+    "text": "Why efforts in GitOps?\nAt ISRIC - World Soil Informtion\n\nWe run various SDI’s to facilitate projects\nSDI’s should be robust, requiring little maintenance"
+  },
+  {
+    "objectID": "slides/index.html#metadata-at-the-source",
+    "href": "slides/index.html#metadata-at-the-source",
+    "title": "GitOps SDI",
+    "section": "Metadata at the source",
+    "text": "Metadata at the source\n\nResearchers use many field and earth observation data to predict distribution of Soil properties\nThey use tools like Excel, R & Python, generally not aware of metadata standards\nAdd a README.txt to describe the resources in a folder\nWhy not structure the content in the README, so also machines can read it?"
+  },
+  {
+    "objectID": "slides/index.html#about-the-workshop",
+    "href": "slides/index.html#about-the-workshop",
+    "title": "GitOps SDI",
+    "section": "About the workshop",
+    "text": "About the workshop\n\nA self guided tutorial at https://pvgenuchten.github.io/training-gitops-sdi/\nTwo moments to summarise\nWelcoming your feedback at https://forms.gle/J59DjGbTBx1s1Tus7\nAsk questions via https://github.com/pvgenuchten/training-gitops-sdi/discussions/5"
+  },
+  {
+    "objectID": "slides/index.html#technologies",
+    "href": "slides/index.html#technologies",
+    "title": "GitOps SDI",
+    "section": "Technologies",
+    "text": "Technologies\n\nMCF\npygeometa\npyGeoDataCrawler\npycsw\nmapserver\nterriajs"
   },
   {
     "objectID": "slides/index.html#metadata-control-file",
@@ -28,67 +49,46 @@
     "text": "Metadata Control File\n\nA convention of the pygeometa community (Meteo Canada)\nYAML, easy to read by humans and machines\nA subset of the ISO19115 standard for metadata\n\n\nMCF"
   },
   {
-    "objectID": "slides/index.html#pygeometa-library",
-    "href": "slides/index.html#pygeometa-library",
+    "objectID": "slides/index.html#pygeometa",
+    "href": "slides/index.html#pygeometa",
     "title": "GitOps SDI",
-    "section": "pygeometa library",
-    "text": "pygeometa library\n\na library to work with MCF\nexports MCF to various metadata models (iso, dcat, stac)\nhttps://github.com/geopython/pygeometa"
+    "section": "pygeometa",
+    "text": "pygeometa\n\na library to work with MCF\nexports MCF to various metadata models (iso, dcat, stac)\nhttps://github.com/geopython/pygeometa"
   },
   {
-    "objectID": "slides/index.html#the-pygeodatacrawler-tool",
-    "href": "slides/index.html#the-pygeodatacrawler-tool",
+    "objectID": "slides/index.html#pygeodatacrawler",
+    "href": "slides/index.html#pygeodatacrawler",
     "title": "GitOps SDI",
-    "section": "The pyGeoDataCrawler tool",
-    "text": "The pyGeoDataCrawler tool\n\nDeveloped at ISRIC in the last year\nOn the shoulders of giants; GDAL, pygeometa, pandas\nGenerates MCF files for a file repository\nImports metadata from external sources\nExtracts MCF files from a repository to load it into a catalogue\nCreates map services configuration for files in the repository"
+    "section": "pyGeoDataCrawler",
+    "text": "pyGeoDataCrawler\n\nDeveloped at ISRIC in the last year\nOn the shoulders of giants; GDAL, pygeometa, pandas\nGenerates MCF files for a file repository\nImports metadata from external sources\nExtracts MCF files from a repository to load it into a catalogue\nCreates map services configuration for files in the repository"
   },
   {
     "objectID": "slides/index.html#pycsw-catalogue",
     "href": "slides/index.html#pycsw-catalogue",
     "title": "GitOps SDI",
     "section": "pycsw catalogue",
-    "text": "pycsw catalogue\n\nA catalogue implementation in Python\nLimited funtionality, easy maintenance\nWide range of supported catalogue standards, serves many communities\nDatabase backend\nSkin customisable with Jinja templates\n\nhttps://pycsw.org"
-  },
-  {
-    "objectID": "slides/index.html#pygeometa-pygeodatacrawler",
-    "href": "slides/index.html#pygeometa-pygeodatacrawler",
-    "title": "GitOps SDI",
-    "section": "pygeometa / pyGeoDataCrawler",
-    "text": "pygeometa / pyGeoDataCrawler\nScripting libraries which support data management of a file repository\n\nGenerate metadata from existing data\nImport remote metadata\nIngest metadata from a file repository\nCreate map services (APIs) for existing data"
+    "text": "pycsw catalogue\n\nA catalogue implementation in Python\nLimited funtionality, easy maintenance\nWide range of supported catalogue standards, serves many communities\nDatabase backend\nSkin customisable with Jinja templates\n\nRelated products; GeoNetwork, CKAN, dataverse"
   },
   {
     "objectID": "slides/index.html#mapserver",
     "href": "slides/index.html#mapserver",
     "title": "GitOps SDI",
     "section": "MapServer",
-    "text": "MapServer\n\nRecent versions of MapServer support the old and new standards\nFeatures and Maps\nNo tiles (mapproxy), No coverages yet\nNo records/stac, by design\n\nhttps://mapserver.org"
-  },
-  {
-    "objectID": "slides/index.html#mapfile",
-    "href": "slides/index.html#mapfile",
-    "title": "GitOps SDI",
-    "section": "Mapfile",
-    "text": "Mapfile\n\nConfiguration via a mapfile\nAll GDAL formats supported\nCreate mapfiles using QGIS with GeoCat bridge\n\n\nmapfile"
-  },
-  {
-    "objectID": "slides/index.html#mapfiles-from-metadata",
-    "href": "slides/index.html#mapfiles-from-metadata",
-    "title": "GitOps SDI",
-    "section": "Mapfiles from metadata",
-    "text": "Mapfiles from metadata\n\nUse the metadata to generate/update mapfiles\nStore map configuration on GitHub\nUse SLD file {dataset}.sld to style a layer\nMetadata is updated with WMS/WFS/WCS url"
+    "text": "MapServer\n\nRecent versions of MapServer support the old and new standards\nFeatures and Maps\nNo tiles (mapproxy), No coverages yet\nNo records/stac, by design\n\nRelated products; GeoServer, QGIS server, pygeopai"
   },
   {
     "objectID": "slides/index.html#terriajs",
     "href": "slides/index.html#terriajs",
     "title": "GitOps SDI",
     "section": "TerriaJS",
-    "text": "TerriaJS\nAn Open Source javascript WebGIS application\ndemo\nRelated products; GeoNode, GeoMoose, MapBender, Oskari, GisQuick"
+    "text": "TerriaJS\nAn Open Source javascript WebGIS application\nRelated products; GeoNode, GeoMoose, MapBender, Oskari, GisQuick"
   },
   {
-    "objectID": "slides/index.html#quarto-1",
-    "href": "slides/index.html#quarto-1",
+    "objectID": "slides/index.html#quarto",
+    "href": "slides/index.html#quarto",
     "title": "GitOps SDI",
     "section": "Quarto",
-    "text": "Quarto\n\nAdd diagrams or maps with Python and R scripting\nOther interesting option is the W3C MapML"
+    "text": "Quarto\n\nStatic site generator from markdown\nAdd diagrams or maps with Python and R scripting\nOther interesting option is the W3C MapML"
   },
   {
     "objectID": "8-data-visualization.html",
@@ -318,7 +318,7 @@
     "text": "Many organizations organise their documents and datasets at a central network location or database. These resources are usually clustered in organizational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -329,7 +329,7 @@
     "text": "Many organizations organise their documents and datasets at a central network location or database. These resources are usually clustered in organizational units, projects and/or years. Some files and database tables in that central network location contain embedded metadata, such as the name, size, date, author, location etc. This information supports users in understanding the context of the data source. Especially if that data at some point is migrated from its original context.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -340,7 +340,7 @@
     "text": "Sidecar metadata\nFor those formats which lack embedded metadata, or in order to capture additional metadata aspects, you may consider creating a sidecar metadata file for every resource. A dedicated metadata file sharing the name of the datasource. This approach is for example common in the Esri community, where a .shp.xml is created alongside any .shp file, which captures relevant metadata elements.\n\n\n\n\n\n\nTip\n\n\n\nLocate on your local computer or network drive a random shapefile. Does the file have a .shp.xml sidecar file? Else find another shape or tiff file (look for *.shp.xml). The contents of the xml file may be very minimal, but in most cases at least some processing information and the data model of the shapefile are mentioned.\n\n\nThrough the embedded metadata and sidecar concept, we endorse data scientists to document their data at the source. Since the data producers are often best informed how the data is produced and how it should be used.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -348,10 +348,10 @@
     "href": "1-metadata-at-the-source.html#standards-and-interoperability",
     "title": "Metadata at the source",
     "section": "Standards and interoperability",
-    "text": "Standards and interoperability\nFor optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the [ArcGIS Pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as GeoCat Bridge, to work with various metadata models.\n\n\n\n\n\n\nTip\n\n\n\nDoes your organization or community endorse a metadata model to describe data sources? Are you aware of tooling which can support you in creation of metadata in this model?",
+    "text": "Standards and interoperability\nFor optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the ArcGIS Pro documentation. QGIS has various plugins, such as GeoCat Bridge, to work with various metadata models.\n\n\n\n\n\n\nTip\n\n\n\nDoes your organization or community endorse a metadata model to describe data sources? Are you aware of tooling which can support you in creation of metadata in this model?",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -362,7 +362,7 @@
     "text": "Getting started\nWithin the geopython community, the pygeometa library provides a metadata format called the metadata control file (MCF). The aim of MCF is ease of use, while providing export options to various metadata models. Many metadata models are based on XML, which makes them quite challenging to read by humans. MCF is based on YAML, a text-based format using indents to group elements. In this workshop we are using the MCF format for its simplicity and natural fit with the use cases. A minimal sample of an MCF is:\nmcf:\n    version: 1.0\n\nmetadata:\n    identifier: 9c36a048-4d28-453f-9373-94c90e101ebe\n    hierarchylevel: dataset\n    date: 2023-05-10\n\nidentification:\n    title: My favourite dataset\n    abstract: A sample dataset record to highlight the options of MCF\n    ...\nIf you are comfortable with Python, consider to try the following experiment.\n\n\n\n\n\n\nTip\n\n\n\nSave the above file as md.yml. Then open a shell and set up a virtual Python (or COnda) environment, then:\npip3 install pygeometa\npygeometa metadata info path/to/md.yml\npygeometa metadata generate path/to/md.yml --schema=iso19139 --output=md.xml\n\n\nRead more about pygeometa at https://geopython.github.io/pygeometa/tutorial/.\nWhen describing a resource, consider which user groups are expected to read the information. This analyses will likely impact the style of writing in the metadata. The UK Geospatial Commission has published some practical recommendations on this topic.\nWhen tagging the dataset with keywords, preferably use keywords from controlled vocabularies like Agrovoc, Eurovoc, etc. A benefit of controlled vocabularies is that the term is not ambigue and it can be processed in multiple languages.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -373,7 +373,7 @@
     "text": "MCF editing\nMCF documents can be written in a text editor like Visual Studio Code. Consider to install the YAML plugin for instant YAML validation.\nAnother option to create and update mcf files is via MDME. MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at osgeo.github.io. Notice that if you install the package locally, you can customize the metadata model to your organizational needs.\n\n\n\n\n\n\nTip\n\n\n\nImagine a dataset you have recently worked with. Then open mdme and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository.\nNotice that MDME also offers capabilities to export directly as iso19139, it uses a webservice based on the tools used in this workshop.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -384,7 +384,7 @@
     "text": "Summary\nIn this section, you are introduced to a data management approach which maintains metadata at the location where the datasets are maintained, using a minimal, standards complient approach. You are introduced to the MCF metadata format. In the next section, we will go into more detail on interacting with the MCF format.",
     "crumbs": [
       "Home",
-      "Existing resources"
+      "Metadata at the source"
     ]
   },
   {
@@ -632,9 +632,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Workshop on SDI through Infrastructure as Code concepts",
+    "title": "GitOps SDI",
     "section": "",
-    "text": "This tutorial presents a workshop on setting up a Spatial Data Infrastructure (SDI) using Infrastructure as Code (IaC) concepts. IaC aims to replace manual steps for setting up and maintaining hardware and software by introducing automated delivery pipelines from reproducable configurations. During the workshop we introduce you to the concepts of IaC as well as a number of OSGeo tools.\nSDIs are typically built as nodes, focused on a spatial data repository, a catalogue, a data access layer (APIs) and data visualization components. IaC concepts greatly help SDI development and implementation in the following ways:\n\ncontainerization\nreproducible and portable setup and deployment\nlow barrier access to modern tools for GIS, Earth observation, climate, Earth system prediction, and other data sciences\n\nThe SDI introduced in this tutorial is configured from scripts stored in Git and is delivered using a set of Docker containers running locally, on a virtual machine (VM) or in a cloud infrastructure.\nThis tutorial introduces the following OSGeo tools:\n\nMapServer\npycsw\nPyGeoDataCrawler (pygeometa/OWSLib/Mappyfile/GDAL)\nTerriaJS\n\nGit and additional services provided by the common Git service providers (GitHub, GitLab, Bitbucket, …) have a central role in the training. They are, for example, suggested to facilitate software development and delivery, content co-creation and management, as well as community feedback.\nExperience with Git and Docker are required before starting this workshop.\nIn the first paragraph we will introduce you to our approach to integrated metadata management, the core of any SDI. You can also access the slides of the workshop.\nWe hope you enjoy the materials,\nPaul and Tom.",
+    "text": "This tutorial presents a workshop on setting up a Spatial Data Infrastructure (SDI) using GitOps concepts. GitOps principles aim to replace manual steps for setting up and maintaining hardware and software by introducing automated delivery pipelines from versioned Git configurations. During the workshop we introduce you to the concepts of GitOps as well as a number of OSGeo tools.\nSDIs are typically built as nodes, focused on a (spatial) data repository, a catalogue, a data access layer (APIs) and data visualization components. GitOps concepts greatly help SDI development and implementation in the following ways:\n\nContainerization\nReproducible and portable setup and deployment\nLow barrier access to modern tools for GIS, Earth observation, climate, Earth system prediction, and other data sciences\n\nThe SDI introduced in this tutorial is configured from scripts stored in Git and is delivered using a set of Docker containers running locally, on a virtual machine (VM) or in a cloud infrastructure.\nThis tutorial introduces the following OSGeo tools:\n\nPyGeoDataCrawler (pygeometa/OWSLib/Mappyfile/GDAL)\npycsw\nMapServer\nTerriaJS\n\nGit and additional services provided by the common Git service providers (GitHub, GitLab, Bitbucket, …) have a central role in the training. They are, for example, suggested to facilitate software development and delivery, content co-creation and management, as well as community feedback.\nExperience with Git and Docker are required before starting this workshop.\nIn the first paragraph we will introduce you to our approach to integrated metadata management, the core of any SDI. You can also access the slides of the workshop.\nWe hope you enjoy the materials,\nPaul and Tom.",
     "crumbs": [
       "Home"
     ]
