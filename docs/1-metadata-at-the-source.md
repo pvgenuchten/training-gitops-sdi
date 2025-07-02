@@ -51,7 +51,7 @@ identification:
 If you are comfortable with Python, consider to try the following experiment.
 
 :::{.callout-tip}
-Download a mcf sample [pygeometa repository](https://raw.githubusercontent.com/geopython/pygeometa/refs/heads/master/sample.yml). Then open a shell and set up a virtual Python (or COnda) environment, then:
+Download an MCF sample [pygeometa repository](https://raw.githubusercontent.com/geopython/pygeometa/refs/heads/master/sample.yml). Then open a shell and set up a virtual Python (or Conda) environment, then:
 
 ```bash
 pip3 install pygeometa
@@ -70,7 +70,7 @@ When tagging the dataset with keywords, preferably use keywords from controlled 
 
 MCF documents can be written in a text editor like [Visual Studio Code](https://code.visualstudio.com). Consider to install the [YAML plugin](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for instant YAML validation. 
 
-Another option to create and update mcf files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the metadata model to your organizational needs.
+Another option to create and update MCF files is via [MDME](https://github.com/osgeo/mdme). MDME is a web based software package providing a dynamic metadata edit form. An operational package is available at [osgeo.github.io](https://osgeo.github.io/mdme). Notice that if you install the package locally, you can customize the metadata model to your organizational needs.
 
 :::{.callout-tip}
 Imagine a dataset you have recently worked with. Then open [mdme](https://osgeo.github.io/mdme) and populate the form, describing that dataset. Now save the MCF file so we can later place it in a sample data repository. 

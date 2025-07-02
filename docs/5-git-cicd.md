@@ -56,7 +56,7 @@ Welcome to *my website*.
 We've selected an alternative to jekyll, called [quarto](https://quarto.org).
 In order to activate Quarto you need to set a number of items yourself.
 
-- Create a file `_quarto.yml` into the new git repository, with this content:
+- Create a file `_quarto.yml` into the new Git repository, with this content:
 
 ```yaml
 project:
@@ -141,7 +141,7 @@ We will now publish our records from GitHub to our database.
 ```bash
 git clone https://github.com/username/records-repo.git
 ```
-- Copy the mcf files, which have been generated in [Catalogue publication](./3-catalogue-publication.md), to a `data` folder in the cloned docker repository.
+- Copy the MCF files, which have been generated in [Catalogue publication](./3-catalogue-publication.md), to a `data` folder in the cloned docker repository.
 - Commit & push the files
 
 ```bash
@@ -211,7 +211,7 @@ Normally, we would **not** add a connection string to a database in a config fil
 
 ## Cross linking catalogue and Git
 
-While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant mcf in the git repository. With proper authorizations they can instantly improve the record, or suggest an improvement via an issue or [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+While users are browsing the catalogue (or this page), they may find irregularities in the content. They can flag this as an issue in the relevant Git repository. A nice feature is to add a link in the catalogue page which brings them back to the relevant MCF in the Git repository. With proper authorizations they can instantly improve the record, or suggest an improvement via an issue or [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ---
 

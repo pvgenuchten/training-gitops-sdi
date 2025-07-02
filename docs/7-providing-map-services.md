@@ -65,7 +65,7 @@ But also vice versa; from a mapping application, access the metadata describing 
 ## Mapfile creation exercise
 
 - Navigate with shell to a folder with data files.
-- Verify if mcf's are available for the files, if not, create initial metadata with `crawl-metadata --mode=init --dir=.`
+- Verify if MCFs are available for the files, if not, create initial metadata with `crawl-metadata --mode=init --dir=.`
 - Add a index.yml file to the folder. This metadata is introduced in the mapfile to identify the service.
 
 ```yaml
@@ -163,7 +163,7 @@ Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up
 
 You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&service=WMS.
 
-Notice that the mcf.yml files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the `pgdc_ms_url` environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.
+Notice that the MCF files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the `pgdc_ms_url` environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.
 
 pyGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the [robot section in index.yml](https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling) or by providing an [Styled Layer Descriptor](https://www.ogc.org/standards/sld/) (SLD) file for a layer, as `{name}.sld`. Sld files can be created using QGIS (export style as SLD).
 

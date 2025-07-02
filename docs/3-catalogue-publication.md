@@ -44,7 +44,7 @@ Return to the command line, press ctrl-C to stop the Docker container process.
 
 [Compose](https://docs.docker.com/compose/) is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual startup operations of the previous paragraph. We've prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.
 
-Clone the workshop repository to a local folder (You don't have git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
+Clone the workshop repository to a local folder (You don't have Git installed? You can also download the repository as a [zip file](https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip)).
 
 ```bash
 git clone https://github.com/pvgenuchten/training-gitops-sdi.git
@@ -100,7 +100,7 @@ docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw
 
 Notice at <http://localhost:8000/collections/metadata:main/items> that all records are removed.
 
-We exported mcf records as iso19139 in the [previous section](./2-interact-with-data-repositories.md). 
+We exported MCF records as iso19139 in the [previous section](./2-interact-with-data-repositories.md).
 Copy the ISO XML documents to the `./docker/data/export` folder in the Docker project. This folder will be mounted into the container, so the records can be loaded into the pycsw database.
 
 Use pycsw-admin.py to load the records into the catalogue database:
