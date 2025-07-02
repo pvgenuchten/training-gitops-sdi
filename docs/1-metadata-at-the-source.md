@@ -51,12 +51,12 @@ identification:
 If you are comfortable with Python, consider to try the following experiment.
 
 :::{.callout-tip}
-Save the above file as `md.yml`. Then open a shell and set up a virtual Python (or COnda) environment, then:
+Download a mcf sample [pygeometa repository](https://github.com/geopython/pygeometa/blob/master/sample.yml). Then open a shell and set up a virtual Python (or COnda) environment, then:
 
 ```bash
 pip3 install pygeometa
-pygeometa metadata info path/to/md.yml
-pygeometa metadata generate path/to/md.yml --schema=iso19139 --output=md.xml
+pygeometa metadata info path/to/sample.yml
+pygeometa metadata generate path/to/sample.yml --schema=iso19139 --output=md.xml
 ```
 :::
 
