@@ -30,7 +30,7 @@ website:
       contents:
         - text: Home
           file: index.md
-        - text: Existing resources
+        - text: Metadata at the source
           file: 1-metadata-at-the-source.md
         - text: Data repositories
           file: 2-interact-with-data-repositories.md

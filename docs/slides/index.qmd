@@ -1,53 +1,69 @@
 ---
 title: "GitOps SDI"
-subtitle: "Infrastructure as Code inspired SDI"
+subtitle: "Infrastructure as Code inspired Spatial Data Infrastructures"
 author: Paul van Genuchten, Tom Kralidis
 date: 2025-06-15
 format:
   revealjs:
     incremental: true
-    footer: "Workshop on GitOps SDI"
+    footer: "Infrastructure as Code inspired Spatial Data Infrastructures"
 ---
 
 # Contents
 
-- GitOps / Infrastructure as code
+- What is GitOps?
+- Why efforts in GitOps? 
 - Metadata at the source
-- Map services from metadata
-- Data visualization
+- About the workshop
+- Technologies
 
-# GitOps / Infrastructure as code
+## What is [GitOps](https://www.opsmx.com/what-is-gitops) 
 
-- reproducability
-- containerization
+- "Git" & "Operations" (like DevOps)
 
-## GitHub
+- Git is a source of truth (apps, containers, configuration)
+- A GitOps process automatically delivers changes in an online cluster.
+- A monitoring process detects difference between desired state and the target cluster 
 
-Service to facilitate co-creation
+## [5 principles](https://www.opsmx.com/what-is-gitops) 
 
-- version history of contributions
-- authentication
-- issue management
-- release management
-- Continuous integration
+- Express the desired state declaratively
+- Version control the desired state
+- Automatically apply the desired state 
+- Reconcile the desired state
+- Visibility and control
 
-Related software; Git, GitLab, Bitbucket, Codeberg
+## Why efforts in GitOps? 
 
-## Quarto
+At ISRIC - World Soil Informtion
 
-A content management system to create websites, documentation, slides, etc.
+- We run various SDI's to facilitate projects
+- SDI's should be robust, requiring little maintenance
 
-Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Wordpress](https://wordpress.org), [Drupal](https://drupal.org)
 
+## Metadata at the source
 
-# Metadata at the source
+- Researchers use many field and earth observation data to predict distribution of Soil properties
+- They use tools like Excel, R & Python, generally not aware of metadata standards  
 
-![File hierarchy](../img/file-hierarchy.jpg)
-
-## A README in each folder
-
-- Add a README to describe the resources in a folder
+- Add a README.txt to describe the resources in a folder
 - Why not structure the content in the README, so also machines can read it?
+
+## About the workshop
+
+- A self guided tutorial at <https://pvgenuchten.github.io/training-gitops-sdi/>
+- Two moments to summarise
+- Welcoming your feedback at <https://forms.gle/J59DjGbTBx1s1Tus7>
+- Ask questions via <https://github.com/pvgenuchten/training-gitops-sdi/discussions/5>
+
+## Technologies
+
+- MCF
+- pygeometa
+- pyGeoDataCrawler
+- pycsw
+- mapserver
+- terriajs
 
 ## Metadata Control File
 
@@ -57,13 +73,13 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 
 ![MCF](../img/mcf.jpg)
 
-## pygeometa library
+## [pygeometa](https://geopython.github.io/pygeometa/) 
 
 - a library to work with MCF
 - exports MCF to various metadata models (iso, dcat, stac)
 - <https://github.com/geopython/pygeometa>
 
-## The pyGeoDataCrawler tool
+## [pyGeoDataCrawler](https://pypi.org/project/geodatacrawler/1.3.5/)
 
 - Developed at ISRIC in the last year
 - On the shoulders of giants; GDAL, pygeometa, pandas
@@ -72,7 +88,7 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 - Extracts MCF files from a repository to load it into a catalogue
 - Creates map services configuration for files in the repository
 
-## pycsw catalogue
+## [pycsw catalogue](https://pycsw.org)
 
 - A catalogue implementation in Python
 - Limited funtionality, easy maintenance
@@ -80,58 +96,26 @@ Related software; [Hugo](gohugo.io), [mkdocs](https://mkdocs.org), Jekyll, [Word
 - Database backend
 - Skin customisable with Jinja templates
 
-https://pycsw.org
+Related products; [GeoNetwork](https://geonetwork-opensource.org), [CKAN](https://ckan.org), [dataverse](https://dataverse.org)
 
-## pygeometa / pyGeoDataCrawler
-
-Scripting libraries which support data management of a file repository
-
-- Generate metadata from existing data
-- Import remote metadata
-- Ingest metadata from a file repository
-- Create map services (APIs) for existing data
-
-
-# Map services from metadata
-
-
-## MapServer
+## [MapServer](https://mapserver.org)
 
 - Recent versions of MapServer support the old and new standards
 - Features and Maps 
 - No tiles (mapproxy), No coverages yet 
 - No records/stac, by design
 
-https://mapserver.org
+Related products; [GeoServer](https://geoserver.org), [QGIS server](https://docs.qgis.org/latest/en/docs/server_manual), [pygeopai](https://pygeoapi.io)
 
-
-## Mapfile
-
-- Configuration via a [mapfile](https://mapserver.org/mapfile/)
-- All [GDAL formats](https://gdal.org/drivers/vector) supported
-- Create mapfiles using QGIS with [GeoCat bridge](https://plugins.qgis.org/plugins/geocatbridge/)
-
-![mapfile](../img/mapfile.jpg)
-
-## Mapfiles from metadata
-
-- Use the metadata to generate/update mapfiles
-- Store map configuration on GitHub
-- Use SLD file {dataset}.sld to style a layer
-- Metadata is updated with WMS/WFS/WCS url
-
-# Data visualization
-
-## TerriaJS
+## [TerriaJS](https://terria.io)
 
 An Open Source javascript WebGIS application 
 
-[demo](https://rwanda.lsc-hubs.org/map/)
-
-Related products; GeoNode, GeoMoose, MapBender, Oskari, [GisQuick](https://gisquick.org/)
+Related products; [GeoNode](https://geonode.org/), [GeoMoose](https://geomoose.org/), [MapBender](https://mapbender.org/), [Oskari](https://www.oskari.org/), [GisQuick](https://gisquick.org/)
 
 ## Quarto
 
+- Static site generator from markdown
 - Add diagrams or maps with Python and R scripting
 - Other interesting option is the [W3C MapML](https://www.npmjs.com/package/@maps4html/mapml) 
 

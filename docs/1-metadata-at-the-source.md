@@ -22,7 +22,7 @@ Locate on your local computer or network drive a random shapefile. Does the file
 
 ## Standards and interoperability
 
-For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the [ArcGIS Pro documentation]](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
+For optimal interoperability, it is important to agree within your group on the metadata standard(s) to use in sidecar files. Esri software for example provides an option to select the model of the metadata as documented in the [ArcGIS Pro documentation](https://pro.arcgis.com/en/pro-app/latest/help/metadata/create-iso-19115-and-iso-19139-metadata.htm). QGIS has various plugins, such as [GeoCat Bridge](https://plugins.qgis.org/plugins/geocatbridge/), to work with various metadata models.
 
 :::{.callout-tip}
 Does your organization or community endorse a metadata model to describe data sources?
