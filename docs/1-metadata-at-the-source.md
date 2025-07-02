@@ -51,7 +51,7 @@ identification:
 If you are comfortable with Python, consider to try the following experiment.
 
 :::{.callout-tip}
-Download a mcf sample [pygeometa repository](https://github.com/geopython/pygeometa/blob/master/sample.yml). Then open a shell and set up a virtual Python (or COnda) environment, then:
+Download a mcf sample [pygeometa repository](https://raw.githubusercontent.com/geopython/pygeometa/refs/heads/master/sample.yml). Then open a shell and set up a virtual Python (or COnda) environment, then:
 
 ```bash
 pip3 install pygeometa
