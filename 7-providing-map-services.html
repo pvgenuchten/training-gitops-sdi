@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="mapfile-creation-exercise">Mapfile creation exercise</h2>
 <ul>
 <li>Navigate with shell to a folder with data files.</li>
-<li>Verify if mcf’s are available for the files, if not, create initial metadata with <code>crawl-metadata --mode=init --dir=.</code></li>
+<li>Verify if MCFs are available for the files, if not, create initial metadata with <code>crawl-metadata --mode=init --dir=.</code></li>
 <li>Add a index.yml file to the folder. This metadata is introduced in the mapfile to identify the service.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcf</span><span class="kw">:</span></span>
@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Run or restart Docker Compose.</p>
 <p>Check http://localhost/ows/foss4g/ogcapi in your browser. If all has been set up fine it should show the OGCAPI homepage of the service. If not, check the container logs to evaluate any errors.</p>
 <p>You can also try the url in QGIS. Add a WMS layer, of service http://localhost/ows/foss4g?request=GetCapabilities&amp;service=WMS.</p>
-<p>Notice that the mcf.yml files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the <code>pgdc_ms_url</code> environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.</p>
+<p>Notice that the MCF files now include a link to the mapservice via which the datasets are shared. These links have been added by the crawl-maps method (and use the <code>pgdc_ms_url</code> environment variable). Publish the records to the catalogue again, so users will be able to find the service while browsing the catalogue.</p>
 <p>pyGeoDataCrawler uses default (gray) styling for vector and an average classification for grids. You can finetune the styling of layers through the <a href="https://github.com/pvgenuchten/pyGeoDataCrawler?tab=readme-ov-file#layer-styling">robot section in index.yml</a> or by providing an <a href="https://www.ogc.org/standards/sld/">Styled Layer Descriptor</a> (SLD) file for a layer, as <code>{name}.sld</code>. Sld files can be created using QGIS (export style as SLD).</p>
 </section>
 <section id="summary" class="level2">

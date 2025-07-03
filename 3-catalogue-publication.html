@@ -272,7 +272,7 @@ Note
 <section id="docker-compose" class="level2">
 <h2 class="anchored" data-anchor-id="docker-compose">Docker Compose</h2>
 <p><a href="https://docs.docker.com/compose/">Compose</a> is a utility of docker, enabling setup of a set of containers using a composition script. A composition script can automate the manual startup operations of the previous paragraph. We’ve prepared a composition script for this workshop. The script includes, besides the pycsw container, other containers from next paragraphs.</p>
-<p>Clone the workshop repository to a local folder (You don’t have git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
+<p>Clone the workshop repository to a local folder (You don’t have Git installed? You can also download the repository as a <a href="https://github.com/pvgenuchten/training-gitops-sdi/archive/refs/heads/main.zip">zip file</a>).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/pvgenuchten/training-gitops-sdi.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On the cloned repository in the <code>docker</code> folder there are 2 alternatives:</p>
 <ul>
@@ -306,7 +306,7 @@ Note
 </div>
 </div>
 <p>Notice at <a href="http://localhost:8000/collections/metadata:main/items" class="uri">http://localhost:8000/collections/metadata:main/items</a> that all records are removed.</p>
-<p>We exported mcf records as iso19139 in the <a href="./2-interact-with-data-repositories.html">previous section</a>. Copy the ISO XML documents to the <code>./docker/data/export</code> folder in the Docker project. This folder will be mounted into the container, so the records can be loaded into the pycsw database.</p>
+<p>We exported MCF records as iso19139 in the <a href="./2-interact-with-data-repositories.html">previous section</a>. Copy the ISO XML documents to the <code>./docker/data/export</code> folder in the Docker project. This folder will be mounted into the container, so the records can be loaded into the pycsw database.</p>
 <p>Use pycsw-admin.py to load the records into the catalogue database:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Container terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">PowerShell</a></li></ul>
