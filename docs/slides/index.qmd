@@ -12,7 +12,7 @@ format:
 # Contents
 
 - What is GitOps?
-- Why efforts in GitOps? 
+- Why GitOps?
 - Metadata at the source
 - About the workshop
 - Technologies
@@ -33,7 +33,7 @@ format:
 - Reconcile the desired state
 - Visibility and control
 
-## Why efforts in GitOps? 
+## Why GitOps?
 
 At ISRIC - World Soil Informtion
 
@@ -44,15 +44,15 @@ At ISRIC - World Soil Informtion
 ## Metadata at the source
 
 - Researchers use many field and earth observation data to predict distribution of Soil properties
-- They use tools like Excel, R & Python, generally not aware of metadata standards  
+- They use tools like Excel, R and Python, generally not aware of metadata standards
 
-- Add a README.txt to describe the resources in a folder
+- Add a `README.txt` to describe the resources in a folder
 - Why not structure the content in the README, so also machines can read it?
 
 ## About the workshop
 
 - A self guided tutorial at <https://pvgenuchten.github.io/training-gitops-sdi/>
-- Two moments to summarise
+- Two moments to summarize
 - Welcoming your feedback at <https://forms.gle/J59DjGbTBx1s1Tus7>
 - Ask questions via <https://github.com/pvgenuchten/training-gitops-sdi/discussions/5>
 
@@ -79,7 +79,7 @@ At ISRIC - World Soil Informtion
 - exports MCF to various metadata models (iso, dcat, stac)
 - <https://github.com/geopython/pygeometa>
 
-## [pyGeoDataCrawler](https://pypi.org/project/geodatacrawler/1.3.5/)
+## [pyGeoDataCrawler](https://pypi.org/project/geodatacrawler)
 
 - Developed at ISRIC in the last year
 - On the shoulders of giants; GDAL, pygeometa, pandas
@@ -115,7 +115,7 @@ Related products; [GeoNode](https://geonode.org/), [GeoMoose](https://geomoose.o
 
 ## Quarto
 
-- Static site generator from markdown
+- Static site generator from Markdown
 - Add diagrams or maps with Python and R scripting
 - Other interesting option is the [W3C MapML](https://www.npmjs.com/package/@maps4html/mapml) 
 
