@@ -1,7 +1,6 @@
 services:
 
   traefik:
-    restart: always 
     image: "traefik:v3.1"
     container_name: "traefik"
     command:
@@ -17,7 +16,6 @@ services:
 
 
   mapserver:
-    restart: always 
     image: "camptocamp/mapserver:8.4"
     container_name: "mapserver"
     expose:
@@ -40,13 +38,12 @@ services:
       - "traefik.http.routers.mapserver.entrypoints=web"
     
   pycsw:
-    restart: always 
-    image: "ghcr.io/geopython/pycsw"
+    image: "geopython/pycsw@sha256:2eb396798e40dfab3ad4cb839f30231b8c1023db148ed03ffcf3c4e6b388fc7c"
     container_name: "pycsw"
     volumes:
       - ./pycsw/pycsw.yml:/etc/pycsw/pycsw.yml
-      - ./pycsw/templates/_base.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/_base.html 
-      - ./pycsw/templates/landing_page.html:/usr/local/lib/python3.10/site-packages/pycsw/ogc/api/templates/landing_page.html
+      - ./pycsw/templates/_base.html:/home/pycsw/pycsw/pycsw/templates/_base.html # to override layout
+      - ./pycsw/templates/landing_page.html:/home/pycsw/pycsw/pycsw/templates/landing_page.html # to override layout
       - ./data:/srv/data
     environment:
       # Configuration for the catalogue, see the pycsw.yml file how these values are used
