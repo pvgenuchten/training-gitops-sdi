@@ -7,7 +7,6 @@
     "googleUrlShortenerKey": null,
     "googleAnalyticsKey": null,
     "googleAnalyticsOptions": null,
-    //"bingMapsKey": "add-your-bing-key",
     //"cesiumIonAccessToken": "add-your-cesium-key",
     // Log ConsoleAnalytics events to console
     // logToConsole: true,
@@ -43,6 +42,13 @@
     },
     "searchBarConfig": {},
     "searchProviders": [
+      {
+        "id": "search-provider/nominatim",
+        "type": "nominatim-search-provider",
+        "name": "Nominatim",
+        "flightDurationSeconds": 2,
+        "minCharacters": 3
+      }
     ],
     "helpContent": [
       {
