@@ -91,7 +91,7 @@ First clear the existing database:
 ```bash
 pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
 ```
-# PowerShell
+# Docker
 ```bash
 docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
 ```
@@ -107,12 +107,11 @@ Use pycsw-admin.py to load the records into the catalogue database:
 ::: {.panel-tabset}
 # Container terminal
 ```bash
-pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
+pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r
 ```
-# PowerShell
+# Docker
 ```bash
-docker exec -it pycsw bash -c `
- "pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r"
+docker exec -it pycsw bash -c "pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r"
 ```
 :::
 
