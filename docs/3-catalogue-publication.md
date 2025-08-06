@@ -112,7 +112,7 @@ pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
 # PowerShell
 ```bash
 docker exec -it pycsw bash -c `
- "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
+ "pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r"
 ```
 :::
 
