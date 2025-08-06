@@ -32,8 +32,8 @@ pycsw is available as Docker image at the [github container registry](https://do
 Pull and run the pycsw container locally using this command in a command line client (cmd, PowerShell, bash):
 
 ```bash
-docker pull ghcr.io/geopython/pycsw
-docker run -p 8000:8000 ghcr.io/geopython/pycsw
+docker pull geopython/pycsw@sha256:2eb396798e40dfab3ad4cb839f30231b8c1023db148ed03ffcf3c4e6b388fc7c
+docker run -p 8000:8000 geopython/pycsw@sha256:2eb396798e40dfab3ad4cb839f30231b8c1023db148ed03ffcf3c4e6b388fc7c
 ```
 
 Open your browser and browse to <http://localhost:8000> to see pycsw in action.
