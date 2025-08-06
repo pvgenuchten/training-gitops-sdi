@@ -34,6 +34,7 @@ services:
       - "traefik.http.middlewares.mapserver-strip-prefix.stripprefix.prefixes=/ows,/ows/"
       - "traefik.http.routers.mapserver.middlewares=mapserver-strip-prefix@docker"
       - "traefik.http.routers.mapserver.entrypoints=web"
+      - "traefik.http.services.mapserver.loadbalancer.server.port=80"
     
   pycsw:
     image: "geopython/pycsw@sha256:2eb396798e40dfab3ad4cb839f30231b8c1023db148ed03ffcf3c4e6b388fc7c"
@@ -60,6 +61,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.pycsw.rule=Host(`${SDI_DOMAIN}`)"
       - "traefik.http.routers.pycsw.entrypoints=web"
+      - "traefik.http.services.pycsw.loadbalancer.server.port=8000"
 
   terria:
     image: "ghcr.io/terriajs/terriamap:0.4.2"
@@ -74,7 +76,7 @@ services:
       - "traefik.http.middlewares.terria-strip-prefix.stripprefix.prefixes=/map,/map/"
       - "traefik.http.routers.terria.middlewares=terria-strip-prefix@docker"
       - "traefik.http.routers.terria.entrypoints=web"
-
+      - "traefik.http.services.terria.loadbalancer.server.port=3001"
 
   postgres:
     image: postgis/postgis:15-3.4-alpine
