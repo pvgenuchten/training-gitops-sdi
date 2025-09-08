@@ -32,8 +32,7 @@ pycsw is available as Docker image at the [github container registry](https://do
 Pull and run the pycsw container locally using this command in a command line client (cmd, PowerShell, bash):
 
 ```bash
-docker pull ghcr.io/geopython/pycsw
-docker run -p 8000:8000 ghcr.io/geopython/pycsw
+docker run -p 8000:8000 geopython/pycsw
 ```
 
 Open your browser and browse to <http://localhost:8000> to see pycsw in action.
@@ -94,6 +93,7 @@ pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
 ```
 
 ### Docker
+
 ```bash
 docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
 ```
@@ -109,13 +109,12 @@ Use pycsw-admin.py to load the records into the catalogue database:
 
 ### Container terminal
 ```bash
-pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
+pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r
 ```
 
 # Docker
 ```bash
-docker exec -it pycsw bash -c `
- "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
+docker exec -it pycsw bash -c "pycsw-admin.py load-records -p /srv/data/export -c /etc/pycsw/pycsw.yml -y -r"
 ```
 
 

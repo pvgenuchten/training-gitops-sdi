@@ -1,8 +1,7 @@
 services:
 
   traefik:
-    restart: always 
-    image: "traefik:v3.1"
+    image: "traefik:v3.4.3"
     container_name: "traefik"
     command:
       - "--log.level=DEBUG"
@@ -17,7 +16,6 @@ services:
 
 
   mapserver:
-    restart: always 
     image: "camptocamp/mapserver:8.4"
     container_name: "mapserver"
     expose:
@@ -36,6 +34,7 @@ services:
       - "traefik.http.middlewares.mapserver-strip-prefix.stripprefix.prefixes=/ows,/ows/"
       - "traefik.http.routers.mapserver.middlewares=mapserver-strip-prefix@docker"
       - "traefik.http.routers.mapserver.entrypoints=web"
+      - "traefik.http.services.mapserver.loadbalancer.server.port=80"
     
   pycsw:
     restart: always 
@@ -63,9 +62,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.pycsw.rule=Host(`${SDI_DOMAIN}`)"
       - "traefik.http.routers.pycsw.entrypoints=web"
+      - "traefik.http.services.pycsw.loadbalancer.server.port=8000"
 
   terria:
-    restart: always 
     image: "ghcr.io/terriajs/terriamap:0.4.2"
     container_name: "terria"
     volumes:
@@ -78,10 +77,9 @@ services:
       - "traefik.http.middlewares.terria-strip-prefix.stripprefix.prefixes=/map,/map/"
       - "traefik.http.routers.terria.middlewares=terria-strip-prefix@docker"
       - "traefik.http.routers.terria.entrypoints=web"
-
+      - "traefik.http.services.terria.loadbalancer.server.port=3001"
 
   postgres:
-    restart: always 
     image: postgis/postgis:15-3.4-alpine
     container_name: "postgres"
     environment:
