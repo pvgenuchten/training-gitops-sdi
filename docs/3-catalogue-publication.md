@@ -87,16 +87,17 @@ You can either open a shell in the container (via Docker Desktop) and type the c
 
 First clear the existing database:
 
-::: {.panel-tabset}
-# Container terminal
+
+### Container terminal
 ```bash
 pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml
 ```
-# PowerShell
+
+### Docker
 ```bash
 docker exec -it pycsw bash -c "pycsw-admin.py delete-records -c /etc/pycsw/pycsw.yml"
 ```
-:::
+
 
 Notice at <http://localhost:8000/collections/metadata:main/items> that all records are removed.
 
@@ -105,17 +106,18 @@ Copy the ISO XML documents to the `./docker/data/export` folder in the Docker pr
 
 Use pycsw-admin.py to load the records into the catalogue database:
 
-::: {.panel-tabset}
-# Container terminal
+
+### Container terminal
 ```bash
 pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r
 ```
-# PowerShell
+
+# Docker
 ```bash
 docker exec -it pycsw bash -c `
  "pycsw-admin.py load-records -p /etc/data/export -c /etc/pycsw/pycsw.yml -y -r"
 ```
-:::
+
 
 Validate at <http://localhost/collections/metadata:main/items> if the records are loaded, else check logs to identify a problem.
 

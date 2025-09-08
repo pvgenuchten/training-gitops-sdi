@@ -84,46 +84,35 @@ contact:
 - Set some environment variables in the `.env` file; `pgdc_md_url`, `pgdc_ms_url`. Notice in the commands below that we include the .env file in the container.
 - Generate the mapfile
 
-::: {.panel-tabset}
-# Local
+
+### Local
 ```bash
 cd /srv/data/foss4g
 crawl-maps --dir=.
 ```
-# Docker & Linux
+
+### Docker
 ```bash
 cd ./docker/
 docker run -it --rm --env-file=.env -v $(pwd):/tmp \
   pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data/foss4g 
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm --env-file=.env -v "${PWD}:/tmp" `
-  pvgenuchten/geodatacrawler crawl-maps --dir=/tmp/data/foss4g 
-```
-:::
+
 
 Test your MapServer configuration. The MapServer container includes a test tool for this purpose.
 With the Docker composition running, try:
 
-
-::: {.panel-tabset}
-# Local
+### Local
 ```bash
 map2img 
 ```
-# Docker & Linux
+
+### Docker & Linux
 ```bash
 docker exec mapserver map2img -m /srv/data/data/data.map \
   -l cities -o /srv/data/data/test.png
 ```
 
-# Docker & PowerShell
-```bash
-docker exec mapserver map2img -m /srv/data/data/data.map `
-  -l cities -o /srv/data/data/test.png
-```
-:::
 
 Replace -l (layer) for a layer in your mapfile. Notice a file `test.png` being written to the data folder.
 

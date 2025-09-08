@@ -85,62 +85,46 @@ For advanced Docker statements there are some differences between Windows comman
 
 The initial task for the tool is to create for every data file in our repository a sidecar file based on embedded metadata from the resource.
 
-::: {.panel-tabset}
-# Local
+
+### Local
 ```bash
 crawl-metadata --mode=init --dir=data
 ```
-# Docker & Linux
+
+### Docker 
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=init --dir=/tmp/data
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm -v ${PWD}:/tmp `
-  pvgenuchten/geodatacrawler crawl-metadata `
-  --mode=init --dir=/tmp/data
-```
-:::
-
 
 Notice that for each resource a `{dataset}.yml` file has been created. Open a .yml file in a text editor and review the content.
 Notice on the Docker statements that we mount the local folder into the container, before we can run commands into it. To verify if the correct folder was mounted, run a `ls` command to see the folder contents.
 
-::: {.panel-tabset}
-# Docker & Linux
+
+### Docker 
 ```bash
 docker run -it --rm -v $(pwd):/tmp pvgenuchten/geodatacrawler ls /tmp
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm -v ${PWD}:/tmp pvgenuchten/geodatacrawler ls /tmp
-```
-:::
+
 
 ## Update MCF
 
 The `update` mode is meant to be run at intervals, it will update the MCF files if changes have been made on a resource. 
 
-::: {.panel-tabset}
-# Local
+
+### Local
 ```bash
 crawl-metadata --mode=update --dir=data
 ```
-# Docker & Linux
+
+### Docker 
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=update --dir=/tmp/data
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm -v ${PWD}:/tmp `
-  pvgenuchten/geodatacrawler crawl-metadata `
-  --mode=update --dir=/tmp/data
-```
-:::
+
 
 In certain cases the update mode will also import metadata from remote url's. This happens for example if the dataset-uri is a [DOI](https://www.doi.org/the-identifier/what-is-a-doi/). The update mode will ten fetch metadata of the DOI and push it into the MCF. 
 
@@ -148,26 +132,20 @@ In certain cases the update mode will also import metadata from remote url's. Th
 
 Finally we want to export the MCF's to actual iso19139 metadata to be loaded into a catalogue like pycsw, GeoNetwork, CKAN etc.
 
-::: {.panel-tabset}
-# Local
+
+### Local
 ```bash
 crawl-metadata --mode=export --dir=data --dir-out=export --dir-out-mode=flat
 ```
-# Docker & Linux
+
+# Docker 
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
  pvgenuchten/geodatacrawler crawl-metadata \
  --mode=export --dir=/tmp/data \
  --dir-out=/tmp/export --dir-out-mode=flat
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm -v ${PWD}:/tmp `
-  pvgenuchten/geodatacrawler crawl-metadata `
-  --mode=export --dir=/tmp/data `
-  --dir-out=/tmp/export --dir-out-mode=flat
-```
-:::
+
 
 Open one of the xml files and evaluate if the contact information from step 1 is available.
 

@@ -4,6 +4,27 @@ project:
     - "*.md"
     - "*.qmd"
 
+book:
+  chapters:
+    - text: Home
+      file: index.md
+    - text: Metadata at the source
+      file: 1-metadata-at-the-source.md
+    - text: Data repositories
+      file: 2-interact-with-data-repositories.md
+    - text: Catalogue publication
+      file: 3-catalogue-publication.md
+    - text: Bulk import
+      file: 4-bulk-import.md
+    - text: Git actions
+      file: 5-git-cicd.md
+    - text: Data publication
+      file: 6-data-publication.md
+    - text: Map services
+      file: 7-providing-map-services.md
+    - text: Data visualization
+      file: 8-data-visualization.md
+
 website:
   repo-url: https://github.com/pvgenuchten/training-gitops-sdi/
   repo-actions:

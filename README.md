@@ -14,7 +14,16 @@ This workshop has been prepared for FOSS4GNL, July 2025 in Wageningen. The work 
 - Paul van Genuchten works as a Data Scientist and DevOps Engineer at ISRIC - World Soil Information.
 - Tom Kralidis works as a Senior Geospatial Architect and is a long time contributor to the OSGeo and OGC ecosystem, from the meteorology domain.
 
+## Quarto
+
+[Quarto](https://quarto.org) enables html/doc generation from markdown. Default type is a website export, for creating doc/pptx/pdf use following approach
+
+- Book: Change the type of the project to `book` in quarto.yaml and run `quarto render . -t pdf` (or docx)
+- Powerpoint: run `quarto render ./slides -t pptx`
+
+
 ## Feedback / Contributions
 
 We are very much welcoming your ideas/comments/contributions via GitHub issues, Discussions and Pull Requests.
+
 

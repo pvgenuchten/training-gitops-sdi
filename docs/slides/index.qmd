@@ -7,9 +7,11 @@ format:
   revealjs:
     incremental: true
     footer: "Infrastructure as Code inspired Spatial Data Infrastructures"
+  pptx:
+    slide-level: 2
 ---
 
-# Contents
+## Contents
 
 - What is GitOps?
 - Why GitOps?

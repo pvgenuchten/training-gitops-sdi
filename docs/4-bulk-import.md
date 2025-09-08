@@ -17,24 +17,19 @@ Since every metadata initiative tends to have dedicated columns. A templating ap
 - For this exercise we'll use index.csv and index.j2 file in .data/csv. Notice that the template has the same filename, but with extension `.j2`. Navigate to the folder called `csv`, in your working directory.
 - From your shell environment run this command:
 
-::: {.panel-tabset}
-# Local
+
+### Local
 ```bash
 crawl-metadata --mode=import-csv --dir="./csv"
 ```
-# Docker & Linux
+
+### Docker 
 ```bash
 docker run -it --rm -v $(pwd):/tmp \
   pvgenuchten/geodatacrawler crawl-metadata \
   --mode=import-csv --dir="/tmp" --sep=";"
 ```
-# Docker & PowerShell
-```bash
-docker run -it --rm -v ${PWD}:/tmp `
-  pvgenuchten/geodatacrawler crawl-metadata `
-  --mode=import-csv --dir="/tmp" --sep=";"
-```
-:::
+
 
 
 - If there are errors, check the paths and consider to open the CSV in Google Sheets and export it again or open it in a text editor to look for special cases. A known issue with this approach is that the crawler tool can not manage `newline` characters in text fields.
